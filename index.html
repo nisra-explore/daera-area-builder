@@ -282,14 +282,12 @@
 
           const aggregatedData = {};
           let totalPopulation = 0;
-          let totalArea = 0;
 
           selectedIdsArray.forEach(id => {
             const mapData = sdzData[id];
             if (!mapData) return;
 
             totalPopulation += mapData.population || 0;
-            totalArea += mapData.area || 0;
 
             for (const [category, values] of Object.entries(mapData)) {
               if (excludedKeys.includes(category)) continue;
@@ -310,7 +308,6 @@
 
           // update totals 
           document.getElementById("totalPopulation").textContent = totalPopulation;
-          document.getElementById("totalArea").textContent = totalArea;
         }
 
         function renderZoneBreakdownTable(selectedIdsArray) {
@@ -319,33 +316,8 @@
 
           if (!selectedIdsArray.length) return;
 
-          const rowDiv = document.createElement("div");
-          rowDiv.className = "breakdown-row";
-
-          const tableContainer = document.createElement("div");
-          tableContainer.className = "table-wrapper breakdown-wrapper";
-
-          const heading = document.createElement("h3");
-          heading.textContent = "Selected Area Breakdown";
-          tableContainer.appendChild(heading);
-
-          const table = document.createElement("table");
-          table.className = "data-table";
-
-          const thead = document.createElement("thead");
-          const headerRow = document.createElement("tr");
-          ["Super Data Zone", "Population", "Percentage of Selected Population"].forEach(text => {
-            const th = document.createElement("th");
-            th.textContent = text;
-            headerRow.appendChild(th);
-          });
-          thead.appendChild(headerRow);
-          table.appendChild(thead);
-
-          const tbody = document.createElement("tbody");
-
-          let total = 0;
-          const rows = [];
+          let totalPopulation = 0;
+          const zoneNames = [];
 
           selectedIdsArray.forEach(id => {
             const mapData = sdzData[id];
@@ -355,38 +327,37 @@
             const zoneName = Object.keys(labelObj)[0];
             const population = labelObj[zoneName];
 
-            total += population;
-            rows.push({ zoneName, population });
+            totalPopulation += population;
+            zoneNames.push(zoneName);
           });
 
-          // Now build rows with percentages
-          rows.forEach(({ zoneName, population }) => {
-            const percentage = total ? ((population / total) * 100).toFixed(1) + "%" : "–";
+          // Container
+          const layout = document.createElement("div");
+          layout.className = "summary-row";
 
-            const row = document.createElement("tr");
+          // Left side
+          const left = document.createElement("div");
+          left.className = "summary-left";
+          const leftHeading = document.createElement("h3");
+          leftHeading.textContent = "Selected Zones";
+          const zoneList = document.createElement("p");
+          zoneList.textContent = zoneNames.join(", ");
+          left.appendChild(leftHeading);
+          left.appendChild(zoneList);
 
-            [zoneName, population, percentage].forEach(text => {
-              const td = document.createElement("td");
-              td.textContent = text;
-              row.appendChild(td);
-            });
+          // Right side
+          const right = document.createElement("div");
+          right.className = "summary-right";
+          const rightHeading = document.createElement("h2");
+          rightHeading.textContent = "Total Population:";
+          const popValue = document.createElement("h2");
+          popValue.textContent = totalPopulation.toLocaleString();
+          right.appendChild(rightHeading);
+          right.appendChild(popValue);
 
-            tbody.appendChild(row);
-          });
-
-          // Total row
-          const totalRow = document.createElement("tr");
-          totalRow.innerHTML = `
-            <td><strong>TOTAL</strong></td>
-            <td><strong>${total}</strong></td>
-            <td><strong>100%</strong></td>
-          `;
-          tbody.appendChild(totalRow);
-
-          table.appendChild(tbody);
-          tableContainer.appendChild(table);
-          rowDiv.appendChild(tableContainer);
-          container.appendChild(rowDiv);
+          layout.appendChild(left);
+          layout.appendChild(right);
+          container.appendChild(layout);
         }
 
         function renderAggregatedTables(aggregatedData) {
@@ -394,20 +365,29 @@
           container.innerHTML = "";
 
           const entries = Object.entries(aggregatedData);
-          const tablesPerRow = 4;
+          const tablesPerRow = 3;
 
           for (let i = 0; i < entries.length; i += tablesPerRow) {
             const rowDiv = document.createElement("div");
             rowDiv.className = "table-row";
+            rowDiv.style.display = "flex";
+            rowDiv.style.alignItems = "stretch"; 
             container.appendChild(rowDiv);
 
             const chunk = entries.slice(i, i + tablesPerRow);
+            const tableWrappers = [];
+
             for (const [category, values] of chunk) {
               const tableContainer = document.createElement("div");
               tableContainer.className = "table-wrapper";
+              tableContainer.style.flex = "1";
+              tableContainer.style.margin = "0 10px";
+              tableContainer.style.display = "flex";
+              tableContainer.style.flexDirection = "column";
 
               const title = document.createElement("h3");
               title.textContent = category;
+              title.style.margin = "0 0 8px 0";
               tableContainer.appendChild(title);
 
               const table = document.createElement("table");
@@ -415,7 +395,7 @@
 
               const thead = document.createElement("thead");
               const headerRow = document.createElement("tr");
-              ["Category", "Count"].forEach(text => {
+              ["Category", "Count", "Percentage"].forEach(text => {
                 const th = document.createElement("th");
                 th.textContent = text;
                 headerRow.appendChild(th);
@@ -424,20 +404,39 @@
               table.appendChild(thead);
 
               const tbody = document.createElement("tbody");
+              const totalCount = Object.values(values).reduce((acc, val) => acc + val, 0);
+
               for (const [label, count] of Object.entries(values)) {
                 const row = document.createElement("tr");
-                [label, count].forEach(text => {
-                  const td = document.createElement("td");
-                  td.textContent = text;
-                  row.appendChild(td);
-                });
+
+                const tdLabel = document.createElement("td");
+                tdLabel.textContent = label;
+                row.appendChild(tdLabel);
+
+                const tdCount = document.createElement("td");
+                tdCount.textContent = count;
+                row.appendChild(tdCount);
+
+                const tdPercentage = document.createElement("td");
+                tdPercentage.textContent = totalCount > 0 ? ((count / totalCount) * 100).toFixed(2) + "%" : "0%";
+                row.appendChild(tdPercentage);
+
                 tbody.appendChild(row);
               }
 
               table.appendChild(tbody);
               tableContainer.appendChild(table);
               rowDiv.appendChild(tableContainer);
+              tableWrappers.push(tableContainer);
             }
+
+            // Set equal height for all wrappers in this row
+            requestAnimationFrame(() => {
+              const maxHeight = Math.max(...tableWrappers.map(wrapper => wrapper.offsetHeight));
+              tableWrappers.forEach(wrapper => {
+                wrapper.style.height = `${maxHeight}px`;
+              });
+            });
           }
         }
       });

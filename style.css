@@ -1234,3 +1234,47 @@ html, body {
   width: 100%;
   max-width: 100%;
 }
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #ffffff;
+  padding: 16px 32px;
+  margin-top: 20px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  gap: 24px;
+}
+
+.summary-left {
+  flex-basis: 60%;
+  max-width: 60%;
+  word-wrap: break-word;
+  align-items: center;  
+  justify-content: center; 
+  text-align: center;
+}
+
+.summary-left h3 {
+  margin: 0 0 4px;
+}
+
+.summary-left p {
+  margin: 0;
+}
+
+.summary-right {
+  flex-basis: 40%;
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  justify-content: center; 
+  text-align: center;
+}
+
+.summary-right h2 {
+  margin: 0;
+  color: #333;
+}
