@@ -43,12 +43,15 @@
 
       <div id="top-container">
         <div id="top-menu" class="grid" style="margin: 0;">
-          <div class="nisra-logo-container">
+          <div class="logo-container">
             <a href="https://www.nisra.gov.uk/" target="_blank"><img id="top-menu-nisra-logo" src="img/nisra-white-bilingual.svg" alt="NISRA logo. Clicking image takes user to NISRA website"></a>
           </div>
           <div id="dashboard-title-container">
             <h1 id="dashboard-title">Rural Dashboard</h1>
             <span id="dashboard-subtitle">Access urban rural data across a range of <br>areas for Northern Ireland</span>
+          </div>
+          <div class="logo-container">
+              <a href="https://www.daera-ni.gov.uk/" target="_blank"><img id="top-menu-daera-logo" src="img/daera-logo-white.png" alt="DAERA logo. Clicking image takes user to DAERA website"></a>
           </div>
         </div>
       </div>
@@ -59,14 +62,11 @@
       <div id="main-container">
 
         <div id="main-content" class="screen">
-            <h2 id="domains-title" style="width: 100%; text-align: center;"></h2>
 
             <div class="intro">
-              <h2>Map Container</h2>
+              <h2 style="width: 100%; text-align: center;">Select areas on the map below to see Aggregated statstics</h2>
             </div>
             <div class="div-style-bar">
-              
-              <h3><span class = "measure_title"></span> <span class= "latest_year" style = "color:#3878c5;"></span></h3>
               <div id="map-wrapper">
                 <div id="map"></div>
               </div>
@@ -121,10 +121,6 @@
               <i class="fa-brands fa-youtube"></i> <a href="https://www.youtube.com/user/nisrastats" target="_blank"
                 rel="noopener noreferrer">YouTube</a><br>
             </div>
-            <div id="teo-logo-container">
-              <h4 style="margin-right: 20px; font-weight: normal; padding-bottom: 30px;">Funded by:</h4>
-              <a href="https://www.daera-ni.gov.uk/" target="_blank"><img id="footer-daera-logo" src="img/daera-logo-white.png" alt="DAERA logo. Clicking image takes user to DAERA website"></a>
-            </div>
           </div>
           <div class="flex-list-footer">
             <ul
@@ -156,10 +152,10 @@
         const map = new maplibregl.Map({
           container: 'map',
           style: 'https://raw.githubusercontent.com/NISRA-Tech-Lab/map_tiles/main/basemap_styles/style-omt.json',
-          center: [-6.5, 54.8],
-          zoom: 7,
-          minZoom: 0,
-          maxZoom: 20,
+          center: [-6.8, 54.65],
+          zoom: 7.5,
+          minZoom: 7.5,
+          maxZoom: 13,
           maxBounds: [[-9.20, 53.58], [-4.53, 55.72]]
         });
 
@@ -167,11 +163,33 @@
         let sdzData = {};
         const popup = new maplibregl.Popup({ closeButton: false, closeOnClick: false });
 
-        fetch('./data.json')
-          .then(response => response.json())
-          .then(data => {
-            sdzData = data["Super Data Zone"] || {};
+      fetch('./data.json')
+        .then(response => response.json())
+        .then(data => {
+          sdzData = data["Super Data Zone"] || {};
+
+          map.on('idle', () => {
+            const features = map.querySourceFeatures('sdz2021', {
+              sourceLayer: 'SDZ2021_clipped'
+            });
+
+            features.forEach(feature => {
+              const sdzCode = feature.properties.sdz_code;
+              const status = sdzData[sdzCode]?.Urban_mixed_rural_status;
+
+              if (status) {
+                map.setFeatureState(
+                  {
+                    source: 'sdz2021',
+                    sourceLayer: 'SDZ2021_clipped',
+                    id: feature.id
+                  },
+                  { status: status }
+                );
+              }
+            });
           });
+        });
 
         map.on('load', () => {
           map.addSource('sdz2021', {
@@ -190,11 +208,16 @@
             paint: {
               'fill-color': [
                 'case',
-                ['boolean', ['feature-state', 'hovered'], false], '#04863e',
-                '#cccccc'
+                ['boolean', ['feature-state', 'hovered'], false], '#04863e', // Highlight color on click
+                ['match', ['feature-state', 'status'],
+                  'Rural', '#cccccc',
+                  'Urban', '#b04d96',
+                  'Mixed', '#4d96b0',
+                  '#ffffff' // fallback
+                ]
               ],
-              'fill-opacity': 1
-            }
+              'fill-opacity': 0.4
+           }
           });
 
           map.addLayer({
