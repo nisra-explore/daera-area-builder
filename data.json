@@ -84,6 +84,7 @@
   "Super Data Zone": {
     "N21000001": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Dunsilly_A": 3272
       },
@@ -170,6 +171,7 @@
     },
     "N21000002": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Dunsilly_B": 3132
       },
@@ -256,6 +258,7 @@
     },
     "N21000003": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Dunsilly_C": 2527
       },
@@ -342,6 +345,7 @@
     },
     "N21000004": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Dunsilly_D": 2991
       },
@@ -428,6 +432,7 @@
     },
     "N21000005": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Dunsilly_E": 2160
       },
@@ -514,6 +519,7 @@
     },
     "N21000006": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Dunsilly_F": 3916
       },
@@ -600,6 +606,7 @@
     },
     "N21000007": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Antrim_A": 1837
       },
@@ -686,6 +693,7 @@
     },
     "N21000008": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Antrim_B": 1791
       },
@@ -772,6 +780,7 @@
     },
     "N21000009": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Antrim_C": 2452
       },
@@ -858,6 +867,7 @@
     },
     "N21000010": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Antrim_D": 2423
       },
@@ -944,6 +954,7 @@
     },
     "N21000011": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Antrim_E": 1651
       },
@@ -1030,6 +1041,7 @@
     },
     "N21000012": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Antrim_F": 2203
       },
@@ -1116,6 +1128,7 @@
     },
     "N21000013": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Antrim_G": 2133
       },
@@ -1202,6 +1215,7 @@
     },
     "N21000014": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Antrim_H": 1394
       },
@@ -1288,6 +1302,7 @@
     },
     "N21000015": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Antrim_J": 2296
       },
@@ -1374,6 +1389,7 @@
     },
     "N21000016": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Antrim_K": 2150
       },
@@ -1460,6 +1476,7 @@
     },
     "N21000017": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Antrim_L": 2043
       },
@@ -1546,6 +1563,7 @@
     },
     "N21000018": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Antrim_N": 1571
       },
@@ -1632,6 +1650,7 @@
     },
     "N21000019": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Ballyclare_A": 2028
       },
@@ -1718,6 +1737,7 @@
     },
     "N21000020": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Ballyclare_B": 3014
       },
@@ -1804,6 +1824,7 @@
     },
     "N21000021": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Ballyclare_C": 2361
       },
@@ -1890,6 +1911,7 @@
     },
     "N21000022": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Ballyclare_D": 2538
       },
@@ -1976,6 +1998,7 @@
     },
     "N21000023": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Ballyclare_E": 2936
       },
@@ -2062,6 +2085,7 @@
     },
     "N21000024": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Ballyclare_F": 3187
       },
@@ -2148,6 +2172,7 @@
     },
     "N21000025": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Ballyclare_G": 1404
       },
@@ -2234,6 +2259,7 @@
     },
     "N21000026": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Ballyclare_H": 1600
       },
@@ -2320,6 +2346,7 @@
     },
     "N21000027": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Three_Mile_Water_A": 2217
       },
@@ -2406,6 +2433,7 @@
     },
     "N21000028": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Three_Mile_Water_B": 1359
       },
@@ -2492,6 +2520,7 @@
     },
     "N21000029": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Three_Mile_Water_C": 2052
       },
@@ -2578,6 +2607,7 @@
     },
     "N21000030": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Three_Mile_Water_D": 1959
       },
@@ -2664,6 +2694,7 @@
     },
     "N21000031": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Three_Mile_Water_E": 2520
       },
@@ -2750,6 +2781,7 @@
     },
     "N21000032": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Three_Mile_Water_F": 1898
       },
@@ -2836,6 +2868,7 @@
     },
     "N21000033": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Three_Mile_Water_G": 2796
       },
@@ -2922,6 +2955,7 @@
     },
     "N21000034": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Three_Mile_Water_H": 2269
       },
@@ -3008,6 +3042,7 @@
     },
     "N21000035": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Three_Mile_Water_J": 1461
       },
@@ -3094,6 +3129,7 @@
     },
     "N21000036": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Three_Mile_Water_K": 2122
       },
@@ -3180,6 +3216,7 @@
     },
     "N21000037": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Macedon_A": 1669
       },
@@ -3266,6 +3303,7 @@
     },
     "N21000038": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Macedon_B": 2078
       },
@@ -3352,6 +3390,7 @@
     },
     "N21000039": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Macedon_C": 2211
       },
@@ -3438,6 +3477,7 @@
     },
     "N21000040": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Macedon_D": 1785
       },
@@ -3524,6 +3564,7 @@
     },
     "N21000041": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Macedon_E": 1677
       },
@@ -3610,6 +3651,7 @@
     },
     "N21000042": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Macedon_F": 1672
       },
@@ -3696,6 +3738,7 @@
     },
     "N21000043": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Macedon_G": 1898
       },
@@ -3782,6 +3825,7 @@
     },
     "N21000044": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Macedon_H": 1306
       },
@@ -3868,6 +3912,7 @@
     },
     "N21000045": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Macedon_J": 2049
       },
@@ -3954,6 +3999,7 @@
     },
     "N21000046": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Macedon_K": 1888
       },
@@ -4040,6 +4086,7 @@
     },
     "N21000047": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Macedon_L": 2090
       },
@@ -4126,6 +4173,7 @@
     },
     "N21000048": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Glengormley_Urban_A": 1502
       },
@@ -4212,6 +4260,7 @@
     },
     "N21000049": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Glengormley_Urban_B": 2081
       },
@@ -4298,6 +4347,7 @@
     },
     "N21000050": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Glengormley_Urban_C": 2325
       },
@@ -4384,6 +4434,7 @@
     },
     "N21000051": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Glengormley_Urban_D": 2143
       },
@@ -4470,6 +4521,7 @@
     },
     "N21000052": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Glengormley_Urban_E": 1683
       },
@@ -4556,6 +4608,7 @@
     },
     "N21000053": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Glengormley_Urban_F": 1898
       },
@@ -4642,6 +4695,7 @@
     },
     "N21000054": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Glengormley_Urban_G": 1858
       },
@@ -4728,6 +4782,7 @@
     },
     "N21000055": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Glengormley_Urban_H": 1307
       },
@@ -4814,6 +4869,7 @@
     },
     "N21000056": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Glengormley_Urban_J": 2187
       },
@@ -4900,6 +4956,7 @@
     },
     "N21000057": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Glengormley_Urban_K": 2119
       },
@@ -4986,6 +5043,7 @@
     },
     "N21000058": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Glengormley_Urban_L": 2539
       },
@@ -5072,6 +5130,7 @@
     },
     "N21000059": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Airport_A": 1547
       },
@@ -5158,6 +5217,7 @@
     },
     "N21000060": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Airport_B": 1761
       },
@@ -5244,6 +5304,7 @@
     },
     "N21000061": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Airport_C": 2443
       },
@@ -5330,6 +5391,7 @@
     },
     "N21000062": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Airport_D": 2503
       },
@@ -5416,6 +5478,7 @@
     },
     "N21000063": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Airport_E": 2938
       },
@@ -5502,6 +5565,7 @@
     },
     "N21000064": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Airport_F": 2962
       },
@@ -5588,6 +5652,7 @@
     },
     "N21000065": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Airport_G": 2509
       },
@@ -5674,6 +5739,7 @@
     },
     "N21000066": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Airport_H": 2885
       },
@@ -5760,6 +5826,7 @@
     },
     "N21000067": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000001",
       "Census 2021 Super Data Zone Label": {
         "Airport_J": 2481
       },
@@ -5846,6 +5913,7 @@
     },
     "N21000068": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Armagh_A": 3814
       },
@@ -5932,6 +6000,7 @@
     },
     "N21000069": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Armagh_B": 1826
       },
@@ -6018,6 +6087,7 @@
     },
     "N21000070": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Armagh_C": 3019
       },
@@ -6104,6 +6174,7 @@
     },
     "N21000071": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Armagh_D": 3589
       },
@@ -6190,6 +6261,7 @@
     },
     "N21000072": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Armagh_E": 2786
       },
@@ -6276,6 +6348,7 @@
     },
     "N21000073": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Armagh_F": 2306
       },
@@ -6362,6 +6435,7 @@
     },
     "N21000074": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Armagh_G": 3067
       },
@@ -6448,6 +6522,7 @@
     },
     "N21000075": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Armagh_H": 2503
       },
@@ -6534,6 +6609,7 @@
     },
     "N21000076": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Armagh_J": 3327
       },
@@ -6620,6 +6696,7 @@
     },
     "N21000077": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Armagh_K": 3533
       },
@@ -6706,6 +6783,7 @@
     },
     "N21000078": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Armagh_L": 2635
       },
@@ -6792,6 +6870,7 @@
     },
     "N21000079": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Portadown_A": 2965
       },
@@ -6878,6 +6957,7 @@
     },
     "N21000080": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Portadown_B": 3020
       },
@@ -6964,6 +7044,7 @@
     },
     "N21000081": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Portadown_C": 1820
       },
@@ -7050,6 +7131,7 @@
     },
     "N21000082": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Portadown_D": 2448
       },
@@ -7136,6 +7218,7 @@
     },
     "N21000083": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Portadown_E": 2013
       },
@@ -7222,6 +7305,7 @@
     },
     "N21000084": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Portadown_F": 1475
       },
@@ -7308,6 +7392,7 @@
     },
     "N21000085": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Portadown_G": 2043
       },
@@ -7394,6 +7479,7 @@
     },
     "N21000086": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Portadown_H": 1901
       },
@@ -7480,6 +7566,7 @@
     },
     "N21000087": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Portadown_J": 2919
       },
@@ -7566,6 +7653,7 @@
     },
     "N21000088": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Portadown_K": 2360
       },
@@ -7652,6 +7740,7 @@
     },
     "N21000089": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Portadown_L": 1901
       },
@@ -7738,6 +7827,7 @@
     },
     "N21000090": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Portadown_N": 1526
       },
@@ -7824,6 +7914,7 @@
     },
     "N21000091": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Portadown_P": 1409
       },
@@ -7910,6 +8001,7 @@
     },
     "N21000092": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Portadown_Q": 2203
       },
@@ -7996,6 +8088,7 @@
     },
     "N21000093": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Portadown_R": 2921
       },
@@ -8082,6 +8175,7 @@
     },
     "N21000094": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Craigavon_A": 3080
       },
@@ -8168,6 +8262,7 @@
     },
     "N21000095": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Craigavon_B": 2685
       },
@@ -8254,6 +8349,7 @@
     },
     "N21000096": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Craigavon_C": 2027
       },
@@ -8340,6 +8436,7 @@
     },
     "N21000097": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Craigavon_D": 1680
       },
@@ -8426,6 +8523,7 @@
     },
     "N21000098": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Craigavon_E": 2544
       },
@@ -8512,6 +8610,7 @@
     },
     "N21000099": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Craigavon_F": 2672
       },
@@ -8598,6 +8697,7 @@
     },
     "N21000100": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Craigavon_G": 2340
       },
@@ -8684,6 +8784,7 @@
     },
     "N21000101": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Craigavon_H": 1858
       },
@@ -8770,6 +8871,7 @@
     },
     "N21000102": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Craigavon_J": 2664
       },
@@ -8856,6 +8958,7 @@
     },
     "N21000103": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Craigavon_K": 1378
       },
@@ -8942,6 +9045,7 @@
     },
     "N21000104": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Craigavon_L": 1596
       },
@@ -9028,6 +9132,7 @@
     },
     "N21000105": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Craigavon_N": 2721
       },
@@ -9114,6 +9219,7 @@
     },
     "N21000106": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Craigavon_P": 1945
       },
@@ -9200,6 +9306,7 @@
     },
     "N21000107": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lurgan_A": 2824
       },
@@ -9286,6 +9393,7 @@
     },
     "N21000108": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lurgan_B": 2447
       },
@@ -9372,6 +9480,7 @@
     },
     "N21000109": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lurgan_C": 2367
       },
@@ -9458,6 +9567,7 @@
     },
     "N21000110": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lurgan_D": 2854
       },
@@ -9544,6 +9654,7 @@
     },
     "N21000111": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lurgan_E": 2858
       },
@@ -9630,6 +9741,7 @@
     },
     "N21000112": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lurgan_F": 2815
       },
@@ -9716,6 +9828,7 @@
     },
     "N21000113": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lurgan_G": 1585
       },
@@ -9802,6 +9915,7 @@
     },
     "N21000114": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lurgan_H": 2041
       },
@@ -9888,6 +10002,7 @@
     },
     "N21000115": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lurgan_J": 2250
       },
@@ -9974,6 +10089,7 @@
     },
     "N21000116": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lurgan_K": 1694
       },
@@ -10060,6 +10176,7 @@
     },
     "N21000117": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lurgan_L": 1404
       },
@@ -10146,6 +10263,7 @@
     },
     "N21000118": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lurgan_N": 2146
       },
@@ -10232,6 +10350,7 @@
     },
     "N21000119": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lurgan_P": 2139
       },
@@ -10318,6 +10437,7 @@
     },
     "N21000120": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lurgan_Q": 1801
       },
@@ -10404,6 +10524,7 @@
     },
     "N21000121": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lurgan_R": 2524
       },
@@ -10490,6 +10611,7 @@
     },
     "N21000122": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lurgan_S": 2627
       },
@@ -10576,6 +10698,7 @@
     },
     "N21000123": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lurgan_T": 1823
       },
@@ -10662,6 +10785,7 @@
     },
     "N21000124": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lagan_River_A": 1935
       },
@@ -10748,6 +10872,7 @@
     },
     "N21000125": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lagan_River_B": 1931
       },
@@ -10834,6 +10959,7 @@
     },
     "N21000126": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lagan_River_C": 1521
       },
@@ -10920,6 +11046,7 @@
     },
     "N21000127": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lagan_River_D": 1726
       },
@@ -11006,6 +11133,7 @@
     },
     "N21000128": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lagan_River_E": 1977
       },
@@ -11092,6 +11220,7 @@
     },
     "N21000129": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lagan_River_F": 2980
       },
@@ -11178,6 +11307,7 @@
     },
     "N21000130": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lagan_River_G": 2611
       },
@@ -11264,6 +11394,7 @@
     },
     "N21000131": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lagan_River_H": 1689
       },
@@ -11350,6 +11481,7 @@
     },
     "N21000132": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lagan_River_J": 1955
       },
@@ -11436,6 +11568,7 @@
     },
     "N21000133": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lagan_River_K": 2424
       },
@@ -11522,6 +11655,7 @@
     },
     "N21000134": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lagan_River_L": 1430
       },
@@ -11608,6 +11742,7 @@
     },
     "N21000135": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Lagan_River_N": 2625
       },
@@ -11694,6 +11829,7 @@
     },
     "N21000136": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Banbridge_A": 2305
       },
@@ -11780,6 +11916,7 @@
     },
     "N21000137": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Banbridge_B": 1957
       },
@@ -11866,6 +12003,7 @@
     },
     "N21000138": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Banbridge_C": 1926
       },
@@ -11952,6 +12090,7 @@
     },
     "N21000139": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Banbridge_D": 2926
       },
@@ -12038,6 +12177,7 @@
     },
     "N21000140": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Banbridge_E": 2524
       },
@@ -12124,6 +12264,7 @@
     },
     "N21000141": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Banbridge_F": 2074
       },
@@ -12210,6 +12351,7 @@
     },
     "N21000142": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Banbridge_G": 1525
       },
@@ -12296,6 +12438,7 @@
     },
     "N21000143": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Banbridge_H": 2959
       },
@@ -12382,6 +12525,7 @@
     },
     "N21000144": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Banbridge_J": 2511
       },
@@ -12468,6 +12612,7 @@
     },
     "N21000145": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Banbridge_K": 3032
       },
@@ -12554,6 +12699,7 @@
     },
     "N21000146": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Banbridge_L": 3400
       },
@@ -12640,6 +12786,7 @@
     },
     "N21000147": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Banbridge_N": 2918
       },
@@ -12726,6 +12873,7 @@
     },
     "N21000148": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Banbridge_P": 2396
       },
@@ -12812,6 +12960,7 @@
     },
     "N21000149": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Banbridge_Q": 2490
       },
@@ -12898,6 +13047,7 @@
     },
     "N21000150": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Cusher_A": 1410
       },
@@ -12984,6 +13134,7 @@
     },
     "N21000151": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Cusher_B": 2738
       },
@@ -13070,6 +13221,7 @@
     },
     "N21000152": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Cusher_C": 1832
       },
@@ -13156,6 +13308,7 @@
     },
     "N21000153": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Cusher_D": 1778
       },
@@ -13242,6 +13395,7 @@
     },
     "N21000154": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Cusher_E": 2975
       },
@@ -13328,6 +13482,7 @@
     },
     "N21000155": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Cusher_F": 1713
       },
@@ -13414,6 +13569,7 @@
     },
     "N21000156": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Cusher_G": 2345
       },
@@ -13500,6 +13656,7 @@
     },
     "N21000157": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Cusher_H": 2524
       },
@@ -13586,6 +13743,7 @@
     },
     "N21000158": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Cusher_J": 1906
       },
@@ -13672,6 +13830,7 @@
     },
     "N21000159": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Cusher_K": 3592
       },
@@ -13758,6 +13917,7 @@
     },
     "N21000160": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000002",
       "Census 2021 Super Data Zone Label": {
         "Cusher_L": 3382
       },
@@ -13844,6 +14004,7 @@
     },
     "N21000161": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Oldpark_A": 2707
       },
@@ -13930,6 +14091,7 @@
     },
     "N21000162": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Oldpark_B": 1676
       },
@@ -14016,6 +14178,7 @@
     },
     "N21000163": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Oldpark_C": 1998
       },
@@ -14102,6 +14265,7 @@
     },
     "N21000164": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Oldpark_D": 2127
       },
@@ -14188,6 +14352,7 @@
     },
     "N21000165": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Oldpark_E": 2310
       },
@@ -14274,6 +14439,7 @@
     },
     "N21000166": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Oldpark_F": 1555
       },
@@ -14360,6 +14526,7 @@
     },
     "N21000167": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Oldpark_G": 2192
       },
@@ -14446,6 +14613,7 @@
     },
     "N21000168": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Oldpark_H": 1551
       },
@@ -14532,6 +14700,7 @@
     },
     "N21000169": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Oldpark_J": 1337
       },
@@ -14618,6 +14787,7 @@
     },
     "N21000170": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Oldpark_K": 1830
       },
@@ -14704,6 +14874,7 @@
     },
     "N21000171": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Oldpark_L": 2262
       },
@@ -14790,6 +14961,7 @@
     },
     "N21000172": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Oldpark_N": 2386
       },
@@ -14876,6 +15048,7 @@
     },
     "N21000173": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Oldpark_P": 1275
       },
@@ -14962,6 +15135,7 @@
     },
     "N21000174": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Oldpark_Q": 2046
       },
@@ -15048,6 +15222,7 @@
     },
     "N21000175": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Oldpark_R": 2293
       },
@@ -15134,6 +15309,7 @@
     },
     "N21000176": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Oldpark_S": 1459
       },
@@ -15220,6 +15396,7 @@
     },
     "N21000177": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Oldpark_T": 1572
       },
@@ -15306,6 +15483,7 @@
     },
     "N21000178": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Oldpark_U": 1775
       },
@@ -15392,6 +15570,7 @@
     },
     "N21000179": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Castle_A": 1702
       },
@@ -15478,6 +15657,7 @@
     },
     "N21000180": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Castle_B": 1939
       },
@@ -15564,6 +15744,7 @@
     },
     "N21000181": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Castle_C": 1751
       },
@@ -15650,6 +15831,7 @@
     },
     "N21000182": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Castle_D": 1797
       },
@@ -15736,6 +15918,7 @@
     },
     "N21000183": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Castle_E": 1595
       },
@@ -15822,6 +16005,7 @@
     },
     "N21000184": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Castle_F": 1388
       },
@@ -15908,6 +16092,7 @@
     },
     "N21000185": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Castle_G": 2406
       },
@@ -15994,6 +16179,7 @@
     },
     "N21000186": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Castle_H": 2411
       },
@@ -16080,6 +16266,7 @@
     },
     "N21000187": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Castle_J": 2442
       },
@@ -16166,6 +16353,7 @@
     },
     "N21000188": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Castle_K": 1486
       },
@@ -16252,6 +16440,7 @@
     },
     "N21000189": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Castle_L": 2040
       },
@@ -16338,6 +16527,7 @@
     },
     "N21000190": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Castle_N": 1140
       },
@@ -16424,6 +16614,7 @@
     },
     "N21000191": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Castle_P": 1296
       },
@@ -16510,6 +16701,7 @@
     },
     "N21000192": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Castle_Q": 2146
       },
@@ -16596,6 +16788,7 @@
     },
     "N21000193": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Castle_R": 2219
       },
@@ -16682,6 +16875,7 @@
     },
     "N21000194": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Castle_S": 1580
       },
@@ -16768,6 +16962,7 @@
     },
     "N21000195": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Castle_T": 1967
       },
@@ -16854,6 +17049,7 @@
     },
     "N21000196": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Castle_U": 2371
       },
@@ -16940,6 +17136,7 @@
     },
     "N21000197": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Titanic_A": 1248
       },
@@ -17026,6 +17223,7 @@
     },
     "N21000198": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Titanic_B": 1760
       },
@@ -17112,6 +17310,7 @@
     },
     "N21000199": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Titanic_C": 1885
       },
@@ -17198,6 +17397,7 @@
     },
     "N21000200": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Titanic_D": 2020
       },
@@ -17284,6 +17484,7 @@
     },
     "N21000201": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Titanic_E": 1518
       },
@@ -17370,6 +17571,7 @@
     },
     "N21000202": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Titanic_F": 1993
       },
@@ -17456,6 +17658,7 @@
     },
     "N21000203": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Titanic_G": 1096
       },
@@ -17542,6 +17745,7 @@
     },
     "N21000204": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Titanic_H": 2370
       },
@@ -17628,6 +17832,7 @@
     },
     "N21000205": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Titanic_J": 1905
       },
@@ -17714,6 +17919,7 @@
     },
     "N21000206": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Titanic_K": 1405
       },
@@ -17800,6 +18006,7 @@
     },
     "N21000207": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Titanic_L": 1669
       },
@@ -17886,6 +18093,7 @@
     },
     "N21000208": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Titanic_N": 1586
       },
@@ -17972,6 +18180,7 @@
     },
     "N21000209": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Titanic_P": 1684
       },
@@ -18058,6 +18267,7 @@
     },
     "N21000210": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Titanic_Q": 1836
       },
@@ -18144,6 +18354,7 @@
     },
     "N21000211": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Titanic_R": 1991
       },
@@ -18230,6 +18441,7 @@
     },
     "N21000212": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Titanic_S": 1472
       },
@@ -18316,6 +18528,7 @@
     },
     "N21000213": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Titanic_T": 1860
       },
@@ -18402,6 +18615,7 @@
     },
     "N21000214": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Titanic_U": 1179
       },
@@ -18488,6 +18702,7 @@
     },
     "N21000215": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Titanic_W": 1457
       },
@@ -18574,6 +18789,7 @@
     },
     "N21000216": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Titanic_X": 1240
       },
@@ -18660,6 +18876,7 @@
     },
     "N21000217": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Titanic_Y": 1629
       },
@@ -18746,6 +18963,7 @@
     },
     "N21000218": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Titanic_Z": 1320
       },
@@ -18832,6 +19050,7 @@
     },
     "N21000219": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Ormiston_A": 1898
       },
@@ -18918,6 +19137,7 @@
     },
     "N21000220": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Ormiston_B": 2079
       },
@@ -19004,6 +19224,7 @@
     },
     "N21000221": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Ormiston_C": 2472
       },
@@ -19090,6 +19311,7 @@
     },
     "N21000222": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Ormiston_D": 2219
       },
@@ -19176,6 +19398,7 @@
     },
     "N21000223": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Ormiston_E": 1938
       },
@@ -19262,6 +19485,7 @@
     },
     "N21000224": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Ormiston_F": 2482
       },
@@ -19348,6 +19572,7 @@
     },
     "N21000225": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Ormiston_G": 2151
       },
@@ -19434,6 +19659,7 @@
     },
     "N21000226": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Ormiston_H": 1872
       },
@@ -19520,6 +19746,7 @@
     },
     "N21000227": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Ormiston_J": 1960
       },
@@ -19606,6 +19833,7 @@
     },
     "N21000228": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Ormiston_K": 1989
       },
@@ -19692,6 +19920,7 @@
     },
     "N21000229": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Ormiston_L": 2126
       },
@@ -19778,6 +20007,7 @@
     },
     "N21000230": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Ormiston_N": 2362
       },
@@ -19864,6 +20094,7 @@
     },
     "N21000231": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Ormiston_P": 2241
       },
@@ -19950,6 +20181,7 @@
     },
     "N21000232": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Ormiston_Q": 1126
       },
@@ -20036,6 +20268,7 @@
     },
     "N21000233": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Ormiston_R": 1758
       },
@@ -20122,6 +20355,7 @@
     },
     "N21000234": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Ormiston_S": 1884
       },
@@ -20208,6 +20442,7 @@
     },
     "N21000235": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Ormiston_T": 2059
       },
@@ -20294,6 +20529,7 @@
     },
     "N21000236": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Lisnasharragh_A": 1744
       },
@@ -20380,6 +20616,7 @@
     },
     "N21000237": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Lisnasharragh_B": 2562
       },
@@ -20466,6 +20703,7 @@
     },
     "N21000238": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Lisnasharragh_C": 1291
       },
@@ -20552,6 +20790,7 @@
     },
     "N21000239": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Lisnasharragh_D": 1522
       },
@@ -20638,6 +20877,7 @@
     },
     "N21000240": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Lisnasharragh_E": 1871
       },
@@ -20724,6 +20964,7 @@
     },
     "N21000241": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Lisnasharragh_F": 1914
       },
@@ -20810,6 +21051,7 @@
     },
     "N21000242": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Lisnasharragh_G": 1501
       },
@@ -20896,6 +21138,7 @@
     },
     "N21000243": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Lisnasharragh_H": 1278
       },
@@ -20982,6 +21225,7 @@
     },
     "N21000244": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Lisnasharragh_J": 1929
       },
@@ -21068,6 +21312,7 @@
     },
     "N21000245": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Lisnasharragh_K": 1978
       },
@@ -21154,6 +21399,7 @@
     },
     "N21000246": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Lisnasharragh_L": 1849
       },
@@ -21240,6 +21486,7 @@
     },
     "N21000247": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Lisnasharragh_N": 2797
       },
@@ -21326,6 +21573,7 @@
     },
     "N21000248": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Lisnasharragh_P": 2641
       },
@@ -21412,6 +21660,7 @@
     },
     "N21000249": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Lisnasharragh_Q": 1820
       },
@@ -21498,6 +21747,7 @@
     },
     "N21000250": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Lisnasharragh_R": 2472
       },
@@ -21584,6 +21834,7 @@
     },
     "N21000251": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Botanic_A": 3374
       },
@@ -21670,6 +21921,7 @@
     },
     "N21000252": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Botanic_B": 1626
       },
@@ -21756,6 +22008,7 @@
     },
     "N21000253": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Botanic_C": 2313
       },
@@ -21842,6 +22095,7 @@
     },
     "N21000254": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Botanic_D": 1815
       },
@@ -21928,6 +22182,7 @@
     },
     "N21000255": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Botanic_E": 1807
       },
@@ -22014,6 +22269,7 @@
     },
     "N21000256": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Botanic_F": 1858
       },
@@ -22100,6 +22356,7 @@
     },
     "N21000257": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Botanic_G": 1522
       },
@@ -22186,6 +22443,7 @@
     },
     "N21000258": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Botanic_H": 2833
       },
@@ -22272,6 +22530,7 @@
     },
     "N21000259": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Botanic_J": 1909
       },
@@ -22358,6 +22617,7 @@
     },
     "N21000260": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Botanic_K": 2030
       },
@@ -22444,6 +22704,7 @@
     },
     "N21000261": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Botanic_L": 2156
       },
@@ -22530,6 +22791,7 @@
     },
     "N21000262": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Botanic_N": 2732
       },
@@ -22616,6 +22878,7 @@
     },
     "N21000263": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Botanic_P": 2315
       },
@@ -22702,6 +22965,7 @@
     },
     "N21000264": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Botanic_Q": 2694
       },
@@ -22788,6 +23052,7 @@
     },
     "N21000265": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Botanic_R": 2710
       },
@@ -22874,6 +23139,7 @@
     },
     "N21000266": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Botanic_S": 2101
       },
@@ -22960,6 +23226,7 @@
     },
     "N21000267": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Botanic_T": 1797
       },
@@ -23046,6 +23313,7 @@
     },
     "N21000268": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Botanic_U": 1307
       },
@@ -23132,6 +23400,7 @@
     },
     "N21000269": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Botanic_W": 2416
       },
@@ -23218,6 +23487,7 @@
     },
     "N21000270": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Botanic_X": 3639
       },
@@ -23304,6 +23574,7 @@
     },
     "N21000271": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Botanic_Y": 2967
       },
@@ -23390,6 +23661,7 @@
     },
     "N21000272": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Botanic_Z": 1806
       },
@@ -23476,6 +23748,7 @@
     },
     "N21000273": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Balmoral_A": 2265
       },
@@ -23562,6 +23835,7 @@
     },
     "N21000274": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Balmoral_B": 1278
       },
@@ -23648,6 +23922,7 @@
     },
     "N21000275": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Balmoral_C": 1569
       },
@@ -23734,6 +24009,7 @@
     },
     "N21000276": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Balmoral_D": 2134
       },
@@ -23820,6 +24096,7 @@
     },
     "N21000277": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Balmoral_E": 2229
       },
@@ -23906,6 +24183,7 @@
     },
     "N21000278": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Balmoral_F": 2014
       },
@@ -23992,6 +24270,7 @@
     },
     "N21000279": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Balmoral_G": 1824
       },
@@ -24078,6 +24357,7 @@
     },
     "N21000280": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Balmoral_H": 1548
       },
@@ -24164,6 +24444,7 @@
     },
     "N21000281": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Balmoral_J": 2168
       },
@@ -24250,6 +24531,7 @@
     },
     "N21000282": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Balmoral_K": 1514
       },
@@ -24336,6 +24618,7 @@
     },
     "N21000283": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Balmoral_L": 1971
       },
@@ -24422,6 +24705,7 @@
     },
     "N21000284": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Balmoral_N": 2125
       },
@@ -24508,6 +24792,7 @@
     },
     "N21000285": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Balmoral_P": 1855
       },
@@ -24594,6 +24879,7 @@
     },
     "N21000286": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Collin_A": 1732
       },
@@ -24680,6 +24966,7 @@
     },
     "N21000287": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Collin_B": 2902
       },
@@ -24766,6 +25053,7 @@
     },
     "N21000288": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Collin_C": 1909
       },
@@ -24852,6 +25140,7 @@
     },
     "N21000289": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Collin_D": 2401
       },
@@ -24938,6 +25227,7 @@
     },
     "N21000290": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Collin_E": 2344
       },
@@ -25024,6 +25314,7 @@
     },
     "N21000291": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Collin_F": 1787
       },
@@ -25110,6 +25401,7 @@
     },
     "N21000292": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Collin_G": 2729
       },
@@ -25196,6 +25488,7 @@
     },
     "N21000293": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Collin_H": 2765
       },
@@ -25282,6 +25575,7 @@
     },
     "N21000294": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Collin_J": 1947
       },
@@ -25368,6 +25662,7 @@
     },
     "N21000295": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Collin_K": 2077
       },
@@ -25454,6 +25749,7 @@
     },
     "N21000296": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Collin_L": 2125
       },
@@ -25540,6 +25836,7 @@
     },
     "N21000297": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Collin_N": 2607
       },
@@ -25626,6 +25923,7 @@
     },
     "N21000298": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Collin_P": 2278
       },
@@ -25712,6 +26010,7 @@
     },
     "N21000299": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Collin_Q": 2394
       },
@@ -25798,6 +26097,7 @@
     },
     "N21000300": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Collin_R": 1912
       },
@@ -25884,6 +26184,7 @@
     },
     "N21000301": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Black_Mountain_A": 3149
       },
@@ -25970,6 +26271,7 @@
     },
     "N21000302": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Black_Mountain_B": 2205
       },
@@ -26056,6 +26358,7 @@
     },
     "N21000303": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Black_Mountain_C": 1863
       },
@@ -26142,6 +26445,7 @@
     },
     "N21000304": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Black_Mountain_D": 2696
       },
@@ -26228,6 +26532,7 @@
     },
     "N21000305": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Black_Mountain_E": 2328
       },
@@ -26314,6 +26619,7 @@
     },
     "N21000306": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Black_Mountain_F": 2411
       },
@@ -26400,6 +26706,7 @@
     },
     "N21000307": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Black_Mountain_G": 2800
       },
@@ -26486,6 +26793,7 @@
     },
     "N21000308": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Black_Mountain_H": 2128
       },
@@ -26572,6 +26880,7 @@
     },
     "N21000309": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Black_Mountain_J": 2626
       },
@@ -26658,6 +26967,7 @@
     },
     "N21000310": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Black_Mountain_K": 1857
       },
@@ -26744,6 +27054,7 @@
     },
     "N21000311": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Black_Mountain_L": 2438
       },
@@ -26830,6 +27141,7 @@
     },
     "N21000312": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Black_Mountain_N": 2389
       },
@@ -26916,6 +27228,7 @@
     },
     "N21000313": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Black_Mountain_P": 2561
       },
@@ -27002,6 +27315,7 @@
     },
     "N21000314": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Black_Mountain_Q": 1788
       },
@@ -27088,6 +27402,7 @@
     },
     "N21000315": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Black_Mountain_R": 2637
       },
@@ -27174,6 +27489,7 @@
     },
     "N21000316": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Court_A": 1574
       },
@@ -27260,6 +27576,7 @@
     },
     "N21000317": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Court_B": 1870
       },
@@ -27346,6 +27663,7 @@
     },
     "N21000318": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Court_C": 1577
       },
@@ -27432,6 +27750,7 @@
     },
     "N21000319": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Court_D": 1695
       },
@@ -27518,6 +27837,7 @@
     },
     "N21000320": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Court_E": 2396
       },
@@ -27604,6 +27924,7 @@
     },
     "N21000321": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Court_F": 1196
       },
@@ -27690,6 +28011,7 @@
     },
     "N21000322": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Court_G": 1275
       },
@@ -27776,6 +28098,7 @@
     },
     "N21000323": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Court_H": 1831
       },
@@ -27862,6 +28185,7 @@
     },
     "N21000324": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Court_J": 1937
       },
@@ -27948,6 +28272,7 @@
     },
     "N21000325": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Court_K": 1621
       },
@@ -28034,6 +28359,7 @@
     },
     "N21000326": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Court_L": 1368
       },
@@ -28120,6 +28446,7 @@
     },
     "N21000327": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Court_N": 1678
       },
@@ -28206,6 +28533,7 @@
     },
     "N21000328": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Court_P": 1503
       },
@@ -28292,6 +28620,7 @@
     },
     "N21000329": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Court_Q": 1288
       },
@@ -28378,6 +28707,7 @@
     },
     "N21000330": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Court_R": 1521
       },
@@ -28464,6 +28794,7 @@
     },
     "N21000331": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Court_S": 2189
       },
@@ -28550,6 +28881,7 @@
     },
     "N21000332": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Court_T": 1435
       },
@@ -28636,6 +28968,7 @@
     },
     "N21000333": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Court_U": 1267
       },
@@ -28722,6 +29055,7 @@
     },
     "N21000334": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Court_W": 2045
       },
@@ -28808,6 +29142,7 @@
     },
     "N21000335": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000003",
       "Census 2021 Super Data Zone Label": {
         "Court_X": 2210
       },
@@ -28894,6 +29229,7 @@
     },
     "N21000336": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Benbradagh_A": 3005
       },
@@ -28980,6 +29316,7 @@
     },
     "N21000337": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Benbradagh_B": 1852
       },
@@ -29066,6 +29403,7 @@
     },
     "N21000338": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Benbradagh_C": 1465
       },
@@ -29152,6 +29490,7 @@
     },
     "N21000339": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Benbradagh_D": 2975
       },
@@ -29238,6 +29577,7 @@
     },
     "N21000340": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Benbradagh_E": 3308
       },
@@ -29324,6 +29664,7 @@
     },
     "N21000341": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Benbradagh_F": 3346
       },
@@ -29410,6 +29751,7 @@
     },
     "N21000342": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Benbradagh_G": 1868
       },
@@ -29496,6 +29838,7 @@
     },
     "N21000343": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Limavady_A": 2860
       },
@@ -29582,6 +29925,7 @@
     },
     "N21000344": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Limavady_B": 1228
       },
@@ -29668,6 +30012,7 @@
     },
     "N21000345": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Limavady_C": 2268
       },
@@ -29754,6 +30099,7 @@
     },
     "N21000346": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Limavady_D": 3232
       },
@@ -29840,6 +30186,7 @@
     },
     "N21000347": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Limavady_E": 2739
       },
@@ -29926,6 +30273,7 @@
     },
     "N21000348": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Limavady_F": 2095
       },
@@ -30012,6 +30360,7 @@
     },
     "N21000349": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Limavady_G": 1808
       },
@@ -30098,6 +30447,7 @@
     },
     "N21000350": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Bann_A": 1155
       },
@@ -30184,6 +30534,7 @@
     },
     "N21000351": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Bann_B": 2783
       },
@@ -30270,6 +30621,7 @@
     },
     "N21000352": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Bann_C": 2402
       },
@@ -30356,6 +30708,7 @@
     },
     "N21000353": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Bann_D": 3529
       },
@@ -30442,6 +30795,7 @@
     },
     "N21000354": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Bann_E": 1863
       },
@@ -30528,6 +30882,7 @@
     },
     "N21000355": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Bann_F": 1252
       },
@@ -30614,6 +30969,7 @@
     },
     "N21000356": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Bann_G": 2857
       },
@@ -30700,6 +31056,7 @@
     },
     "N21000357": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Bann_H": 1694
       },
@@ -30786,6 +31143,7 @@
     },
     "N21000358": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Coleraine_A": 2830
       },
@@ -30872,6 +31230,7 @@
     },
     "N21000359": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Coleraine_B": 2729
       },
@@ -30958,6 +31317,7 @@
     },
     "N21000360": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Coleraine_C": 2624
       },
@@ -31044,6 +31404,7 @@
     },
     "N21000361": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Coleraine_D": 1288
       },
@@ -31130,6 +31491,7 @@
     },
     "N21000362": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Coleraine_E": 1877
       },
@@ -31216,6 +31578,7 @@
     },
     "N21000363": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Coleraine_F": 2351
       },
@@ -31302,6 +31665,7 @@
     },
     "N21000364": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Coleraine_G": 2188
       },
@@ -31388,6 +31752,7 @@
     },
     "N21000365": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Coleraine_H": 2775
       },
@@ -31474,6 +31839,7 @@
     },
     "N21000366": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Coleraine_J": 2793
       },
@@ -31560,6 +31926,7 @@
     },
     "N21000367": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Coleraine_K": 2171
       },
@@ -31646,6 +32013,7 @@
     },
     "N21000368": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Causeway_A": 1427
       },
@@ -31732,6 +32100,7 @@
     },
     "N21000369": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Causeway_B": 1286
       },
@@ -31818,6 +32187,7 @@
     },
     "N21000370": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Causeway_C": 1247
       },
@@ -31904,6 +32274,7 @@
     },
     "N21000371": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Causeway_D": 1783
       },
@@ -31990,6 +32361,7 @@
     },
     "N21000372": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Causeway_E": 3081
       },
@@ -32076,6 +32448,7 @@
     },
     "N21000373": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Causeway_F": 2068
       },
@@ -32162,6 +32535,7 @@
     },
     "N21000374": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Causeway_G": 2653
       },
@@ -32248,6 +32622,7 @@
     },
     "N21000375": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Causeway_H": 3132
       },
@@ -32334,6 +32709,7 @@
     },
     "N21000376": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Causeway_J": 1999
       },
@@ -32420,6 +32796,7 @@
     },
     "N21000377": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Causeway_K": 2985
       },
@@ -32506,6 +32883,7 @@
     },
     "N21000378": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Causeway_L": 2882
       },
@@ -32592,6 +32970,7 @@
     },
     "N21000379": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "The_Glens_A": 3155
       },
@@ -32678,6 +33057,7 @@
     },
     "N21000380": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "The_Glens_B": 2614
       },
@@ -32764,6 +33144,7 @@
     },
     "N21000381": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "The_Glens_C": 2789
       },
@@ -32850,6 +33231,7 @@
     },
     "N21000382": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "The_Glens_D": 1882
       },
@@ -32936,6 +33318,7 @@
     },
     "N21000383": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "The_Glens_E": 1922
       },
@@ -33022,6 +33405,7 @@
     },
     "N21000384": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "The_Glens_F": 3088
       },
@@ -33108,6 +33492,7 @@
     },
     "N21000385": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "The_Glens_G": 2027
       },
@@ -33194,6 +33579,7 @@
     },
     "N21000386": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Ballymoney_A": 2591
       },
@@ -33280,6 +33666,7 @@
     },
     "N21000387": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Ballymoney_B": 2375
       },
@@ -33366,6 +33753,7 @@
     },
     "N21000388": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Ballymoney_C": 2209
       },
@@ -33452,6 +33840,7 @@
     },
     "N21000389": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Ballymoney_D": 1928
       },
@@ -33538,6 +33927,7 @@
     },
     "N21000390": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Ballymoney_E": 2188
       },
@@ -33624,6 +34014,7 @@
     },
     "N21000391": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Ballymoney_F": 2347
       },
@@ -33710,6 +34101,7 @@
     },
     "N21000392": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Ballymoney_G": 1725
       },
@@ -33796,6 +34188,7 @@
     },
     "N21000393": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Ballymoney_H": 3237
       },
@@ -33882,6 +34275,7 @@
     },
     "N21000394": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Ballymoney_J": 1236
       },
@@ -33968,6 +34362,7 @@
     },
     "N21000395": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Ballymoney_K": 3312
       },
@@ -34054,6 +34449,7 @@
     },
     "N21000396": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000004",
       "Census 2021 Super Data Zone Label": {
         "Ballymoney_L": 1370
       },
@@ -34140,6 +34536,7 @@
     },
     "N21000397": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "The_Moor_A": 2560
       },
@@ -34226,6 +34623,7 @@
     },
     "N21000398": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "The_Moor_B": 2920
       },
@@ -34312,6 +34710,7 @@
     },
     "N21000399": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "The_Moor_C": 1150
       },
@@ -34398,6 +34797,7 @@
     },
     "N21000400": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "The_Moor_D": 2922
       },
@@ -34484,6 +34884,7 @@
     },
     "N21000401": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "The_Moor_E": 1565
       },
@@ -34570,6 +34971,7 @@
     },
     "N21000402": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "The_Moor_F": 2228
       },
@@ -34656,6 +35058,7 @@
     },
     "N21000403": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "The_Moor_G": 1735
       },
@@ -34742,6 +35145,7 @@
     },
     "N21000404": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "The_Moor_H": 2047
       },
@@ -34828,6 +35232,7 @@
     },
     "N21000405": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Foyleside_A": 2956
       },
@@ -34914,6 +35319,7 @@
     },
     "N21000406": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Foyleside_B": 2117
       },
@@ -35000,6 +35406,7 @@
     },
     "N21000407": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Foyleside_C": 2420
       },
@@ -35086,6 +35493,7 @@
     },
     "N21000408": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Foyleside_D": 3103
       },
@@ -35172,6 +35580,7 @@
     },
     "N21000409": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Foyleside_E": 3366
       },
@@ -35258,6 +35667,7 @@
     },
     "N21000410": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Foyleside_F": 1544
       },
@@ -35344,6 +35754,7 @@
     },
     "N21000411": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Foyleside_G": 2063
       },
@@ -35430,6 +35841,7 @@
     },
     "N21000412": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Ballyarnett_A": 2472
       },
@@ -35516,6 +35928,7 @@
     },
     "N21000413": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Ballyarnett_B": 2284
       },
@@ -35602,6 +36015,7 @@
     },
     "N21000414": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Ballyarnett_C": 1470
       },
@@ -35688,6 +36102,7 @@
     },
     "N21000415": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Ballyarnett_D": 3044
       },
@@ -35774,6 +36189,7 @@
     },
     "N21000416": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Ballyarnett_E": 2031
       },
@@ -35860,6 +36276,7 @@
     },
     "N21000417": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Ballyarnett_F": 2102
       },
@@ -35946,6 +36363,7 @@
     },
     "N21000418": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Ballyarnett_G": 2863
       },
@@ -36032,6 +36450,7 @@
     },
     "N21000419": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Ballyarnett_H": 1962
       },
@@ -36118,6 +36537,7 @@
     },
     "N21000420": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Ballyarnett_J": 2100
       },
@@ -36204,6 +36624,7 @@
     },
     "N21000421": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Ballyarnett_K": 2446
       },
@@ -36290,6 +36711,7 @@
     },
     "N21000422": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Ballyarnett_L": 2476
       },
@@ -36376,6 +36798,7 @@
     },
     "N21000423": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Waterside_A": 2429
       },
@@ -36462,6 +36885,7 @@
     },
     "N21000424": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Waterside_B": 1994
       },
@@ -36548,6 +36972,7 @@
     },
     "N21000425": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Waterside_C": 2533
       },
@@ -36634,6 +37059,7 @@
     },
     "N21000426": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Waterside_D": 1995
       },
@@ -36720,6 +37146,7 @@
     },
     "N21000427": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Waterside_E": 2066
       },
@@ -36806,6 +37233,7 @@
     },
     "N21000428": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Waterside_F": 2209
       },
@@ -36892,6 +37320,7 @@
     },
     "N21000429": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Waterside_G": 2208
       },
@@ -36978,6 +37407,7 @@
     },
     "N21000430": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Waterside_H": 2190
       },
@@ -37064,6 +37494,7 @@
     },
     "N21000431": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Waterside_J": 2542
       },
@@ -37150,6 +37581,7 @@
     },
     "N21000432": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Waterside_K": 2202
       },
@@ -37236,6 +37668,7 @@
     },
     "N21000433": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Waterside_L": 2265
       },
@@ -37322,6 +37755,7 @@
     },
     "N21000434": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Waterside_N": 2110
       },
@@ -37408,6 +37842,7 @@
     },
     "N21000435": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Waterside_P": 2303
       },
@@ -37494,6 +37929,7 @@
     },
     "N21000436": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Faughan_A": 2608
       },
@@ -37580,6 +38016,7 @@
     },
     "N21000437": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Faughan_B": 1145
       },
@@ -37666,6 +38103,7 @@
     },
     "N21000438": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Faughan_C": 2426
       },
@@ -37752,6 +38190,7 @@
     },
     "N21000439": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Faughan_D": 2475
       },
@@ -37838,6 +38277,7 @@
     },
     "N21000440": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Faughan_E": 3420
       },
@@ -37924,6 +38364,7 @@
     },
     "N21000441": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Faughan_F": 2837
       },
@@ -38010,6 +38451,7 @@
     },
     "N21000442": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Faughan_G": 2990
       },
@@ -38096,6 +38538,7 @@
     },
     "N21000443": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Faughan_H": 1335
       },
@@ -38182,6 +38625,7 @@
     },
     "N21000444": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Sperrin_A": 2122
       },
@@ -38268,6 +38712,7 @@
     },
     "N21000445": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Sperrin_B": 2978
       },
@@ -38354,6 +38799,7 @@
     },
     "N21000446": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Sperrin_C": 2509
       },
@@ -38440,6 +38886,7 @@
     },
     "N21000447": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Sperrin_D": 2887
       },
@@ -38526,6 +38973,7 @@
     },
     "N21000448": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Sperrin_E": 1393
       },
@@ -38612,6 +39060,7 @@
     },
     "N21000449": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Sperrin_F": 3048
       },
@@ -38698,6 +39147,7 @@
     },
     "N21000450": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Sperrin_G": 2720
       },
@@ -38784,6 +39234,7 @@
     },
     "N21000451": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Sperrin_H": 2932
       },
@@ -38870,6 +39321,7 @@
     },
     "N21000452": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Sperrin_J": 1439
       },
@@ -38956,6 +39408,7 @@
     },
     "N21000453": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Sperrin_K": 2691
       },
@@ -39042,6 +39495,7 @@
     },
     "N21000454": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Derg_A": 2135
       },
@@ -39128,6 +39582,7 @@
     },
     "N21000455": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Derg_B": 1978
       },
@@ -39214,6 +39669,7 @@
     },
     "N21000456": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Derg_C": 2442
       },
@@ -39300,6 +39756,7 @@
     },
     "N21000457": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Derg_D": 1908
       },
@@ -39386,6 +39843,7 @@
     },
     "N21000458": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Derg_E": 1425
       },
@@ -39472,6 +39930,7 @@
     },
     "N21000459": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Derg_F": 2980
       },
@@ -39558,6 +40017,7 @@
     },
     "N21000460": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Derg_G": 1933
       },
@@ -39644,6 +40104,7 @@
     },
     "N21000461": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000005",
       "Census 2021 Super Data Zone Label": {
         "Derg_H": 3008
       },
@@ -39730,6 +40191,7 @@
     },
     "N21000462": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Erne_East_A": 2860
       },
@@ -39816,6 +40278,7 @@
     },
     "N21000463": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Erne_East_B": 2828
       },
@@ -39902,6 +40365,7 @@
     },
     "N21000464": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Erne_East_C": 1898
       },
@@ -39988,6 +40452,7 @@
     },
     "N21000465": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Erne_East_D": 3020
       },
@@ -40074,6 +40539,7 @@
     },
     "N21000466": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Erne_East_E": 2777
       },
@@ -40160,6 +40626,7 @@
     },
     "N21000467": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Erne_East_F": 2564
       },
@@ -40246,6 +40713,7 @@
     },
     "N21000468": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Erne_West_A": 2272
       },
@@ -40332,6 +40800,7 @@
     },
     "N21000469": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Erne_West_B": 1575
       },
@@ -40418,6 +40887,7 @@
     },
     "N21000470": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Erne_West_C": 2914
       },
@@ -40504,6 +40974,7 @@
     },
     "N21000471": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Erne_West_D": 2683
       },
@@ -40590,6 +41061,7 @@
     },
     "N21000472": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Erne_West_E": 2499
       },
@@ -40676,6 +41148,7 @@
     },
     "N21000473": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Erne_West_F": 2717
       },
@@ -40762,6 +41235,7 @@
     },
     "N21000474": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Enniskillen_A": 1917
       },
@@ -40848,6 +41322,7 @@
     },
     "N21000475": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Enniskillen_B": 2666
       },
@@ -40934,6 +41409,7 @@
     },
     "N21000476": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Enniskillen_C": 2226
       },
@@ -41020,6 +41496,7 @@
     },
     "N21000477": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Enniskillen_D": 2478
       },
@@ -41106,6 +41583,7 @@
     },
     "N21000478": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Enniskillen_E": 1607
       },
@@ -41192,6 +41670,7 @@
     },
     "N21000479": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Enniskillen_F": 2340
       },
@@ -41278,6 +41757,7 @@
     },
     "N21000480": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Enniskillen_G": 2900
       },
@@ -41364,6 +41844,7 @@
     },
     "N21000481": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Enniskillen_H": 2317
       },
@@ -41450,6 +41931,7 @@
     },
     "N21000482": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Erne_North_A": 2283
       },
@@ -41536,6 +42018,7 @@
     },
     "N21000483": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Erne_North_B": 2534
       },
@@ -41622,6 +42105,7 @@
     },
     "N21000484": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Erne_North_C": 1799
       },
@@ -41708,6 +42192,7 @@
     },
     "N21000485": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Erne_North_D": 2325
       },
@@ -41794,6 +42279,7 @@
     },
     "N21000486": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Erne_North_E": 1364
       },
@@ -41880,6 +42366,7 @@
     },
     "N21000487": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Erne_North_F": 2645
       },
@@ -41966,6 +42453,7 @@
     },
     "N21000488": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Erne_North_G": 2134
       },
@@ -42052,6 +42540,7 @@
     },
     "N21000489": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "West_Tyrone_A": 2498
       },
@@ -42138,6 +42627,7 @@
     },
     "N21000490": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "West_Tyrone_B": 1686
       },
@@ -42224,6 +42714,7 @@
     },
     "N21000491": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "West_Tyrone_C": 2954
       },
@@ -42310,6 +42801,7 @@
     },
     "N21000492": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "West_Tyrone_D": 1217
       },
@@ -42396,6 +42888,7 @@
     },
     "N21000493": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "West_Tyrone_E": 2772
       },
@@ -42482,6 +42975,7 @@
     },
     "N21000494": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "West_Tyrone_F": 2866
       },
@@ -42568,6 +43062,7 @@
     },
     "N21000495": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "West_Tyrone_G": 2610
       },
@@ -42654,6 +43149,7 @@
     },
     "N21000496": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Omagh_A": 3211
       },
@@ -42740,6 +43236,7 @@
     },
     "N21000497": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Omagh_B": 1231
       },
@@ -42826,6 +43323,7 @@
     },
     "N21000498": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Omagh_C": 2749
       },
@@ -42912,6 +43410,7 @@
     },
     "N21000499": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Omagh_D": 1670
       },
@@ -42998,6 +43497,7 @@
     },
     "N21000500": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Omagh_E": 2335
       },
@@ -43084,6 +43584,7 @@
     },
     "N21000501": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Omagh_F": 1767
       },
@@ -43170,6 +43671,7 @@
     },
     "N21000502": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Omagh_G": 2468
       },
@@ -43256,6 +43758,7 @@
     },
     "N21000503": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Omagh_H": 3048
       },
@@ -43342,6 +43845,7 @@
     },
     "N21000504": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Mid_Tyrone_A": 2963
       },
@@ -43428,6 +43932,7 @@
     },
     "N21000505": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Mid_Tyrone_B": 2878
       },
@@ -43514,6 +44019,7 @@
     },
     "N21000506": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Mid_Tyrone_C": 1978
       },
@@ -43600,6 +44106,7 @@
     },
     "N21000507": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Mid_Tyrone_D": 2761
       },
@@ -43686,6 +44193,7 @@
     },
     "N21000508": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Mid_Tyrone_E": 3076
       },
@@ -43772,6 +44280,7 @@
     },
     "N21000509": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Mid_Tyrone_F": 1814
       },
@@ -43858,6 +44367,7 @@
     },
     "N21000510": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000006",
       "Census 2021 Super Data Zone Label": {
         "Mid_Tyrone_G": 2120
       },
@@ -43944,6 +44454,7 @@
     },
     "N21000511": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Downshire_West_A": 2657
       },
@@ -44030,6 +44541,7 @@
     },
     "N21000512": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Downshire_West_B": 2800
       },
@@ -44116,6 +44628,7 @@
     },
     "N21000513": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Downshire_West_C": 2659
       },
@@ -44202,6 +44715,7 @@
     },
     "N21000514": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Downshire_West_D": 2232
       },
@@ -44288,6 +44802,7 @@
     },
     "N21000515": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Downshire_West_E": 1793
       },
@@ -44374,6 +44889,7 @@
     },
     "N21000516": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Downshire_West_F": 1716
       },
@@ -44460,6 +44976,7 @@
     },
     "N21000517": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Downshire_West_G": 3336
       },
@@ -44546,6 +45063,7 @@
     },
     "N21000518": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Killultagh_A": 2441
       },
@@ -44632,6 +45150,7 @@
     },
     "N21000519": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Killultagh_B": 2727
       },
@@ -44718,6 +45237,7 @@
     },
     "N21000520": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Killultagh_C": 3213
       },
@@ -44804,6 +45324,7 @@
     },
     "N21000521": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Killultagh_D": 2271
       },
@@ -44890,6 +45411,7 @@
     },
     "N21000522": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Killultagh_E": 3244
       },
@@ -44976,6 +45498,7 @@
     },
     "N21000523": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Killultagh_F": 2251
       },
@@ -45062,6 +45585,7 @@
     },
     "N21000524": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Killultagh_G": 2735
       },
@@ -45148,6 +45672,7 @@
     },
     "N21000525": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Killultagh_H": 3135
       },
@@ -45234,6 +45759,7 @@
     },
     "N21000526": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Lisburn_South_A": 1423
       },
@@ -45320,6 +45846,7 @@
     },
     "N21000527": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Lisburn_South_B": 2459
       },
@@ -45406,6 +45933,7 @@
     },
     "N21000528": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Lisburn_South_C": 2835
       },
@@ -45492,6 +46020,7 @@
     },
     "N21000529": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Lisburn_South_D": 2081
       },
@@ -45578,6 +46107,7 @@
     },
     "N21000530": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Lisburn_South_E": 3610
       },
@@ -45664,6 +46194,7 @@
     },
     "N21000531": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Lisburn_South_F": 1382
       },
@@ -45750,6 +46281,7 @@
     },
     "N21000532": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Lisburn_South_G": 2910
       },
@@ -45836,6 +46368,7 @@
     },
     "N21000533": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Lisburn_South_H": 2627
       },
@@ -45922,6 +46455,7 @@
     },
     "N21000534": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Lisburn_South_J": 2355
       },
@@ -46008,6 +46542,7 @@
     },
     "N21000535": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Lisburn_South_K": 2636
       },
@@ -46094,6 +46629,7 @@
     },
     "N21000536": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Lisburn_North_A": 1389
       },
@@ -46180,6 +46716,7 @@
     },
     "N21000537": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Lisburn_North_B": 1633
       },
@@ -46266,6 +46803,7 @@
     },
     "N21000538": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Lisburn_North_C": 2910
       },
@@ -46352,6 +46890,7 @@
     },
     "N21000539": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Lisburn_North_D": 2122
       },
@@ -46438,6 +46977,7 @@
     },
     "N21000540": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Lisburn_North_E": 2012
       },
@@ -46524,6 +47064,7 @@
     },
     "N21000541": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Lisburn_North_F": 3036
       },
@@ -46610,6 +47151,7 @@
     },
     "N21000542": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Lisburn_North_G": 3716
       },
@@ -46696,6 +47238,7 @@
     },
     "N21000543": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Lisburn_North_H": 2180
       },
@@ -46782,6 +47325,7 @@
     },
     "N21000544": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Lisburn_North_J": 2226
       },
@@ -46868,6 +47412,7 @@
     },
     "N21000545": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Lisburn_North_K": 2224
       },
@@ -46954,6 +47499,7 @@
     },
     "N21000546": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Downshire_East_A": 3264
       },
@@ -47040,6 +47586,7 @@
     },
     "N21000547": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Downshire_East_B": 1729
       },
@@ -47126,6 +47673,7 @@
     },
     "N21000548": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Downshire_East_C": 1830
       },
@@ -47212,6 +47760,7 @@
     },
     "N21000549": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Downshire_East_D": 2371
       },
@@ -47298,6 +47847,7 @@
     },
     "N21000550": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Downshire_East_E": 3338
       },
@@ -47384,6 +47934,7 @@
     },
     "N21000551": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Downshire_East_F": 2168
       },
@@ -47470,6 +48021,7 @@
     },
     "N21000552": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Downshire_East_G": 2047
       },
@@ -47556,6 +48108,7 @@
     },
     "N21000553": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Castlereagh_South_A": 2660
       },
@@ -47642,6 +48195,7 @@
     },
     "N21000554": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Castlereagh_South_B": 3114
       },
@@ -47728,6 +48282,7 @@
     },
     "N21000555": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Castlereagh_South_C": 2121
       },
@@ -47814,6 +48369,7 @@
     },
     "N21000556": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Castlereagh_South_D": 2828
       },
@@ -47900,6 +48456,7 @@
     },
     "N21000557": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Castlereagh_South_E": 3619
       },
@@ -47986,6 +48543,7 @@
     },
     "N21000558": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Castlereagh_South_F": 1572
       },
@@ -48072,6 +48630,7 @@
     },
     "N21000559": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Castlereagh_South_G": 2188
       },
@@ -48158,6 +48717,7 @@
     },
     "N21000560": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Castlereagh_South_H": 2330
       },
@@ -48244,6 +48804,7 @@
     },
     "N21000561": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Castlereagh_South_J": 3057
       },
@@ -48330,6 +48891,7 @@
     },
     "N21000562": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Castlereagh_East_A": 2519
       },
@@ -48416,6 +48978,7 @@
     },
     "N21000563": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Castlereagh_East_B": 2478
       },
@@ -48502,6 +49065,7 @@
     },
     "N21000564": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Castlereagh_East_C": 2375
       },
@@ -48588,6 +49152,7 @@
     },
     "N21000565": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Castlereagh_East_D": 1929
       },
@@ -48674,6 +49239,7 @@
     },
     "N21000566": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Castlereagh_East_E": 1954
       },
@@ -48760,6 +49326,7 @@
     },
     "N21000567": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Castlereagh_East_F": 2204
       },
@@ -48846,6 +49413,7 @@
     },
     "N21000568": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Castlereagh_East_G": 2223
       },
@@ -48932,6 +49500,7 @@
     },
     "N21000569": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Castlereagh_East_H": 2462
       },
@@ -49018,6 +49587,7 @@
     },
     "N21000570": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Castlereagh_East_J": 2161
       },
@@ -49104,6 +49674,7 @@
     },
     "N21000571": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000007",
       "Census 2021 Super Data Zone Label": {
         "Castlereagh_East_K": 1594
       },
@@ -49190,6 +49761,7 @@
     },
     "N21000572": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Bannside_A": 2293
       },
@@ -49276,6 +49848,7 @@
     },
     "N21000573": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Bannside_B": 2659
       },
@@ -49362,6 +49935,7 @@
     },
     "N21000574": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Bannside_C": 2223
       },
@@ -49448,6 +50022,7 @@
     },
     "N21000575": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Bannside_D": 1370
       },
@@ -49534,6 +50109,7 @@
     },
     "N21000576": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Bannside_E": 2853
       },
@@ -49620,6 +50196,7 @@
     },
     "N21000577": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Bannside_F": 1879
       },
@@ -49706,6 +50283,7 @@
     },
     "N21000578": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Bannside_G": 1658
       },
@@ -49792,6 +50370,7 @@
     },
     "N21000579": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Bannside_H": 2352
       },
@@ -49878,6 +50457,7 @@
     },
     "N21000580": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Bannside_J": 2555
       },
@@ -49964,6 +50544,7 @@
     },
     "N21000581": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Ballymena_A": 1923
       },
@@ -50050,6 +50631,7 @@
     },
     "N21000582": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Ballymena_B": 2918
       },
@@ -50136,6 +50718,7 @@
     },
     "N21000583": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Ballymena_C": 2486
       },
@@ -50222,6 +50805,7 @@
     },
     "N21000584": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Ballymena_D": 2711
       },
@@ -50308,6 +50892,7 @@
     },
     "N21000585": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Ballymena_E": 2607
       },
@@ -50394,6 +50979,7 @@
     },
     "N21000586": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Ballymena_F": 2707
       },
@@ -50480,6 +51066,7 @@
     },
     "N21000587": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Ballymena_G": 2621
       },
@@ -50566,6 +51153,7 @@
     },
     "N21000588": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Ballymena_H": 2229
       },
@@ -50652,6 +51240,7 @@
     },
     "N21000589": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Ballymena_J": 1171
       },
@@ -50738,6 +51327,7 @@
     },
     "N21000590": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Ballymena_K": 2918
       },
@@ -50824,6 +51414,7 @@
     },
     "N21000591": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Braid_A": 2910
       },
@@ -50910,6 +51501,7 @@
     },
     "N21000592": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Braid_B": 2126
       },
@@ -50996,6 +51588,7 @@
     },
     "N21000593": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Braid_C": 3466
       },
@@ -51082,6 +51675,7 @@
     },
     "N21000594": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Braid_D": 1372
       },
@@ -51168,6 +51762,7 @@
     },
     "N21000595": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Braid_E": 1725
       },
@@ -51254,6 +51849,7 @@
     },
     "N21000596": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Braid_F": 3179
       },
@@ -51340,6 +51936,7 @@
     },
     "N21000597": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Braid_G": 2381
       },
@@ -51426,6 +52023,7 @@
     },
     "N21000598": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Braid_H": 3426
       },
@@ -51512,6 +52110,7 @@
     },
     "N21000599": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Braid_J": 1119
       },
@@ -51598,6 +52197,7 @@
     },
     "N21000600": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Braid_K": 2120
       },
@@ -51684,6 +52284,7 @@
     },
     "N21000601": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Coast_Road_A": 1475
       },
@@ -51770,6 +52371,7 @@
     },
     "N21000602": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Coast_Road_B": 1245
       },
@@ -51856,6 +52458,7 @@
     },
     "N21000603": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Coast_Road_C": 1890
       },
@@ -51942,6 +52545,7 @@
     },
     "N21000604": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Coast_Road_D": 2146
       },
@@ -52028,6 +52632,7 @@
     },
     "N21000605": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Coast_Road_E": 2010
       },
@@ -52114,6 +52719,7 @@
     },
     "N21000606": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Coast_Road_F": 2404
       },
@@ -52200,6 +52806,7 @@
     },
     "N21000607": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Coast_Road_G": 1971
       },
@@ -52286,6 +52893,7 @@
     },
     "N21000608": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Coast_Road_H": 2074
       },
@@ -52372,6 +52980,7 @@
     },
     "N21000609": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Coast_Road_J": 1790
       },
@@ -52458,6 +53067,7 @@
     },
     "N21000610": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Larne_Lough_A": 1227
       },
@@ -52544,6 +53154,7 @@
     },
     "N21000611": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Larne_Lough_B": 2183
       },
@@ -52630,6 +53241,7 @@
     },
     "N21000612": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Larne_Lough_C": 3048
       },
@@ -52716,6 +53328,7 @@
     },
     "N21000613": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Larne_Lough_D": 2300
       },
@@ -52802,6 +53415,7 @@
     },
     "N21000614": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Larne_Lough_E": 2065
       },
@@ -52888,6 +53502,7 @@
     },
     "N21000615": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Larne_Lough_F": 2477
       },
@@ -52974,6 +53589,7 @@
     },
     "N21000616": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Larne_Lough_G": 1488
       },
@@ -53060,6 +53676,7 @@
     },
     "N21000617": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Larne_Lough_H": 1365
       },
@@ -53146,6 +53763,7 @@
     },
     "N21000618": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Larne_Lough_J": 2172
       },
@@ -53232,6 +53850,7 @@
     },
     "N21000619": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Carrick_Castle_A": 2439
       },
@@ -53318,6 +53937,7 @@
     },
     "N21000620": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Carrick_Castle_B": 1902
       },
@@ -53404,6 +54024,7 @@
     },
     "N21000621": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Carrick_Castle_C": 2692
       },
@@ -53490,6 +54111,7 @@
     },
     "N21000622": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Carrick_Castle_D": 2196
       },
@@ -53576,6 +54198,7 @@
     },
     "N21000623": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Carrick_Castle_E": 2383
       },
@@ -53662,6 +54285,7 @@
     },
     "N21000624": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Carrick_Castle_F": 2067
       },
@@ -53748,6 +54372,7 @@
     },
     "N21000625": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Carrick_Castle_G": 1793
       },
@@ -53834,6 +54459,7 @@
     },
     "N21000626": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Carrick_Castle_H": 1337
       },
@@ -53920,6 +54546,7 @@
     },
     "N21000627": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Carrick_Castle_J": 1621
       },
@@ -54006,6 +54633,7 @@
     },
     "N21000628": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Knockagh_A": 1556
       },
@@ -54092,6 +54720,7 @@
     },
     "N21000629": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Knockagh_B": 1717
       },
@@ -54178,6 +54807,7 @@
     },
     "N21000630": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Knockagh_C": 2294
       },
@@ -54264,6 +54894,7 @@
     },
     "N21000631": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Knockagh_D": 1450
       },
@@ -54350,6 +54981,7 @@
     },
     "N21000632": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Knockagh_E": 1547
       },
@@ -54436,6 +55068,7 @@
     },
     "N21000633": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Knockagh_F": 2704
       },
@@ -54522,6 +55155,7 @@
     },
     "N21000634": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Knockagh_G": 2317
       },
@@ -54608,6 +55242,7 @@
     },
     "N21000635": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Knockagh_H": 2000
       },
@@ -54694,6 +55329,7 @@
     },
     "N21000636": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000008",
       "Census 2021 Super Data Zone Label": {
         "Knockagh_J": 1688
       },
@@ -54780,6 +55416,7 @@
     },
     "N21000637": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Carntogher_A": 3022
       },
@@ -54866,6 +55503,7 @@
     },
     "N21000638": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Carntogher_B": 2808
       },
@@ -54952,6 +55590,7 @@
     },
     "N21000639": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Carntogher_C": 3382
       },
@@ -55038,6 +55677,7 @@
     },
     "N21000640": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Carntogher_D": 3721
       },
@@ -55124,6 +55764,7 @@
     },
     "N21000641": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Carntogher_E": 2339
       },
@@ -55210,6 +55851,7 @@
     },
     "N21000642": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Carntogher_F": 1896
       },
@@ -55296,6 +55938,7 @@
     },
     "N21000643": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Moyola_A": 1934
       },
@@ -55382,6 +56025,7 @@
     },
     "N21000644": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Moyola_B": 1602
       },
@@ -55468,6 +56112,7 @@
     },
     "N21000645": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Moyola_C": 3018
       },
@@ -55554,6 +56199,7 @@
     },
     "N21000646": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Moyola_D": 1872
       },
@@ -55640,6 +56286,7 @@
     },
     "N21000647": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Moyola_E": 2921
       },
@@ -55726,6 +56373,7 @@
     },
     "N21000648": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Moyola_F": 2345
       },
@@ -55812,6 +56460,7 @@
     },
     "N21000649": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Moyola_G": 2497
       },
@@ -55898,6 +56547,7 @@
     },
     "N21000650": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Moyola_H": 2398
       },
@@ -55984,6 +56634,7 @@
     },
     "N21000651": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Magherafelt_A": 2896
       },
@@ -56070,6 +56721,7 @@
     },
     "N21000652": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Magherafelt_B": 2859
       },
@@ -56156,6 +56808,7 @@
     },
     "N21000653": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Magherafelt_C": 3316
       },
@@ -56242,6 +56895,7 @@
     },
     "N21000654": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Magherafelt_D": 3331
       },
@@ -56328,6 +56982,7 @@
     },
     "N21000655": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Magherafelt_E": 2409
       },
@@ -56414,6 +57069,7 @@
     },
     "N21000656": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Magherafelt_F": 2141
       },
@@ -56500,6 +57156,7 @@
     },
     "N21000657": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Magherafelt_G": 2314
       },
@@ -56586,6 +57243,7 @@
     },
     "N21000658": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Cookstown_A": 3163
       },
@@ -56672,6 +57330,7 @@
     },
     "N21000659": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Cookstown_B": 2914
       },
@@ -56758,6 +57417,7 @@
     },
     "N21000660": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Cookstown_C": 2536
       },
@@ -56844,6 +57504,7 @@
     },
     "N21000661": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Cookstown_D": 2736
       },
@@ -56930,6 +57591,7 @@
     },
     "N21000662": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Cookstown_E": 2359
       },
@@ -57016,6 +57678,7 @@
     },
     "N21000663": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Cookstown_F": 2260
       },
@@ -57102,6 +57765,7 @@
     },
     "N21000664": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Cookstown_G": 1988
       },
@@ -57188,6 +57852,7 @@
     },
     "N21000665": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Cookstown_H": 2100
       },
@@ -57274,6 +57939,7 @@
     },
     "N21000666": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Cookstown_J": 2863
       },
@@ -57360,6 +58026,7 @@
     },
     "N21000667": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Cookstown_K": 1698
       },
@@ -57446,6 +58113,7 @@
     },
     "N21000668": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Torrent_A": 2873
       },
@@ -57532,6 +58200,7 @@
     },
     "N21000669": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Torrent_B": 2949
       },
@@ -57618,6 +58287,7 @@
     },
     "N21000670": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Torrent_C": 2335
       },
@@ -57704,6 +58374,7 @@
     },
     "N21000671": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Torrent_D": 3812
       },
@@ -57790,6 +58461,7 @@
     },
     "N21000672": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Torrent_E": 2322
       },
@@ -57876,6 +58548,7 @@
     },
     "N21000673": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Torrent_F": 3692
       },
@@ -57962,6 +58635,7 @@
     },
     "N21000674": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Torrent_G": 2229
       },
@@ -58048,6 +58722,7 @@
     },
     "N21000675": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Torrent_H": 2809
       },
@@ -58134,6 +58809,7 @@
     },
     "N21000676": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Dungannon_A": 3376
       },
@@ -58220,6 +58896,7 @@
     },
     "N21000677": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Dungannon_B": 2409
       },
@@ -58306,6 +58983,7 @@
     },
     "N21000678": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Dungannon_C": 1245
       },
@@ -58392,6 +59070,7 @@
     },
     "N21000679": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Dungannon_D": 2896
       },
@@ -58478,6 +59157,7 @@
     },
     "N21000680": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Dungannon_E": 2677
       },
@@ -58564,6 +59244,7 @@
     },
     "N21000681": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Dungannon_F": 3748
       },
@@ -58650,6 +59331,7 @@
     },
     "N21000682": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Dungannon_G": 2772
       },
@@ -58736,6 +59418,7 @@
     },
     "N21000683": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Dungannon_H": 2828
       },
@@ -58822,6 +59505,7 @@
     },
     "N21000684": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Dungannon_J": 1941
       },
@@ -58908,6 +59592,7 @@
     },
     "N21000685": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Dungannon_K": 1749
       },
@@ -58994,6 +59679,7 @@
     },
     "N21000686": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Clogher_Valley_A": 2927
       },
@@ -59080,6 +59766,7 @@
     },
     "N21000687": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Clogher_Valley_B": 3633
       },
@@ -59166,6 +59853,7 @@
     },
     "N21000688": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Clogher_Valley_C": 1708
       },
@@ -59252,6 +59940,7 @@
     },
     "N21000689": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Clogher_Valley_D": 3083
       },
@@ -59338,6 +60027,7 @@
     },
     "N21000690": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Clogher_Valley_E": 4077
       },
@@ -59424,6 +60114,7 @@
     },
     "N21000691": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Clogher_Valley_F": 3077
       },
@@ -59510,6 +60201,7 @@
     },
     "N21000692": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Clogher_Valley_G": 2139
       },
@@ -59596,6 +60288,7 @@
     },
     "N21000693": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000009",
       "Census 2021 Super Data Zone Label": {
         "Clogher_Valley_H": 1353
       },
@@ -59682,6 +60375,7 @@
     },
     "N21000694": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Slieve_Gullion_A": 2645
       },
@@ -59768,6 +60462,7 @@
     },
     "N21000695": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Slieve_Gullion_B": 2084
       },
@@ -59854,6 +60549,7 @@
     },
     "N21000696": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Slieve_Gullion_C": 2873
       },
@@ -59940,6 +60636,7 @@
     },
     "N21000697": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Slieve_Gullion_D": 2396
       },
@@ -60026,6 +60723,7 @@
     },
     "N21000698": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Slieve_Gullion_E": 2772
       },
@@ -60112,6 +60810,7 @@
     },
     "N21000699": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Slieve_Gullion_F": 3550
       },
@@ -60198,6 +60897,7 @@
     },
     "N21000700": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Slieve_Gullion_G": 2761
       },
@@ -60284,6 +60984,7 @@
     },
     "N21000701": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Slieve_Gullion_H": 3059
       },
@@ -60370,6 +61071,7 @@
     },
     "N21000702": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Slieve_Gullion_J": 1944
       },
@@ -60456,6 +61158,7 @@
     },
     "N21000703": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Slieve_Gullion_K": 2723
       },
@@ -60542,6 +61245,7 @@
     },
     "N21000704": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Slieve_Gullion_L": 2365
       },
@@ -60628,6 +61332,7 @@
     },
     "N21000705": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Slieve_Gullion_N": 1573
       },
@@ -60714,6 +61419,7 @@
     },
     "N21000706": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Newry_A": 2784
       },
@@ -60800,6 +61506,7 @@
     },
     "N21000707": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Newry_B": 2193
       },
@@ -60886,6 +61593,7 @@
     },
     "N21000708": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Newry_C": 1585
       },
@@ -60972,6 +61680,7 @@
     },
     "N21000709": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Newry_D": 2223
       },
@@ -61058,6 +61767,7 @@
     },
     "N21000710": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Newry_E": 2164
       },
@@ -61144,6 +61854,7 @@
     },
     "N21000711": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Newry_F": 2218
       },
@@ -61230,6 +61941,7 @@
     },
     "N21000712": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Newry_G": 2005
       },
@@ -61316,6 +62028,7 @@
     },
     "N21000713": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Newry_H": 1600
       },
@@ -61402,6 +62115,7 @@
     },
     "N21000714": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Newry_J": 1840
       },
@@ -61488,6 +62202,7 @@
     },
     "N21000715": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Newry_K": 2250
       },
@@ -61574,6 +62289,7 @@
     },
     "N21000716": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Newry_L": 2674
       },
@@ -61660,6 +62376,7 @@
     },
     "N21000717": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Newry_N": 2403
       },
@@ -61746,6 +62463,7 @@
     },
     "N21000718": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Newry_P": 1977
       },
@@ -61832,6 +62550,7 @@
     },
     "N21000719": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Crotlieve_A": 2944
       },
@@ -61918,6 +62637,7 @@
     },
     "N21000720": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Crotlieve_B": 2785
       },
@@ -62004,6 +62724,7 @@
     },
     "N21000721": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Crotlieve_C": 3032
       },
@@ -62090,6 +62811,7 @@
     },
     "N21000722": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Crotlieve_D": 1719
       },
@@ -62176,6 +62898,7 @@
     },
     "N21000723": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Crotlieve_E": 2263
       },
@@ -62262,6 +62985,7 @@
     },
     "N21000724": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Crotlieve_F": 2490
       },
@@ -62348,6 +63072,7 @@
     },
     "N21000725": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Crotlieve_G": 3220
       },
@@ -62434,6 +63159,7 @@
     },
     "N21000726": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Crotlieve_H": 3118
       },
@@ -62520,6 +63246,7 @@
     },
     "N21000727": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Crotlieve_J": 1788
       },
@@ -62606,6 +63333,7 @@
     },
     "N21000728": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Crotlieve_K": 2805
       },
@@ -62692,6 +63420,7 @@
     },
     "N21000729": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Crotlieve_L": 2502
       },
@@ -62778,6 +63507,7 @@
     },
     "N21000730": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "The_Mournes_A": 2243
       },
@@ -62864,6 +63594,7 @@
     },
     "N21000731": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "The_Mournes_B": 1885
       },
@@ -62950,6 +63681,7 @@
     },
     "N21000732": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "The_Mournes_C": 1598
       },
@@ -63036,6 +63768,7 @@
     },
     "N21000733": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "The_Mournes_D": 2474
       },
@@ -63122,6 +63855,7 @@
     },
     "N21000734": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "The_Mournes_E": 2341
       },
@@ -63208,6 +63942,7 @@
     },
     "N21000735": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "The_Mournes_F": 2339
       },
@@ -63294,6 +64029,7 @@
     },
     "N21000736": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "The_Mournes_G": 3592
       },
@@ -63380,6 +64116,7 @@
     },
     "N21000737": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "The_Mournes_H": 2012
       },
@@ -63466,6 +64203,7 @@
     },
     "N21000738": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "The_Mournes_J": 2098
       },
@@ -63552,6 +64290,7 @@
     },
     "N21000739": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "The_Mournes_K": 2989
       },
@@ -63638,6 +64377,7 @@
     },
     "N21000740": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "The_Mournes_L": 1826
       },
@@ -63724,6 +64464,7 @@
     },
     "N21000741": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "The_Mournes_N": 2153
       },
@@ -63810,6 +64551,7 @@
     },
     "N21000742": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "The_Mournes_P": 2654
       },
@@ -63896,6 +64638,7 @@
     },
     "N21000743": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Slieve_Croob_A": 2646
       },
@@ -63982,6 +64725,7 @@
     },
     "N21000744": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Slieve_Croob_B": 1344
       },
@@ -64068,6 +64812,7 @@
     },
     "N21000745": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Slieve_Croob_C": 2808
       },
@@ -64154,6 +64899,7 @@
     },
     "N21000746": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Slieve_Croob_D": 3085
       },
@@ -64240,6 +64986,7 @@
     },
     "N21000747": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Slieve_Croob_E": 2609
       },
@@ -64326,6 +65073,7 @@
     },
     "N21000748": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Slieve_Croob_F": 1969
       },
@@ -64412,6 +65160,7 @@
     },
     "N21000749": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Slieve_Croob_G": 2788
       },
@@ -64498,6 +65247,7 @@
     },
     "N21000750": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Slieve_Croob_H": 1539
       },
@@ -64584,6 +65334,7 @@
     },
     "N21000751": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Slieve_Croob_J": 2599
       },
@@ -64670,6 +65421,7 @@
     },
     "N21000752": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Rowallane_A": 1673
       },
@@ -64756,6 +65508,7 @@
     },
     "N21000753": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Rowallane_B": 1915
       },
@@ -64842,6 +65595,7 @@
     },
     "N21000754": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Rowallane_C": 2286
       },
@@ -64928,6 +65682,7 @@
     },
     "N21000755": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Rowallane_D": 2279
       },
@@ -65014,6 +65769,7 @@
     },
     "N21000756": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Rowallane_E": 2766
       },
@@ -65100,6 +65856,7 @@
     },
     "N21000757": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Rowallane_F": 2597
       },
@@ -65186,6 +65943,7 @@
     },
     "N21000758": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Rowallane_G": 2940
       },
@@ -65272,6 +66030,7 @@
     },
     "N21000759": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Rowallane_H": 2787
       },
@@ -65358,6 +66117,7 @@
     },
     "N21000760": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Rowallane_J": 1997
       },
@@ -65444,6 +66204,7 @@
     },
     "N21000761": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Downpatrick_A": 2681
       },
@@ -65530,6 +66291,7 @@
     },
     "N21000762": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Downpatrick_B": 1964
       },
@@ -65616,6 +66378,7 @@
     },
     "N21000763": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Downpatrick_C": 2751
       },
@@ -65702,6 +66465,7 @@
     },
     "N21000764": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Downpatrick_D": 2247
       },
@@ -65788,6 +66552,7 @@
     },
     "N21000765": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Downpatrick_E": 2251
       },
@@ -65874,6 +66639,7 @@
     },
     "N21000766": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Downpatrick_F": 1976
       },
@@ -65960,6 +66726,7 @@
     },
     "N21000767": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Downpatrick_G": 2320
       },
@@ -66046,6 +66813,7 @@
     },
     "N21000768": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Downpatrick_H": 2365
       },
@@ -66132,6 +66900,7 @@
     },
     "N21000769": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Downpatrick_J": 1720
       },
@@ -66218,6 +66987,7 @@
     },
     "N21000770": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000010",
       "Census 2021 Super Data Zone Label": {
         "Downpatrick_K": 1641
       },
@@ -66304,6 +67074,7 @@
     },
     "N21000771": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Comber_A": 2037
       },
@@ -66390,6 +67161,7 @@
     },
     "N21000772": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Comber_B": 2289
       },
@@ -66476,6 +67248,7 @@
     },
     "N21000773": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Comber_C": 2803
       },
@@ -66562,6 +67335,7 @@
     },
     "N21000774": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Comber_D": 2400
       },
@@ -66648,6 +67422,7 @@
     },
     "N21000775": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Comber_E": 1341
       },
@@ -66734,6 +67509,7 @@
     },
     "N21000776": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Comber_F": 3233
       },
@@ -66820,6 +67596,7 @@
     },
     "N21000777": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Comber_G": 3138
       },
@@ -66906,6 +67683,7 @@
     },
     "N21000778": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Comber_H": 2246
       },
@@ -66992,6 +67770,7 @@
     },
     "N21000779": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Newtownards_A": 2318
       },
@@ -67078,6 +67857,7 @@
     },
     "N21000780": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Newtownards_B": 1768
       },
@@ -67164,6 +67944,7 @@
     },
     "N21000781": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Newtownards_C": 1992
       },
@@ -67250,6 +68031,7 @@
     },
     "N21000782": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Newtownards_D": 1961
       },
@@ -67336,6 +68118,7 @@
     },
     "N21000783": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Newtownards_E": 1402
       },
@@ -67422,6 +68205,7 @@
     },
     "N21000784": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Newtownards_F": 1797
       },
@@ -67508,6 +68292,7 @@
     },
     "N21000785": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Newtownards_G": 1992
       },
@@ -67594,6 +68379,7 @@
     },
     "N21000786": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Newtownards_H": 2443
       },
@@ -67680,6 +68466,7 @@
     },
     "N21000787": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Newtownards_J": 1638
       },
@@ -67766,6 +68553,7 @@
     },
     "N21000788": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Newtownards_K": 1349
       },
@@ -67852,6 +68640,7 @@
     },
     "N21000789": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Newtownards_L": 1401
       },
@@ -67938,6 +68727,7 @@
     },
     "N21000790": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Newtownards_N": 2310
       },
@@ -68024,6 +68814,7 @@
     },
     "N21000791": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Newtownards_P": 1612
       },
@@ -68110,6 +68901,7 @@
     },
     "N21000792": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Newtownards_Q": 1764
       },
@@ -68196,6 +68988,7 @@
     },
     "N21000793": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Newtownards_R": 1327
       },
@@ -68282,6 +69075,7 @@
     },
     "N21000794": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Newtownards_S": 2321
       },
@@ -68368,6 +69162,7 @@
     },
     "N21000795": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Holywood_and_Clandeboye_A": 1547
       },
@@ -68454,6 +69249,7 @@
     },
     "N21000796": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Holywood_and_Clandeboye_B": 1104
       },
@@ -68540,6 +69336,7 @@
     },
     "N21000797": {
       "Urban_mixed_rural_status": "Mixed",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Holywood_and_Clandeboye_C": 1316
       },
@@ -68626,6 +69423,7 @@
     },
     "N21000798": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Holywood_and_Clandeboye_D": 1730
       },
@@ -68712,6 +69510,7 @@
     },
     "N21000799": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Holywood_and_Clandeboye_E": 1895
       },
@@ -68798,6 +69597,7 @@
     },
     "N21000800": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Holywood_and_Clandeboye_F": 2201
       },
@@ -68884,6 +69684,7 @@
     },
     "N21000801": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Holywood_and_Clandeboye_G": 1972
       },
@@ -68970,6 +69771,7 @@
     },
     "N21000802": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Holywood_and_Clandeboye_H": 2253
       },
@@ -69056,6 +69858,7 @@
     },
     "N21000803": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Holywood_and_Clandeboye_J": 1912
       },
@@ -69142,6 +69945,7 @@
     },
     "N21000804": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Holywood_and_Clandeboye_K": 2199
       },
@@ -69228,6 +70032,7 @@
     },
     "N21000805": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Holywood_and_Clandeboye_L": 2680
       },
@@ -69314,6 +70119,7 @@
     },
     "N21000806": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_West_A": 3110
       },
@@ -69400,6 +70206,7 @@
     },
     "N21000807": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_West_B": 1235
       },
@@ -69486,6 +70293,7 @@
     },
     "N21000808": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_West_C": 1822
       },
@@ -69572,6 +70380,7 @@
     },
     "N21000809": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_West_D": 2011
       },
@@ -69658,6 +70467,7 @@
     },
     "N21000810": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_West_E": 2123
       },
@@ -69744,6 +70554,7 @@
     },
     "N21000811": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_West_F": 2118
       },
@@ -69830,6 +70641,7 @@
     },
     "N21000812": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_West_G": 2166
       },
@@ -69916,6 +70728,7 @@
     },
     "N21000813": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_West_H": 2632
       },
@@ -70002,6 +70815,7 @@
     },
     "N21000814": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_West_J": 2300
       },
@@ -70088,6 +70902,7 @@
     },
     "N21000815": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_Central_A": 1580
       },
@@ -70174,6 +70989,7 @@
     },
     "N21000816": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_Central_B": 2266
       },
@@ -70260,6 +71076,7 @@
     },
     "N21000817": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_Central_C": 1754
       },
@@ -70346,6 +71163,7 @@
     },
     "N21000818": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_Central_D": 1476
       },
@@ -70432,6 +71250,7 @@
     },
     "N21000819": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_Central_E": 2126
       },
@@ -70518,6 +71337,7 @@
     },
     "N21000820": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_Central_F": 1333
       },
@@ -70604,6 +71424,7 @@
     },
     "N21000821": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_Central_G": 1647
       },
@@ -70690,6 +71511,7 @@
     },
     "N21000822": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_Central_H": 1396
       },
@@ -70776,6 +71598,7 @@
     },
     "N21000823": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_Central_J": 2275
       },
@@ -70862,6 +71685,7 @@
     },
     "N21000824": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_Central_K": 2062
       },
@@ -70948,6 +71772,7 @@
     },
     "N21000825": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_Central_L": 2125
       },
@@ -71034,6 +71859,7 @@
     },
     "N21000826": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_Central_N": 1645
       },
@@ -71120,6 +71946,7 @@
     },
     "N21000827": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_Central_P": 2359
       },
@@ -71206,6 +72033,7 @@
     },
     "N21000828": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_Central_Q": 2591
       },
@@ -71292,6 +72120,7 @@
     },
     "N21000829": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_East_and_Donaghadee_A": 1220
       },
@@ -71378,6 +72207,7 @@
     },
     "N21000830": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_East_and_Donaghadee_B": 2707
       },
@@ -71464,6 +72294,7 @@
     },
     "N21000831": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_East_and_Donaghadee_C": 1962
       },
@@ -71550,6 +72381,7 @@
     },
     "N21000832": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_East_and_Donaghadee_D": 1178
       },
@@ -71636,6 +72468,7 @@
     },
     "N21000833": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_East_and_Donaghadee_E": 1490
       },
@@ -71722,6 +72555,7 @@
     },
     "N21000834": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_East_and_Donaghadee_F": 2409
       },
@@ -71808,6 +72642,7 @@
     },
     "N21000835": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_East_and_Donaghadee_G": 3202
       },
@@ -71894,6 +72729,7 @@
     },
     "N21000836": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_East_and_Donaghadee_H": 3319
       },
@@ -71980,6 +72816,7 @@
     },
     "N21000837": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_East_and_Donaghadee_J": 2401
       },
@@ -72066,6 +72903,7 @@
     },
     "N21000838": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Bangor_East_and_Donaghadee_K": 2962
       },
@@ -72152,6 +72990,7 @@
     },
     "N21000839": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Ards_Peninsula_A": 2549
       },
@@ -72238,6 +73077,7 @@
     },
     "N21000840": {
       "Urban_mixed_rural_status": "Urban",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Ards_Peninsula_B": 1407
       },
@@ -72324,6 +73164,7 @@
     },
     "N21000841": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Ards_Peninsula_C": 2398
       },
@@ -72410,6 +73251,7 @@
     },
     "N21000842": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Ards_Peninsula_D": 2982
       },
@@ -72496,6 +73338,7 @@
     },
     "N21000843": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Ards_Peninsula_E": 2008
       },
@@ -72582,6 +73425,7 @@
     },
     "N21000844": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Ards_Peninsula_F": 1922
       },
@@ -72668,6 +73512,7 @@
     },
     "N21000845": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Ards_Peninsula_G": 1411
       },
@@ -72754,6 +73599,7 @@
     },
     "N21000846": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Ards_Peninsula_H": 1948
       },
@@ -72840,6 +73686,7 @@
     },
     "N21000847": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Ards_Peninsula_J": 2280
       },
@@ -72926,6 +73773,7 @@
     },
     "N21000848": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Ards_Peninsula_K": 1360
       },
@@ -73012,6 +73860,7 @@
     },
     "N21000849": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Ards_Peninsula_L": 2327
       },
@@ -73098,6 +73947,7 @@
     },
     "N21000850": {
       "Urban_mixed_rural_status": "Rural",
+      "LGD": "N09000011",
       "Census 2021 Super Data Zone Label": {
         "Ards_Peninsula_N": 2372
       },
