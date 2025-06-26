@@ -68,6 +68,11 @@
             </div>
             <div class="button-wrapper">
               <button id="toggle-fill">Toggle Fill</button>
+              <button id="urban-rural-btn">Urban-Rural Comparison</button>
+            <select id="zone-selector">
+              <option value="dz" selected>Data Zone</option>
+              <option value="sdz">Super Data Zone</option>
+            </select>
               <button id="clear-selection-btn">Clear Selections</button>
             </div>
             <div id="breakdown-container"></div>
@@ -119,7 +124,9 @@
             
             <br>
             <div id="tables-container"></div>
+            <div id="urban-rural-comparison"></div>
             <br>
+            <div id="charts-container" class="chart-grid" style="margin-top: 30px;"></div>
             <h3> Source</h3>
             <p style="margin-bottom: 10px;">Data originally collected and presented in:<br> <a class = "source_name" id="sourceId" target="_blank"></a></p>
             <p> Data presented here has been extracted from the NISRA Data Portal:<br> <a class="dataportal_name" id="portalId" target="_blank"></a></p>
@@ -200,22 +207,53 @@
           maxBounds: [[-9.20, 53.58], [-4.53, 55.72]]
         });
 
-        const selectedIds = new Set();
-        let sdzData = {};
-        const popup = new maplibregl.Popup({ closeButton: false, closeOnClick: false });
-        const selectedLGDs = new Set();
+      // Event listener for choosing SDZ or DZ
+      document.getElementById('zone-selector').addEventListener('change', function (e) {
+        const selected = e.target.value;
 
+        if (selected === 'sdz') {
+          activeZone = 'sdz';
+          map.setLayoutProperty('sdz-fill', 'visibility', 'visible');
+          map.setLayoutProperty('dz-fill', 'visibility', 'none');
+          map.setLayoutProperty('sdz-outline-default', 'visibility', 'visible');
+          map.setLayoutProperty('dz-outline-default', 'visibility', 'none');
+          map.setLayoutProperty('sdz-outline-hover', 'visibility', 'visible');
+          map.setLayoutProperty('dz-outline-hover', 'visibility', 'none');
+        } else if (selected === 'dz') {
+          activeZone = 'dz';
+          map.setLayoutProperty('sdz-fill', 'visibility', 'none');
+          map.setLayoutProperty('dz-fill', 'visibility', 'visible');
+          map.setLayoutProperty('sdz-outline-default', 'visibility', 'none');
+          map.setLayoutProperty('dz-outline-default', 'visibility', 'visible');
+          map.setLayoutProperty('sdz-outline-hover', 'visibility', 'none');
+          map.setLayoutProperty('dz-outline-hover', 'visibility', 'visible');
+        }
+
+        setupZoneEvents(); // rebind interactivity to the correct fill layer
+
+      });
+
+      const selectedIds = new Set();
+      let sdzData = {};
+      let dzData = {};
+      let niTotals = {};
+      const popup = new maplibregl.Popup({ closeButton: false, closeOnClick: false });
+      const selectedLGDs = new Set();
+        
       fetch('./data.json')
         .then(response => response.json())
         .then(data => {
           sdzData = data["Super Data Zone"] || {};
+          dzData = data["Data Zone"] || {};
+          niTotals = data["NI Total"] || {};
 
           map.on('idle', () => {
-            const features = map.querySourceFeatures('sdz2021', {
+            // --- Super Data Zone ---
+            const sdzFeatures = map.querySourceFeatures('sdz2021', {
               sourceLayer: 'SDZ2021_clipped'
             });
 
-            features.forEach(feature => {
+            sdzFeatures.forEach(feature => {
               const sdzCode = feature.properties.sdz_code;
               const status = sdzData[sdzCode]?.Urban_mixed_rural_status;
 
@@ -230,27 +268,67 @@
                 );
               }
             });
+
+            // --- Data Zone ---
+            const dzFeatures = map.querySourceFeatures('dz2021', {
+              sourceLayer: 'DZ2021_clipped'
+            });
+
+            dzFeatures.forEach(feature => {
+              const dzCode = feature.properties.dz_code;
+              const status = dzData[dzCode]?.Urban_mixed_rural_status;
+
+              if (status) {
+                map.setFeatureState(
+                  {
+                    source: 'dz2021',
+                    sourceLayer: 'DZ2021_clipped',
+                    id: feature.id
+                  },
+                  { status: status }
+                );
+              }
+            });
           });
         });
         
-        // Function that toggles urban/rural fill
+        // Function that toggles urban/rural fill based on zone selection
         let fillVisible = true;
 
         const toggleButton = document.getElementById('toggle-fill');
+        const zoneSelector = document.getElementById('zone-selector');
 
-        toggleButton.addEventListener('click', () => {
-        fillVisible = !fillVisible;
-        map.setLayoutProperty('sdz-fill', 'visibility', fillVisible ? 'visible' : 'none');
-        toggleButton.textContent = fillVisible ? 'Hide Urban/Rural' : 'Show Urban/Rural';
-        });
+toggleButton.addEventListener('click', () => {
+  fillVisible = !fillVisible;
+  const selectedZone = zoneSelector.value;
+  const layerId = selectedZone === 'dz' ? 'dz-fill' : 'sdz-fill';
 
-        map.on('load', () => {
-          map.addSource('sdz2021', {
+  map.setPaintProperty(layerId, 'fill-opacity', [
+    'case',
+    ['boolean', ['feature-state', 'hovered'], false], 0.4,
+    fillVisible ? 0.4 : 0
+  ]);
+
+  toggleButton.textContent = fillVisible ? 'Hide Urban/Rural' : 'Show Urban/Rural';
+});
+
+
+      map.on('load', () => {
+
+        map.addSource('sdz2021', {
             type: 'vector',
             tiles: [
               'https://raw.githubusercontent.com/nisra-explore/map_tiles/main/sdz_2021/{z}/{x}/{y}.pbf'
             ],
             promoteId: { 'SDZ2021_clipped': 'sdz_code' }
+          });
+
+         map.addSource('dz2021', {
+            type: 'vector',
+            tiles: [
+              'https://raw.githubusercontent.com/nisra-explore/map_tiles/main/dz_2021/{z}/{x}/{y}.pbf'
+            ],
+            promoteId: { 'DZ2021_clipped': 'dz_code' }
           });
 
           map.addLayer({
@@ -263,8 +341,31 @@
             },
             paint: {
               'fill-color': [
+  'case',
+  ['boolean', ['feature-state', 'hovered'], false], '#04863e', // dark green on click
+  ['match', ['feature-state', 'status'],
+    'Rural', '#cccccc',
+    'Urban', '#b04d96',
+    'Mixed', '#4d96b0',
+    '#ffffff' // fallback
+  ]
+],
+              'fill-opacity': 0.4
+           }
+          });
+
+         map.addLayer({
+            id: 'dz-fill',
+            type: 'fill',
+            source: 'dz2021',
+            'source-layer': 'DZ2021_clipped',            
+            layout: {
+              visibility: 'visible'
+            },
+            paint: {
+              'fill-color': [
                 'case',
-                ['boolean', ['feature-state', 'hovered'], false], '#04863e', // Highlight color on click
+                ['boolean', ['feature-state', 'hovered'], false], '#04863e', // dark green on click
                 ['match', ['feature-state', 'status'],
                   'Rural', '#cccccc',
                   'Urban', '#b04d96',
@@ -288,10 +389,36 @@
           });
 
           map.addLayer({
+            id: 'dz-outline-default',
+            type: 'line',
+            source: 'dz2021',
+            'source-layer': 'DZ2021_clipped',
+            paint: {
+              'line-color': '#666666',
+              'line-width': 1
+            }
+          });
+
+          map.addLayer({
             id: 'sdz-outline-hover',
             type: 'line',
             source: 'sdz2021',
             'source-layer': 'SDZ2021_clipped',
+            paint: {
+              'line-color': [
+                'case',
+                ['boolean', ['feature-state', 'hovered'], false], '#000000',
+                'rgba(0,0,0,0)'
+              ],
+              'line-width': 2
+            }
+          });
+
+         map.addLayer({
+            id: 'dz-outline-hover',
+            type: 'line',
+            source: 'dz2021',
+            'source-layer': 'DZ2021_clipped',
             paint: {
               'line-color': [
                 'case',
@@ -320,7 +447,30 @@
             popup.setLngLat(e.lngLat).setHTML(popupHtml).addTo(map);
           });
 
+         map.on('mousemove', 'dz-fill', (e) => {
+            if (!e.features.length) return;
+
+            const feature = e.features[0];
+            const id = feature.id;
+            const data = dzData?.[id];
+
+            let popupHtml = '<div><strong>Data not found</strong></div>';
+            if (data?.["Census 2021 Data Zone Label"]) {
+              const labelObj = data["Census 2021 Data Zone Label"];
+              const zoneName = Object.keys(labelObj)[0];
+              popupHtml = `<div><strong>${zoneName}</strong>: ${labelObj[zoneName]}</div>`;
+            }
+
+            map.getCanvas().style.cursor = 'pointer';
+            popup.setLngLat(e.lngLat).setHTML(popupHtml).addTo(map);
+          });
+
           map.on('mouseleave', 'sdz-fill', () => {
+            map.getCanvas().style.cursor = '';
+            popup.remove();
+          });
+
+         map.on('mouseleave', 'dz-fill', () => {
             map.getCanvas().style.cursor = '';
             popup.remove();
           });
@@ -350,6 +500,33 @@
 
             updateTables(Array.from(selectedIds));
           });
+
+         map.on('click', 'dz-fill', (e) => {
+            if (!e.features.length) return;
+
+            const feature = e.features[0];
+            const id = feature.id;
+
+            const isSelected = selectedIds.has(id);
+
+            if (isSelected) {
+              selectedIds.delete(id);
+              map.setFeatureState(
+                { source: 'dz2021', sourceLayer: 'DZ2021_clipped', id },
+                { hovered: false }
+              );
+            } else {
+              selectedIds.add(id);
+              
+              map.setFeatureState(
+                { source: 'dz2021', sourceLayer: 'DZ2021_clipped', id },
+                { hovered: true }
+              );
+            }
+
+            updateTables(Array.from(selectedIds));
+          });
+
         });
 
         let latestAggregatedData = {}; 
@@ -358,76 +535,126 @@
         document.getElementById("category-form").addEventListener("change", () => {
           selectedCategories = Array.from(document.querySelectorAll('#category-form input:checked'))
             .map(input => input.value);
-          renderAggregatedTables(latestAggregatedData, selectedCategories);
+
+          const isComparisonVisible = document.getElementById("urban-rural-comparison").style.display !== "none";
+
+          if (isComparisonVisible) {
+            renderUrbanRuralComparison(Array.from(selectedIds));
+          } else {
+            renderAggregatedTables(latestAggregatedData, selectedCategories);
+          }
         });
+        
+      let currentZoneType = 'sdz'; // default
+        document.getElementById('zone-selector').addEventListener('change', function () {
+          currentZoneType = this.value;
+          updateTables(currentSelectedIds); 
+       });
+
+      const selector = document.getElementById("zone-selector");
+
+      // Set default value
+      selector.value = "dz";
+
+              // Listen for changes
+      selector.addEventListener("change", function () {
+        currentZoneType = this.value;
+        updateTables(currentSelectedIds);
+      });
+
 
         function updateTables(selectedIdsArray) {
           const container = document.getElementById("tables-container");
+          const comparisonDiv = document.getElementById("urban-rural-comparison");
+
+          // Determine view mode
+          const isComparisonVisible = comparisonDiv.style.display === "block";
+
+          if (isComparisonVisible) {
+            renderUrbanRuralComparison(selectedIdsArray);
+            return; // skip standard tables if comparison is active
+          }
+
+          // otherwise, proceed with regular table rendering
+          container.style.display = "block";
+          comparisonDiv.style.display = "none";
           container.innerHTML = "";
 
           const excludedKeys = [
             "Urban_mixed_rural_status",
-            "Census 2021 Super Data Zone Label"
+            "Census 2021 Super Data Zone Label",
+            "Census 2021 Data Zone Label"
           ];
-
+          
           const aggregatedData = {};
           let totalPopulation = 0;
 
-          selectedIdsArray.forEach(id => {
-            const mapData = sdzData[id];
-            if (!mapData) return;
+       const dataSource = currentZoneType === 'dz' ? dzData : sdzData;
+          
+      selectedIdsArray.forEach(id => {
+      const mapData = dataSource[id];
+      if (!mapData) return;
 
-            totalPopulation += mapData.population || 0;
+      totalPopulation += mapData.population || 0;
+        
+        for (const [category, values] of Object.entries(mapData)) {
+        if (excludedKeys.includes(category)) continue;
+        if (typeof values !== 'object') continue;
 
-            for (const [category, values] of Object.entries(mapData)) {
-              if (excludedKeys.includes(category)) continue;
-              if (typeof values !== 'object') continue;
-
-              if (!aggregatedData[category]) {
-                aggregatedData[category] = {};
-              }
-
-              for (const [label, count] of Object.entries(values)) {
-                aggregatedData[category][label] = (aggregatedData[category][label] || 0) + count;
-              }
-            }
-          });
-
-          renderZoneBreakdownTable(selectedIdsArray);
-
-          latestAggregatedData = aggregatedData; 
-          renderAggregatedTables(latestAggregatedData, selectedCategories);
-
-          // update totals 
-          document.getElementById("totalPopulation").textContent = totalPopulation;
+        if (!aggregatedData[category]) {
+          aggregatedData[category] = {};
         }
+          
+        for (const [label, count] of Object.entries(values)) {
+         aggregatedData[category][label] = (aggregatedData[category][label] || 0) + count;
+        }
+       }
+     });
+    renderZoneBreakdownTable(selectedIdsArray);    
+    renderAggregatedCharts(aggregatedData);
+    latestAggregatedData = aggregatedData;
+    renderAggregatedTables(latestAggregatedData, selectedCategories);
+    document.getElementById("totalPopulation").textContent = totalPopulation;
+   }
 
         function renderZoneBreakdownTable(selectedIdsArray) {
           const container = document.getElementById("breakdown-container");
-          container.innerHTML = "";
 
-          if (!selectedIdsArray.length) return;
-
+          // Clear and hide if no selections
+          if (!selectedIdsArray.length) {
+            container.innerHTML = "";
+            container.style.display = "none";
+            return;
+          }
+            
           let totalPopulation = 0;
           const zoneNames = [];
+          container.innerHTML = "";
+          container.style.display = "block"; 
+          
+          const dataSource = currentZoneType === 'dz' ? dzData : sdzData;
+          const labelKey = currentZoneType === 'dz'
+            ? "Census 2021 Data Zone Label"
+            : "Census 2021 Super Data Zone Label";
+          
+            selectedIdsArray.forEach(id => {
+              const mapData = dataSource[id];
+               if (!mapData || !mapData[labelKey]) return;
 
-          selectedIdsArray.forEach(id => {
-            const mapData = sdzData[id];
-            if (!mapData || !mapData["Census 2021 Super Data Zone Label"]) return;
+                const labelObj = mapData[labelKey];
+                const zoneName = Object.keys(labelObj)[0];
+                const population = labelObj[zoneName];
 
-            const labelObj = mapData["Census 2021 Super Data Zone Label"];
-            const zoneName = Object.keys(labelObj)[0];
-            const population = labelObj[zoneName];
+                totalPopulation += population;
+                zoneNames.push(zoneName);
+              });
 
-            totalPopulation += population;
-            zoneNames.push(zoneName);
-          });
-
-          // Container
+            
+          // Build layout
           const layout = document.createElement("div");
           layout.className = "summary-row";
-
-          // Left side
+        
+           // Left side
           const left = document.createElement("div");
           left.className = "summary-left";
           const leftHeading = document.createElement("h3");
@@ -450,87 +677,34 @@
           layout.appendChild(left);
           layout.appendChild(right);
           container.appendChild(layout);
-        }
+}
 
-        /* function renderAggregatedTables(aggregatedData) {
-          const container = document.getElementById("tables-container");
-          container.innerHTML = "";
 
-          const entries = Object.entries(aggregatedData);
-          const tablesPerRow = 3;
+        document.getElementById("urban-rural-btn").addEventListener("click", () => {
+          const tablesContainer = document.getElementById("tables-container");
+          const comparisonDiv = document.getElementById("urban-rural-comparison");
+          const toggleBtn = document.getElementById("urban-rural-btn");
 
-          for (let i = 0; i < entries.length; i += tablesPerRow) {
-            const rowDiv = document.createElement("div");
-            rowDiv.className = "table-row";
-            rowDiv.style.display = "flex";
-            rowDiv.style.alignItems = "stretch"; 
-            container.appendChild(rowDiv);
+          const isComparisonVisible = comparisonDiv.style.display === "block";
 
-            const chunk = entries.slice(i, i + tablesPerRow);
-            const tableWrappers = [];
+          if (isComparisonVisible) {
+            // Show main tables again
+            comparisonDiv.style.display = "none";
+            tablesContainer.style.display = "block";
+            renderAggregatedTables(latestAggregatedData, selectedCategories);
 
-            for (const [category, values] of chunk) {
-              const tableContainer = document.createElement("div");
-              tableContainer.className = "table-wrapper";
-              tableContainer.style.flex = "1";
-              tableContainer.style.margin = "0 10px";
-              tableContainer.style.display = "flex";
-              tableContainer.style.flexDirection = "column";
+            // Update button label
+            toggleBtn.textContent = "Urban Rural Comparison";
+          } else {
+            // Show comparison view
+            tablesContainer.style.display = "none";
+            comparisonDiv.style.display = "block";
+            renderUrbanRuralComparison(Array.from(selectedIds));
 
-              const title = document.createElement("h3");
-              title.textContent = category;
-              title.style.margin = "0 0 8px 0";
-              tableContainer.appendChild(title);
-
-              const table = document.createElement("table");
-              table.className = "data-table";
-
-              const thead = document.createElement("thead");
-              const headerRow = document.createElement("tr");
-              ["Category", "Count", "Percentage"].forEach(text => {
-                const th = document.createElement("th");
-                th.textContent = text;
-                headerRow.appendChild(th);
-              });
-              thead.appendChild(headerRow);
-              table.appendChild(thead);
-
-              const tbody = document.createElement("tbody");
-              const totalCount = Object.values(values).reduce((acc, val) => acc + val, 0);
-
-              for (const [label, count] of Object.entries(values)) {
-                const row = document.createElement("tr");
-
-                const tdLabel = document.createElement("td");
-                tdLabel.textContent = label;
-                row.appendChild(tdLabel);
-
-                const tdCount = document.createElement("td");
-                tdCount.textContent = count;
-                row.appendChild(tdCount);
-
-                const tdPercentage = document.createElement("td");
-                tdPercentage.textContent = totalCount > 0 ? ((count / totalCount) * 100).toFixed(2) + "%" : "0%";
-                row.appendChild(tdPercentage);
-
-                tbody.appendChild(row);
-              }
-
-              table.appendChild(tbody);
-              tableContainer.appendChild(table);
-              rowDiv.appendChild(tableContainer);
-              tableWrappers.push(tableContainer);
-            }
-
-            // Set equal height for all wrappers in this row
-            requestAnimationFrame(() => {
-              const maxHeight = Math.max(...tableWrappers.map(wrapper => wrapper.offsetHeight));
-              tableWrappers.forEach(wrapper => {
-                wrapper.style.height = `${maxHeight}px`;
-              });
-            });
+            // Update button label
+            toggleBtn.textContent = "View All Data";
           }
-        } */
+        });
 
         function renderAggregatedTables(aggregatedData, selectedCategories = []) {
           const container = document.getElementById("tables-container");
@@ -563,7 +737,7 @@
 
             const thead = document.createElement("thead");
             const headerRow = document.createElement("tr");
-            ["Category", "Count", "Percentage"].forEach(text => {
+            ["Category", "Count", "Percentage", "NI %"].forEach(text => {
               const th = document.createElement("th");
               th.textContent = text;
               headerRow.appendChild(th);
@@ -589,6 +763,11 @@
               tdPercentage.textContent = totalCount > 0 ? ((count / totalCount) * 100).toFixed(2) + "%" : "0%";
               row.appendChild(tdPercentage);
 
+              const tdNI = document.createElement("td");
+              const niVal = niTotals[category]?.[label];
+              tdNI.textContent = typeof niVal === "number" ? niVal.toFixed(1) + "%" : "–";
+              row.appendChild(tdNI);
+
               tbody.appendChild(row);
             }
 
@@ -608,85 +787,292 @@
             container.appendChild(rowDiv);
           });
         }
+        
+Chart.register(ChartDataLabels);
 
+function renderAggregatedCharts(data) {
+  const container = document.getElementById("charts-container");
+  container.innerHTML = "";
+  container.className = "chart-grid";
+
+  const excludedKeys = [
+      "Census 2021 Data Zone Label",
+      "Census 2021 Super Data Zone Label"
+    ];
+
+    const entries = Object.entries(data).filter(([key]) => !excludedKeys.includes(key));
+
+  for (const [category, values] of entries) {
+    const chartContainer = document.createElement("div");
+    chartContainer.className = "chart-wrapper";
+
+    const title = document.createElement("h3");
+    title.textContent = category;
+    chartContainer.appendChild(title);
+
+    const canvas = document.createElement("canvas");
+    chartContainer.appendChild(canvas);
+    container.appendChild(chartContainer);
+
+    const labels = Object.keys(values);
+    const totalCount = Object.values(values).reduce((acc, val) => acc + val, 0);
+    const dataPoints = Object.values(values).map(val =>
+      totalCount > 0 ? ((val / totalCount) * 100).toFixed(2) : 0
+    );
+
+    new Chart(canvas, {
+      type: "bar",
+      data: {
+        labels: labels,
+        datasets: [{
+          label: "Percentage",
+          data: dataPoints,
+          backgroundColor: "rgba(0, 0, 139, 0.8)",
+          borderColor: "rgba(0, 0, 139, 1)",
+          borderWidth: 1
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          datalabels: {
+            color: '#FFFFFF',
+            anchor: 'start',
+            align: 'left',
+            offset: -50,
+            formatter: value => value + '%',
+            font: {
+              weight: 'bold',
+              size: 12
+            }
+          },
+          legend: {
+            display: false
+          }
+        },
+        scales: {
+          x: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: "Percentage"
+            }
+          }
+        }
+      },
+      plugins: [ChartDataLabels]
+    });
+  }
+}
 
         function clearSelections() {
           selectedIds.forEach(id => {
-            map.setFeatureState(
-              { source: 'sdz2021', sourceLayer: 'SDZ2021_clipped', id },
-              { hovered: false }
-            );
+            if (sdzData[id]) {
+              map.setFeatureState(
+                { source: 'sdz2021', sourceLayer: 'SDZ2021_clipped', id },
+                { hovered: false }
+              );
+            }
+            if (dzData[id]) {
+              map.setFeatureState(
+                { source: 'dz2021', sourceLayer: 'DZ2021_clipped', id },
+                { hovered: false }
+              );
+            }
           });
-
+          
           selectedIds.clear();
+          selectedLGDs.clear();
           popup.remove();
 
           document.getElementById("tables-container").innerHTML = "";
           document.getElementById("breakdown-container").innerHTML = "";
+          document.getElementById("urban-rural-comparison").style.display = "none";
+          document.getElementById("tables-container").style.display = "block";
+
+          document.querySelectorAll('.lgd-btn').forEach(btn => btn.classList.remove('selected'));
 
           const totalPop = document.getElementById("totalPopulation");
           if (totalPop) totalPop.textContent = "0";
 
-          document.querySelectorAll('.lgd-btn').forEach(btn => btn.classList.remove('selected'));
-
           const center = map.getCenter();
           const zoom = map.getZoom();
           map.jumpTo({ center, zoom: zoom + 0.00001 });
+     }
+
+document.getElementById("clear-selection-btn").addEventListener("click", function (e) {
+  e.preventDefault(); 
+  this.blur(); 
+  clearSelections(); // <-- This is where it's executed
+});
+
+document.querySelectorAll('.lgd-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const lgdCode = button.getAttribute('data-lgd');
+    const isSelected = selectedLGDs.has(lgdCode);
+
+    if (isSelected) {
+      selectedLGDs.delete(lgdCode);
+      button.classList.remove('selected');
+
+      // Remove zones from selectedIds
+      const toRemove = Array.from(selectedIds).filter(id => {
+        const data = currentZoneType === 'dz' ? dzData[id] : sdzData[id];
+        return data?.LGD === lgdCode;
+      });
+
+      toRemove.forEach(id => {
+        selectedIds.delete(id);
+        const source = currentZoneType === 'dz' ? 'dz2021' : 'sdz2021';
+        const sourceLayer = currentZoneType === 'dz' ? 'DZ2021_clipped' : 'SDZ2021_clipped';
+        map.setFeatureState({ source, sourceLayer, id }, { hovered: false });
+      });
+
+    } else {
+      selectedLGDs.add(lgdCode);
+      button.classList.add('selected');
+
+      // Add zones to selectedIds
+      const dataSource = currentZoneType === 'dz' ? dzData : sdzData;
+      const newIds = Object.entries(dataSource)
+        .filter(([id, data]) => data?.LGD === lgdCode)
+        .map(([id]) => id);
+
+      newIds.forEach(id => {
+        if (!selectedIds.has(id)) {
+          selectedIds.add(id);
+          const source = currentZoneType === 'dz' ? 'dz2021' : 'sdz2021';
+          const sourceLayer = currentZoneType === 'dz' ? 'DZ2021_clipped' : 'SDZ2021_clipped';
+          map.setFeatureState({ source, sourceLayer, id }, { hovered: true });
+        
+          
         }
+      });
+    }
+    
+     const selectedArray = Array.from(selectedIds);
+            updateTables(selectedArray);
+            renderZoneBreakdownTable(selectedArray); 
+    
+      });
+});
 
-        document.getElementById("clear-selection-btn").addEventListener("click", function (e) {
-          e.preventDefault(); 
-          this.blur(); 
+        function renderUrbanRuralComparison(selectedIdsArray) {
+          const container = document.getElementById("urban-rural-comparison");
+          container.innerHTML = "";
 
-          clearSelections();
-        });
+          const excludedKeys = ["Urban_mixed_rural_status", "Census 2021 Super Data Zone Label", "LGD"];
+          const groups = { Urban: {}, Rural: {}, Mixed: {} };
+          const zoneLabels = { Urban: [], Rural: [], Mixed: [] };
 
-        document.querySelectorAll('.lgd-btn').forEach(button => {
-          button.addEventListener('click', () => {
-            const lgdCode = button.getAttribute('data-lgd');
+          selectedIdsArray.forEach(id => {
+            const data = sdzData[id];
+            if (!data || !["Urban", "Rural", "Mixed"].includes(data.Urban_mixed_rural_status)) return;
 
-            if (selectedLGDs.has(lgdCode)) {
-              
-              selectedLGDs.delete(lgdCode);
-              button.classList.remove('selected');
+            const group = data.Urban_mixed_rural_status;
+            const labelObj = data["Census 2021 Super Data Zone Label"];
+            const zoneName = labelObj ? Object.keys(labelObj)[0] : null;
+            if (zoneName) zoneLabels[group].push(zoneName);
 
-              // Remove SDZs belonging to this LGD
-              const toRemove = Array.from(selectedIds).filter(id => sdzData[id]?.LGD === lgdCode);
-              toRemove.forEach(id => {
-                selectedIds.delete(id);
-                map.setFeatureState(
-                  { source: 'sdz2021', sourceLayer: 'SDZ2021_clipped', id },
-                  { hovered: false }
-                );
-              });
-            } else {
-              
-              selectedLGDs.add(lgdCode);
-              button.classList.add('selected');
+            for (const [category, values] of Object.entries(data)) {
+              if (excludedKeys.includes(category) || typeof values !== 'object') continue;
 
-              // Add SDZs from this LGD
-              const newIds = Object.entries(sdzData)
-                .filter(([sdzCode, sdzInfo]) => sdzInfo.LGD === lgdCode)
-                .map(([sdzCode]) => sdzCode);
-
-              newIds.forEach(id => {
-                if (!selectedIds.has(id)) {
-                  selectedIds.add(id);
-                  map.setFeatureState(
-                    { source: 'sdz2021', sourceLayer: 'SDZ2021_clipped', id },
-                    { hovered: true }
-                  );
-                }
-              });
+              if (!groups[group][category]) groups[group][category] = {};
+              for (const [label, count] of Object.entries(values)) {
+                groups[group][category][label] = (groups[group][category][label] || 0) + count;
+              }
             }
-
-            updateTables(Array.from(selectedIds));
           });
-        });
+
+          const categoriesToDisplay = selectedCategories.length ? selectedCategories : Object.keys(groups.Urban).concat(Object.keys(groups.Rural));
+
+          categoriesToDisplay.forEach(category => {
+            if (!groups.Urban[category] && !groups.Rural[category]) return;
+
+            const rowDiv = document.createElement("div");
+            rowDiv.className = "table-row";
+            rowDiv.style.display = "flex";
+            rowDiv.style.marginBottom = "20px";
+            rowDiv.style.gap = "2rem";
+
+            ["Urban", "Rural", "Mixed"].forEach(groupType => {
+              if (!groups[groupType][category]) return;
+
+              const wrapper = document.createElement("div");
+              wrapper.className = "table-wrapper";
+              wrapper.style.flex = "1";
+
+              const title = document.createElement("h3");
+              title.textContent = `${groupType} – ${category}`;
+              wrapper.appendChild(title);
+
+              const subtitle = document.createElement("h4");
+              subtitle.style.fontWeight = "normal";
+              subtitle.style.fontSize = "14px";
+              subtitle.style.color = "#666";
+              subtitle.textContent = "Zones: " + (zoneLabels[groupType].length > 0 ? zoneLabels[groupType].join(", ") : "None selected");
+              wrapper.appendChild(subtitle);
+
+              const values = groups[groupType][category];
+              const totalCount = Object.values(values).reduce((sum, val) => sum + val, 0);
+
+              const table = document.createElement("table");
+              table.className = "data-table";
+
+              const thead = document.createElement("thead");
+              const header = document.createElement("tr");
+              ["Category", "Count", "Percentage", "NI %"].forEach(text => {
+                const th = document.createElement("th");
+                th.textContent = text;
+                header.appendChild(th);
+              });
+              thead.appendChild(header);
+              table.appendChild(thead);
+
+              const tbody = document.createElement("tbody");
+
+              for (const [label, count] of Object.entries(values)) {
+                const row = document.createElement("tr");
+
+                const tdLabel = document.createElement("td");
+                tdLabel.textContent = label;
+                row.appendChild(tdLabel);
+
+                const tdCount = document.createElement("td");
+                tdCount.textContent = count;
+                row.appendChild(tdCount);
+
+                const tdPercentage = document.createElement("td");
+                tdPercentage.textContent = totalCount ? ((count / totalCount) * 100).toFixed(2) + "%" : "0%";
+                row.appendChild(tdPercentage);
+
+                const tdNI = document.createElement("td");
+                const niVal = niTotals[category]?.[label];
+                tdNI.textContent = typeof niVal === "number" ? niVal.toFixed(1) + "%" : "–";
+                row.appendChild(tdNI);
+
+                tbody.appendChild(row);
+              }
+
+              table.appendChild(tbody);
+              wrapper.appendChild(table);
+              rowDiv.appendChild(wrapper);
+            });
+
+            container.appendChild(rowDiv);
+
+            requestAnimationFrame(() => {
+              const wrappers = rowDiv.querySelectorAll('.table-wrapper');
+              const maxHeight = Math.max(...Array.from(wrappers).map(w => w.offsetHeight));
+              wrappers.forEach(w => w.style.height = `${maxHeight}px`);
+            });
+          });
+        }
 
       });
     </script>
   </body>
 
 </html>
-

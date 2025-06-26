@@ -1296,15 +1296,56 @@ html, body {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.chart-wrapper {
+  background: #fff;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  height: 450px; /* Limit height */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
 
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* One column */
+  gap: 20px;
+  padding: 10px;
+}
 
-
+.chart-wrapper canvas {
+  flex-grow: 1;
+  max-height: 100%;
+}
 
 .button-wrapper {
   display: flex;
   justify-content: space-between; 
   align-items: center;
   margin: 10px 0;
+}
+
+#urban-rural-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #6093d2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+#urban-rural-btn:hover {
+  background-color: #0064c8;
+}
+
+#urban-rural-btn:active {
+  transform: scale(0.98);
+  background-color: #0064c8;
 }
 
 #clear-selection-btn {
@@ -1395,3 +1436,9 @@ html, body {
   background-color: #003e87;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 }
+
+.data-table th:first-child,
+.data-table td:first-child {
+  width: 40%;
+}
+
