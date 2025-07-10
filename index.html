@@ -12,6 +12,7 @@
     <link href="https://cdn.jsdelivr.net/gh/twbs/bootstrap@v4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/FezVrasta/popper.js@v1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/twbs/bootstrap@v4.5.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
     <!-- fontawesome import -->
     <script src="https://kit.fontawesome.com/ee3848f0f5.js" crossorigin="anonymous"></script>
@@ -25,126 +26,218 @@
 
   </head>
 
-
   <body>
     <div class="wrapper">
           
       <div class="content-wrapper">
-      <nav class="warning">
-        <div class="col-wide middle" style=" text-align: center;">
-          <p style="margin-bottom: 0px;">This prototype application will be enhanced as further rural data is released.</p>
-          <p style="margin-bottom: 0px;">We welcome feedback from users through our 
-            <a class="survey-link" href="" target="_blank"><span style="color: white;">short survey</span>
-              <img class = "new-tab" src = "img/opens-new-tab.svg"></a></p>
-          
-          </div>
-      </nav>
+        <!-- <nav class="warning">
+          <div class="col-wide middle" style=" text-align: center;">
+            <p style="margin-bottom: 0px;">This prototype application will be enhanced as further rural data is released.</p>
+            <p style="margin-bottom: 0px;">We welcome feedback from users through our 
+              <a class="survey-link" href="" target="_blank"><span style="color: white;">short survey</span>
+                <img class = "new-tab" src = "img/opens-new-tab.svg"></a></p>
+            
+            </div>
+        </nav> -->
 
 
       <div id="top-container">
         <div id="top-menu" class="grid" style="margin: 0;">
           <div class="logo-container">
-            <a href="https://www.nisra.gov.uk/" target="_blank"><img id="top-menu-nisra-logo" src="img/nisra-white-bilingual.svg" alt="NISRA logo. Clicking image takes user to NISRA website"></a>
+              <a href="https://www.daera-ni.gov.uk/" target="_blank"><img id="top-menu-daera-logo" src="img/daera-logo.png" alt="DAERA logo. Clicking image takes user to DAERA website"></a>
           </div>
+
           <div id="dashboard-title-container">
-            <h1 id="dashboard-title">Rural Dashboard</h1>
-            <span id="dashboard-subtitle">Access urban rural data across a range of <br>areas for Northern Ireland</span>
+            <h1 id="dashboard-title">DAERA Custom Area Profile Builder</h1>
+            <!-- <span id="dashboard-subtitle">Access urban rural data across a range of <br>areas for Northern Ireland</span> -->
           </div>
           <div class="logo-container">
-              <a href="https://www.daera-ni.gov.uk/" target="_blank"><img id="top-menu-daera-logo" src="img/daera-logo-white.png" alt="DAERA logo. Clicking image takes user to DAERA website"></a>
+            <a href="https://www.nisra.gov.uk/" target="_blank"><img id="top-menu-nisra-logo" src="img/nisra-logo-full-name-stack.svg" alt="NISRA logo. Clicking image takes user to NISRA website"></a>
           </div>
         </div>
       </div>
 
-      <hr style="border-top: 10px solid #076cba; margin: 0">
-
+      <hr style="border-top: 10px solid #04863e; margin: 0">
 
       <div id="main-container">
 
-        <div id="main-content" class="screen">
+        <div id="map-content" class="screen">           
+       
+            
 
-            <div class="intro">
-              <h2 style="width: 100%; text-align: center;">Select areas on the map below to see Aggregated statistics</h2>
-            </div>
-            <div class="button-wrapper">
-              <button id="toggle-fill">Toggle Fill</button>
-              <button id="urban-rural-btn">Urban-Rural Comparison</button>
-            <select id="zone-selector">
-              <option value="dz" selected>Data Zone</option>
-              <option value="sdz">Super Data Zone</option>
-            </select>
-              <button id="clear-selection-btn">Clear Selections</button>
-            </div>
-            <div id="breakdown-container"></div>
             <div class="div-style-bar">
               <div class="map-and-controls">
+                <!--category selector -->
                 
-                <div id="category-selector">
-                  <h3>Select Categories</h3>
-                  <form id="category-form">
-                    <label><input type="checkbox" value="Age" checked> Age</label><br>
-                    <label><input type="checkbox" value="Sex Label" checked> Sex</label><br>
-                    <label><input type="checkbox" value="Religion"> Religion</label><br>
-                    <label><input type="checkbox" value="Economic Activity"> Economic Activity</label><br>
-                    <label><input type="checkbox" value="Household Composition"> Household Composition</label><br>
-                    <label><input type="checkbox" value="Living Arrangements"> Living Arrangements</label><br>
-                    <label><input type="checkbox" value="Household Car or Van Availability"> Household Car or Van Availability</label><br>
-                    <label><input type="checkbox" value="Qualifications Highest Level"> Qualifications Highest Level</label><br>
-
-                  </form>
-                </div>
 
                 <div id="map-wrapper">
+                  <div id="lgd-selector" class="lgd-selector">
+                  <h3>Create your own area profile and see urban rural comparisons for local areas in Northern Ireland</h3>
+                  <h5>Select the areas on the map that you wish to add to your profile <br><br>AND/OR <br><br>Use an area selector to make multiple selections for defined areas: <br>
+                  </h5>
+                  <br>
+                  <div class="category-group">
+                    <button type="button" class="group-toggle">Local Government Districts ▼</button>
+                    <div class="group-content" id="lgd-buttons">
+                      <div class="lgd-option">
+                        <input type="checkbox" id="lgd-antrim" value="Antrim and Newtownabbey">
+                        <label class="lgd-btn" data-lgd="Antrim and Newtownabbey" for="lgd-antrim">Antrim and Newtownabbey</label>
+                      </div>
+
+                      <div class="lgd-option">
+                        <input type="checkbox" id="lgd-ards" value="Ards and North Down">
+                        <label class="lgd-btn" data-lgd="Ards and North Down" for="lgd-ards">Ards and North Down</label>
+                      </div>
+
+                      <div class="lgd-option">
+                        <input type="checkbox" id="lgd-armagh" value="Armagh City, Banbridge and Craigavon">
+                        <label class="lgd-btn" data-lgd="Armagh City, Banbridge and Craigavon" for="lgd-armagh">Armagh City, Banbridge and Craigavon</label>
+                      </div>
+
+                      <div class="lgd-option">
+                        <input type="checkbox" id="lgd-belfast" value="Belfast">
+                        <label class="lgd-btn" data-lgd="Belfast" for="lgd-belfast">Belfast</label>
+                      </div>
+
+                      <div class="lgd-option">
+                        <input type="checkbox" id="lgd-causeway" value="Causeway Coast and Glens">
+                        <label class="lgd-btn" data-lgd="Causeway Coast and Glens" for="lgd-causeway">Causeway Coast and Glens</label>
+                      </div>
+
+                      <div class="lgd-option">
+                        <input type="checkbox" id="lgd-derry" value="Derry City and Strabane">
+                        <label class="lgd-btn" data-lgd="Derry City and Strabane" for="lgd-derry">Derry City and Strabane</label>
+                      </div>
+
+                      <div class="lgd-option">
+                        <input type="checkbox" id="lgd-fermanagh" value="Fermanagh and Omagh">
+                        <label class="lgd-btn" data-lgd="Fermanagh and Omagh" for="lgd-fermanagh">Fermanagh and Omagh</label>
+                      </div>
+
+                      <div class="lgd-option">
+                        <input type="checkbox" id="lgd-lisburn" value="Lisburn and Castlereagh">
+                        <label class="lgd-btn" data-lgd="Lisburn and Castlereagh" for="lgd-lisburn">Lisburn and Castlereagh</label>
+                      </div>
+
+                      <div class="lgd-option">
+                        <input type="checkbox" id="lgd-mid-east" value="Mid and East Antrim">
+                        <label class="lgd-btn" data-lgd="Mid and East Antrim" for="lgd-mid-east">Mid and East Antrim</label>
+                      </div>
+
+                      <div class="lgd-option">
+                        <input type="checkbox" id="lgd-mid-ulster" value="Mid Ulster">
+                        <label class="lgd-btn" data-lgd="Mid Ulster" for="lgd-mid-ulster">Mid Ulster</label>
+                      </div>
+
+                      <div class="lgd-option">
+                        <input type="checkbox" id="lgd-newry" value="Newry, Mourne and Down">
+                        <label class="lgd-btn" data-lgd="Newry, Mourne and Down" for="lgd-newry">Newry, Mourne and Down</label>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
                   <div id="map"></div>
+
+                  <div class="nav-button-container">
+                    <button class="nav-button" onclick="smoothScrollTo('chng-btn-container', 0)">Build Area Profile</button>
+                  </div>
+
+                  <div class="zone-selector-box">
+                    <label for="zone-selector"><strong>Select Geography Level:</strong></label>
+                    <select id="zone-selector">
+                      <option value="dz" selected>Data Zone</option>
+                      <option value="sdz">Super Data Zone</option>
+                    </select>
+                  </div>
+
+                  <div class="cntrl-button-wrapper">
+                    <h4>Map Controls</h4>
+                    <button id="toggle-fill">Toggle Fill</button>
+                    <button id="clear-selection-btn">Clear Selections</button>
+                    <button id="resetZoomBtn">Reset Zoom</button>
+                  </div>
+
                 </div>
 
-                <div id="lgd-selector" class="lgd-selector">
-                  <h3>Select Local Government District</h3>
-                  <div id="lgd-buttons">
-                    <button class="lgd-btn" data-lgd="N09000001">Antrim and Newtownabbey</button>
-                    <button class="lgd-btn" data-lgd="N09000011">Ards and North Down</button>
-                    <button class="lgd-btn" data-lgd="N09000002">Armagh, Banbridge and Craigavon</button>
-                    <button class="lgd-btn" data-lgd="N09000003">Belfast</button>
-                    <button class="lgd-btn" data-lgd="N09000004">Causeway Coast and Glens</button>
-                    <button class="lgd-btn" data-lgd="N09000005">Derry and Strabane</button>
-                    <button class="lgd-btn" data-lgd="N09000006">Fermanagh and Omagh</button>
-                    <button class="lgd-btn" data-lgd="N09000007">Lisburn and Castlereagh</button>
-                    <button class="lgd-btn" data-lgd="N09000008">Mid and East Antrim</button>
-                    <button class="lgd-btn" data-lgd="N09000009">Mid Ulster</button>
-                    <button class="lgd-btn" data-lgd="N09000010">Newry, Mourne and Down</button>                 
-                </div>
-                </div>
+                
 
               </div>
 
             </div>
-        
+        </div>
+        <div style="padding-top: 40px;" id="chng-btn-container">
+          <button onclick="downloadExcel()">Download Excel File</button>
+          <button onclick="downloadSummaryImage()">Download Summary Image</button>
+          <button class="nav-button" onclick="smoothScrollTo('top-container', 0)">Change Area Selections</button>
+        </div>
+        <div id="profile-content">
+          
+          <div id="output-and-controls">
 
-          <div>
+            <div id="category-selector">
+                  <h3>Create your own area profile and see urban rural comparisons for local areas in Northern Ireland</h3>
+                  <h5>Select the statistics you wish to see for your chosen areas:</h5>
+                  <br>
+                  <form id="category-form">
+
+                    <div class="category-group">
+                      <button type="button" class="group-toggle">Demography ▼</button>
+                      <div class="group-content">
+                        <label><input type="checkbox" value="Age" checked> Age</label>
+                        <label><input type="checkbox" value="Sex Label" checked> Sex</label>
+                        <label><input type="checkbox" value="Living Arrangements"> Living Arrangements</label>
+                        <label><input type="checkbox" value="Household Composition"> Household Composition</label>
+                      </div>
+                    </div>
+
+                    <div class="category-group">
+                      <button type="button" class="group-toggle">Education ▼</button>
+                      <div class="group-content">
+                        <label><input type="checkbox" value="Qualifications Highest Level"> Qualifications Highest Level</label>
+                      </div>
+                    </div>
+
+                    <div class="category-group">
+                      <button type="button" class="group-toggle">Economy ▼</button>
+                      <div class="group-content">
+                        <label><input type="checkbox" value="Economic Activity"> Economic Activity</label>
+                        <label><input type="checkbox" value="Household Car or Van Availability"> Household Car or Van Availability</label>
+                      </div>
+                    </div>
+
+                  </form>
+            </div>
             
             <br>
-            <div id="tables-container"></div>
-            <div id="urban-rural-comparison"></div>
-            <br>
-            <div id="charts-container" class="chart-grid" style="margin-top: 30px;"></div>
-            <h3> Source</h3>
+            
+            <div id="output-panel" style="flex: 1;">
+              <div id="breakdown-container"></div>
+              <br>
+
+              <!-- View Tabs -->
+              <div style="display: flex; align-items: stretch; margin-bottom: 1rem;">
+                <button class="view-tab selected" data-view="charts">Charts</button>
+                <button class="view-tab" data-view="tables">Tables</button>
+                <button class="view-tab" data-view="tableComparison">Tables<br><span style="font-size: 12px; font-weight: normal;">Urban/Rural/Mixed</span></button>
+                <button class="view-tab" data-view="chartComparison">Charts<br><span style="font-size: 12px; font-weight: normal;">Urban/Rural/Mixed</span></button>
+              </div>
+
+              <div id="charts-container"></div>
+              <div id="tables-container" style="display: none;"></div>
+              <div id="urban-rural-comparison" style="display: none;"></div>
+              <div id="urban-rural-charts" style="display: none;"></div>
+
+            </div>
+            
+          </div>
+
+          <h3 style = "margin-top: 20px;"> Source</h3>
             <p style="margin-bottom: 10px;">Data originally collected and presented in:<br> <a class = "source_name" id="sourceId" target="_blank"></a></p>
             <p> Data presented here has been extracted from the NISRA Data Portal:<br> <a class="dataportal_name" id="portalId" target="_blank"></a></p>
-          </div>
           
-        <!-- accordion section    -->
-          <h3>Notes</h3>
-        <button class="accordion-button">Click to expand or hide notes section for <span style="font-weight: bold;" class = "measure_title"></span> by <span style="font-weight: bold; color:#3878c5;"class = "eq_grp_name"></span></button>
-          <div class="panel">
-            <p id = "measureNotesParagraph" style="margin-bottom: 0px; font-weight: bold;font-size: 18px;">Notes on <span class = "measure_title" style="font-weight: bold;font-size: 18px;"></span></p>
-            <p id = "notes_in_measure"></p>
-            <p id = "groupNotesParagraph" style="margin-bottom: 0px; font-weight: bold;font-size: 18px;">Notes on <span class = "eq_grp_name" style="font-weight: bold;font-size: 18px;"></span></p>
-            <p id = "notes_in_group"></p>
-          </div> <!--close panel div-->
-
-        </div> <!--closes main content div-->
+        
+        </div> <!--closes profile content div-->
       </div>
-
       </div>
       <hr style="border-top: 10px solid #076cba; margin-bottom: 0; margin-top: 25px;">
       <footer>
@@ -194,8 +287,10 @@
     </div>
     <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
     <link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <script>
+
       document.addEventListener('DOMContentLoaded', function () {
         const map = new maplibregl.Map({
           container: 'map',
@@ -207,52 +302,61 @@
           maxBounds: [[-9.20, 53.58], [-4.53, 55.72]]
         });
 
-      // Event listener for choosing SDZ or DZ
-      document.getElementById('zone-selector').addEventListener('change', function (e) {
-        const selected = e.target.value;
+        // let activeZone = 'dz';
 
-        if (selected === 'sdz') {
-          activeZone = 'sdz';
-          map.setLayoutProperty('sdz-fill', 'visibility', 'visible');
-          map.setLayoutProperty('dz-fill', 'visibility', 'none');
-          map.setLayoutProperty('sdz-outline-default', 'visibility', 'visible');
-          map.setLayoutProperty('dz-outline-default', 'visibility', 'none');
-          map.setLayoutProperty('sdz-outline-hover', 'visibility', 'visible');
-          map.setLayoutProperty('dz-outline-hover', 'visibility', 'none');
-        } else if (selected === 'dz') {
-          activeZone = 'dz';
-          map.setLayoutProperty('sdz-fill', 'visibility', 'none');
-          map.setLayoutProperty('dz-fill', 'visibility', 'visible');
-          map.setLayoutProperty('sdz-outline-default', 'visibility', 'none');
-          map.setLayoutProperty('dz-outline-default', 'visibility', 'visible');
-          map.setLayoutProperty('sdz-outline-hover', 'visibility', 'none');
-          map.setLayoutProperty('dz-outline-hover', 'visibility', 'visible');
-        }
+        // Event listener for choosing SDZ or DZ
+        document.getElementById('zone-selector').addEventListener('change', function (e) {
+          const selected = e.target.value;
+          currentZoneType = selected;
+          
+          if (selected === 'sdz') {
+            activeZone = 'sdz';
+            map.setLayoutProperty('sdz-fill', 'visibility', 'visible');
+            map.setLayoutProperty('dz-fill', 'visibility', 'none');
+            map.setLayoutProperty('sdz-outline-default', 'visibility', 'visible');
+            map.setLayoutProperty('dz-outline-default', 'visibility', 'none');
+            map.setLayoutProperty('sdz-outline-hover', 'visibility', 'visible');
+            map.setLayoutProperty('dz-outline-hover', 'visibility', 'none');
+          } else if (selected === 'dz') {
+            activeZone = 'dz';
+            map.setLayoutProperty('sdz-fill', 'visibility', 'none');
+            map.setLayoutProperty('dz-fill', 'visibility', 'visible');
+            map.setLayoutProperty('sdz-outline-default', 'visibility', 'none');
+            map.setLayoutProperty('dz-outline-default', 'visibility', 'visible');
+            map.setLayoutProperty('sdz-outline-hover', 'visibility', 'none');
+            map.setLayoutProperty('dz-outline-hover', 'visibility', 'visible');
+          }
 
-        setupZoneEvents(); // rebind interactivity to the correct fill layer
+          //  setupZoneEvents(); 
 
-      });
+          clearSelections();       // Clear map and outputs
+          updateTables([]);        // Reset tables
+          selectedIds.clear();
+          selectedLGDs.clear();
+          popup.remove();
 
-      const selectedIds = new Set();
-      let sdzData = {};
-      let dzData = {};
-      let niTotals = {};
-      const popup = new maplibregl.Popup({ closeButton: false, closeOnClick: false });
-      const selectedLGDs = new Set();
+        });
+
+        const selectedIds = new Set();
+        let sdzData = {};
+        let dzData = {};
+        let niTotals = {};
+        const popup = new maplibregl.Popup({ closeButton: false, closeOnClick: false });
+        const selectedLGDs = new Set();
         
-      fetch('./data.json')
+        fetch('./data.json')
         .then(response => response.json())
         .then(data => {
           sdzData = data["Super Data Zone"] || {};
           dzData = data["Data Zone"] || {};
           niTotals = data["NI Total"] || {};
+          window.niTotals = niTotals; 
 
           map.on('idle', () => {
             // --- Super Data Zone ---
             const sdzFeatures = map.querySourceFeatures('sdz2021', {
               sourceLayer: 'SDZ2021_clipped'
             });
-
             sdzFeatures.forEach(feature => {
               const sdzCode = feature.properties.sdz_code;
               const status = sdzData[sdzCode]?.Urban_mixed_rural_status;
@@ -298,38 +402,38 @@
         const toggleButton = document.getElementById('toggle-fill');
         const zoneSelector = document.getElementById('zone-selector');
 
-toggleButton.addEventListener('click', () => {
-  fillVisible = !fillVisible;
-  const selectedZone = zoneSelector.value;
-  const layerId = selectedZone === 'dz' ? 'dz-fill' : 'sdz-fill';
+        toggleButton.addEventListener('click', () => {
+          fillVisible = !fillVisible;
+          const selectedZone = zoneSelector.value;
+          const layerId = selectedZone === 'dz' ? 'dz-fill' : 'sdz-fill';
 
-  map.setPaintProperty(layerId, 'fill-opacity', [
-    'case',
-    ['boolean', ['feature-state', 'hovered'], false], 0.4,
-    fillVisible ? 0.4 : 0
-  ]);
+          map.setPaintProperty(layerId, 'fill-opacity', [
+            'case',
+            ['boolean', ['feature-state', 'hovered'], false], 0.4,
+            fillVisible ? 0.4 : 0
+          ]);
 
-  toggleButton.textContent = fillVisible ? 'Hide Urban/Rural' : 'Show Urban/Rural';
-});
+          toggleButton.textContent = fillVisible ? 'Hide Urban/Rural' : 'Show Urban/Rural';
+        });
 
 
-      map.on('load', () => {
+        map.on('load', () => {
 
-        map.addSource('sdz2021', {
-            type: 'vector',
-            tiles: [
-              'https://raw.githubusercontent.com/nisra-explore/map_tiles/main/sdz_2021/{z}/{x}/{y}.pbf'
-            ],
-            promoteId: { 'SDZ2021_clipped': 'sdz_code' }
-          });
+          map.addSource('sdz2021', {
+              type: 'vector',
+              tiles: [
+                'https://raw.githubusercontent.com/nisra-explore/map_tiles/main/sdz_2021/{z}/{x}/{y}.pbf'
+              ],
+              promoteId: { 'SDZ2021_clipped': 'sdz_code' }
+            });
 
-         map.addSource('dz2021', {
-            type: 'vector',
-            tiles: [
-              'https://raw.githubusercontent.com/nisra-explore/map_tiles/main/dz_2021/{z}/{x}/{y}.pbf'
-            ],
-            promoteId: { 'DZ2021_clipped': 'dz_code' }
-          });
+          map.addSource('dz2021', {
+              type: 'vector',
+              tiles: [
+                'https://raw.githubusercontent.com/nisra-explore/map_tiles/main/dz_2021/{z}/{x}/{y}.pbf'
+              ],
+              promoteId: { 'DZ2021_clipped': 'dz_code' }
+            });
 
           map.addLayer({
             id: 'sdz-fill',
@@ -337,21 +441,21 @@ toggleButton.addEventListener('click', () => {
             source: 'sdz2021',
             'source-layer': 'SDZ2021_clipped',            
             layout: {
-              visibility: 'visible'
+              visibility: 'none'
             },
             paint: {
               'fill-color': [
-  'case',
-  ['boolean', ['feature-state', 'hovered'], false], '#04863e', // dark green on click
-  ['match', ['feature-state', 'status'],
-    'Rural', '#cccccc',
-    'Urban', '#b04d96',
-    'Mixed', '#4d96b0',
-    '#ffffff' // fallback
-  ]
-],
+                'case',
+                ['boolean', ['feature-state', 'hovered'], false], '#04863e', // dark green on click
+                ['match', ['feature-state', 'status'],
+                  'Rural', '#cccccc',
+                  'Urban', '#b04d96',
+                  'Mixed', '#4d96b0',
+                  '#ffffff' // fallback
+                ]
+              ],
               'fill-opacity': 0.4
-           }
+            }
           });
 
          map.addLayer({
@@ -380,6 +484,9 @@ toggleButton.addEventListener('click', () => {
           map.addLayer({
             id: 'sdz-outline-default',
             type: 'line',
+            layout: {
+                visibility: 'none'
+              },
             source: 'sdz2021',
             'source-layer': 'SDZ2021_clipped',
             paint: {
@@ -391,6 +498,9 @@ toggleButton.addEventListener('click', () => {
           map.addLayer({
             id: 'dz-outline-default',
             type: 'line',
+            layout: {
+                visibility: 'visible' 
+              },
             source: 'dz2021',
             'source-layer': 'DZ2021_clipped',
             paint: {
@@ -410,13 +520,16 @@ toggleButton.addEventListener('click', () => {
                 ['boolean', ['feature-state', 'hovered'], false], '#000000',
                 'rgba(0,0,0,0)'
               ],
-              'line-width': 2
+              'line-width': 1.5
             }
           });
 
-         map.addLayer({
+          map.addLayer({
             id: 'dz-outline-hover',
             type: 'line',
+            layout: {
+                visibility: 'visible'
+              },
             source: 'dz2021',
             'source-layer': 'DZ2021_clipped',
             paint: {
@@ -425,7 +538,7 @@ toggleButton.addEventListener('click', () => {
                 ['boolean', ['feature-state', 'hovered'], false], '#000000',
                 'rgba(0,0,0,0)'
               ],
-              'line-width': 2
+              'line-width': 1.5
             }
           });
 
@@ -444,10 +557,10 @@ toggleButton.addEventListener('click', () => {
             }
 
             map.getCanvas().style.cursor = 'pointer';
-            popup.setLngLat(e.lngLat).setHTML(popupHtml).addTo(map);
+            popup.setLngLat(e.lngLat).setOffset([0,-10]).setHTML(popupHtml).addTo(map);
           });
 
-         map.on('mousemove', 'dz-fill', (e) => {
+          map.on('mousemove', 'dz-fill', (e) => {
             if (!e.features.length) return;
 
             const feature = e.features[0];
@@ -462,7 +575,7 @@ toggleButton.addEventListener('click', () => {
             }
 
             map.getCanvas().style.cursor = 'pointer';
-            popup.setLngLat(e.lngLat).setHTML(popupHtml).addTo(map);
+            popup.setLngLat(e.lngLat).setOffset([0,-10]).setHTML(popupHtml).addTo(map);
           });
 
           map.on('mouseleave', 'sdz-fill', () => {
@@ -470,7 +583,7 @@ toggleButton.addEventListener('click', () => {
             popup.remove();
           });
 
-         map.on('mouseleave', 'dz-fill', () => {
+          map.on('mouseleave', 'dz-fill', () => {
             map.getCanvas().style.cursor = '';
             popup.remove();
           });
@@ -491,17 +604,29 @@ toggleButton.addEventListener('click', () => {
               );
             } else {
               selectedIds.add(id);
-              
               map.setFeatureState(
                 { source: 'sdz2021', sourceLayer: 'SDZ2021_clipped', id },
                 { hovered: true }
               );
             }
 
+            let selectedTab = document.querySelector('.view-tab.selected');
+            if (!selectedTab) {
+              const chartsTab = document.querySelector('.view-tab[data-view="charts"]');
+              chartsTab.classList.add("selected");
+            }
+
+            document.getElementById("charts-container").style.display = "flex";
+            document.getElementById("tables-container").style.display = "none";
+            document.getElementById("urban-rural-comparison").style.display = "none";
+            document.getElementById("urban-rural-charts").style.display = "none";
+
+            window.selectedIdsExcel = selectedIds;
+
             updateTables(Array.from(selectedIds));
           });
 
-         map.on('click', 'dz-fill', (e) => {
+          map.on('click', 'dz-fill', (e) => {
             if (!e.features.length) return;
 
             const feature = e.features[0];
@@ -524,9 +649,31 @@ toggleButton.addEventListener('click', () => {
               );
             }
 
+            let selectedTab = document.querySelector('.view-tab.selected');
+            if (!selectedTab) {
+              const chartsTab = document.querySelector('.view-tab[data-view="charts"]');
+              chartsTab.classList.add("selected");
+            }
+
+            document.getElementById("charts-container").style.display = "flex";
+            document.getElementById("tables-container").style.display = "none";
+            document.getElementById("urban-rural-comparison").style.display = "none";
+            document.getElementById("urban-rural-charts").style.display = "none";
+
+            window.selectedIdsExcel = selectedIds;
+
             updateTables(Array.from(selectedIds));
           });
 
+        });
+
+        // map reset zoom button
+        document.getElementById('resetZoomBtn').addEventListener('click', () => {
+          map.easeTo({
+            center: [-6.8, 54.65],
+            zoom: 7.5,
+            duration: 2000
+          });
         });
 
         let latestAggregatedData = {}; 
@@ -536,201 +683,334 @@ toggleButton.addEventListener('click', () => {
           selectedCategories = Array.from(document.querySelectorAll('#category-form input:checked'))
             .map(input => input.value);
 
-          const isComparisonVisible = document.getElementById("urban-rural-comparison").style.display !== "none";
+          const selectedArray = Array.from(selectedIds);
+          const isComparisonTableVisible = document.getElementById("urban-rural-comparison").style.display === "block";
+          const isComparisonChartVisible = document.getElementById("urban-rural-charts").style.display === "block";
+          const isChartsVisible = document.getElementById("charts-container").style.display === "flex" || document.getElementById("charts-container").style.display === "block";
+          const isTablesVisible = document.getElementById("tables-container").style.display === "block";
 
-          if (isComparisonVisible) {
-            renderUrbanRuralComparison(Array.from(selectedIds));
-          } else {
+          if (isComparisonTableVisible) {
+            renderUrbanRuralComparison(selectedArray);
+          } else if (isComparisonChartVisible) {
+            renderUrbanRuralCharts(Array.from(selectedIds));
+          } else if (isChartsVisible) {
+            renderAggregatedCharts(latestAggregatedData, selectedCategories);
+            document.getElementById("tables-container").style.display = "none";
+            document.getElementById("charts-container").style.display = "flex";
+          } else if (isTablesVisible) {
             renderAggregatedTables(latestAggregatedData, selectedCategories);
+            document.getElementById("charts-container").style.display = "none";
+            document.getElementById("tables-container").style.display = "block";
           }
+
+          window.chosenCategories = selectedCategories;
+          updateTables(currentlySelectedIds); // make sure this variable is defined globally
         });
         
-      let currentZoneType = 'sdz'; // default
-        document.getElementById('zone-selector').addEventListener('change', function () {
+        let currentZoneType = 'dz'; // default
+          document.getElementById('zone-selector').addEventListener('change', function () {
+            currentZoneType = this.value;
+            updateTables(currentSelectedIds); 
+        });
+
+        const selector = document.getElementById("zone-selector");
+
+        // Set default value
+        selector.value = "dz";
+
+        // Listen for changes
+        selector.addEventListener("change", function () {
           currentZoneType = this.value;
-          updateTables(currentSelectedIds); 
-       });
-
-      const selector = document.getElementById("zone-selector");
-
-      // Set default value
-      selector.value = "dz";
-
-              // Listen for changes
-      selector.addEventListener("change", function () {
-        currentZoneType = this.value;
-        updateTables(currentSelectedIds);
-      });
+          updateTables(currentSelectedIds);
+        });
 
 
         function updateTables(selectedIdsArray) {
-          const container = document.getElementById("tables-container");
-          const comparisonDiv = document.getElementById("urban-rural-comparison");
+          const tablesContainer = document.getElementById("tables-container");
+          const comparisonTableDiv = document.getElementById("urban-rural-comparison");
+          const comparisonChartDiv = document.getElementById("urban-rural-charts");
+          const chartsContainer = document.getElementById("charts-container");
 
-          // Determine view mode
-          const isComparisonVisible = comparisonDiv.style.display === "block";
-
-          if (isComparisonVisible) {
-            renderUrbanRuralComparison(selectedIdsArray);
-            return; // skip standard tables if comparison is active
+          let selectedTab = document.querySelector('.view-tab.selected');
+          if (!selectedTab) {
+            selectedTab = document.querySelector('.view-tab[data-view="charts"]');
+            selectedTab.classList.add('selected');
           }
+          const selectedView = selectedTab.getAttribute('data-view');
 
-          // otherwise, proceed with regular table rendering
-          container.style.display = "block";
-          comparisonDiv.style.display = "none";
-          container.innerHTML = "";
+          // Clear and hide all containers
+          tablesContainer.innerHTML = "";
+          chartsContainer.innerHTML = "";
+          tablesContainer.style.display = "none";
+          chartsContainer.style.display = "none";
+          comparisonTableDiv.style.display = "none";
+          comparisonChartDiv.style.display = "none";
 
           const excludedKeys = [
             "Urban_mixed_rural_status",
             "Census 2021 Super Data Zone Label",
             "Census 2021 Data Zone Label"
           ];
-          
+
           const aggregatedData = {};
           let totalPopulation = 0;
+          const dataSource = currentZoneType === 'dz' ? dzData : sdzData;
 
-       const dataSource = currentZoneType === 'dz' ? dzData : sdzData;
-          
-      selectedIdsArray.forEach(id => {
-      const mapData = dataSource[id];
-      if (!mapData) return;
+          selectedIdsArray.forEach(id => {
+            const mapData = dataSource[id];
+            if (!mapData) return;
 
-      totalPopulation += mapData.population || 0;
-        
-        for (const [category, values] of Object.entries(mapData)) {
-        if (excludedKeys.includes(category)) continue;
-        if (typeof values !== 'object') continue;
+            totalPopulation += mapData.population || 0;
 
-        if (!aggregatedData[category]) {
-          aggregatedData[category] = {};
+            for (const [category, values] of Object.entries(mapData)) {
+              if (excludedKeys.includes(category)) continue;
+              if (typeof values !== 'object') continue;
+
+              if (!aggregatedData[category]) {
+                aggregatedData[category] = {};
+              }
+
+              for (const [label, count] of Object.entries(values)) {
+                aggregatedData[category][label] = (aggregatedData[category][label] || 0) + count;
+              }
+            }
+          });
+ 
+          latestAggregatedData = aggregatedData;
+
+          window.latestAggregatedData = aggregatedData;
+          window.chosenCategories = selectedCategories;
+
+          const totalPopElem = document.getElementById("totalPopulation");
+          if (totalPopElem) {
+            totalPopElem.textContent = totalPopulation;
+          }
+          renderZoneBreakdownTable(selectedIdsArray);
+
+          if (selectedView === 'charts') {
+            chartsContainer.style.display = "flex";
+            renderAggregatedCharts(aggregatedData, selectedCategories);
+          } else if (selectedView === 'tables') {
+            tablesContainer.style.display = "block";
+            renderAggregatedTables(aggregatedData, selectedCategories);
+          } else if (selectedView === 'tableComparison') {
+            comparisonTableDiv.style.display = "block";
+            renderUrbanRuralComparison(selectedIdsArray);
+          } else if (selectedView === 'chartComparison') {
+            comparisonChartDiv.style.display = "block";
+            renderUrbanRuralCharts(selectedIdsArray);
+          }
         }
-          
-        for (const [label, count] of Object.entries(values)) {
-         aggregatedData[category][label] = (aggregatedData[category][label] || 0) + count;
-        }
-       }
-     });
-    renderZoneBreakdownTable(selectedIdsArray);    
-    renderAggregatedCharts(aggregatedData);
-    latestAggregatedData = aggregatedData;
-    renderAggregatedTables(latestAggregatedData, selectedCategories);
-    document.getElementById("totalPopulation").textContent = totalPopulation;
-   }
 
         function renderZoneBreakdownTable(selectedIdsArray) {
           const container = document.getElementById("breakdown-container");
 
-          // Clear and hide if no selections
           if (!selectedIdsArray.length) {
             container.innerHTML = "";
             container.style.display = "none";
             return;
           }
-            
-          let totalPopulation = 0;
-          const zoneNames = [];
+
           container.innerHTML = "";
-          container.style.display = "block"; 
-          
+          container.style.display = "block";
+
           const dataSource = currentZoneType === 'dz' ? dzData : sdzData;
           const labelKey = currentZoneType === 'dz'
             ? "Census 2021 Data Zone Label"
             : "Census 2021 Super Data Zone Label";
-          
-            selectedIdsArray.forEach(id => {
-              const mapData = dataSource[id];
-               if (!mapData || !mapData[labelKey]) return;
 
-                const labelObj = mapData[labelKey];
-                const zoneName = Object.keys(labelObj)[0];
-                const population = labelObj[zoneName];
+          const lgdStats = {};
+          let totalPopulation = 0;
 
-                totalPopulation += population;
-                zoneNames.push(zoneName);
-              });
+          selectedIdsArray.forEach(id => {
+            const mapData = dataSource[id];
+            if (!mapData) return;
 
-            
-          // Build layout
+            const lgd = mapData["LGD"];
+            const status = mapData["Urban_mixed_rural_status"];
+            const labelObj = mapData[labelKey];
+            const zoneName = labelObj ? Object.keys(labelObj)[0] : null;
+            const population = zoneName ? labelObj[zoneName] : 0;
+
+            if (!lgdStats[lgd]) {
+              lgdStats[lgd] = {
+                total: 0,
+                Urban: 0,
+                Rural: 0,
+                Mixed: 0
+              };
+            }
+
+            lgdStats[lgd].total++;
+            if (status === 'Urban' || status === 'Rural' || status === 'Mixed') {
+              lgdStats[lgd][status]++;
+            }
+
+            totalPopulation += typeof population === "number" ? population : 0;
+          });
+
+          // Outer layout
           const layout = document.createElement("div");
           layout.className = "summary-row";
-        
-           // Left side
+
+          // Left side
           const left = document.createElement("div");
           left.className = "summary-left";
-          const leftHeading = document.createElement("h3");
-          leftHeading.textContent = "Selected Zones";
-          const zoneList = document.createElement("p");
-          zoneList.textContent = zoneNames.join(", ");
-          left.appendChild(leftHeading);
-          left.appendChild(zoneList);
+
+          // Editable Maintitle
+          const editableTitle = document.createElement("h2");
+          editableTitle.textContent = "Click to edit title for area profile";
+          editableTitle.contentEditable = true;
+          editableTitle.spellcheck = false;
+          editableTitle.title = "Click to edit title";
+          editableTitle.style.textAlign = "left";
+          editableTitle.style.marginBottom = "1rem";
+          editableTitle.style.outline = "none";
+          left.appendChild(editableTitle);
+          
+          // Static subheading
+          const heading = document.createElement("h4");
+          heading.textContent = "Summary of Areas Selected:";
+          heading.style.marginTop = "0.5rem";
+          heading.style.marginBottom = "1rem";
+          left.appendChild(heading);
+
+          // Summary List
+          const summaryList = document.createElement("ul");
+          summaryList.style.listStyleType = "none";
+          summaryList.style.paddingLeft = "0";
+          summaryList.style.textAlign = "left";
+
+          const sortedLGDs = Object.keys(lgdStats).sort((a, b) =>
+            a.localeCompare(b, undefined, { sensitivity: 'base' })
+          );
+
+          sortedLGDs.forEach(lgd => {
+            const stats = lgdStats[lgd];
+            const parts = [];
+            if (stats.Urban) parts.push(`${stats.Urban} urban`);
+            if (stats.Rural) parts.push(`${stats.Rural} rural`);
+            if (stats.Mixed) parts.push(`${stats.Mixed} mixed`);
+
+            const li = document.createElement("li");
+            li.innerHTML = `${lgd}: <strong>${stats.total}</strong> (${parts.join(", ")})`;
+            summaryList.appendChild(li);
+          });
+
+          left.appendChild(summaryList);
 
           // Right side
           const right = document.createElement("div");
           right.className = "summary-right";
-          const rightHeading = document.createElement("h2");
-          rightHeading.textContent = "Total Population:";
-          const popValue = document.createElement("h2");
-          popValue.textContent = totalPopulation.toLocaleString();
-          right.appendChild(rightHeading);
-          right.appendChild(popValue);
+
+          const card = document.createElement("div");
+          card.className = "population-card";
+
+          const label = document.createElement("div");
+          label.className = "population-label";
+          label.textContent = "Population selected";
+
+          const value = document.createElement("div");
+          value.className = "population-value";
+          value.id = "totalPopulation";
+          value.textContent = totalPopulation.toLocaleString();
+
+          card.appendChild(label);
+          card.appendChild(value);
+          right.appendChild(card);
 
           layout.appendChild(left);
           layout.appendChild(right);
           container.appendChild(layout);
-}
+        }
 
 
-        document.getElementById("urban-rural-btn").addEventListener("click", () => {
-          const tablesContainer = document.getElementById("tables-container");
-          const comparisonDiv = document.getElementById("urban-rural-comparison");
-          const toggleBtn = document.getElementById("urban-rural-btn");
 
-          const isComparisonVisible = comparisonDiv.style.display === "block";
+        // document.getElementById("urban-rural-btn").addEventListener("click", () => {
+        //   const tablesContainer = document.getElementById("tables-container");
+        //   const comparisonDiv = document.getElementById("urban-rural-comparison");
+        //   const toggleBtn = document.getElementById("urban-rural-btn");
 
-          if (isComparisonVisible) {
-            // Show main tables again
-            comparisonDiv.style.display = "none";
-            tablesContainer.style.display = "block";
-            renderAggregatedTables(latestAggregatedData, selectedCategories);
+        //   const isComparisonVisible = comparisonDiv.style.display === "block";
 
-            // Update button label
-            toggleBtn.textContent = "Urban Rural Comparison";
-          } else {
-            // Show comparison view
-            tablesContainer.style.display = "none";
-            comparisonDiv.style.display = "block";
-            renderUrbanRuralComparison(Array.from(selectedIds));
+        //   if (isComparisonVisible) {
+        //     // Show main tables again
+        //     comparisonDiv.style.display = "none";
+        //     tablesContainer.style.display = "block";
+        //     renderAggregatedTables(latestAggregatedData, selectedCategories);
 
-            // Update button label
-            toggleBtn.textContent = "View All Data";
-          }
+        //     // Update button label
+        //     toggleBtn.textContent = "Urban Rural Comparison";
+        //   } else {
+        //     // Show comparison view
+        //     tablesContainer.style.display = "none";
+        //     comparisonDiv.style.display = "block";
+        //     renderUrbanRuralComparison(Array.from(selectedIds));
+
+        //     // Update button label
+        //     toggleBtn.textContent = "View All Data";
+        //   }
+        // });
+
+        const tabButtons = document.querySelectorAll('.view-tab');
+        const views = {
+          charts: document.getElementById("charts-container"),
+          tables: document.getElementById("tables-container"),
+          tableComparison: document.getElementById("urban-rural-comparison"),
+          chartComparison: document.getElementById("urban-rural-charts")
+        };
+
+        tabButtons.forEach(tab => {
+          tab.addEventListener("click", () => {
+            // Update active tab
+            tabButtons.forEach(btn => btn.classList.remove("selected"));
+            tab.classList.add("selected");
+
+            // Show selected view, hide others
+            Object.values(views).forEach(div => div.style.display = "none");
+            const view = tab.getAttribute("data-view");
+            views[view].style.display = "block";
+
+            // Re-render content based on selected tab
+            if (view === "charts") {
+              renderAggregatedCharts(latestAggregatedData, selectedCategories);
+            } else if (view === "tables") {
+              renderAggregatedTables(latestAggregatedData, selectedCategories);
+            } else if (view === "tableComparison") {
+              renderUrbanRuralComparison(Array.from(selectedIds));
+            } else if (view === "chartComparison") {
+              renderUrbanRuralCharts(Array.from(selectedIds));
+            }
+          });
         });
 
         function renderAggregatedTables(aggregatedData, selectedCategories = []) {
           const container = document.getElementById("tables-container");
           container.innerHTML = "";
 
-          const entries = Object.entries(aggregatedData).filter(([key]) => {
-            return selectedCategories.length === 0 || selectedCategories.includes(key);
-          });
+          const grid = document.createElement("div");
+          grid.className = "table-grid"; // use consistent class
+          grid.style.display = "flex";
+          grid.style.flexWrap = "wrap";
+          grid.style.gap = "2rem";
+
+          const entries = Object.entries(aggregatedData).filter(([key]) =>
+            selectedCategories.length === 0 || selectedCategories.includes(key)
+          );
 
           entries.forEach(([category, values]) => {
-            const rowDiv = document.createElement("div");
-            rowDiv.className = "table-row";
-            rowDiv.style.display = "flex";
-            rowDiv.style.marginBottom = "20px";
-            rowDiv.style.alignItems = "flex-start";
-
-            // Table container
-            const tableContainer = document.createElement("div");
-            tableContainer.className = "table-wrapper";
-            tableContainer.style.flex = "0 0 33.33%";
-            tableContainer.style.marginRight = "10px";
+            const wrapper = document.createElement("div");
+            wrapper.className = "table-wrapper";
+            wrapper.style.flex = "0 0 calc(50% - 1rem)";
+            wrapper.style.background = "#fff";
+            wrapper.style.boxShadow = "0 2px 4px rgba(0,0,0,0.1)";
+            wrapper.style.padding = "16px";
+            wrapper.style.borderRadius = "8px";
+            wrapper.style.boxSizing = "border-box";
 
             const title = document.createElement("h3");
             title.textContent = category;
-            title.style.margin = "0 0 8px 0";
-            tableContainer.appendChild(title);
+            wrapper.appendChild(title);
 
             const table = document.createElement("table");
             table.className = "data-table";
@@ -772,100 +1052,234 @@ toggleButton.addEventListener('click', () => {
             }
 
             table.appendChild(tbody);
-            tableContainer.appendChild(table);
-
-            const chartPlaceholder = document.createElement("div");
-            chartPlaceholder.className = "chart-placeholder";
-            chartPlaceholder.style.flex = "0 0 66.66%";
-            chartPlaceholder.style.height = "100%";
-            chartPlaceholder.style.padding = "10px";
-            chartPlaceholder.style.background = "#f9f9f9";
-            chartPlaceholder.innerHTML = `<p style="text-align:center; color: #888;">[ Chart placeholder for "${category}" ]</p>`;
-
-            rowDiv.appendChild(tableContainer);
-            rowDiv.appendChild(chartPlaceholder);
-            container.appendChild(rowDiv);
+            wrapper.appendChild(table);
+            grid.appendChild(wrapper);
           });
+
+          container.appendChild(grid);
+
+          window.latestAggregatedData = aggregatedData;
         }
-        
-Chart.register(ChartDataLabels);
 
-function renderAggregatedCharts(data) {
-  const container = document.getElementById("charts-container");
-  container.innerHTML = "";
-  container.className = "chart-grid";
+        Chart.register(ChartDataLabels);
 
-  const excludedKeys = [
-      "Census 2021 Data Zone Label",
-      "Census 2021 Super Data Zone Label"
-    ];
+        function renderAggregatedCharts(data, selectedCategories = []) {
+          const container = document.getElementById("charts-container");
+          container.innerHTML = "";
 
-    const entries = Object.entries(data).filter(([key]) => !excludedKeys.includes(key));
+          // Reset chart tracking
+          window.chartInstances?.forEach(c => c.destroy());
+          window.chartInstances = [];
 
-  for (const [category, values] of entries) {
-    const chartContainer = document.createElement("div");
-    chartContainer.className = "chart-wrapper";
+          const excludedKeys = [
+            "Census 2021 Data Zone Label",
+            "Census 2021 Super Data Zone Label"
+          ];
 
-    const title = document.createElement("h3");
-    title.textContent = category;
-    chartContainer.appendChild(title);
+          const entries = Object.entries(data).filter(([key]) =>
+            !excludedKeys.includes(key) &&
+            (selectedCategories.length === 0 || selectedCategories.includes(key))
+          );
 
-    const canvas = document.createElement("canvas");
-    chartContainer.appendChild(canvas);
-    container.appendChild(chartContainer);
+          function sizingFor(categoryCount) {
+            /* 
+              • aspectRatio is width ÷ height.
+                Higher  = flatter   (good for very few bars)
+                Lower   = taller    (good for many bars)
 
-    const labels = Object.keys(values);
-    const totalCount = Object.values(values).reduce((acc, val) => acc + val, 0);
-    const dataPoints = Object.values(values).map(val =>
-      totalCount > 0 ? ((val / totalCount) * 100).toFixed(2) : 0
-    );
-
-    new Chart(canvas, {
-      type: "bar",
-      data: {
-        labels: labels,
-        datasets: [{
-          label: "Percentage",
-          data: dataPoints,
-          backgroundColor: "rgba(0, 0, 139, 0.8)",
-          borderColor: "rgba(0, 0, 139, 1)",
-          borderWidth: 1
-        }]
-      },
-      options: {
-        indexAxis: 'y',
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          datalabels: {
-            color: '#FFFFFF',
-            anchor: 'start',
-            align: 'left',
-            offset: -50,
-            formatter: value => value + '%',
-            font: {
-              weight: 'bold',
-              size: 12
+              • barPercentage controls bar thickness.
+                0.7 = fattest, 0.4 = thinnest
+            */
+            if (categoryCount <= 2) {
+              return { aspect: 2.5, barPct: 0.70 };   // very shallow, fat bars
             }
-          },
-          legend: {
-            display: false
+
+            if (categoryCount >= 3 && categoryCount <= 5) {
+              return { aspect: 2.0, barPct: 0.60 };   // still wide, but a bit slimmer
+            }
+
+            if (categoryCount > 5 && categoryCount <= 10) {
+              return { aspect: 1.5, barPct: 0.50 };   // medium height & thickness
+            }
+
+            // 11+ categories
+            return { aspect: 1.0, barPct: 0.40 };     // tallest chart, slim bars
           }
-        },
-        scales: {
-          x: {
-            beginAtZero: true,
-            title: {
-              display: true,
-              text: "Percentage"
-            }
+
+          for (const [category, values] of entries) {
+            const chartWrapper = document.createElement("div");
+            chartWrapper.className = "chart-wrapper";
+
+            const h3 = document.createElement("h3");
+            h3.textContent = category;
+            chartWrapper.appendChild(h3);
+
+            const legend = document.createElement("div");
+            legend.className = "custom-legend";
+            legend.style.marginBottom = "10px";
+            legend.innerHTML = `
+              <span style="display:inline-flex;align-items:center;margin-right:20px;">
+                <span style="width:4px;height:20px;background:black;display:inline-block;margin-right:5px;"></span>
+                NI Value
+              </span>`;
+            chartWrapper.appendChild(legend);
+
+            const canvas = document.createElement("canvas");
+            chartWrapper.appendChild(canvas);
+            container.appendChild(chartWrapper);
+
+            const labels = Object.keys(values);
+            const total = Object.values(values).reduce((a, v) => a + v, 0);
+            const dataPoints = Object.values(values).map(v =>
+              total ? ((v / total) * 100).toFixed(2) : 0
+            );
+
+            const { aspect, barPct } = sizingFor(labels.length);
+
+            const niPercents = Object.values(niTotals[category] || {});   // raw NI values (0-100)
+            const barPercents = dataPoints.map(Number);                   // your bar % values
+
+            const maxPercent = Math.max(
+              ...barPercents,
+              ...niPercents
+            );
+
+            const chart = new Chart(canvas, {
+              type: "bar",
+              data: {
+                labels,
+                datasets: [{
+                  label: "Percentage",
+                  data: dataPoints,
+                  backgroundColor: "#04863e",
+                  borderColor: "#04863e",
+                  borderWidth: 1,
+                  barPercentage: barPct,
+                  categoryPercentage: 0.8
+                }]
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                aspectRatio: aspect,
+                indexAxis: "y",
+                layout: { padding: { top: 10, left: 0 } },
+                plugins: { legend: { display: false } },
+                scales: {
+                  x: { display: false,
+                       max: maxPercent * 1.05
+                  },
+                  y: {
+                    ticks: { display: false },
+                    grid: { display: false, drawBorder: true }
+                  }
+                }
+              },
+              plugins: [
+                {
+                  id: 'niMarkers',
+                  afterDatasetsDraw(chart) {
+                    const ctx = chart.ctx;
+                    const dataset = chart.data.datasets[0];
+                    const meta = chart.getDatasetMeta(0);
+                    const category = chart.canvas.parentNode.querySelector("h3").textContent;
+                    const niValues = niTotals[category] || {};
+                    meta.data.forEach((bar, index) => {
+                      const label = chart.data.labels[index];
+                      const niVal = niValues[label];
+                      if (typeof niVal === 'number') {
+                        const x = chart.scales.x.getPixelForValue(niVal);
+                        const yTop = bar.y - bar.height / 2;
+                        const yBottom = bar.y + bar.height / 2;
+                        ctx.save();
+                        ctx.strokeStyle = 'black';
+                        ctx.lineWidth = 4;
+                        ctx.beginPath();
+                        ctx.moveTo(x, yTop);
+                        ctx.lineTo(x, yBottom);
+                        ctx.stroke();
+                        ctx.restore();
+                      }
+                    });
+                  }
+                },
+                {
+                  id: "customTopLabels",
+                  afterDatasetsDraw(chart, _args, _opts) {
+                    const ctx        = chart.ctx;
+                    const dataset    = chart.data.datasets[0];
+                    const meta       = chart.getDatasetMeta(0);
+                    const category   = chart.canvas.parentNode.querySelector("h3").textContent;
+                    const niValues   = niTotals[category] || {};
+
+                    /* text styles (tweak to taste) */
+                    const FONT       = "bold 12px sans-serif";
+                    const LINE_H     = 16;                // px between wrapped lines
+                    const X_PAD      = 4;                 // gap between y-axis and text
+                    const Y_GAP      = -1;                 // gap above bar
+
+                    ctx.save();
+                    ctx.font      = FONT;
+                    ctx.fillStyle = "#000";
+                    ctx.textAlign = "left";
+                    ctx.textBaseline = "top";
+
+                    /* left edge where labels should start */
+                    const xStart = chart.chartArea.left + X_PAD;
+
+                    /* Loop every bar */
+                    meta.data.forEach((bar, i) => {
+                      const label  = chart.data.labels[i];
+                      const value  = dataset.data[i];
+                      const niVal  = niValues[label];
+                      const txt    = `${label} ${value}%${typeof niVal === "number" ? ` (${niVal.toFixed(1)}%)` : ""}`;
+
+                      /* -----------------------------------------------------------
+                        1. Word-wrap text to fit inside the horizontal space
+                            (from xStart to start of the bar)
+                      ----------------------------------------------------------- */
+                      const maxWidth = chart.width * 0.75 - xStart;
+                      const words    = txt.split(" ");
+                      const lines    = [];
+                      let currLine   = "";
+
+                      words.forEach(w => {
+                        const testLine = currLine ? `${currLine} ${w}` : w;
+                        if (ctx.measureText(testLine).width > maxWidth && currLine) {
+                          lines.push(currLine);
+                          currLine = w;
+                        } else {
+                          currLine = testLine;
+                        }
+                      });
+                      if (currLine) lines.push(currLine);
+
+                      /* -----------------------------------------------------------
+                        2. Position block just above bar (regardless of bar height)
+                      ----------------------------------------------------------- */
+                      const totalH = lines.length * LINE_H;
+                      let y = bar.y - bar.height / 2 - Y_GAP;     // top edge of bar – gap
+                      y -= totalH;                                // move up to fit whole block
+
+                      /* -----------------------------------------------------------
+                        3. Draw each wrapped line
+                      ----------------------------------------------------------- */
+                      lines.forEach(line => {
+                        ctx.fillText(line, xStart, y);
+                        y += LINE_H;
+                      });
+                    });
+
+                    ctx.restore();
+                  }
+                }
+              ]
+            });
+
+            // Store chart instance for later destruction
+            window.chartInstances.push(chart);
           }
         }
-      },
-      plugins: [ChartDataLabels]
-    });
-  }
-}
 
         function clearSelections() {
           selectedIds.forEach(id => {
@@ -882,17 +1296,25 @@ function renderAggregatedCharts(data) {
               );
             }
           });
-          
+
           selectedIds.clear();
           selectedLGDs.clear();
           popup.remove();
 
+          // Reset UI
           document.getElementById("tables-container").innerHTML = "";
           document.getElementById("breakdown-container").innerHTML = "";
           document.getElementById("urban-rural-comparison").style.display = "none";
-          document.getElementById("tables-container").style.display = "block";
+          document.getElementById("urban-rural-charts").style.display = "none";
+          document.getElementById("tables-container").style.display = "none";
 
-          document.querySelectorAll('.lgd-btn').forEach(btn => btn.classList.remove('selected'));
+          document.querySelectorAll('#lgd-buttons input[type="checkbox"]').forEach(cb => {
+            cb.checked = false;
+          });
+
+          document.querySelectorAll('.lgd-btn').forEach(label => {
+            label.classList.remove('selected');
+          });
 
           const totalPop = document.getElementById("totalPopulation");
           if (totalPop) totalPop.textContent = "0";
@@ -900,97 +1322,127 @@ function renderAggregatedCharts(data) {
           const center = map.getCenter();
           const zoom = map.getZoom();
           map.jumpTo({ center, zoom: zoom + 0.00001 });
-     }
-
-document.getElementById("clear-selection-btn").addEventListener("click", function (e) {
-  e.preventDefault(); 
-  this.blur(); 
-  clearSelections(); // <-- This is where it's executed
-});
-
-document.querySelectorAll('.lgd-btn').forEach(button => {
-  button.addEventListener('click', () => {
-    const lgdCode = button.getAttribute('data-lgd');
-    const isSelected = selectedLGDs.has(lgdCode);
-
-    if (isSelected) {
-      selectedLGDs.delete(lgdCode);
-      button.classList.remove('selected');
-
-      // Remove zones from selectedIds
-      const toRemove = Array.from(selectedIds).filter(id => {
-        const data = currentZoneType === 'dz' ? dzData[id] : sdzData[id];
-        return data?.LGD === lgdCode;
-      });
-
-      toRemove.forEach(id => {
-        selectedIds.delete(id);
-        const source = currentZoneType === 'dz' ? 'dz2021' : 'sdz2021';
-        const sourceLayer = currentZoneType === 'dz' ? 'DZ2021_clipped' : 'SDZ2021_clipped';
-        map.setFeatureState({ source, sourceLayer, id }, { hovered: false });
-      });
-
-    } else {
-      selectedLGDs.add(lgdCode);
-      button.classList.add('selected');
-
-      // Add zones to selectedIds
-      const dataSource = currentZoneType === 'dz' ? dzData : sdzData;
-      const newIds = Object.entries(dataSource)
-        .filter(([id, data]) => data?.LGD === lgdCode)
-        .map(([id]) => id);
-
-      newIds.forEach(id => {
-        if (!selectedIds.has(id)) {
-          selectedIds.add(id);
-          const source = currentZoneType === 'dz' ? 'dz2021' : 'sdz2021';
-          const sourceLayer = currentZoneType === 'dz' ? 'DZ2021_clipped' : 'SDZ2021_clipped';
-          map.setFeatureState({ source, sourceLayer, id }, { hovered: true });
-        
           
+          // Destroy all Chart.js instances
+          if (window.chartInstances && window.chartInstances.length > 0) {
+            window.chartInstances.forEach(chart => {
+              if (chart && typeof chart.destroy === 'function') {
+                chart.destroy();
+              }
+            });
+            window.chartInstances = []  ;
+          }
+          
+          // Optionally clear chart container
+          const container = document.getElementById("charts-container");
+          if (container) {
+            container.innerHTML = "";
+          }
         }
-      });
-    }
-    
-     const selectedArray = Array.from(selectedIds);
+
+        document.getElementById("clear-selection-btn").addEventListener("click", function (e) {
+          e.preventDefault(); 
+          this.blur(); 
+          clearSelections(); 
+        });
+
+        document.querySelectorAll('#lgd-buttons input[type="checkbox"]').forEach(checkbox => {
+          checkbox.addEventListener('change', (e) => {
+            const lgdCode = checkbox.value;
+            const label = document.querySelector(`label[for="${checkbox.id}"]`);
+
+            if (checkbox.checked) {
+              selectedLGDs.add(lgdCode);
+              label.classList.add('selected');
+
+              const dataSource = currentZoneType === 'dz' ? dzData : sdzData;
+              const newIds = Object.entries(dataSource)
+                .filter(([id, data]) => data?.LGD === lgdCode)
+                .map(([id]) => id);
+
+              newIds.forEach(id => {
+                if (!selectedIds.has(id)) {
+                  selectedIds.add(id);
+                  const source = currentZoneType === 'dz' ? 'dz2021' : 'sdz2021';
+                  const sourceLayer = currentZoneType === 'dz' ? 'DZ2021_clipped' : 'SDZ2021_clipped';
+                  map.setFeatureState({ source, sourceLayer, id }, { hovered: true });
+                }
+              });
+
+            } else {
+              selectedLGDs.delete(lgdCode);
+              label.classList.remove('selected');
+
+              const toRemove = Array.from(selectedIds).filter(id => {
+                const data = currentZoneType === 'dz' ? dzData[id] : sdzData[id];
+                return data?.LGD === lgdCode;
+              });
+
+              toRemove.forEach(id => {
+                selectedIds.delete(id);
+                const source = currentZoneType === 'dz' ? 'dz2021' : 'sdz2021';
+                const sourceLayer = currentZoneType === 'dz' ? 'DZ2021_clipped' : 'SDZ2021_clipped';
+                map.setFeatureState({ source, sourceLayer, id }, { hovered: false });
+              });
+            }
+
+            const selectedArray = Array.from(selectedIds);
+            window.selectedIdsExcel = selectedIds;
             updateTables(selectedArray);
-            renderZoneBreakdownTable(selectedArray); 
-    
-      });
-});
+            renderZoneBreakdownTable(selectedArray);
+          });
+        });
 
-        function renderUrbanRuralComparison(selectedIdsArray) {
-          const container = document.getElementById("urban-rural-comparison");
-          container.innerHTML = "";
-
+        function aggregateUrbanRuralData(selectedIdsArray, selectedCategories) {
           const excludedKeys = ["Urban_mixed_rural_status", "Census 2021 Super Data Zone Label", "LGD"];
           const groups = { Urban: {}, Rural: {}, Mixed: {} };
-          const zoneLabels = { Urban: [], Rural: [], Mixed: [] };
 
           selectedIdsArray.forEach(id => {
-            const data = sdzData[id];
+            const dataSource = currentZoneType === 'dz' ? dzData : sdzData;
+            const data = dataSource[id];
             if (!data || !["Urban", "Rural", "Mixed"].includes(data.Urban_mixed_rural_status)) return;
 
             const group = data.Urban_mixed_rural_status;
-            const labelObj = data["Census 2021 Super Data Zone Label"];
-            const zoneName = labelObj ? Object.keys(labelObj)[0] : null;
-            if (zoneName) zoneLabels[group].push(zoneName);
 
             for (const [category, values] of Object.entries(data)) {
               if (excludedKeys.includes(category) || typeof values !== 'object') continue;
 
-              if (!groups[group][category]) groups[group][category] = {};
+              if (selectedCategories.length > 0 && !selectedCategories.includes(category)) continue;
+
+              if (!groups[group][category]) {
+                groups[group][category] = {};
+              }
+
               for (const [label, count] of Object.entries(values)) {
                 groups[group][category][label] = (groups[group][category][label] || 0) + count;
               }
             }
           });
 
-          const categoriesToDisplay = selectedCategories.length ? selectedCategories : Object.keys(groups.Urban).concat(Object.keys(groups.Rural));
+          return groups;
+        }
+      
+        window.renderUrbanRuralComparison = function(selectedIdsArray) {
+          const container = document.getElementById("urban-rural-comparison");
+          container.innerHTML = "";
+
+          // Use global selectedCategories for filtering
+          const groups = aggregateUrbanRuralData(selectedIdsArray, selectedCategories);
+
+          window.urbanRuralComparisonData = groups;
+
+          const categoriesToDisplay = selectedCategories.length
+            ? selectedCategories
+            : Array.from(new Set([
+                ...Object.keys(groups.Urban || {}),
+                ...Object.keys(groups.Rural || {}),
+                ...Object.keys(groups.Mixed || {})
+              ]));
 
           categoriesToDisplay.forEach(category => {
-            if (!groups.Urban[category] && !groups.Rural[category]) return;
-
+            const hasGroupData = groups.Urban?.[category] || groups.Rural?.[category] || groups.Mixed?.[category];
+            if (!hasGroupData) return;
+            
             const rowDiv = document.createElement("div");
             rowDiv.className = "table-row";
             rowDiv.style.display = "flex";
@@ -998,7 +1450,8 @@ document.querySelectorAll('.lgd-btn').forEach(button => {
             rowDiv.style.gap = "2rem";
 
             ["Urban", "Rural", "Mixed"].forEach(groupType => {
-              if (!groups[groupType][category]) return;
+              const values = groups[groupType]?.[category];
+              if (!values) return;
 
               const wrapper = document.createElement("div");
               wrapper.className = "table-wrapper";
@@ -1008,14 +1461,6 @@ document.querySelectorAll('.lgd-btn').forEach(button => {
               title.textContent = `${groupType} – ${category}`;
               wrapper.appendChild(title);
 
-              const subtitle = document.createElement("h4");
-              subtitle.style.fontWeight = "normal";
-              subtitle.style.fontSize = "14px";
-              subtitle.style.color = "#666";
-              subtitle.textContent = "Zones: " + (zoneLabels[groupType].length > 0 ? zoneLabels[groupType].join(", ") : "None selected");
-              wrapper.appendChild(subtitle);
-
-              const values = groups[groupType][category];
               const totalCount = Object.values(values).reduce((sum, val) => sum + val, 0);
 
               const table = document.createElement("table");
@@ -1071,7 +1516,423 @@ document.querySelectorAll('.lgd-btn').forEach(button => {
           });
         }
 
+        function renderUrbanRuralCharts(selectedIdsArray) {
+          const groups = aggregateUrbanRuralData(selectedIdsArray,selectedCategories);
+
+          const container = document.getElementById("urban-rural-charts");
+          container.innerHTML = "";
+
+          const categories = selectedCategories.length
+            ? selectedCategories
+            : Array.from(new Set([
+                ...Object.keys(groups.Urban || {}),
+                ...Object.keys(groups.Rural || {}),
+                ...Object.keys(groups.Mixed || {})
+              ]));
+
+          categories.forEach(category => {
+            const hasData = groups.Urban?.[category] || groups.Rural?.[category] || groups.Mixed?.[category];
+            if (!hasData) return;
+
+            const chartWrapper = document.createElement("div");
+            chartWrapper.className = "chart-wrapper";
+
+            const title = document.createElement("h3");
+            title.textContent = `${category} - Urban/Rural/Mixed Comparison`;
+            chartWrapper.appendChild(title);
+
+            const legend = document.createElement("div");
+            legend.className = "custom-legend";
+            legend.style.marginBottom = "10px";
+            legend.innerHTML = `
+              <span style="display: inline-flex; align-items: center; margin-right: 20px;">
+              <span style="display: inline-flex; align-items: center;">
+                <span style="width: 4px; height: 20px; background-color: black; display: inline-block; margin-right: 5px;"></span>
+                NI Value
+              </span>
+            `;
+            chartWrapper.appendChild(legend);
+
+            const canvas = document.createElement("canvas");
+            chartWrapper.appendChild(canvas);
+            container.appendChild(chartWrapper);
+
+            const labelSet = new Set([
+              ...Object.keys(groups.Urban?.[category] || {}),
+              ...Object.keys(groups.Rural?.[category] || {}),
+              ...Object.keys(groups.Mixed?.[category] || {})
+            ]);
+            const labels = Array.from(labelSet).sort();
+
+            const groupTypes = ["Urban", "Rural", "Mixed"];
+            const colorMap = {
+              Urban: "rgba(54, 162, 235, 0.6)",
+              Rural: "rgba(255, 99, 132, 0.6)",
+              Mixed: "rgba(255, 206, 86, 0.6)"
+            };
+
+            const datasets = groupTypes
+              .filter(group => groups[group]?.[category])
+              .map(group => {
+                const values = groups[group][category];
+                const total = Object.values(values).reduce((sum, val) => sum + val, 0);
+
+                return {
+                  label: group,
+                  data: labels.map(label => {
+                    const count = values[label] || 0;
+                    return total > 0 ? ((count / total) * 100).toFixed(2) : 0;
+                  }),
+                  backgroundColor: colorMap[group]
+                };
+              });
+
+            const ratio = labels.length <= 5 ? 2.5 :
+                          labels.length <= 10 ? 1.8 :
+                          labels.length <= 15 ? 1.3 : 1.0;
+
+            new Chart(canvas, {
+              type: "bar",
+              data: {
+                labels,
+                datasets
+              },
+              options: {
+                indexAxis: "y",
+                responsive: true,
+                maintainAspectRatio: true,
+                aspectRatio: ratio,
+                plugins: {
+                  legend: { position: "top" },
+                  tooltip: {
+                    callbacks: {
+                      label: ctx => `${ctx.dataset.label}: ${ctx.raw}%`
+                    }
+                  }
+                },
+                scales: {
+                  x: {
+                    beginAtZero: true,
+                    title: { display: true, text: "Percentage" },
+                    ticks: { callback: val => `${val}%` }
+                  },
+                  y: {
+                    title: { display: true, text: "Category" }
+                  }
+                }
+              }
+            });
+          });
+        }
+
+
+
+        document.querySelectorAll(".group-toggle").forEach((button) => {
+          const content = button.nextElementSibling;
+          const label = button.textContent.trim();
+
+          if (label.startsWith("Demography")) {
+            content.style.display = "block";
+            button.innerHTML = label.replace("▼", "▲");
+          } else {
+            content.style.display = "none";
+          }
+
+          // Toggle behavior
+          button.addEventListener("click", () => {
+            const isVisible = content.style.display !== "none";
+            content.style.display = isVisible ? "none" : "block";
+            button.innerHTML = label.replace(isVisible ? "▲" : "▼", isVisible ? "▼" : "▲");
+          });
+        });
+
       });
+
+      // scroll to and from geog selector and area profile builder
+      function smoothScrollTo(targetId, offset) {
+        const target = document.getElementById(targetId);
+        if (!target) return;
+
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+
+      function waitForImagesToLoad(container) {
+        const images = container.querySelectorAll('img');
+        const promises = Array.from(images).map(img => {
+          return new Promise(resolve => {
+            if (img.complete) resolve();
+            else img.onload = img.onerror = resolve;
+          });
+        });
+        return Promise.all(promises);
+      }
+
+      function downloadSummaryImage() {
+        const selectedTab = document.querySelector('.view-tab.selected');
+        const view = selectedTab ? selectedTab.getAttribute('data-view') : 'charts';
+
+        const breakdownContainer = document.getElementById('breakdown-container');
+        const contentSource = {
+          charts: document.getElementById('charts-container'),
+          tables: document.getElementById('tables-container'),
+          comparison: document.getElementById('urban-rural-comparison')
+        }[view];
+
+        const cloneWrapper = document.createElement('div');
+        cloneWrapper.style.background = "#fff";
+        cloneWrapper.style.padding = "20px";
+        cloneWrapper.style.fontFamily = "sans-serif";
+        cloneWrapper.style.maxWidth = "1200px";
+        cloneWrapper.style.margin = "0 auto";
+
+        const breakdownClone = breakdownContainer.cloneNode(true);
+        const contentClone = contentSource.cloneNode(true);
+
+        //charts
+       if (view === "charts") {
+        const chartWrapper = document.createElement("div");
+        chartWrapper.style.display = "grid";
+        chartWrapper.style.gridTemplateColumns = "1fr 1fr";
+        chartWrapper.style.gap = "20px";
+
+        const originalCards = contentSource.querySelectorAll(".chart-wrapper");
+        const clonedCards = contentClone.querySelectorAll(".chart-wrapper");
+
+        originalCards.forEach((originalCard, index) => {
+          const clonedCard = clonedCards[index];
+          const originalCanvas = originalCard.querySelector("canvas");
+          const clonedCanvas = clonedCard?.querySelector("canvas");
+
+          if (originalCanvas && clonedCanvas) {
+            const dataUrl = originalCanvas.toDataURL("image/png");
+            const img = new Image();
+            img.src = dataUrl;
+            img.style.maxWidth = "100%";
+            img.style.display = "block";
+            img.style.marginTop = "10px";
+
+            clonedCanvas.parentNode.replaceChild(img, clonedCanvas);
+          }
+
+          if (clonedCard) {
+            chartWrapper.appendChild(clonedCard);
+          }
+        });
+
+        contentClone.innerHTML = "";
+        contentClone.appendChild(chartWrapper);
+      }
+
+
+        //tables
+        if (view === "tables" || view === "comparison") {
+          const tables = contentClone.querySelectorAll("table");
+          tables.forEach(table => {
+            table.style.display = "table";
+            table.style.width = "100%";
+            table.style.borderCollapse = "collapse";
+
+            table.querySelectorAll("thead").forEach(thead => {
+              thead.style.display = "table-header-group";
+            });
+            table.querySelectorAll("tbody").forEach(tbody => {
+              tbody.style.display = "table-row-group";
+            });
+            table.querySelectorAll("tr").forEach(tr => {
+              tr.style.display = "table-row";
+            });
+            table.querySelectorAll("td, th").forEach(cell => {
+              cell.style.display = "table-cell";
+              cell.style.padding = "8px";
+              cell.style.border = "1px solid #ccc";
+              cell.style.verticalAlign = "top";
+              cell.style.fontSize = "14px";
+              cell.style.textAlign = "left";
+            });
+          });
+        }
+
+        //comparison tables
+        if (view === "comparison") {
+          const rowDivs = contentClone.querySelectorAll(".table-row");
+          rowDivs.forEach(rowDiv => {
+            rowDiv.style.display = "grid";
+            rowDiv.style.gridTemplateColumns = "repeat(auto-fit, minmax(300px, 1fr))";
+            rowDiv.style.gap = "20px";
+            rowDiv.style.marginBottom = "30px";
+
+            const wrappers = rowDiv.querySelectorAll(".table-wrapper");
+            wrappers.forEach(wrapper => {
+              wrapper.style.height = "auto";
+              wrapper.style.margin = "0";
+            });
+          });
+        }
+
+        contentClone.style.display = "block";
+        contentClone.style.visibility = "visible";
+
+        cloneWrapper.appendChild(breakdownClone);
+        cloneWrapper.appendChild(document.createElement("hr"));
+        cloneWrapper.appendChild(contentClone);
+        document.body.appendChild(cloneWrapper);
+
+        cloneWrapper.offsetHeight;
+
+        // wait for layout and images to finish
+        waitForImagesToLoad(cloneWrapper).then(() => {
+          return new Promise(resolve => {
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                html2canvas(cloneWrapper, {
+                  useCORS: true,
+                  scale: 2,
+                  backgroundColor: "#ffffff"
+                }).then(resolve);
+              });
+            });
+          });
+        }).then(canvas => {
+          const logo = new Image();
+          logo.src = 'img/nisra-logo.svg';
+
+          logo.onload = () => {
+            const padding = 20;
+            const maxLogoWidth = canvas.width * 0.25;
+            const scaleFactor = Math.min(1, maxLogoWidth / logo.width);
+            const scaledLogoWidth = logo.width * scaleFactor;
+            const scaledLogoHeight = logo.height * scaleFactor;
+
+            const finalCanvas = document.createElement('canvas');
+            finalCanvas.width = canvas.width;
+            finalCanvas.height = canvas.height + scaledLogoHeight + padding;
+
+            const ctx = finalCanvas.getContext('2d');
+            ctx.fillStyle = "#ffffff";
+            ctx.fillRect(0, 0, finalCanvas.width, finalCanvas.height);
+
+            ctx.drawImage(canvas, 0, 0);
+
+            // logo at bottom right
+            const x = finalCanvas.width - scaledLogoWidth - padding;
+            const y = canvas.height + (padding / 2);
+            ctx.drawImage(logo, x, y, scaledLogoWidth, scaledLogoHeight);
+
+            // Trigger download
+            const link = document.createElement('a');
+            link.download = 'area-summary.png';
+            link.href = finalCanvas.toDataURL('image/png');
+            link.click();
+
+            document.body.removeChild(cloneWrapper);
+          };
+        });
+      }
+
+function downloadExcel() {
+
+  const selectedArray = Array.from(selectedIdsExcel);
+  renderUrbanRuralComparison(selectedArray);
+
+  const aggregated = window.latestAggregatedData || {};
+  const comparison = window.urbanRuralComparisonData || {};
+  const selectedCategories = window.chosenCategories || [];
+  const niTotals = window.niTotals || {};
+  const workbook = XLSX.utils.book_new();
+  const groups = ["Urban", "Rural", "Mixed"];
+
+  // Helper to format cells
+  function formatCell(value, type, format) {
+    return { v: value, t: type, z: format };
+  }
+
+  (selectedCategories.length ? selectedCategories : Object.keys(aggregated)).forEach(category => {
+    const sheetData = [];
+
+    // Aggregated data
+    sheetData.push([formatCell(`${category}`, "s")]);
+    sheetData.push([
+      formatCell("Label", "s"),
+      formatCell("Count", "s"),
+      formatCell("Percentage", "s"),
+      formatCell("NI %", "s")
+    ]);
+
+    const values = aggregated[category] || {};
+    const totalCount = Object.values(values).reduce((acc, val) => acc + val, 0);
+
+    for (const [label, count] of Object.entries(values)) {
+      const percentage = totalCount > 0 ? count / totalCount : 0;
+      const niVal = niTotals[category]?.[label];
+      const niPercentage = typeof niVal === "number" ? niVal / 100 : null;
+
+      sheetData.push([
+        formatCell(label, "s"),
+        formatCell(count, "n", "0"),
+        formatCell(percentage, "n", "0.00%"),
+        niPercentage !== null ? formatCell(niPercentage, "n", "0.0%") : formatCell("–", "s")
+      ]);
+    }
+
+    sheetData.push([]); // Blank row between sections
+    // Urban/Rural/Mixed data (conditionally included)
+    groups.forEach(group => {
+      const groupCategoryData = comparison[group]?.[category];
+      if (!groupCategoryData || Object.keys(groupCategoryData).length === 0) return;
+
+      sheetData.push([formatCell(`${category} – ${group}`, "s")]);
+      sheetData.push([
+        formatCell("Label", "s"),
+        formatCell("Count", "s"),
+        formatCell("Percentage", "s"),
+        formatCell("NI %", "s")
+      ]);
+
+      const total = Object.values(groupCategoryData).reduce((acc, val) => acc + val, 0);
+
+      for (const [label, count] of Object.entries(groupCategoryData)) {
+        const pct = total > 0 ? count / total : 0;
+        const niVal = niTotals[category]?.[label];
+        const niPct = typeof niVal === "number" ? niVal / 100 : null;
+
+        sheetData.push([
+          formatCell(label, "s"),
+          formatCell(count, "n", "0"),
+          formatCell(pct, "n", "0.00%"),
+          niPct !== null ? formatCell(niPct, "n", "0.0%") : formatCell("–", "s")
+        ]);
+      }
+
+      sheetData.push([]); // Blank row between groups
+    });
+
+    const worksheet = XLSX.utils.aoa_to_sheet(sheetData);
+
+    // Style section headers
+    const range = XLSX.utils.decode_range(worksheet["!ref"]);
+    for (let R = 0; R <= range.e.r; ++R) {
+      const cell = worksheet[XLSX.utils.encode_cell({ r: R, c: 0 })];
+      if (cell && typeof cell.v === "string" && cell.v.includes("–")) {
+        cell.s = {
+          font: { bold: true, color: { rgb: "FFFFFF" } },
+          alignment: { horizontal: "left" },
+          fill: { fgColor: { rgb: "228B22" } }
+        };
+      }
+    }
+
+    XLSX.utils.book_append_sheet(workbook, worksheet, category.substring(0, 31));
+  });
+
+  XLSX.writeFile(workbook, "summary_data.xlsx");
+}
+
     </script>
   </body>
 
