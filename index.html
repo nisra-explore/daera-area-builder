@@ -72,10 +72,10 @@
 
                 <div id="map-wrapper">
                   <div id="lgd-selector" class="lgd-selector">
-                  <h3>Create your own area profile and see urban rural comparisons for local areas in Northern Ireland</h3>
-                  <h5>Select the areas on the map that you wish to add to your profile <br><br>AND/OR <br><br>Use an area selector to make multiple selections for defined areas: <br>
+                  <!-- <h3>Create your own area profile and see urban rural comparisons for local areas in Northern Ireland</h3> -->
+                  <h5>Select the areas that you wish to add to your custom area profile by:<br><br> <b>Making multiple map selections</b> <br></b>or<br> <b>Use an area selector below to make grouped selections for predefined areas:</b>
                   </h5>
-                  <br>
+
                   <div class="category-group">
                     <button type="button" class="group-toggle">Local Government Districts ▼</button>
                     <div class="group-content" id="lgd-buttons">
@@ -139,14 +139,14 @@
                   <div id="map"></div>
 
                   <div class="nav-button-container">
-                    <button class="nav-button" onclick="smoothScrollTo('chng-btn-container', 0)">Build Area Profile</button>
+                    <button  id="build-profile-btn" class="nav-button">Build Area Profile</button>
                   </div>
 
                   <div class="zone-selector-box">
                     <label for="zone-selector"><strong>Select Geography Level:</strong></label>
                     <select id="zone-selector">
-                      <option value="dz" selected>Data Zone</option>
-                      <option value="sdz">Super Data Zone</option>
+                      <option value="sdz" selected>Super Data Zone</option>
+                      <option value="dz">Data Zone</option>                      
                     </select>
                   </div>
 
@@ -157,6 +157,13 @@
                     <button id="resetZoomBtn">Reset Zoom</button>
                   </div>
 
+                  <div id="map-legend" class="map-legend">
+                    <h4 style="font-size: 16px; color: #333">Area key:</h4>
+                    <div><span class="legend-swatch urban"></span> Urban</div>
+                    <div><span class="legend-swatch rural"></span> Rural</div>
+                    <div><span class="legend-swatch mixed"></span> Mixed</div>
+                  </div>
+
                 </div>
 
                 
@@ -165,125 +172,160 @@
 
             </div>
         </div>
-        <div style="padding-top: 40px;" id="chng-btn-container">
-          <button onclick="downloadExcel()">Download Excel File</button>
-          <button onclick="downloadSummaryImage()">Download Summary Image</button>
-          <button class="nav-button" onclick="smoothScrollTo('top-container', 0)">Change Area Selections</button>
-        </div>
-        <div id="profile-content">
-          
-          <div id="output-and-controls">
-
-            <div id="category-selector">
-                  <h3>Create your own area profile and see urban rural comparisons for local areas in Northern Ireland</h3>
-                  <h5>Select the statistics you wish to see for your chosen areas:</h5>
-                  <br>
-                  <form id="category-form">
-
-                    <div class="category-group">
-                      <button type="button" class="group-toggle">Demography ▼</button>
-                      <div class="group-content">
-                        <label><input type="checkbox" value="Age" checked> Age</label>
-                        <label><input type="checkbox" value="Sex Label" checked> Sex</label>
-                        <label><input type="checkbox" value="Living Arrangements"> Living Arrangements</label>
-                        <label><input type="checkbox" value="Household Composition"> Household Composition</label>
-                      </div>
-                    </div>
-
-                    <div class="category-group">
-                      <button type="button" class="group-toggle">Education ▼</button>
-                      <div class="group-content">
-                        <label><input type="checkbox" value="Qualifications Highest Level"> Qualifications Highest Level</label>
-                      </div>
-                    </div>
-
-                    <div class="category-group">
-                      <button type="button" class="group-toggle">Economy ▼</button>
-                      <div class="group-content">
-                        <label><input type="checkbox" value="Economic Activity"> Economic Activity</label>
-                        <label><input type="checkbox" value="Household Car or Van Availability"> Household Car or Van Availability</label>
-                      </div>
-                    </div>
-
-                  </form>
-            </div>
-            
-            <br>
-            
-            <div id="output-panel" style="flex: 1;">
-              <div id="breakdown-container"></div>
-              <br>
-
-              <!-- View Tabs -->
-              <div style="display: flex; align-items: stretch; margin-bottom: 1rem;">
-                <button class="view-tab selected" data-view="charts">Charts</button>
-                <button class="view-tab" data-view="tables">Tables</button>
-                <button class="view-tab" data-view="tableComparison">Tables<br><span style="font-size: 12px; font-weight: normal;">Urban/Rural/Mixed</span></button>
-                <button class="view-tab" data-view="chartComparison">Charts<br><span style="font-size: 12px; font-weight: normal;">Urban/Rural/Mixed</span></button>
-              </div>
-
-              <div id="charts-container"></div>
-              <div id="tables-container" style="display: none;"></div>
-              <div id="urban-rural-comparison" style="display: none;"></div>
-              <div id="urban-rural-charts" style="display: none;"></div>
-
-            </div>
-            
-          </div>
-
-          <h3 style = "margin-top: 20px;"> Source</h3>
-            <p style="margin-bottom: 10px;">Data originally collected and presented in:<br> <a class = "source_name" id="sourceId" target="_blank"></a></p>
-            <p> Data presented here has been extracted from the NISRA Data Portal:<br> <a class="dataportal_name" id="portalId" target="_blank"></a></p>
-          
         
-        </div> <!--closes profile content div-->
-      </div>
+        <div id="output-content" class="hidden-section">
+          <div id="profile-content">
+          
+            <div id="output-and-controls">
+
+              <div id="category-selector">
+                    <h3>Create your own area profile and see urban rural comparisons for local areas in Northern Ireland</h3>
+                    <h5>Select the statistics you wish to see for your chosen areas:</h5>
+                    <br>
+                    <form id="category-form">
+
+                      <div class="category-group">
+                        <button type="button" class="group-toggle">Demography ▼</button>
+                        <div class="group-content">
+                          <label><input type="checkbox" value="Age" checked> Age</label>
+                          <label><input type="checkbox" value="Sex Label" checked> Sex</label>
+                          <label><input type="checkbox" value="Religion"> Religion</label>
+                          <label><input type="checkbox" value="Household Composition"> Household Composition</label>
+                          <label><input type="checkbox" value="Country of Birth"> Country of Birth</label>
+                          <label><input type="checkbox" value="Main Language"> Main Language</label>
+                          <label><input type="checkbox" value="Sexual Orientation Label"> Sexual Orientation</label>
+                          <label><input type="checkbox" value="Ethnic Group Label"> Ethnic Group</label>
+                          <label><input type="checkbox" value="Household Dependant Children"> Dependant Children</label>
+                          <label><input type="checkbox" value="Household Tenure"> Tenure</label>
+                          <label><input type="checkbox" value="Martial and Civil Partnership Status"> Martial and Civil Partnership Status</label> 
+                        </div>
+                      </div>
+
+                      <div class="category-group">
+                        <button type="button" class="group-toggle">Education ▼</button>
+                        <div class="group-content">
+                          <label><input type="checkbox" value="Qualifications Highest Level"> Qualifications Highest Level</label>
+                          <label><input type="checkbox" value="Place of Study Method of Travel"> Place of Study (Method of Travel)</label> 
+                          <label><input type="checkbox" value="Place of Study Distance"> Place of Study (Distance)</label> 
+                        </div>
+                      </div>
+
+                      <div class="category-group">
+                        <button type="button" class="group-toggle">Economy ▼</button>
+                        <div class="group-content">
+                          <label><input type="checkbox" value="Economic Activity"> Economic Activity</label>
+                          <label><input type="checkbox" value="Household Car or Van Availability"> Household Car or Van Availability</label>
+                          <label><input type="checkbox" value="Household Central Heating"> Central Heating</label>
+                          <label><input type="checkbox" value="Place of Work Distance"> Place of Work (Distance)</label> 
+                          <label><input type="checkbox" value="Place of Work Method of Travel"> Place of Work (Method of Travel)</label> 
+                          <label><input type="checkbox" value="Occupation Current"> Current Occupation</label> 
+                          <label><input type="checkbox" value="Household Renewable Energy Systems Label"> Renewable Energy Systems</label>
+                        </div>
+                      </div>
+
+                      <div class="category-group">
+                        <button type="button" class="group-toggle">Health ▼</button>
+                        <div class="group-content">
+                          <label><input type="checkbox" value="Health Condition Emotional or Mental Health Label"> Emotional or Mental Health Condition</label>
+                          <label><input type="checkbox" value="Health Problem or Disability Long term Label"> Health Problem or Disability (Long-term)</label>
+                          <label><input type="checkbox" value="Health in General"> Health in General</label>
+                          <label><input type="checkbox" value="Provision of Unpaid Care"> Provision of Unpaid Care</label> 
+                        </div>
+                      </div>
+
+                    </form>
+              </div>
+              
+              <br>
+              
+              <div id="output-panel" style="flex: 1;">
+                <div class="breakdown-row">
+                  <div id="breakdown-container"></div>
+                
+                  <div class="button-wrapper">
+                      <button id="change-selection-btn" class="nav-button">Change Area Selections</button>
+                  </div>
+                </div>
+                
+
+                <!-- View Tabs -->
+                <div style="display: flex; align-items: stretch; margin-bottom: 1rem;">
+                  <button class="view-tab selected" data-view="charts">Charts</button>
+                  <button class="view-tab" data-view="tables">Tables</button>
+                  <button class="view-tab" data-view="tableComparison">Tables<br><span style="font-size: 12px; font-weight: normal;">Urban/Rural/Mixed</span></button>
+                  <button class="view-tab" data-view="chartComparison">Charts<br><span style="font-size: 12px; font-weight: normal;">Urban/Rural/Mixed</span></button>
+                </div>
+
+                <div id="charts-container"></div>
+                <div id="tables-container" style="display: none;"></div>
+                <div id="urban-rural-comparison" style="display: none;"></div>
+                <div id="urban-rural-charts" style="display: none;"></div>
+
+                <br>
+                <hr style="border-top: 5px solid #04863e; margin: 0">
+                <br>
+                <button onclick="downloadExcel()">Download Excel File</button>
+                <button onclick="downloadSummaryImage()">Download Summary Image</button>
+
+              </div>
+              
+            </div>
+
+            <h3 style = "margin-top: 20px;"> Source</h3>
+              <p style="margin-bottom: 10px;">Data originally collected and presented in:<br> <a class = "source_name" id="sourceId" target="_blank"></a></p>
+              <p> Data presented here has been extracted from the NISRA Data Portal:<br> <a class="dataportal_name" id="portalId" target="_blank"></a></p>
+          
+          </div> <!--closes profile content div-->
+        <footer>
+          <div id="footer-container">
+            <div class="row">
+              <div style="height: 170px; width: 350px; margin: 10px;">
+                <h3 style="font-weight: 700; font-size: 18px; color: #ffffff">Links</h3>
+                <a href="https://data.nisra.gov.uk/" target="_blank" rel="noopener noreferrer">NISRA Data
+                  Portal</a><br>
+                <a href="https://visual.nisra.gov.uk/" target="_blank" rel="noopener noreferrer">NISRA Interactive
+                  Data Visualisation Hub</a><br>
+                <a href="https://www.opendatani.gov.uk/" target="_blank" rel="noopener noreferrer">OpenDataNI</a><br>
+                <a href="https://www.nidirect.gov.uk" target="_blank" rel="noopener noreferrer">NIDirect</a><br>
+                <a href="https://www.gov.uk/" target="_blank" rel="noopener noreferrer">GOV.UK</a><br>
+              </div>
+              <div style="height: 170px; width: 120px; margin: 20px 0px 20px 60px;">
+                <h3 style="font-weight: 700; font-size: 18px; color: #ffffff">Follow NISRA</h3>
+                <i class="fa-brands fa-facebook-f"></i> <a href="https://www.facebook.com/nisra.gov.uk" target="_blank"
+                  rel="noopener noreferrer">Facebook</a><br>
+                <i class="fa-brands fa-x-twitter"></i> <a href="https://twitter.com/NISRA" target="_blank"
+                  rel="noopener noreferrer">Twitter</a><br>
+                <i class="fa-brands fa-youtube"></i> <a href="https://www.youtube.com/user/nisrastats" target="_blank"
+                  rel="noopener noreferrer">YouTube</a><br>
+              </div>
+            </div>
+            <div class="flex-list-footer">
+              <ul
+                style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; margin-left: -1px;">
+                <li class="cc-li" style="border-left:0px;"><a href="https://www.nisra.gov.uk/crown-copyright" target="_blank"
+                    rel="noopener noreferrer">© Crown Copyright</a></li>
+                <!--<li class="cc-li"><a href="https://www.nisra.gov.uk/contacts/programme-government-analytics-executive-office"
+                    target="_blank" rel="noopener noreferrer">Contact us</a></li> --> 
+                <li class="cc-li"><a href="https://consultations.nidirect.gov.uk/teo/d8cf2dfc" target="_blank">Leave
+                    feedback</a></li>
+                <li class="cc-li"><a href="https://www.nisra.gov.uk/terms-and-conditions" target="_blank"
+                    rel="noopener noreferrer">Terms and conditions</a></li>
+                <li class="cc-li"><a href="https://www.nisra.gov.uk/cookies" target="_blank"
+                    rel="noopener noreferrer">Cookies</a></li>
+                <li class="cc-li"><a href="https://www.nisra.gov.uk/nisra-privacy-notice" target="_blank"
+                    rel="noopener noreferrer">Privacy</a></li>
+                <li class="cc-li"><a href="https://www.nisra.gov.uk/accessibility-statement-nisra" target="_blank"
+                    rel="noopener noreferrer">Accessibility Statement</a></li>
+              </ul>
+            </div>
+          </div>
+        </footer>
+        </div>
+    
+      </div>   
       </div>
       <hr style="border-top: 10px solid #076cba; margin-bottom: 0; margin-top: 25px;">
-      <footer>
-        <div id="footer-container">
-          <div class="row">
-            <div style="height: 170px; width: 350px; margin: 10px;">
-              <h3 style="font-weight: 700; font-size: 18px; color: #ffffff">Links</h3>
-              <a href="https://data.nisra.gov.uk/" target="_blank" rel="noopener noreferrer">NISRA Data
-                Portal</a><br>
-              <a href="https://visual.nisra.gov.uk/" target="_blank" rel="noopener noreferrer">NISRA Interactive
-                Data Visualisation Hub</a><br>
-              <a href="https://www.opendatani.gov.uk/" target="_blank" rel="noopener noreferrer">OpenDataNI</a><br>
-              <a href="https://www.nidirect.gov.uk" target="_blank" rel="noopener noreferrer">NIDirect</a><br>
-              <a href="https://www.gov.uk/" target="_blank" rel="noopener noreferrer">GOV.UK</a><br>
-            </div>
-            <div style="height: 170px; width: 120px; margin: 20px 0px 20px 60px;">
-              <h3 style="font-weight: 700; font-size: 18px; color: #ffffff">Follow NISRA</h3>
-              <i class="fa-brands fa-facebook-f"></i> <a href="https://www.facebook.com/nisra.gov.uk" target="_blank"
-                rel="noopener noreferrer">Facebook</a><br>
-              <i class="fa-brands fa-x-twitter"></i> <a href="https://twitter.com/NISRA" target="_blank"
-                rel="noopener noreferrer">Twitter</a><br>
-              <i class="fa-brands fa-youtube"></i> <a href="https://www.youtube.com/user/nisrastats" target="_blank"
-                rel="noopener noreferrer">YouTube</a><br>
-            </div>
-          </div>
-          <div class="flex-list-footer">
-            <ul
-              style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; margin-left: -1px;">
-              <li class="cc-li" style="border-left:0px;"><a href="https://www.nisra.gov.uk/crown-copyright" target="_blank"
-                  rel="noopener noreferrer">© Crown Copyright</a></li>
-              <!--<li class="cc-li"><a href="https://www.nisra.gov.uk/contacts/programme-government-analytics-executive-office"
-                  target="_blank" rel="noopener noreferrer">Contact us</a></li> --> 
-              <li class="cc-li"><a href="https://consultations.nidirect.gov.uk/teo/d8cf2dfc" target="_blank">Leave
-                  feedback</a></li>
-              <li class="cc-li"><a href="https://www.nisra.gov.uk/terms-and-conditions" target="_blank"
-                  rel="noopener noreferrer">Terms and conditions</a></li>
-              <li class="cc-li"><a href="https://www.nisra.gov.uk/cookies" target="_blank"
-                  rel="noopener noreferrer">Cookies</a></li>
-              <li class="cc-li"><a href="https://www.nisra.gov.uk/nisra-privacy-notice" target="_blank"
-                  rel="noopener noreferrer">Privacy</a></li>
-              <li class="cc-li"><a href="https://www.nisra.gov.uk/accessibility-statement-nisra" target="_blank"
-                  rel="noopener noreferrer">Accessibility Statement</a></li>
-            </ul>
-          </div>
-        </div>
-      </footer>
+      
     </div>
     <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
     <link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel="stylesheet" />
@@ -302,13 +344,16 @@
           maxBounds: [[-9.20, 53.58], [-4.53, 55.72]]
         });
 
-        // let activeZone = 'dz';
+        let activeZone = 'sdz';
 
         // Event listener for choosing SDZ or DZ
         document.getElementById('zone-selector').addEventListener('change', function (e) {
           const selected = e.target.value;
           currentZoneType = selected;
           
+          window.selectedZoneType = selected;
+          updateSourceLink();
+
           if (selected === 'sdz') {
             activeZone = 'sdz';
             map.setLayoutProperty('sdz-fill', 'visibility', 'visible');
@@ -330,12 +375,26 @@
           //  setupZoneEvents(); 
 
           clearSelections();       // Clear map and outputs
+          
+          // Reset category checkboxes to defaults
+          const defaultCategories = ['Age', 'Sex Label'];
+          window.chosenCategories = defaultCategories;
+          selectedCategories = defaultCategories;
+
+          // Reset form checkboxes to match defaults
+          document.querySelectorAll('#category-form input[type="checkbox"]').forEach(cb => {
+            cb.checked = defaultCategories.includes(cb.value);
+          });
+
           updateTables([]);        // Reset tables
           selectedIds.clear();
           selectedLGDs.clear();
           popup.remove();
 
         });
+
+        // Initial link setup on page load
+        updateSourceLink();
 
         const selectedIds = new Set();
         let sdzData = {};
@@ -441,7 +500,7 @@
             source: 'sdz2021',
             'source-layer': 'SDZ2021_clipped',            
             layout: {
-              visibility: 'none'
+              visibility: 'visible'
             },
             paint: {
               'fill-color': [
@@ -464,7 +523,7 @@
             source: 'dz2021',
             'source-layer': 'DZ2021_clipped',            
             layout: {
-              visibility: 'visible'
+              visibility: 'none'
             },
             paint: {
               'fill-color': [
@@ -485,7 +544,7 @@
             id: 'sdz-outline-default',
             type: 'line',
             layout: {
-                visibility: 'none'
+                visibility: 'visible'
               },
             source: 'sdz2021',
             'source-layer': 'SDZ2021_clipped',
@@ -499,7 +558,7 @@
             id: 'dz-outline-default',
             type: 'line',
             layout: {
-                visibility: 'visible' 
+                visibility: 'none' 
               },
             source: 'dz2021',
             'source-layer': 'DZ2021_clipped',
@@ -528,7 +587,7 @@
             id: 'dz-outline-hover',
             type: 'line',
             layout: {
-                visibility: 'visible'
+                visibility: 'none'
               },
             source: 'dz2021',
             'source-layer': 'DZ2021_clipped',
@@ -665,6 +724,21 @@
             updateTables(Array.from(selectedIds));
           });
 
+          const buildBtn = document.getElementById("build-profile-btn");
+          const changeBtn = document.getElementById("change-selection-btn");
+          const outputContent = document.getElementById("output-content");
+          const mapContent = document.getElementById("map-content");
+
+          buildBtn.addEventListener("click", () => {
+            outputContent.classList.remove("hidden-section");  
+            mapContent.classList.add("hidden-section");
+          });
+
+          changeBtn.addEventListener("click", () => {
+            outputContent.classList.add("hidden-section");
+            mapContent.classList.remove("hidden-section");
+          });
+
         });
 
         // map reset zoom button
@@ -676,54 +750,111 @@
           });
         });
 
+      async function updateSourceLink() {                       
+        const zoneType = window.selectedZoneType || 'sdz';
+        const selectedLabels = window.chosenCategories || ['Age', 'Sex Label'];          
+        const response = await fetch('category_lookup.json');
+        const lookup = await response.json();
+
+        const labelToCode = {};
+        lookup.forEach(item => {
+          labelToCode[item.nested_list_names] = item.further_breakdown_df;
+        });
+
+        const sourceLinkContainer = document.getElementById("sourceId");
+        sourceLinkContainer.innerHTML = '';
+
+        selectedLabels.forEach(label => {
+            const categoryCode = labelToCode[label];
+            if (categoryCode) {
+              const fullUrl = `https://build.nisra.gov.uk/en/custom/variables/${categoryCode}?d=PEOPLE&v=${zoneType}21&r=variables`;
+              const link = document.createElement('a');
+              link.href = fullUrl;
+              link.textContent = fullUrl;
+              link.target = "_blank";
+              link.style.display = "block";
+              sourceLinkContainer.appendChild(link);
+            } else {
+              console.warn(`No category code found for label: ${label}`);
+            }
+          });
+      }
+
         let latestAggregatedData = {}; 
         let selectedCategories = ['Age', 'Sex Label'];
+        let currentView = 'charts';
 
         document.getElementById("category-form").addEventListener("change", () => {
           selectedCategories = Array.from(document.querySelectorAll('#category-form input:checked'))
             .map(input => input.value);
 
           const selectedArray = Array.from(selectedIds);
-          const isComparisonTableVisible = document.getElementById("urban-rural-comparison").style.display === "block";
-          const isComparisonChartVisible = document.getElementById("urban-rural-charts").style.display === "block";
-          const isChartsVisible = document.getElementById("charts-container").style.display === "flex" || document.getElementById("charts-container").style.display === "block";
-          const isTablesVisible = document.getElementById("tables-container").style.display === "block";
+          updateTables(selectedArray);
+          
+          document.getElementById("charts-container").style.display = "none";
+          document.getElementById("tables-container").style.display = "none";
+          document.getElementById("urban-rural-comparison").style.display = "none";
+          document.getElementById("urban-rural-charts").style.display = "none";
 
-          if (isComparisonTableVisible) {
-            renderUrbanRuralComparison(selectedArray);
-          } else if (isComparisonChartVisible) {
-            renderUrbanRuralCharts(Array.from(selectedIds));
-          } else if (isChartsVisible) {
-            renderAggregatedCharts(latestAggregatedData, selectedCategories);
-            document.getElementById("tables-container").style.display = "none";
+          if (selectedCategories.length === 0) return;
+
+          const availableKeys = Object.keys(latestAggregatedData);
+          const validCategories = selectedCategories.filter(cat => availableKeys.includes(cat));
+
+          if (validCategories.length === 0) return;
+
+          if (currentView === 'charts') {
+            renderAggregatedCharts(latestAggregatedData, validCategories);
             document.getElementById("charts-container").style.display = "flex";
-          } else if (isTablesVisible) {
-            renderAggregatedTables(latestAggregatedData, selectedCategories);
-            document.getElementById("charts-container").style.display = "none";
+          } else if (currentView === 'tables') {
+            renderAggregatedTables(latestAggregatedData, validCategories);
             document.getElementById("tables-container").style.display = "block";
+          } else if (currentView === 'tableComparison') {
+            renderUrbanRuralComparison(selectedArray);
+            document.getElementById("urban-rural-comparison").style.display = "block";
+          } else if (currentView === 'chartComparison') {
+            renderUrbanRuralCharts(selectedArray);
+            document.getElementById("urban-rural-charts").style.display = "block";
           }
 
           window.chosenCategories = selectedCategories;
-          updateTables(currentlySelectedIds); // make sure this variable is defined globally
+          updateSourceLink();
+
+          updateTables(Array.from(selectedIds));
         });
         
-        let currentZoneType = 'dz'; // default
+        let currentZoneType = 'sdz'; // default
           document.getElementById('zone-selector').addEventListener('change', function () {
             currentZoneType = this.value;
-            updateTables(currentSelectedIds); 
+            updateTables(Array.from(selectedIds));
         });
 
         const selector = document.getElementById("zone-selector");
 
         // Set default value
-        selector.value = "dz";
+        selector.value = "sdz";
 
         // Listen for changes
         selector.addEventListener("change", function () {
           currentZoneType = this.value;
-          updateTables(currentSelectedIds);
+          updateTables(Array.from(selectedIds));
         });
 
+        // Function to hide categories not present in the data
+        function updateCategorySelector(availableKeys) {
+          const checkboxes = document.querySelectorAll('#category-form input[type="checkbox"]');
+
+          checkboxes.forEach(checkbox => {
+            const label = checkbox.closest('label');
+            if (!availableKeys.includes(checkbox.value)) {
+              label.style.display = 'none';
+              checkbox.checked = false;
+            } else {
+              label.style.display = 'block';
+              checkbox.checked = window.chosenCategories?.includes(checkbox.value);
+            }
+          });
+        }
 
         function updateTables(selectedIdsArray) {
           const tablesContainer = document.getElementById("tables-container");
@@ -787,12 +918,18 @@
           }
           renderZoneBreakdownTable(selectedIdsArray);
 
+          const availableKeys = Object.keys(aggregatedData);
+          const validCategories = selectedCategories.filter(cat => availableKeys.includes(cat));
+
+          updateCategorySelector(availableKeys);
+          updateSourceLink();
+
           if (selectedView === 'charts') {
             chartsContainer.style.display = "flex";
-            renderAggregatedCharts(aggregatedData, selectedCategories);
+            renderAggregatedCharts(aggregatedData, validCategories);
           } else if (selectedView === 'tables') {
             tablesContainer.style.display = "block";
-            renderAggregatedTables(aggregatedData, selectedCategories);
+            renderAggregatedTables(aggregatedData, validCategories);
           } else if (selectedView === 'tableComparison') {
             comparisonTableDiv.style.display = "block";
             renderUrbanRuralComparison(selectedIdsArray);
@@ -800,6 +937,7 @@
             comparisonChartDiv.style.display = "block";
             renderUrbanRuralCharts(selectedIdsArray);
           }
+
         }
 
         function renderZoneBreakdownTable(selectedIdsArray) {
@@ -808,6 +946,8 @@
           if (!selectedIdsArray.length) {
             container.innerHTML = "";
             container.style.display = "none";
+            window.areaProfileTitle = undefined;
+            window.lastSelectionHash = undefined;
             return;
           }
 
@@ -820,8 +960,29 @@
             : "Census 2021 Super Data Zone Label";
 
           const lgdStats = {};
+          const lgdTotals = {};
           let totalPopulation = 0;
 
+          const currentSelectionHash = selectedIdsArray.slice().sort().join(",");
+          const isSameSelection = currentSelectionHash === window.lastSelectionHash;
+
+          window.lastSelectionHash = currentSelectionHash;
+
+          // Setup or reset title if selection changed
+          if (!isSameSelection) {
+            window.areaProfileTitle = undefined;
+          }
+
+          // Total zones per LGD
+          for (const id in dataSource) {
+            const mapData = dataSource[id];
+            const lgd = mapData?.["LGD"];
+            if (lgd) {
+              lgdTotals[lgd] = (lgdTotals[lgd] || 0) + 1;
+            }
+          }
+
+          // selected zones
           selectedIdsArray.forEach(id => {
             const mapData = dataSource[id];
             if (!mapData) return;
@@ -832,43 +993,47 @@
             const zoneName = labelObj ? Object.keys(labelObj)[0] : null;
             const population = zoneName ? labelObj[zoneName] : 0;
 
+            if (!window.zoneNames) window.zoneNames = [];
+            if (zoneName) window.zoneNames.push(zoneName);
+
             if (!lgdStats[lgd]) {
-              lgdStats[lgd] = {
-                total: 0,
-                Urban: 0,
-                Rural: 0,
-                Mixed: 0
-              };
+              lgdStats[lgd] = { total: 0, Urban: 0, Rural: 0, Mixed: 0 };
             }
 
             lgdStats[lgd].total++;
-            if (status === 'Urban' || status === 'Rural' || status === 'Mixed') {
+            if (status && lgdStats[lgd][status] !== undefined) {
               lgdStats[lgd][status]++;
             }
 
             totalPopulation += typeof population === "number" ? population : 0;
           });
 
-          // Outer layout
+          // previous title for same selection, or fallback
+          const savedTitle = window.areaProfileTitle || "Click to edit title for area profile";
+
           const layout = document.createElement("div");
           layout.className = "summary-row";
 
-          // Left side
+          // left side
           const left = document.createElement("div");
           left.className = "summary-left";
 
           // Editable Maintitle
           const editableTitle = document.createElement("h2");
-          editableTitle.textContent = "Click to edit title for area profile";
+          editableTitle.textContent = savedTitle;
           editableTitle.contentEditable = true;
           editableTitle.spellcheck = false;
           editableTitle.title = "Click to edit title";
           editableTitle.style.textAlign = "left";
           editableTitle.style.marginBottom = "1rem";
           editableTitle.style.outline = "none";
+
+          editableTitle.addEventListener("blur", () => {
+            window.areaProfileTitle = editableTitle.textContent.trim();
+          });
+
           left.appendChild(editableTitle);
-          
-          // Static subheading
+
           const heading = document.createElement("h4");
           heading.textContent = "Summary of Areas Selected:";
           heading.style.marginTop = "0.5rem";
@@ -887,19 +1052,21 @@
 
           sortedLGDs.forEach(lgd => {
             const stats = lgdStats[lgd];
+            const totalInLGD = lgdTotals[lgd] || stats.total;
             const parts = [];
+
             if (stats.Urban) parts.push(`${stats.Urban} urban`);
             if (stats.Rural) parts.push(`${stats.Rural} rural`);
             if (stats.Mixed) parts.push(`${stats.Mixed} mixed`);
 
             const li = document.createElement("li");
-            li.innerHTML = `${lgd}: <strong>${stats.total}</strong> (${parts.join(", ")})`;
+            li.innerHTML = `${lgd}: <strong>${stats.total} of ${totalInLGD}</strong> zones selected (${parts.join(", ")})`;
             summaryList.appendChild(li);
           });
 
           left.appendChild(summaryList);
 
-          // Right side
+          // right side
           const right = document.createElement("div");
           right.className = "summary-right";
 
@@ -962,29 +1129,45 @@
 
         tabButtons.forEach(tab => {
           tab.addEventListener("click", () => {
-            // Update active tab
+            
             tabButtons.forEach(btn => btn.classList.remove("selected"));
             tab.classList.add("selected");
 
-            // Show selected view, hide others
             Object.values(views).forEach(div => div.style.display = "none");
             const view = tab.getAttribute("data-view");
-            views[view].style.display = "block";
+            currentView = view;
 
-            // Re-render content based on selected tab
+            // Prevent rendering if no categories selected
+            if (!selectedCategories || selectedCategories.length === 0) {
+              return; // nothing to render
+            }
+
+            // Render valid view
             if (view === "charts") {
               renderAggregatedCharts(latestAggregatedData, selectedCategories);
+              views[view].style.display = "flex";
             } else if (view === "tables") {
               renderAggregatedTables(latestAggregatedData, selectedCategories);
+              views[view].style.display = "block";
             } else if (view === "tableComparison") {
               renderUrbanRuralComparison(Array.from(selectedIds));
+              views[view].style.display = "block";
             } else if (view === "chartComparison") {
               renderUrbanRuralCharts(Array.from(selectedIds));
+              views[view].style.display = "block";
             }
           });
         });
 
+
         function renderAggregatedTables(aggregatedData, selectedCategories = []) {
+          if (!aggregatedData || Object.keys(aggregatedData).length === 0) return;
+
+          if (selectedCategories.length > 0) {
+            const valid = selectedCategories.filter(cat => Object.keys(aggregatedData).includes(cat));
+            if (valid.length === 0) return;
+          }
+
           const container = document.getElementById("tables-container");
           container.innerHTML = "";
 
@@ -1061,25 +1244,30 @@
           window.latestAggregatedData = aggregatedData;
         }
 
-        Chart.register(ChartDataLabels);
+        //Chart.register(ChartDataLabels);
 
         function renderAggregatedCharts(data, selectedCategories = []) {
-          const container = document.getElementById("charts-container");
-          container.innerHTML = "";
-
-          // Reset chart tracking
-          window.chartInstances?.forEach(c => c.destroy());
-          window.chartInstances = [];
+          if (!data || Object.keys(data).length === 0) return;
 
           const excludedKeys = [
             "Census 2021 Data Zone Label",
             "Census 2021 Super Data Zone Label"
           ];
 
-          const entries = Object.entries(data).filter(([key]) =>
-            !excludedKeys.includes(key) &&
-            (selectedCategories.length === 0 || selectedCategories.includes(key))
-          );
+          const categories = selectedCategories.length
+            ? selectedCategories
+            : Object.keys(data).filter(key => !excludedKeys.includes(key)).sort();
+
+          const filteredCategories = categories.filter(key => !excludedKeys.includes(key));
+
+          if (filteredCategories.length === 0) return;
+
+          const container = document.getElementById("charts-container");
+          container.innerHTML = "";
+
+          // Reset chart tracking
+          window.chartInstances?.forEach(c => c.destroy());
+          window.chartInstances = [];
 
           function sizingFor(categoryCount) {
             /* 
@@ -1106,7 +1294,10 @@
             return { aspect: 1.0, barPct: 0.40 };     // tallest chart, slim bars
           }
 
-          for (const [category, values] of entries) {
+          for (const category of filteredCategories) {
+            const values = data[category];
+            if (!values) continue;
+
             const chartWrapper = document.createElement("div");
             chartWrapper.className = "chart-wrapper";
 
@@ -1205,21 +1396,21 @@
                 },
                 {
                   id: "customTopLabels",
-                  afterDatasetsDraw(chart, _args, _opts) {
-                    const ctx        = chart.ctx;
-                    const dataset    = chart.data.datasets[0];
-                    const meta       = chart.getDatasetMeta(0);
-                    const category   = chart.canvas.parentNode.querySelector("h3").textContent;
-                    const niValues   = niTotals[category] || {};
+                  afterDatasetsDraw(chart) {
+                    const ctx = chart.ctx;
+                    const dataset = chart.data.datasets[0];
+                    const meta = chart.getDatasetMeta(0);
+                    const category = chart.canvas.parentNode.querySelector("h3").textContent;
+                    const niValues = niTotals[category] || {};
 
                     /* text styles (tweak to taste) */
-                    const FONT       = "bold 12px sans-serif";
-                    const LINE_H     = 16;                // px between wrapped lines
-                    const X_PAD      = 4;                 // gap between y-axis and text
-                    const Y_GAP      = -1;                 // gap above bar
+                    const FONT = "bold 12px sans-serif";
+                    const LINE_H = 16;   // px between wrapped lines
+                    const X_PAD = 4;   // gap between y-axis and text
+                    const Y_GAP = -1;   // gap above bar
 
                     ctx.save();
-                    ctx.font      = FONT;
+                    ctx.font = FONT;
                     ctx.fillStyle = "#000";
                     ctx.textAlign = "left";
                     ctx.textBaseline = "top";
@@ -1229,19 +1420,19 @@
 
                     /* Loop every bar */
                     meta.data.forEach((bar, i) => {
-                      const label  = chart.data.labels[i];
-                      const value  = dataset.data[i];
-                      const niVal  = niValues[label];
-                      const txt    = `${label} ${value}%${typeof niVal === "number" ? ` (${niVal.toFixed(1)}%)` : ""}`;
+                      const label = chart.data.labels[i];
+                      const value = dataset.data[i];
+                      const niVal = niValues[label];
+                      const txt = `${label} ${value}%${typeof niVal === "number" ? ` (${niVal.toFixed(1)}%)` : ""}`;
 
                       /* -----------------------------------------------------------
                         1. Word-wrap text to fit inside the horizontal space
                             (from xStart to start of the bar)
                       ----------------------------------------------------------- */
                       const maxWidth = chart.width * 0.75 - xStart;
-                      const words    = txt.split(" ");
-                      const lines    = [];
-                      let currLine   = "";
+                      const words = txt.split(" ");
+                      const lines = [];
+                      let currLine = "";
 
                       words.forEach(w => {
                         const testLine = currLine ? `${currLine} ${w}` : w;
@@ -1258,8 +1449,7 @@
                         2. Position block just above bar (regardless of bar height)
                       ----------------------------------------------------------- */
                       const totalH = lines.length * LINE_H;
-                      let y = bar.y - bar.height / 2 - Y_GAP;     // top edge of bar – gap
-                      y -= totalH;                                // move up to fit whole block
+                      let y = bar.y - bar.height / 2 - Y_GAP - totalH;
 
                       /* -----------------------------------------------------------
                         3. Draw each wrapped line
@@ -1422,13 +1612,11 @@
           return groups;
         }
       
-        window.renderUrbanRuralComparison = function(selectedIdsArray) {
+        window.renderUrbanRuralComparison = function (selectedIdsArray) {
           const container = document.getElementById("urban-rural-comparison");
           container.innerHTML = "";
 
-          // Use global selectedCategories for filtering
           const groups = aggregateUrbanRuralData(selectedIdsArray, selectedCategories);
-
           window.urbanRuralComparisonData = groups;
 
           const categoriesToDisplay = selectedCategories.length
@@ -1439,88 +1627,151 @@
                 ...Object.keys(groups.Mixed || {})
               ]));
 
-          categoriesToDisplay.forEach(category => {
-            const hasGroupData = groups.Urban?.[category] || groups.Rural?.[category] || groups.Mixed?.[category];
-            if (!hasGroupData) return;
-            
-            const rowDiv = document.createElement("div");
-            rowDiv.className = "table-row";
-            rowDiv.style.display = "flex";
-            rowDiv.style.marginBottom = "20px";
-            rowDiv.style.gap = "2rem";
+          const rowWrapper = document.createElement("div");
+          rowWrapper.style.display = "flex";
+          rowWrapper.style.flexWrap = "wrap";
+          rowWrapper.style.gap = "20px";
 
-            ["Urban", "Rural", "Mixed"].forEach(groupType => {
-              const values = groups[groupType]?.[category];
-              if (!values) return;
+          categoriesToDisplay.forEach((category) => {
+            const hasUrban = !!groups.Urban?.[category];
+            const hasRural = !!groups.Rural?.[category];
+            const hasMixed = !!groups.Mixed?.[category];
+            if (!hasUrban && !hasRural && !hasMixed) return;
 
-              const wrapper = document.createElement("div");
-              wrapper.className = "table-wrapper";
-              wrapper.style.flex = "1";
+            const allLabels = new Set([
+              ...Object.keys(groups.Urban?.[category] || {}),
+              ...Object.keys(groups.Rural?.[category] || {}),
+              ...Object.keys(groups.Mixed?.[category] || {})
+            ]);
+            const labels = Array.from(allLabels).sort();
 
-              const title = document.createElement("h3");
-              title.textContent = `${groupType} – ${category}`;
-              wrapper.appendChild(title);
+            const columns = [
+              { key: "label", title: "Category", width: "30%" }
+            ];
+            if (hasUrban) {
+              columns.push({ key: "urbanCount", title: "Urban\nCount" });
+              columns.push({ key: "urbanPct", title: "Urban %" });
+            }
+            if (hasRural) {
+              columns.push({ key: "ruralCount", title: "Rural\nCount" });
+              columns.push({ key: "ruralPct", title: "Rural %" });
+            }
+            if (hasMixed) {
+              columns.push({ key: "mixedCount", title: "Mixed\nCount" });
+              columns.push({ key: "mixedPct", title: "Mixed %" });
+            }
+            columns.push({ key: "niPct", title: "NI %" });
 
-              const totalCount = Object.values(values).reduce((sum, val) => sum + val, 0);
+            const wrapper = document.createElement("div");
+            wrapper.style.flex = "0 0 100%";
+            wrapper.style.background = "#fff";
+            wrapper.style.padding = "16px";
+            wrapper.style.borderRadius = "8px";
+            wrapper.style.boxShadow = "0 1px 3px rgba(0,0,0,0.1)";
+            wrapper.style.boxSizing = "border-box";
+            wrapper.style.alignSelf = "flex-start"; // Ensures independent height
 
-              const table = document.createElement("table");
-              table.className = "data-table";
+            const title = document.createElement("h3");
+            title.textContent = `${category} – Urban/Rural Comparison`;
+            title.style.marginBottom = "12px";
+            wrapper.appendChild(title);
 
-              const thead = document.createElement("thead");
-              const header = document.createElement("tr");
-              ["Category", "Count", "Percentage", "NI %"].forEach(text => {
-                const th = document.createElement("th");
-                th.textContent = text;
-                header.appendChild(th);
+            const table = document.createElement("table");
+            table.style.width = "100%";
+            table.style.borderCollapse = "collapse";
+            table.style.tableLayout = "fixed";
+
+            // Table header
+            const thead = document.createElement("thead");
+            const headerRow = document.createElement("tr");
+            columns.forEach((col, i) => {
+              const th = document.createElement("th");
+              th.textContent = col.title;
+              th.style.padding = "8px";
+              th.style.border = "1px solid #ccc";
+              th.style.backgroundColor = "#04863E";
+              th.style.color = "#fff";
+              th.style.fontWeight = "bold";
+              th.style.fontSize = "14px";
+              th.style.textAlign = "left";
+              th.style.verticalAlign = "top";
+              th.style.whiteSpace = "normal";
+              th.style.wordBreak = "break-word";
+              th.style.overflowWrap = "break-word";
+
+              if (i === 0 && col.width) th.style.width = col.width;
+              headerRow.appendChild(th);
+            });
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            // Table body
+            const tbody = document.createElement("tbody");
+
+            labels.forEach((label) => {
+              const row = document.createElement("tr");
+
+              const urbanCount = groups.Urban?.[category]?.[label] || 0;
+              const ruralCount = groups.Rural?.[category]?.[label] || 0;
+              const mixedCount = groups.Mixed?.[category]?.[label] || 0;
+
+              const urbanTotal = groups.Urban?.[category]
+                ? Object.values(groups.Urban[category]).reduce((a, b) => a + b, 0)
+                : 0;
+              const ruralTotal = groups.Rural?.[category]
+                ? Object.values(groups.Rural[category]).reduce((a, b) => a + b, 0)
+                : 0;
+              const mixedTotal = groups.Mixed?.[category]
+                ? Object.values(groups.Mixed[category]).reduce((a, b) => a + b, 0)
+                : 0;
+
+              const data = {
+                label,
+                urbanCount,
+                ruralCount,
+                mixedCount,
+                urbanPct: urbanTotal ? ((urbanCount / urbanTotal) * 100).toFixed(2) + "%" : "–",
+                ruralPct: ruralTotal ? ((ruralCount / ruralTotal) * 100).toFixed(2) + "%" : "–",
+                mixedPct: mixedTotal ? ((mixedCount / mixedTotal) * 100).toFixed(2) + "%" : "–",
+                niPct: typeof window.niTotals?.[category]?.[label] === "number"
+                  ? window.niTotals[category][label].toFixed(1) + "%"
+                  : "–"
+              };
+
+              columns.forEach((col, i) => {
+                const td = document.createElement("td");
+                td.textContent = data[col.key] || "–";
+                td.style.padding = "8px";
+                td.style.border = "1px solid #ccc";
+                td.style.fontSize = "14px";
+                td.style.textAlign = "left";
+                td.style.verticalAlign = "top";
+                td.style.whiteSpace = "normal";
+                td.style.wordBreak = "break-word";
+                td.style.overflowWrap = "break-word";
+
+                if (i === 0 && col.width) td.style.width = col.width;
+                row.appendChild(td);
               });
-              thead.appendChild(header);
-              table.appendChild(thead);
 
-              const tbody = document.createElement("tbody");
-
-              for (const [label, count] of Object.entries(values)) {
-                const row = document.createElement("tr");
-
-                const tdLabel = document.createElement("td");
-                tdLabel.textContent = label;
-                row.appendChild(tdLabel);
-
-                const tdCount = document.createElement("td");
-                tdCount.textContent = count;
-                row.appendChild(tdCount);
-
-                const tdPercentage = document.createElement("td");
-                tdPercentage.textContent = totalCount ? ((count / totalCount) * 100).toFixed(2) + "%" : "0%";
-                row.appendChild(tdPercentage);
-
-                const tdNI = document.createElement("td");
-                const niVal = niTotals[category]?.[label];
-                tdNI.textContent = typeof niVal === "number" ? niVal.toFixed(1) + "%" : "–";
-                row.appendChild(tdNI);
-
-                tbody.appendChild(row);
-              }
-
-              table.appendChild(tbody);
-              wrapper.appendChild(table);
-              rowDiv.appendChild(wrapper);
+              tbody.appendChild(row);
             });
 
-            container.appendChild(rowDiv);
-
-            requestAnimationFrame(() => {
-              const wrappers = rowDiv.querySelectorAll('.table-wrapper');
-              const maxHeight = Math.max(...Array.from(wrappers).map(w => w.offsetHeight));
-              wrappers.forEach(w => w.style.height = `${maxHeight}px`);
-            });
+            table.appendChild(tbody);
+            wrapper.appendChild(table);
+            rowWrapper.appendChild(wrapper);
           });
-        }
+
+          container.appendChild(rowWrapper);
+        };
 
         function renderUrbanRuralCharts(selectedIdsArray) {
-          const groups = aggregateUrbanRuralData(selectedIdsArray,selectedCategories);
-
+          const groups = aggregateUrbanRuralData(selectedIdsArray, selectedCategories);
           const container = document.getElementById("urban-rural-charts");
           container.innerHTML = "";
+
+          window.chartInstances?.forEach(c => c.destroy());
+          window.chartInstances = [];
 
           const categories = selectedCategories.length
             ? selectedCategories
@@ -1530,32 +1781,35 @@
                 ...Object.keys(groups.Mixed || {})
               ]));
 
+          // Style constants
+          const FONT = "bold 12px sans-serif";
+          const LINE_HEIGHT = 16;
+          const BAR_HEIGHT = 16;
+          const BAR_SPACING = 4;
+          const LABEL_BLOCK_HEIGHT = LINE_HEIGHT * 2 + 4;
+          const CHART_TOP_PADDING = 60;
+
+          const grid = document.createElement("div");
+          grid.style.display = "flex";
+          grid.style.flexWrap = "wrap";
+          grid.style.gap = "2rem";
+
           categories.forEach(category => {
             const hasData = groups.Urban?.[category] || groups.Rural?.[category] || groups.Mixed?.[category];
             if (!hasData) return;
 
-            const chartWrapper = document.createElement("div");
-            chartWrapper.className = "chart-wrapper";
+            const wrapper = document.createElement("div");
+            wrapper.style.flex = "0 0 calc(50% - 1rem)";
+            wrapper.style.background = "#fff";
+            wrapper.style.boxShadow = "0 2px 4px rgba(0,0,0,0.1)";
+            wrapper.style.padding = "16px";
+            wrapper.style.borderRadius = "8px";
+            wrapper.style.boxSizing = "border-box";
+            wrapper.style.position = "relative";
 
             const title = document.createElement("h3");
-            title.textContent = `${category} - Urban/Rural/Mixed Comparison`;
-            chartWrapper.appendChild(title);
-
-            const legend = document.createElement("div");
-            legend.className = "custom-legend";
-            legend.style.marginBottom = "10px";
-            legend.innerHTML = `
-              <span style="display: inline-flex; align-items: center; margin-right: 20px;">
-              <span style="display: inline-flex; align-items: center;">
-                <span style="width: 4px; height: 20px; background-color: black; display: inline-block; margin-right: 5px;"></span>
-                NI Value
-              </span>
-            `;
-            chartWrapper.appendChild(legend);
-
-            const canvas = document.createElement("canvas");
-            chartWrapper.appendChild(canvas);
-            container.appendChild(chartWrapper);
+            title.textContent = `${category} – Urban/Rural/Mixed`;
+            wrapper.appendChild(title);
 
             const labelSet = new Set([
               ...Object.keys(groups.Urban?.[category] || {}),
@@ -1564,11 +1818,19 @@
             ]);
             const labels = Array.from(labelSet).sort();
 
+            const canvas = document.createElement("canvas");
+            canvas.style.display = "block";
+            canvas.style.marginTop = "-50px";
+            canvas.style.width = "100%";
+            canvas.style.maxHeight = "none";
+            wrapper.appendChild(canvas);
+            grid.appendChild(wrapper);
+
             const groupTypes = ["Urban", "Rural", "Mixed"];
             const colorMap = {
-              Urban: "rgba(54, 162, 235, 0.6)",
-              Rural: "rgba(255, 99, 132, 0.6)",
-              Mixed: "rgba(255, 206, 86, 0.6)"
+              Urban: "#0d2c6c",
+              Rural: "#00aa4f",
+              Mixed: "#4B420B"
             };
 
             const datasets = groupTypes
@@ -1576,53 +1838,210 @@
               .map(group => {
                 const values = groups[group][category];
                 const total = Object.values(values).reduce((sum, val) => sum + val, 0);
-
                 return {
                   label: group,
                   data: labels.map(label => {
                     const count = values[label] || 0;
-                    return total > 0 ? ((count / total) * 100).toFixed(2) : 0;
+                    return total > 0 ? parseFloat(((count / total) * 100).toFixed(2)) : 0;
                   }),
-                  backgroundColor: colorMap[group]
+                  backgroundColor: colorMap[group],
+                  barThickness: BAR_HEIGHT
                 };
               });
 
-            const ratio = labels.length <= 5 ? 2.5 :
-                          labels.length <= 10 ? 1.8 :
-                          labels.length <= 15 ? 1.3 : 1.0;
+            // Add dummy NI dataset for legend only
+            datasets.push({
+              label: "NI",
+              data: [],
+              type: "line",
+              borderColor: "#222",
+              borderWidth: 2,
+              fill: false,
+              pointRadius: 0
+            });
 
-            new Chart(canvas, {
-              type: "bar",
-              data: {
-                labels,
-                datasets
-              },
-              options: {
-                indexAxis: "y",
-                responsive: true,
-                maintainAspectRatio: true,
-                aspectRatio: ratio,
-                plugins: {
-                  legend: { position: "top" },
-                  tooltip: {
-                    callbacks: {
-                      label: ctx => `${ctx.dataset.label}: ${ctx.raw}%`
+            const barsPerGroup = datasets.length - 1;
+            const isShortChart = labels.length <= 3;
+            const EXTRA_SPACE = isShortChart ? 20 : 8;
+            const GROUP_SPACING = LABEL_BLOCK_HEIGHT + barsPerGroup * (BAR_HEIGHT + BAR_SPACING) + EXTRA_SPACE;
+
+            const canvasHeight = labels.length * GROUP_SPACING + CHART_TOP_PADDING;
+            canvas.height = canvasHeight;
+            wrapper.style.height = `${canvasHeight + 120}px`;
+
+            // NI line data from precomputed totals
+            const niLineValues = labels.map(label => {
+              const val = window.niTotals?.[category]?.[label];
+              return typeof val === "number" ? val : null;
+            });
+
+            requestAnimationFrame(() => {
+              const chart = new Chart(canvas, {
+                type: "bar",
+                data: { labels, datasets },
+                options: {
+                  indexAxis: "y",
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  layout: {
+                    padding: {
+                      top: CHART_TOP_PADDING,
+                      left: 10,
+                      right: 10,
+                      bottom: 30
+                    }
+                  },
+                  plugins: {
+                    legend: { position: "top" },
+                    tooltip: {
+                      callbacks: {
+                        label: ctx => `${ctx.dataset.label}: ${ctx.raw}%`
+                      }
+                    }
+                  },
+                  scales: {
+                    x: {
+                      beginAtZero: true,
+                      suggestedMax: Math.max(
+                        ...datasets.flatMap(ds => ds.data || []),
+                        ...niLineValues.filter(val => typeof val === "number")
+                      ) * 1.05,
+                      title: { display: true, text: "Percentage" },
+                      ticks: { callback: val => `${val}%` }
+                    },
+                    y: {
+                      ticks: { display: false },
+                      grid: { display: false },
+                      offset: true
                     }
                   }
                 },
-                scales: {
-                  x: {
-                    beginAtZero: true,
-                    title: { display: true, text: "Percentage" },
-                    ticks: { callback: val => `${val}%` }
+                plugins: [
+                  {
+                    id: "aboveGroupLabels",
+                    afterDatasetsDraw(chart) {
+                      const ctx = chart.ctx;
+                      ctx.save();
+                      ctx.font = FONT;
+                      ctx.fillStyle = "#000";
+                      ctx.textAlign = "left";
+                      ctx.textBaseline = "top";
+
+                      const xStart = chart.chartArea.left + 4;
+                      const container = chart.canvas.parentNode;
+
+                      // Remove previous overlays
+                      container.querySelectorAll(".label-overlay").forEach(el => el.remove());
+
+                      chart.data.labels.forEach((label, i) => {
+                        const bars = datasets
+                          .filter(ds => ds.type !== "line")
+                          .map(ds => chart.getDatasetMeta(chart.data.datasets.indexOf(ds)).data[i]);
+                        const topBar = bars[0];
+                        const bottomBar = bars[bars.length - 1];
+                        if (!topBar || !bottomBar) return;
+
+                        const topY = topBar.y - topBar.height / 2;
+                        const labelY = topY - LABEL_BLOCK_HEIGHT - 2;
+
+                        const textWidth = ctx.measureText(label).width;
+                        const maxAllowed = chart.chartArea.right - xStart - 30;
+
+                        if (textWidth < maxAllowed) {
+                          ctx.fillText(label, xStart, labelY);
+                        } else {
+                          const shortLabel = label.slice(0, 25) + "...";
+                          ctx.fillText(shortLabel, xStart, labelY);
+
+                          const infoBtn = document.createElement("div");
+                          infoBtn.className = "label-overlay";
+                          infoBtn.textContent = "ⓘ";
+                          infoBtn.style.position = "absolute";
+                          const labelMetrics = ctx.measureText(shortLabel);
+                          const labelWidth = labelMetrics.width;
+
+                          infoBtn.style.position = "absolute";
+
+                          // Correct the vertical position:
+                          const chartTop = chart.canvas.getBoundingClientRect().top + window.scrollY;
+                          const containerTop = container.getBoundingClientRect().top + window.scrollY;
+                          const offsetTop = labelY + chartTop - containerTop + LINE_HEIGHT / 2 - 2;
+
+                          infoBtn.style.top = `${offsetTop}px`;
+                          infoBtn.style.left = `${canvas.offsetLeft + xStart + labelWidth + 6}px`;
+                          infoBtn.style.transform = "translateY(-50%)"; 
+                          infoBtn.style.fontSize = "12px";
+                          infoBtn.style.cursor = "pointer";
+                          infoBtn.style.color = "#0074D9";
+                          infoBtn.style.lineHeight = "1";
+                          infoBtn.title = label;
+
+                          infoBtn.style.fontSize = "12px";
+                          infoBtn.style.cursor = "pointer";
+                          infoBtn.style.color = "#0074D9";
+                          infoBtn.title = label;
+
+                          infoBtn.addEventListener("click", () => {
+                            alert(`Full label:\n${label}`);
+                          });
+
+                          container.appendChild(infoBtn);
+                        }
+
+                        const groupText = datasets
+                          .filter(ds => ds.type !== "line")
+                          .map(ds => `${ds.label}: ${ds.data[i]}%`)
+                          .join(" | ");
+
+                        const niVal = window.niTotals?.[category]?.[label];
+                        const niText = typeof niVal === "number" ? `NI: ${niVal.toFixed(1)}%` : null;
+
+                        const breakdown = niText ? `${groupText} | ${niText}` : groupText;
+                        ctx.fillText(breakdown, xStart, labelY + LINE_HEIGHT);
+                      });
+
+                      ctx.restore();
+                    }
                   },
-                  y: {
-                    title: { display: true, text: "Category" }
+                  {
+                    id: "niLine",
+                    afterDatasetsDraw(chart) {
+                      const ctx = chart.ctx;
+                      const xScale = chart.scales.x;
+
+                      ctx.save();
+                      ctx.strokeStyle = "#222";
+                      ctx.lineWidth = 4;
+                      ctx.setLineDash([]);
+
+                      niLineValues.forEach((val, i) => {
+                        if (val == null) return;
+                        const x = xScale.getPixelForValue(val);
+                        const bars = datasets
+                          .filter(ds => ds.type !== "line")
+                          .map(ds => chart.getDatasetMeta(chart.data.datasets.indexOf(ds)).data[i]);
+                        const top = bars[0]?.y - bars[0]?.height / 2;
+                        const bottom = bars[bars.length - 1]?.y + bars[bars.length - 1]?.height / 2;
+
+                        if (x && top && bottom) {
+                          ctx.beginPath();
+                          ctx.moveTo(x, top);
+                          ctx.lineTo(x, bottom);
+                          ctx.stroke();
+                        }
+                      });
+
+                      ctx.restore();
+                    }
                   }
-                }
-              }
+                ]
+              });
+
+              window.chartInstances.push(chart);
             });
           });
+
+          container.appendChild(grid);
         }
 
 
@@ -1681,7 +2100,8 @@
         const contentSource = {
           charts: document.getElementById('charts-container'),
           tables: document.getElementById('tables-container'),
-          comparison: document.getElementById('urban-rural-comparison')
+          tableComparison: document.getElementById('urban-rural-comparison'),
+          chartComparison: document.getElementById('urban-rural-charts')
         }[view];
 
         const cloneWrapper = document.createElement('div');
@@ -1695,85 +2115,274 @@
         const contentClone = contentSource.cloneNode(true);
 
         //charts
-       if (view === "charts") {
-        const chartWrapper = document.createElement("div");
-        chartWrapper.style.display = "grid";
-        chartWrapper.style.gridTemplateColumns = "1fr 1fr";
-        chartWrapper.style.gap = "20px";
+        if (view === "charts") {
+          const chartWrapper = document.createElement("div");
+          chartWrapper.style.display = "grid";
+          chartWrapper.style.gridTemplateColumns = "1fr 1fr";
+          chartWrapper.style.gap = "20px";
 
-        const originalCards = contentSource.querySelectorAll(".chart-wrapper");
-        const clonedCards = contentClone.querySelectorAll(".chart-wrapper");
+          const originalCards = contentSource.querySelectorAll(".chart-wrapper");
+          const clonedCards = contentClone.querySelectorAll(".chart-wrapper");
 
-        originalCards.forEach((originalCard, index) => {
-          const clonedCard = clonedCards[index];
-          const originalCanvas = originalCard.querySelector("canvas");
-          const clonedCanvas = clonedCard?.querySelector("canvas");
+          originalCards.forEach((originalCard, index) => {
+            const clonedCard = clonedCards[index];
+            const originalCanvas = originalCard.querySelector("canvas");
+            const clonedCanvas = clonedCard?.querySelector("canvas");
 
-          if (originalCanvas && clonedCanvas) {
-            const dataUrl = originalCanvas.toDataURL("image/png");
-            const img = new Image();
-            img.src = dataUrl;
-            img.style.maxWidth = "100%";
-            img.style.display = "block";
-            img.style.marginTop = "10px";
+            if (originalCanvas && clonedCanvas) {
+              const dataUrl = originalCanvas.toDataURL("image/png");
+              const img = new Image();
+              img.src = dataUrl;
+              img.style.maxWidth = "100%";
+              img.style.display = "block";
+              img.style.marginTop = "10px";
 
-            clonedCanvas.parentNode.replaceChild(img, clonedCanvas);
-          }
+              clonedCanvas.parentNode.replaceChild(img, clonedCanvas);
+            }
 
-          if (clonedCard) {
-            chartWrapper.appendChild(clonedCard);
-          }
-        });
+            if (clonedCard) {
+              chartWrapper.appendChild(clonedCard);
+            }
+          });
 
-        contentClone.innerHTML = "";
-        contentClone.appendChild(chartWrapper);
-      }
+          contentClone.innerHTML = "";
+          contentClone.appendChild(chartWrapper);
+        }
 
 
         //tables
-        if (view === "tables" || view === "comparison") {
-          const tables = contentClone.querySelectorAll("table");
-          tables.forEach(table => {
-            table.style.display = "table";
+        if (view === "tables") {
+          const originalTables = contentSource.querySelectorAll(".table-wrapper");
+          contentClone.innerHTML = "";
+
+          const rowContainer = document.createElement("div");
+          rowContainer.style.display = "flex";
+          rowContainer.style.flexWrap = "wrap";
+          rowContainer.style.gap = "20px";
+          rowContainer.style.justifyContent = "flex-start";
+
+          originalTables.forEach(originalWrapper => {
+            const originalTable = originalWrapper.querySelector("table");
+            const originalTitle = originalWrapper.querySelector("h3");
+
+            const wrapper = document.createElement("div");
+            wrapper.style.flex = "1 1 45%";
+            wrapper.style.minWidth = "320px";
+            wrapper.style.background = "#fff";
+            wrapper.style.padding = "16px";
+            wrapper.style.borderRadius = "8px";
+            wrapper.style.boxShadow = "0 1px 3px rgba(0,0,0,0.1)";
+            wrapper.style.boxSizing = "border-box";
+
+            if (originalTitle) {
+              const title = document.createElement("h3");
+              title.textContent = originalTitle.textContent;
+              title.style.margin = "0 0 12px 0";
+              title.style.wordBreak = "break-word";
+              wrapper.appendChild(title);
+            }
+
+            const table = document.createElement("table");
             table.style.width = "100%";
             table.style.borderCollapse = "collapse";
+            table.style.marginTop = "8px";
+            table.style.tableLayout = "fixed"; 
 
-            table.querySelectorAll("thead").forEach(thead => {
-              thead.style.display = "table-header-group";
+            const rows = originalTable.querySelectorAll("tr");
+            let columnCount = 0;
+
+            // Count columns from the first row
+            if (rows.length > 0) {
+              columnCount = rows[0].querySelectorAll("th, td").length;
+            }
+
+            rows.forEach((row, rowIndex) => {
+              const tr = document.createElement("tr");
+
+              row.querySelectorAll("th, td").forEach((cell, columnIndex) => {
+                const td = document.createElement("td");
+                td.textContent = cell.textContent;
+
+                // Assign width
+                if (columnIndex === 0) {
+                  td.style.width = "40%";
+                } else {
+                  const remainingCols = columnCount - 1 || 1;
+                  td.style.width = `${60 / remainingCols}%`;
+                }
+
+                // Styling
+                td.style.padding = "8px";
+                td.style.border = "1px solid #ccc";
+                td.style.fontSize = "14px";
+                td.style.textAlign = "left";
+                td.style.verticalAlign = "top";
+                td.style.wordBreak = "break-word";
+                td.style.overflowWrap = "break-word";
+                td.style.whiteSpace = "normal";
+
+                if (rowIndex === 0) {
+                  td.style.fontWeight = "bold";
+                  td.style.backgroundColor = "#04863E";
+                  td.style.color = "#fff";
+                }
+
+                tr.appendChild(td);
+              });
+
+              table.appendChild(tr);
             });
-            table.querySelectorAll("tbody").forEach(tbody => {
-              tbody.style.display = "table-row-group";
-            });
-            table.querySelectorAll("tr").forEach(tr => {
-              tr.style.display = "table-row";
-            });
-            table.querySelectorAll("td, th").forEach(cell => {
-              cell.style.display = "table-cell";
-              cell.style.padding = "8px";
-              cell.style.border = "1px solid #ccc";
-              cell.style.verticalAlign = "top";
-              cell.style.fontSize = "14px";
-              cell.style.textAlign = "left";
-            });
+
+            wrapper.appendChild(table);
+            rowContainer.appendChild(wrapper);
           });
+
+          contentClone.appendChild(rowContainer);
         }
+
 
         //comparison tables
-        if (view === "comparison") {
-          const rowDivs = contentClone.querySelectorAll(".table-row");
-          rowDivs.forEach(rowDiv => {
-            rowDiv.style.display = "grid";
-            rowDiv.style.gridTemplateColumns = "repeat(auto-fit, minmax(300px, 1fr))";
-            rowDiv.style.gap = "20px";
-            rowDiv.style.marginBottom = "30px";
+        if (view === "tableComparison") {
+          const originalCards = contentSource.querySelectorAll(":scope > div > div");
+          contentClone.innerHTML = "";
 
-            const wrappers = rowDiv.querySelectorAll(".table-wrapper");
-            wrappers.forEach(wrapper => {
-              wrapper.style.height = "auto";
-              wrapper.style.margin = "0";
+          const rowContainer = document.createElement("div");
+          rowContainer.style.display = "flex";
+          rowContainer.style.flexWrap = "wrap";
+          rowContainer.style.gap = "20px";
+          rowContainer.style.justifyContent = "flex-start";
+
+          originalCards.forEach(card => {
+            const originalTable = card.querySelector("table");
+            const originalTitle = card.querySelector("h3");
+
+            if (!originalTable) return;
+
+            const wrapper = document.createElement("div");
+            wrapper.style.flex = "0 0 100%";
+            wrapper.style.minWidth = "320px";
+            wrapper.style.background = "#fff";
+            wrapper.style.padding = "16px";
+            wrapper.style.borderRadius = "8px";
+            wrapper.style.boxShadow = "0 1px 3px rgba(0,0,0,0.1)";
+            wrapper.style.boxSizing = "border-box";
+
+            if (originalTitle) {
+              const title = document.createElement("h3");
+              title.textContent = originalTitle.textContent;
+              title.style.margin = "0 0 12px 0";
+              title.style.wordBreak = "break-word";
+              wrapper.appendChild(title);
+            }
+
+            const table = document.createElement("table");
+            table.style.width = "100%";
+            table.style.borderCollapse = "collapse";
+            table.style.marginTop = "8px";
+            table.style.tableLayout = "fixed";
+
+            const rows = originalTable.querySelectorAll("tr");
+            let columnCount = 0;
+
+            if (rows.length > 0) {
+              columnCount = rows[0].querySelectorAll("th, td").length;
+            }
+
+            rows.forEach((row, rowIndex) => {
+              const tr = document.createElement("tr");
+
+              row.querySelectorAll("th, td").forEach((cell, columnIndex) => {
+                const td = document.createElement("td");
+                td.textContent = cell.textContent;
+
+                // Width logic
+                if (columnIndex === 0) {
+                  td.style.width = "30%";
+                } else {
+                  const remainingCols = columnCount - 1 || 1;
+                  td.style.width = `${70 / remainingCols}%`;
+                }
+
+                td.style.padding = "8px";
+                td.style.border = "1px solid #ccc";
+                td.style.fontSize = "14px";
+                td.style.textAlign = "left";
+                td.style.verticalAlign = "top";
+                td.style.wordBreak = "break-word";
+                td.style.overflowWrap = "break-word";
+                td.style.whiteSpace = "normal";
+
+                if (rowIndex === 0) {
+                  td.style.fontWeight = "bold";
+                  td.style.backgroundColor = "#04863E";
+                  td.style.color = "#fff";
+                }
+
+                tr.appendChild(td);
+              });
+
+              table.appendChild(tr);
             });
+
+            wrapper.appendChild(table);
+            rowContainer.appendChild(wrapper);
           });
+
+          contentClone.appendChild(rowContainer);
         }
+
+        // chartComparison
+        if (view === "chartComparison") {
+          const chartWrapper = document.createElement("div");
+          chartWrapper.style.display = "grid";
+          chartWrapper.style.gridTemplateColumns = "1fr 1fr";
+          chartWrapper.style.gap = "20px";
+
+          const originalGrid = contentSource.querySelector("div");
+          const clonedGrid = contentClone.querySelector("div");
+
+          if (!originalGrid || !clonedGrid) return;
+
+          const originalCards = Array.from(originalGrid.children).filter(div =>
+            div.querySelector("canvas")
+          );
+          const clonedCards = Array.from(clonedGrid.children).filter(div =>
+            div.querySelector("canvas")
+          );
+
+          originalCards.forEach((originalCard, index) => {
+            const clonedCard = clonedCards[index];
+            const originalCanvas = originalCard.querySelector("canvas");
+            const clonedCanvas = clonedCard?.querySelector("canvas");
+
+            if (originalCanvas && clonedCanvas) {
+              const dataUrl = originalCanvas.toDataURL("image/png");
+              const img = new Image();
+              img.src = dataUrl;
+              img.style.maxWidth = "100%";
+              img.style.display = "block";
+              img.style.marginTop = "10px";
+
+              clonedCanvas.parentNode.replaceChild(img, clonedCanvas);
+            }
+
+            if (clonedCard) {
+              clonedCard.style.removeProperty("height"); 
+              clonedCard.style.border = "1px solid #ccc";
+              clonedCard.style.borderRadius = "8px";
+              clonedCard.style.background = "#fff";
+              clonedCard.style.padding = "16px";
+              clonedCard.style.boxSizing = "border-box";
+
+              chartWrapper.appendChild(clonedCard);
+            }
+          });
+
+          contentClone.innerHTML = "";
+          contentClone.appendChild(chartWrapper);
+        }
+
+
 
         contentClone.style.display = "block";
         contentClone.style.visibility = "visible";
@@ -1835,103 +2444,127 @@
         });
       }
 
-function downloadExcel() {
+      function downloadExcel() {
 
-  const selectedArray = Array.from(selectedIdsExcel);
-  renderUrbanRuralComparison(selectedArray);
+        const selectedArray = Array.from(selectedIdsExcel);
+        renderUrbanRuralComparison(selectedArray);
 
-  const aggregated = window.latestAggregatedData || {};
-  const comparison = window.urbanRuralComparisonData || {};
-  const selectedCategories = window.chosenCategories || [];
-  const niTotals = window.niTotals || {};
-  const workbook = XLSX.utils.book_new();
-  const groups = ["Urban", "Rural", "Mixed"];
+        const aggregated = window.latestAggregatedData || {};
+        const comparison = window.urbanRuralComparisonData || {};
+        const selectedCategories = window.chosenCategories || [];
+        const niTotals = window.niTotals || {};
+        const workbook = XLSX.utils.book_new();
+        const groups = ["Urban", "Rural", "Mixed"];
 
-  // Helper to format cells
-  function formatCell(value, type, format) {
-    return { v: value, t: type, z: format };
-  }
+        // Helper to format cells
+        function formatCell(value, type, format) {
+          return { v: value, t: type, z: format };
+        }
 
-  (selectedCategories.length ? selectedCategories : Object.keys(aggregated)).forEach(category => {
-    const sheetData = [];
+        (selectedCategories.length ? selectedCategories : Object.keys(aggregated)).forEach(category => {
+          const sheetData = [];
 
-    // Aggregated data
-    sheetData.push([formatCell(`${category}`, "s")]);
-    sheetData.push([
-      formatCell("Label", "s"),
-      formatCell("Count", "s"),
-      formatCell("Percentage", "s"),
-      formatCell("NI %", "s")
-    ]);
+          // Aggregated data
+          sheetData.push([formatCell(`${category}`, "s")]);
+          sheetData.push([
+            formatCell("Label", "s"),
+            formatCell("Count", "s"),
+            formatCell("Percentage", "s"),
+            formatCell("NI %", "s")
+          ]);
 
-    const values = aggregated[category] || {};
-    const totalCount = Object.values(values).reduce((acc, val) => acc + val, 0);
+          const values = aggregated[category] || {};
+          const totalCount = Object.values(values).reduce((acc, val) => acc + val, 0);
 
-    for (const [label, count] of Object.entries(values)) {
-      const percentage = totalCount > 0 ? count / totalCount : 0;
-      const niVal = niTotals[category]?.[label];
-      const niPercentage = typeof niVal === "number" ? niVal / 100 : null;
+          for (const [label, count] of Object.entries(values)) {
+            const percentage = totalCount > 0 ? count / totalCount : 0;
+            const niVal = niTotals[category]?.[label];
+            const niPercentage = typeof niVal === "number" ? niVal / 100 : null;
 
-      sheetData.push([
-        formatCell(label, "s"),
-        formatCell(count, "n", "0"),
-        formatCell(percentage, "n", "0.00%"),
-        niPercentage !== null ? formatCell(niPercentage, "n", "0.0%") : formatCell("–", "s")
-      ]);
-    }
+            sheetData.push([
+              formatCell(label, "s"),
+              formatCell(count, "n", "0"),
+              formatCell(percentage, "n", "0.00%"),
+              niPercentage !== null ? formatCell(niPercentage, "n", "0.0%") : formatCell("–", "s")
+            ]);
+          }
 
-    sheetData.push([]); // Blank row between sections
-    // Urban/Rural/Mixed data (conditionally included)
-    groups.forEach(group => {
-      const groupCategoryData = comparison[group]?.[category];
-      if (!groupCategoryData || Object.keys(groupCategoryData).length === 0) return;
+          sheetData.push([]); // Blank row between sections
+          // Urban/Rural/Mixed data (conditionally included)
+          groups.forEach(group => {
+            const groupCategoryData = comparison[group]?.[category];
+            if (!groupCategoryData || Object.keys(groupCategoryData).length === 0) return;
 
-      sheetData.push([formatCell(`${category} – ${group}`, "s")]);
-      sheetData.push([
-        formatCell("Label", "s"),
-        formatCell("Count", "s"),
-        formatCell("Percentage", "s"),
-        formatCell("NI %", "s")
-      ]);
+            sheetData.push([formatCell(`${category} – ${group}`, "s")]);
+            sheetData.push([
+              formatCell("Label", "s"),
+              formatCell("Count", "s"),
+              formatCell("Percentage", "s"),
+              formatCell("NI %", "s")
+            ]);
 
-      const total = Object.values(groupCategoryData).reduce((acc, val) => acc + val, 0);
+            const total = Object.values(groupCategoryData).reduce((acc, val) => acc + val, 0);
 
-      for (const [label, count] of Object.entries(groupCategoryData)) {
-        const pct = total > 0 ? count / total : 0;
-        const niVal = niTotals[category]?.[label];
-        const niPct = typeof niVal === "number" ? niVal / 100 : null;
+            for (const [label, count] of Object.entries(groupCategoryData)) {
+              const pct = total > 0 ? count / total : 0;
+              const niVal = niTotals[category]?.[label];
+              const niPct = typeof niVal === "number" ? niVal / 100 : null;
 
-        sheetData.push([
-          formatCell(label, "s"),
-          formatCell(count, "n", "0"),
-          formatCell(pct, "n", "0.00%"),
-          niPct !== null ? formatCell(niPct, "n", "0.0%") : formatCell("–", "s")
-        ]);
+              sheetData.push([
+                formatCell(label, "s"),
+                formatCell(count, "n", "0"),
+                formatCell(pct, "n", "0.00%"),
+                niPct !== null ? formatCell(niPct, "n", "0.0%") : formatCell("–", "s")
+              ]);
+            }
+
+            sheetData.push([]); // Blank row between groups
+          });
+
+          const worksheet = XLSX.utils.aoa_to_sheet(sheetData);
+
+          // Style section headers
+          const range = XLSX.utils.decode_range(worksheet["!ref"]);
+          for (let R = 0; R <= range.e.r; ++R) {
+            const cell = worksheet[XLSX.utils.encode_cell({ r: R, c: 0 })];
+            if (cell && typeof cell.v === "string" && cell.v.includes("–")) {
+              cell.s = {
+                font: { bold: true, color: { rgb: "FFFFFF" } },
+                alignment: { horizontal: "left" },
+                fill: { fgColor: { rgb: "228B22" } }
+              };
+            }
+          }
+
+          XLSX.utils.book_append_sheet(workbook, worksheet, category.substring(0, 31));
+        });
+
+        // Add "Selected Areas" sheet
+        if (Array.isArray(zoneNames) && zoneNames.length > 0) {
+          const selectedAreasData = [["Area"]]; // Title row
+
+          const uniqueZoneNames = [...new Set(zoneNames)];
+          uniqueZoneNames.forEach(name => {
+            selectedAreasData.push([name]);
+          });
+
+          const selectedAreasSheet = XLSX.utils.aoa_to_sheet(selectedAreasData);
+
+          // Optional styling for the title
+          const titleCell = selectedAreasSheet["A1"];
+          if (titleCell) {
+            titleCell.s = {
+              font: { bold: true, color: { rgb: "FFFFFF" } },
+              alignment: { horizontal: "center" },
+              fill: { fgColor: { rgb: "4682B4" } }
+            };
+          }
+
+          XLSX.utils.book_append_sheet(workbook, selectedAreasSheet, "Selected Areas");
+        }
+        
+        XLSX.writeFile(workbook, "summary_data.xlsx");
       }
-
-      sheetData.push([]); // Blank row between groups
-    });
-
-    const worksheet = XLSX.utils.aoa_to_sheet(sheetData);
-
-    // Style section headers
-    const range = XLSX.utils.decode_range(worksheet["!ref"]);
-    for (let R = 0; R <= range.e.r; ++R) {
-      const cell = worksheet[XLSX.utils.encode_cell({ r: R, c: 0 })];
-      if (cell && typeof cell.v === "string" && cell.v.includes("–")) {
-        cell.s = {
-          font: { bold: true, color: { rgb: "FFFFFF" } },
-          alignment: { horizontal: "left" },
-          fill: { fgColor: { rgb: "228B22" } }
-        };
-      }
-    }
-
-    XLSX.utils.book_append_sheet(workbook, worksheet, category.substring(0, 31));
-  });
-
-  XLSX.writeFile(workbook, "summary_data.xlsx");
-}
 
     </script>
   </body>

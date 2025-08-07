@@ -1,0 +1,106 @@
+[
+  {
+    "further_breakdown_df": "AGE_SYOA",
+    "nested_list_names": "Age"
+  },
+  {
+    "further_breakdown_df": "COB_1000",
+    "nested_list_names": "Country of Birth"
+  },
+  {
+    "further_breakdown_df": "ECONOMIC_ACTIVITY_FTB",
+    "nested_list_names": "Economic Activity"
+  },
+  {
+    "further_breakdown_df": "ETHNIC_GROUP_INTERMEDIATE",
+    "nested_list_names": "Ethnic Group Label"
+  },
+  {
+    "further_breakdown_df": "HEALTH_CONDITION_MENTAL_HEALTH",
+    "nested_list_names": "Health Condition Emotional or Mental Health Label"
+  },
+  {
+    "further_breakdown_df": "DISABILITY_DVO",
+    "nested_list_names": "Health Problem or Disability Long term Label"
+  },
+  {
+    "further_breakdown_df": "HEALTH_IN_GENERAL",
+    "nested_list_names": "Health in General"
+  },
+  {
+    "further_breakdown_df": "HH_FAMILY_COMPOSITION_AGG24_PERS",
+    "nested_list_names": "Household Composition"
+  },
+  {
+    "further_breakdown_df": "HH_CAR_VAN_TC5_PERS",
+    "nested_list_names": "Household Car or Van Availability"
+  },
+  {
+    "further_breakdown_df": "HH_CENTRAL_HEATING_PERS",
+    "nested_list_names": "Household Central Heating"
+  },
+  {
+    "further_breakdown_df": "HH_DEPENDENT_CHILDREN_AGG12_PERS",
+    "nested_list_names": "Household Dependent Children"
+  },
+  {
+    "further_breakdown_df": "HH_RENEWABLE_ENERGY_IND_PERS",
+    "nested_list_names": "Household Renewable Energy Systems Label"
+  },
+  {
+    "further_breakdown_df": "MAR_CP_STATUS",
+    "nested_list_names": "Marital and Civil Partnership Status"
+  },
+  {
+    "further_breakdown_df": "OCCUPATION_CURRENT_3DIGIT",
+    "nested_list_names": "Occupation Current"
+  },
+  {
+    "further_breakdown_df": "DISTANCE_TO_STUDY_AGG11",
+    "nested_list_names": "Place of Study Distance"
+  },
+  {
+    "further_breakdown_df": "TRANSPORT_TO_STUDY",
+    "nested_list_names": "Place of Study Method of Travel"
+  },
+  {
+    "further_breakdown_df": "DISTANCE_TO_WORK_AGG14_FTB",
+    "nested_list_names": "Place of Work Distance"
+  },
+  {
+    "further_breakdown_df": "TRANSPORT_TO_WORKPLACE_FTB",
+    "nested_list_names": "Place of Work Method of Travel"
+  },
+  {
+    "further_breakdown_df": "IS_CARER",
+    "nested_list_names": "Provision of Unpaid Care"
+  },
+  {
+    "further_breakdown_df": "HIGHEST_QUALIFICATION",
+    "nested_list_names": "Qualifications Highest Level"
+  },
+  {
+    "further_breakdown_df": "RELIGION_BELONG_TO_DVO_1000",
+    "nested_list_names": "Religion"
+  },
+  {
+    "further_breakdown_df": "UR_SEX",
+    "nested_list_names": "Sex Label"
+  },
+  {
+    "further_breakdown_df": "SEXUAL_ORIENTATION_DVO_AGG4",
+    "nested_list_names": "Sexual Orientation Label"
+  },
+  {
+    "further_breakdown_df": "HH_TENURE_PERS",
+    "nested_list_names": "Household Tenure"
+  },
+  {
+    "further_breakdown_df": "MAIN_LANGUAGE_1000",
+    "nested_list_names": "Main Language"
+  },
+  {
+    "further_breakdown_df": "INDUSTRY_FORMER_AGG17",
+    "nested_list_names": "Industry Former"
+  }
+]

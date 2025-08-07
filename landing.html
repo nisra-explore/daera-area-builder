@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rural Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="icon" type="image" href="img/favicon-daera.svg">
+
+    <!-- imports for bootstrap - jquery and popper are dependencies -->
+    <script src="https://cdn.jsdelivr.net/gh/jquery/jquery@3.4.1/dist/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/gh/twbs/bootstrap@v4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/FezVrasta/popper.js@v1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/twbs/bootstrap@v4.5.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+    <!-- fontawesome import -->
+    <script src="https://kit.fontawesome.com/ee3848f0f5.js" crossorigin="anonymous"></script>
+
+    <!-- chart.js and add ons -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/3.0.1/chartjs-plugin-annotation.min.js" integrity="sha512-Hn1w6YiiFw6p6S2lXv6yKeqTk0PLVzeCwWY9n32beuPjQ5HLcvz5l2QsP+KilEr1ws37rCTw3bZpvfvVIeTh0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel="stylesheet" />
+    <link rel ="stylesheet" href ="style.css">
+
+  </head>
+
+  <body>
+    <div class="wrapper">
+          
+      <div class="content-wrapper">
+
+
+
+      <div id="top-container">
+        <div id="top-menu" class="grid" style="margin: 0;">
+          <div class="logo-container">
+              <a href="https://www.daera-ni.gov.uk/" target="_blank"><img id="top-menu-daera-logo" src="img/daera-logo.png" alt="DAERA logo. Clicking image takes user to DAERA website"></a>
+          </div>
+
+          <div id="dashboard-title-container">
+            <h1 id="dashboard-title">DAERA Custom Area Profile Builder</h1>
+            <!-- <span id="dashboard-subtitle">Access urban rural data across a range of <br>areas for Northern Ireland</span> -->
+          </div>
+          <div class="logo-container">
+            <a href="https://www.nisra.gov.uk/" target="_blank"><img id="top-menu-nisra-logo" src="img/nisra-logo-full-name-stack.svg" alt="NISRA logo. Clicking image takes user to NISRA website"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-banner">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-7 text-left">
+              <h2 style="font-size: 3rem; margin-bottom: 2rem;">
+                Build a custom area profile
+              </h2>
+              <h4 class="mb-4">
+                Create your own profile for local areas with data for <br> Northern Ireland
+              </h4>
+              <a href="index.html" class="gtstrt-btn">Get Started &rarr;</a>
+            </div>
+
+            <div class="col-md-5 text-center">
+              <img src="img/landing.png" alt="Profile Builder Illustration" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="main-container">
+
+        <div class="container my-5">
+          <h3 class="mb-4">How to use the profile builder</h3>
+          <p class="mb-5">Build a custom profile by selecting an area and choosing which data you'd like to see.</p>
+
+          <div class="row">
+            <!-- Step 1 -->
+            <div class="col-md-6 mb-4">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                  <h4 class="card-title">Step 1 – Select an area</h4>
+                  <p class="card-text">Use the interactive map to select zones in one of the following ways:</p>
+                  <ul>
+                    <li>Select individual <strong>Super Data Zones (SDZ)</strong></li>
+                    <li>Select individual <strong>Data Zones (DZ)</strong></li>
+                    <li>Or group either of the above by <strong>Local Government District (LGD)</strong></li>
+                  </ul>
+                  <p class="card-text">Once you're done, click <strong>“Build area profile”</strong> to generate outputs based on your selection.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="col-md-6 mb-4">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                  <h4 class="card-title">Step 2 - View your profile</h4>
+                  <p class="card-text">Choose datasets such as Age, Sex, Economic Activity, etc. The tool will aggregate the data for your selected area.</p>
+                  <p class="card-text">You can explore different output views:</p>
+                  <ul>
+                    <li><strong>Chart view</strong> - summary visualisation by dataset</li>
+                    <li><strong>Table view</strong> - raw numbers and percentage breakdowns</li>
+                    <li><strong>Urban/Rural chart view</strong> - shows how values vary across Urban, Rural, and Mixed zones within your selection</li>
+                    <li><strong>Urban/Rural table view</strong> - same breakdown in table format</li>
+                  </ul>
+                  <p class="card-text">All views include comparison to <strong>Northern Ireland (NI)</strong> as a default.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container my-5">
+            <h3 class="mb-4">Which datasets are available?</h3>
+
+            <div class="accordion" id="zoneDatasetAccordion">
+
+              <!-- SDZ panel -->
+              <div class="card">
+                <div class="card-header" id="headingSDZ">
+                  <h3 class="mb-0">
+                    <button class="daera-btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseSDZ" aria-expanded="false" aria-controls="collapseSDZ">
+                      Super Data Zones (SDZ)
+                    </button>
+                  </h3>
+                </div>
+                <div id="collapseSDZ" class="collapse" aria-labelledby="headingSDZ" data-parent="#zoneDatasetAccordion">
+                  <div class="card-body" id="dataset-sdz-container">
+                    <p>Loading SDZ datasets...</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- DZ panel -->
+              <div class="card">
+                <div class="card-header" id="headingDZ">
+                  <h3 class="mb-0">
+                    <button class="daera-btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseDZ" aria-expanded="false" aria-controls="collapseDZ">
+                      Data Zones (DZ)
+                    </button>
+                  </h3>
+                </div>
+                <div id="collapseDZ" class="collapse" aria-labelledby="headingDZ" data-parent="#zoneDatasetAccordion">
+                  <div class="card-body" id="dataset-dz-container">
+                    <p>Loading DZ datasets...</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="container my-5">
+            <h3 class="mb-4">Dashboard Functionality Overview</h3>
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <p>
+                  The Rural Dashboard has been designed to support interactive selection, profile generation, and comparison of demographic, social, and economic data across Northern Ireland. The following outlines the key functional components of the dashboard.
+                </p>
+
+                <h5 class="mt-4">1. Map Interface and Selection Controls</h5>
+                <p>The main map interface enables users to define custom areas using the following tools:</p>
+                <ul>
+                  <li><strong>Local Government District (LGD) selector (left panel):</strong> Enables users to navigate directly to an LGD boundary and optionally group zones within it.</li>
+                  <li><strong>Zone selection toggle (right panel):</strong> Allows switching between Super Data Zones (SDZ) and Data Zones (DZ) for area selection.</li>
+                  <li><strong>Build Profile button:</strong> Generates a profile for the selected zones and transitions to the output view.</li>
+                  <li><strong>Map controls:</strong>
+                    <ul>
+                      <li>Toggle display of urban/rural/mixed classifications on the map.</li>
+                      <li>Clear all current selections.</li>
+                      <li>Reset the map zoom and position to default Northern Ireland extent.</li>
+                    </ul>
+                  </li>
+                </ul>
+
+                <h5 class="mt-4">2. Profile Outputs and Data Views</h5>
+                <p>Upon generating a profile, users are presented with a range of configurable views and controls:</p>
+                <ul>
+                  <li><strong>Dataset selector (left panel):</strong> Enables filtering by domain, including Demography, Education, Economy, and Health.</li>
+                  <li><strong>Summary population card:</strong> Displays the total aggregated population for the selected area, with an option to return to the map view.</li>
+                  <li><strong>Output view controls:</strong> Provide access to multiple presentation formats:
+                    <ul>
+                      <li><strong>Chart View:</strong> Displays data distributions as percentage bar charts.</li>
+                      <li><strong>Table View:</strong> Tabulates raw counts and percentage values for each dataset.</li>
+                      <li><strong>Urban/Rural Table:</strong> Breaks down results by settlement type within the selected area.</li>
+                      <li><strong>Urban/Rural Chart View:</strong> Provides visual comparison by urban, rural, and mixed classifications.</li>
+                    </ul>
+                  </li>
+                </ul>
+
+                <h5 class="mt-4">3. Export and Download Options</h5>
+                <p>The dashboard includes export functionality for further analysis and reporting:</p>
+                <ul>
+                  <li><strong>Excel export:</strong> Downloads all currently selected and aggregated data as an Excel file.</li>
+                  <li><strong>Summary image download:</strong> Allows saving a PNG version of the active view (charts or tables) and the profile summary.</li>
+                </ul>
+
+                <h5 class="mt-4">4. Data Source Transparency</h5>
+                <p>
+                  All datasets presented in the dashboard are accompanied by source links. These appear at the bottom of the output panel and direct users to the relevant Census or NISRA data sources for reference, metadata, and further documentation.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        
+
+        <footer>
+          <div id="footer-container">
+            <div class="row">
+              <div style="height: 170px; width: 350px; margin: 10px;">
+                <h3 style="font-weight: 700; font-size: 18px; color: #ffffff">Links</h3>
+                <a href="https://data.nisra.gov.uk/" target="_blank" rel="noopener noreferrer">NISRA Data
+                  Portal</a><br>
+                <a href="https://visual.nisra.gov.uk/" target="_blank" rel="noopener noreferrer">NISRA Interactive
+                  Data Visualisation Hub</a><br>
+                <a href="https://www.opendatani.gov.uk/" target="_blank" rel="noopener noreferrer">OpenDataNI</a><br>
+                <a href="https://www.nidirect.gov.uk" target="_blank" rel="noopener noreferrer">NIDirect</a><br>
+                <a href="https://www.gov.uk/" target="_blank" rel="noopener noreferrer">GOV.UK</a><br>
+              </div>
+              <div style="height: 170px; width: 120px; margin: 20px 0px 20px 60px;">
+                <h3 style="font-weight: 700; font-size: 18px; color: #ffffff">Follow NISRA</h3>
+                <i class="fa-brands fa-facebook-f"></i> <a href="https://www.facebook.com/nisra.gov.uk" target="_blank"
+                  rel="noopener noreferrer">Facebook</a><br>
+                <i class="fa-brands fa-x-twitter"></i> <a href="https://twitter.com/NISRA" target="_blank"
+                  rel="noopener noreferrer">Twitter</a><br>
+                <i class="fa-brands fa-youtube"></i> <a href="https://www.youtube.com/user/nisrastats" target="_blank"
+                  rel="noopener noreferrer">YouTube</a><br>
+              </div>
+            </div>
+            <div class="flex-list-footer">
+              <ul
+                style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; margin-left: -1px;">
+                <li class="cc-li" style="border-left:0px;"><a href="https://www.nisra.gov.uk/crown-copyright" target="_blank"
+                    rel="noopener noreferrer">© Crown Copyright</a></li>
+                <!--<li class="cc-li"><a href="https://www.nisra.gov.uk/contacts/programme-government-analytics-executive-office"
+                    target="_blank" rel="noopener noreferrer">Contact us</a></li> --> 
+                <li class="cc-li"><a href="https://consultations.nidirect.gov.uk/teo/d8cf2dfc" target="_blank">Leave
+                    feedback</a></li>
+                <li class="cc-li"><a href="https://www.nisra.gov.uk/terms-and-conditions" target="_blank"
+                    rel="noopener noreferrer">Terms and conditions</a></li>
+                <li class="cc-li"><a href="https://www.nisra.gov.uk/cookies" target="_blank"
+                    rel="noopener noreferrer">Cookies</a></li>
+                <li class="cc-li"><a href="https://www.nisra.gov.uk/nisra-privacy-notice" target="_blank"
+                    rel="noopener noreferrer">Privacy</a></li>
+                <li class="cc-li"><a href="https://www.nisra.gov.uk/accessibility-statement-nisra" target="_blank"
+                    rel="noopener noreferrer">Accessibility Statement</a></li>
+              </ul>
+            </div>
+          </div>
+        </footer>
+        </div>
+    
+      </div>   
+      </div>
+      <hr style="border-top: 10px solid #076cba; margin-bottom: 0; margin-top: 25px;">
+      
+    </div>
+    <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+      async function loadDatasetButtons(containerId, zoneType) {
+        try {
+          const response = await fetch('category_lookup.json');
+          const lookup = await response.json();
+
+          const container = document.getElementById(containerId);
+          container.innerHTML = ''; // Clear placeholder
+
+          lookup.forEach(item => {
+            const label = item.nested_list_names;
+            const code = item.further_breakdown_df;
+
+            if (code) {
+              const fullUrl = `https://build.nisra.gov.uk/en/custom/variables/${code}?d=PEOPLE&v=${zoneType}21&r=variables`;
+
+              const button = document.createElement("a");
+              button.href = fullUrl;
+              button.className = "daera-btn btn-outline-primary m-1";
+              button.textContent = label;
+              button.target = "_blank";
+
+              container.appendChild(button);
+            }
+          });
+        } catch (err) {
+          document.getElementById(containerId).innerHTML =
+            '<div class="alert alert-danger">Could not load dataset links.</div>';
+          console.error(`Error loading ${zoneType} dataset links:`, err);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        loadDatasetButtons('dataset-sdz-container', 'sdz');
+        loadDatasetButtons('dataset-dz-container', 'dz');
+      });
+    </script>
+
+  </body>
+
+</html>
