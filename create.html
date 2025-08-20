@@ -364,7 +364,9 @@
 
     <script>
 
+      // Wait for the page to finish loading before running the map setup
       document.addEventListener('DOMContentLoaded', function () {
+        // Initialize the map with bounds, style, zoom, and center
         const map = new maplibregl.Map({
           container: 'map',
           style: 'https://raw.githubusercontent.com/NISRA-Tech-Lab/map_tiles/main/basemap_styles/style-omt.json',
@@ -377,7 +379,7 @@
 
         let activeZone = 'sdz';
 
-        // Event listener for choosing SDZ or DZ
+        // Handle user switching between Super Data Zone (SDZ) and Data Zone (DZ)
         document.getElementById('zone-selector').addEventListener('change', function (e) {
           const selected = e.target.value;
           currentZoneType = selected;
@@ -385,6 +387,7 @@
           window.selectedZoneType = selected;
           updateSourceLink();
 
+          // Show/hide correct map layers depending on selected zone
           if (selected === 'sdz') {
             activeZone = 'sdz';
             map.setLayoutProperty('sdz-fill', 'visibility', 'visible');
@@ -403,9 +406,8 @@
             map.setLayoutProperty('dz-outline-hover', 'visibility', 'visible');
           }
 
-          //  setupZoneEvents(); 
-
-          clearSelections();       // Clear map and outputs
+          // Reset map selections  
+          clearSelections();
           
           // Reset category checkboxes to defaults
           const defaultCategories = ['Age (7 Categories)', 'Sex Label'];
@@ -427,6 +429,7 @@
         // Initial link setup on page load
         updateSourceLink();
 
+        // Data storage and state variables
         const selectedIds = new Set();
         let sdzData = {};
         let dzData = {};
@@ -434,59 +437,61 @@
         const popup = new maplibregl.Popup({ closeButton: false, closeOnClick: false });
         const selectedLGDs = new Set();
         
+        // Load census data from JSON and attach it to features
         fetch('./data.json')
-        .then(response => response.json())
-        .then(data => {
-          sdzData = data["Super Data Zone"] || {};
-          dzData = data["Data Zone"] || {};
-          niTotals = data["NI Total"] || {};
-          window.niTotals = niTotals; 
+          .then(response => response.json())
+          .then(data => {
+            sdzData = data["Super Data Zone"] || {};
+            dzData = data["Data Zone"] || {};
+            niTotals = data["NI Total"] || {};
+            window.niTotals = niTotals; 
 
-          map.on('idle', () => {
-            // --- Super Data Zone ---
-            const sdzFeatures = map.querySourceFeatures('sdz2021', {
-              sourceLayer: 'SDZ2021_clipped'
-            });
-            sdzFeatures.forEach(feature => {
-              const sdzCode = feature.properties.sdz_code;
-              const status = sdzData[sdzCode]?.Urban_mixed_rural_status;
+            // When map is idle, apply feature states (urban/rural classification)
+            map.on('idle', () => {
+              // Super Data Zones
+              const sdzFeatures = map.querySourceFeatures('sdz2021', {
+                sourceLayer: 'SDZ2021_clipped'
+              });
+              sdzFeatures.forEach(feature => {
+                const sdzCode = feature.properties.sdz_code;
+                const status = sdzData[sdzCode]?.Urban_mixed_rural_status;
 
-              if (status) {
-                map.setFeatureState(
-                  {
-                    source: 'sdz2021',
-                    sourceLayer: 'SDZ2021_clipped',
-                    id: feature.id
-                  },
-                  { status: status }
-                );
-              }
-            });
+                if (status) {
+                  map.setFeatureState(
+                    {
+                      source: 'sdz2021',
+                      sourceLayer: 'SDZ2021_clipped',
+                      id: feature.id
+                    },
+                    { status: status }
+                  );
+                }
+              });
 
-            // --- Data Zone ---
-            const dzFeatures = map.querySourceFeatures('dz2021', {
-              sourceLayer: 'DZ2021_clipped'
-            });
+              // Data Zones
+              const dzFeatures = map.querySourceFeatures('dz2021', {
+                sourceLayer: 'DZ2021_clipped'
+              });
 
-            dzFeatures.forEach(feature => {
-              const dzCode = feature.properties.dz_code;
-              const status = dzData[dzCode]?.Urban_mixed_rural_status;
+              dzFeatures.forEach(feature => {
+                const dzCode = feature.properties.dz_code;
+                const status = dzData[dzCode]?.Urban_mixed_rural_status;
 
-              if (status) {
-                map.setFeatureState(
-                  {
-                    source: 'dz2021',
-                    sourceLayer: 'DZ2021_clipped',
-                    id: feature.id
-                  },
-                  { status: status }
-                );
-              }
+                if (status) {
+                  map.setFeatureState(
+                    {
+                      source: 'dz2021',
+                      sourceLayer: 'DZ2021_clipped',
+                      id: feature.id
+                    },
+                    { status: status }
+                  );
+                }
+              });
             });
           });
-        });
         
-        // Function that toggles urban/rural fill based on zone selection
+        // Toggle button to show/hide urban/rural fills
         let fillVisible = true;
 
         const toggleButton = document.getElementById('toggle-fill');
@@ -506,9 +511,9 @@
           toggleButton.textContent = fillVisible ? 'Hide Urban/Rural' : 'Show Urban/Rural';
         });
 
-
+        // When the map loads, add vector tile sources and styled layers
         map.on('load', () => {
-
+          // Add SDZ and DZ tile sources
           map.addSource('sdz2021', {
               type: 'vector',
               tiles: [
@@ -524,7 +529,9 @@
               ],
               promoteId: { 'DZ2021_clipped': 'dz_code' }
             });
-
+          
+          // Add fill and outline layers for SDZ and DZ (different visibility defaults)
+          // Fill colors reflect urban/rural/mixed status, hover highlights selected areas
           map.addLayer({
             id: 'sdz-fill',
             type: 'fill',
@@ -632,6 +639,7 @@
             }
           });
 
+          // Mouse interactions: show popup with zone label on hover
           map.on('mousemove', 'sdz-fill', (e) => {
             if (!e.features.length) return;
 
@@ -678,6 +686,7 @@
             popup.remove();
           });
 
+          // Click interactions: toggle selection state, update feature styling, update charts/tables
           map.on('click', 'sdz-fill', (e) => {
             if (!e.features.length) return;
 
@@ -757,6 +766,7 @@
             updateCtaEnabled();
           });
 
+          // Setup profile build/change buttons and modal controls
           const buildBtn = document.getElementById("build-profile-btn");
           const changeBtn = document.getElementById("change-selection-btn");
           const outputContent = document.getElementById("output-content");
@@ -776,12 +786,12 @@
             setTimeout(() => (box.style.boxShadow = ''), 1200);
           }
 
-          // expose so other code can call it safely
+          // Enable/disable "build profile" CTA depending on selection
           window.updateCtaEnabled = function () {
             if (buildBtn) buildBtn.disabled = selectedIds.size === 0;
           };
 
-          // wire once (no nesting)
+          // Wire up build/change button events
           buildBtn?.addEventListener("click", () => {
             if (selectedIds.size === 0) { openSelectModal(); return; }
             outputContent.classList.remove("hidden-section");
@@ -793,13 +803,14 @@
             mapContent.classList.remove("hidden-section");
           });
 
+          // Modal controls (close/focus)
           document.getElementById('apb-modal-close')?.addEventListener('click', closeSelectModal);
           document.getElementById('apb-modal-focus')?.addEventListener('click', () => {
             closeSelectModal();
             focusSelectorBox();
           });
 
-          // set initial disabled state
+          // Initial CTA state
           updateCtaEnabled();
 
         });
@@ -813,81 +824,100 @@
           });
         });
 
- async function updateSourceLink() {
-  const zoneType = window.selectedZoneType || 'sdz';
-  const selectedLabels = window.chosenCategories || ['Age (7 Categories)', 'Sex Label'];
-  const response = await fetch('category_lookup.json');
-  const lookup = await response.json();
-  const labelToCode = {};
-  const labelToSource = {};
+        // Async function that updates the "Source" section with links based on selected categories and zone type
+        async function updateSourceLink() {
+          // Get the currently selected zone type (default to SDZ) and chosen categories (default to Age/Sex)
+          const zoneType = window.selectedZoneType || 'sdz';
+          const selectedLabels = window.chosenCategories || ['Age (7 Categories)', 'Sex Label'];
 
-  lookup.forEach(item => {
-    labelToCode[item.nested_list_names] = item.further_breakdown_df;
-    labelToSource[item.nested_list_names] = item.Source;
-  });
+          // Load category lookup metadata (maps labels to codes and data sources)
+          const response = await fetch('category_lookup.json');
+          const lookup = await response.json();
+          const labelToCode = {};
+          const labelToSource = {};
 
-  const sourceLinkContainer = document.getElementById("sourceId");
-  sourceLinkContainer.innerHTML = '';
+          // Build lookup dictionaries for quick access: label → code, label → source
+          lookup.forEach(item => {
+            labelToCode[item.nested_list_names] = item.further_breakdown_df;
+            labelToSource[item.nested_list_names] = item.Source;
+          });
 
-  selectedLabels.forEach(label => {
-    const source = labelToSource[label];
-    const categoryCode = labelToCode[label];
-    let fullUrl = '';
+          // Clear out any existing links in the source container
+          const sourceLinkContainer = document.getElementById("sourceId");
+          sourceLinkContainer.innerHTML = '';
 
-    console.log("fsda", label)
-    if (source === "Flexible Table Builder" && categoryCode) {
-      fullUrl = `https://build.nisra.gov.uk/en/custom/variables/${categoryCode}?d=PEOPLE&v=${zoneType}21&r=variables`;
-    } else if (source === "Data Portal") {
-      if (label === "Benefits Statistics" && zoneType === "dz") {
-        fullUrl = "https://data.nisra.gov.uk/table/BSDZ";
-      } else if (label === "Benefits Statistics" && zoneType === "sdz") {
-        fullUrl = "https://data.nisra.gov.uk/table/BSSDZ";
-      } else if ((label === "Age (MYE)" || label === "Sex (MYE)") && zoneType === "sdz") {
-        fullUrl = "https://data.nisra.gov.uk/table/MYE01T012";
-      }
-    }
+           // For each selected category, determine the appropriate external link
+          selectedLabels.forEach(label => {
+            const source = labelToSource[label];
+            const categoryCode = labelToCode[label];
+            let fullUrl = '';
 
-    if (fullUrl) {
-      const wrapper = document.createElement('div');
-      const zoneTypeText = zoneType === 'sdz' ? 'Super Data Zone' : 'Data Zone';
-      const labelText = document.createTextNode(`${label} by ${zoneTypeText}: `);
-      const link = document.createElement('a');
-      link.href = fullUrl;
-      link.textContent = fullUrl;
-      link.target = "_blank";
-      wrapper.appendChild(labelText);
-      wrapper.appendChild(link);
-      sourceLinkContainer.appendChild(wrapper);
-    } else {
-      console.warn(`No valid URL found for label: ${label}`);
-    }
-  });
-}
+            // Flexible Table Builder: build custom URL using category code + zone type
+            if (source === "Flexible Table Builder" && categoryCode) {
+              fullUrl = `https://build.nisra.gov.uk/en/custom/variables/${categoryCode}?d=PEOPLE&v=${zoneType}21&r=variables`;
+
+              // Data Portal: different static URLs depending on category and zone type
+            } else if (source === "Data Portal") {
+              if (label === "Benefits Statistics" && zoneType === "dz") {
+                fullUrl = "https://data.nisra.gov.uk/table/BSDZ";
+              } else if (label === "Benefits Statistics" && zoneType === "sdz") {
+                fullUrl = "https://data.nisra.gov.uk/table/BSSDZ";
+              } else if ((label === "Age (MYE)" || label === "Sex (MYE)") && zoneType === "sdz") {
+                fullUrl = "https://data.nisra.gov.uk/table/MYE01T012";
+              }
+            }
+
+            // If a valid URL was created, render it in the container as text + link
+            if (fullUrl) {
+              const wrapper = document.createElement('div');
+              const zoneTypeText = zoneType === 'sdz' ? 'Super Data Zone' : 'Data Zone';
+              const labelText = document.createTextNode(`${label} by ${zoneTypeText}: `);
+              const link = document.createElement('a');
+              link.href = fullUrl;
+              link.textContent = fullUrl;
+              link.target = "_blank";
+              wrapper.appendChild(labelText);
+              wrapper.appendChild(link);
+              sourceLinkContainer.appendChild(wrapper);
+            } else {
+              console.warn(`No valid URL found for label: ${label}`);
+            }
+          });
+        }
 
 
+        // Global state: stores aggregated data, selected categories, and current view mode
         let latestAggregatedData = {}; 
         let selectedCategories = ['Age (7 Categories)', 'Sex Label'];
         let currentView = 'charts';
 
+        // Handle category checkbox changes (user selects/deselects variables)
         document.getElementById("category-form").addEventListener("change", () => {
+          // Update selected categories from checked boxes
           selectedCategories = Array.from(document.querySelectorAll('#category-form input:checked'))
             .map(input => input.value);
 
+          // Get the currently selected IDs from the map
           const selectedArray = Array.from(selectedIds);
+          // Refresh tables and charts based on new selection
           updateTables(selectedArray);
           
+          // Hide all data views before deciding which one to show
           document.getElementById("charts-container").style.display = "none";
           document.getElementById("tables-container").style.display = "none";
           document.getElementById("urban-rural-comparison").style.display = "none";
           document.getElementById("urban-rural-charts").style.display = "none";
 
+          // Stop if nothing selected
           if (selectedCategories.length === 0) return;
 
+          // Filter out only valid categories present in aggregated data
           const availableKeys = Object.keys(latestAggregatedData);
           const validCategories = selectedCategories.filter(cat => availableKeys.includes(cat));
 
           if (validCategories.length === 0) return;
 
+          // Render the appropriate view depending on current mode
           if (currentView === 'charts') {
             renderAggregatedCharts(latestAggregatedData, validCategories);
             document.getElementById("charts-container").style.display = "flex";
@@ -902,24 +932,27 @@
             document.getElementById("urban-rural-charts").style.display = "block";
           }
 
+          // Save selected categories globally and refresh links + tables
           window.chosenCategories = selectedCategories;
           updateSourceLink();
 
           updateTables(Array.from(selectedIds));
         });
         
+        // Track the currently selected zone type (default SDZ) and update tables when changed
         let currentZoneType = 'sdz'; // default
           document.getElementById('zone-selector').addEventListener('change', function () {
             currentZoneType = this.value;
             updateTables(Array.from(selectedIds));
         });
 
+        // Ensure the zone selector starts with "sdz"
         const selector = document.getElementById("zone-selector");
 
         // Set default value
         selector.value = "sdz";
 
-        // Listen for changes
+        // Listen for manual zone selector changes
         selector.addEventListener("change", function () {
           currentZoneType = this.value;
           updateTables(Array.from(selectedIds));
@@ -947,12 +980,15 @@
         });
         });
 
+        // Function to update data tables, charts, and comparisons based on the selected zone IDs
         function updateTables(selectedIdsArray) {
+          // Get references to all containers (tables, charts, comparisons)
           const tablesContainer = document.getElementById("tables-container");
           const comparisonTableDiv = document.getElementById("urban-rural-comparison");
           const comparisonChartDiv = document.getElementById("urban-rural-charts");
           const chartsContainer = document.getElementById("charts-container");
 
+          // Determine which "view tab" is active (default to charts if none selected)
           let selectedTab = document.querySelector('.view-tab.selected');
           if (!selectedTab) {
             selectedTab = document.querySelector('.view-tab[data-view="charts"]');
@@ -960,7 +996,7 @@
           }
           const selectedView = selectedTab.getAttribute('data-view');
 
-          // Clear and hide all containers
+          // Reset: clear contents and hide all containers
           tablesContainer.innerHTML = "";
           chartsContainer.innerHTML = "";
           tablesContainer.style.display = "none";
@@ -968,22 +1004,27 @@
           comparisonTableDiv.style.display = "none";
           comparisonChartDiv.style.display = "none";
 
+          // Keys to exclude (labels and metadata, not actual category data)
           const excludedKeys = [
             "Urban_mixed_rural_status",
             "Census 2021 Super Data Zone Label",
             "Census 2021 Data Zone Label"
           ];
 
+          // Prepare aggregated results and population counter
           const aggregatedData = {};
           let totalPopulation = 0;
           const dataSource = currentZoneType === 'dz' ? dzData : sdzData;
 
+          // Loop over each selected zone ID to build aggregated totals
           selectedIdsArray.forEach(id => {
             const mapData = dataSource[id];
             if (!mapData) return;
 
+            // Add to total population (if available)
             totalPopulation += mapData.population || 0;
 
+            // For each category, accumulate counts by label
             for (const [category, values] of Object.entries(mapData)) {
               if (excludedKeys.includes(category)) continue;
               if (typeof values !== 'object') continue;
@@ -998,23 +1039,29 @@
             }
           });
  
+          // Save aggregated results globally so other functions can use them
           latestAggregatedData = aggregatedData;
 
           window.latestAggregatedData = aggregatedData;
           window.chosenCategories = selectedCategories;
 
+          // Update the "Total Population" display
           const totalPopElem = document.getElementById("totalPopulation");
           if (totalPopElem) {
             totalPopElem.textContent = totalPopulation;
           }
+          // Render area profile card
           renderZoneBreakdownTable(selectedIdsArray);
 
+          // Determine which categories are valid for display
           const availableKeys = Object.keys(aggregatedData);
           const validCategories = selectedCategories.filter(cat => availableKeys.includes(cat));
 
+          // Update UI: refresh category checkboxes and source links
           updateCategorySelector(availableKeys);
           updateSourceLink();
 
+          // Show the correct view depending on which tab is active
           if (selectedView === 'charts') {
             chartsContainer.style.display = "flex";
             renderAggregatedCharts(aggregatedData, validCategories);
@@ -1031,9 +1078,11 @@
 
         }
 
+        // Function to render a summary breakdown of selected zones (LGDs, counts, population)
         function renderZoneBreakdownTable(selectedIdsArray) {
           const container = document.getElementById("breakdown-container");
 
+          // If nothing is selected → clear and hide the container
           if (!selectedIdsArray.length) {
             container.innerHTML = "";
             container.style.display = "none";
@@ -1042,18 +1091,22 @@
             return;
           }
 
+          // Reset and show container
           container.innerHTML = "";
           container.style.display = "block";
 
+          // Pick correct data source depending on current zone type
           const dataSource = currentZoneType === 'dz' ? dzData : sdzData;
           const labelKey = currentZoneType === 'dz'
             ? "Census 2021 Data Zone Label"
             : "Census 2021 Super Data Zone Label";
 
+          // Data structures for LGD stats and totals
           const lgdStats = {};
           const lgdTotals = {};
           let totalPopulation = 0;
 
+          // Track if the same selection is repeated (to preserve title)
           const currentSelectionHash = selectedIdsArray.slice().sort().join(",");
           const isSameSelection = currentSelectionHash === window.lastSelectionHash;
 
@@ -1064,7 +1117,7 @@
             window.areaProfileTitle = undefined;
           }
 
-          // Total zones per LGD
+          // Count how many zones exist in total per LGD
           for (const id in dataSource) {
             const mapData = dataSource[id];
             const lgd = mapData?.["LGD"];
@@ -1073,7 +1126,7 @@
             }
           }
 
-          // selected zones
+          // Build stats for the *selected* zones only
           selectedIdsArray.forEach(id => {
             const mapData = dataSource[id];
             if (!mapData) return;
@@ -1084,18 +1137,22 @@
             const zoneName = labelObj ? Object.keys(labelObj)[0] : null;
             const population = zoneName ? labelObj[zoneName] : 0;
 
+            // Store zone names and details globally for later use
             if (!window.zoneNames) window.zoneNames = [];
             if (zoneName) window.zoneNames.push(zoneName);
 
+            // Initialise LGD stats if not present
             if (!lgdStats[lgd]) {
               lgdStats[lgd] = { total: 0, Urban: 0, Rural: 0, Mixed: 0 };
             }
 
+            // Increment counters
             lgdStats[lgd].total++;
             if (status && lgdStats[lgd][status] !== undefined) {
               lgdStats[lgd][status]++;
             }
 
+            // Add to total population
             totalPopulation += typeof population === "number" ? population : 0;
             
             if (!window.selectedZoneDetails) window.selectedZoneDetails = {};
@@ -1103,17 +1160,18 @@
 
           });
 
-          // previous title for same selection, or fallback
+          // Use saved title if exists, otherwise provide an editable placeholder
           const savedTitle = window.areaProfileTitle || "Click to edit title for area profile";
 
+          // Create the main layout with left (summary) and right (population) sections
           const layout = document.createElement("div");
           layout.className = "summary-row";
 
-          // left side
+          // LEFT SIDE: Title and LGD breakdown
           const left = document.createElement("div");
           left.className = "summary-left";
 
-          // Editable Maintitle
+          // Editable area profile title
           const editableTitle = document.createElement("h2");
           editableTitle.textContent = savedTitle;
           editableTitle.contentEditable = true;
@@ -1129,13 +1187,14 @@
 
           left.appendChild(editableTitle);
 
+          // Section heading
           const heading = document.createElement("h4");
           heading.textContent = "Summary of Areas Selected:";
           heading.style.marginTop = "0.5rem";
           heading.style.marginBottom = "1rem";
           left.appendChild(heading);
 
-          // Summary List
+          // Summary list of LGDs with counts (urban/rural/mixed breakdown)
           const summaryList = document.createElement("ul");
           summaryList.style.listStyleType = "none";
           summaryList.style.paddingLeft = "0";
@@ -1168,7 +1227,7 @@
 
           left.appendChild(summaryList);
 
-          // right side
+          // RIGHT SIDE: Population card
           const right = document.createElement("div");
           right.className = "summary-right";
 
@@ -1194,33 +1253,7 @@
         }
 
 
-
-        // document.getElementById("urban-rural-btn").addEventListener("click", () => {
-        //   const tablesContainer = document.getElementById("tables-container");
-        //   const comparisonDiv = document.getElementById("urban-rural-comparison");
-        //   const toggleBtn = document.getElementById("urban-rural-btn");
-
-        //   const isComparisonVisible = comparisonDiv.style.display === "block";
-
-        //   if (isComparisonVisible) {
-        //     // Show main tables again
-        //     comparisonDiv.style.display = "none";
-        //     tablesContainer.style.display = "block";
-        //     renderAggregatedTables(latestAggregatedData, selectedCategories);
-
-        //     // Update button label
-        //     toggleBtn.textContent = "Urban Rural Comparison";
-        //   } else {
-        //     // Show comparison view
-        //     tablesContainer.style.display = "none";
-        //     comparisonDiv.style.display = "block";
-        //     renderUrbanRuralComparison(Array.from(selectedIds));
-
-        //     // Update button label
-        //     toggleBtn.textContent = "View All Data";
-        //   }
-        // });
-
+        // Get all tab buttons and define which content areas they control
         const tabButtons = document.querySelectorAll('.view-tab');
         const views = {
           charts: document.getElementById("charts-container"),
@@ -1229,13 +1262,18 @@
           chartComparison: document.getElementById("urban-rural-charts")
         };
 
+        // Attach click handler to each tab button
         tabButtons.forEach(tab => {
           tab.addEventListener("click", () => {
             
+            // Remove "selected" class from all tabs, then mark clicked one as selected
             tabButtons.forEach(btn => btn.classList.remove("selected"));
             tab.classList.add("selected");
 
+            // Hide all view containers before showing the chosen one
             Object.values(views).forEach(div => div.style.display = "none");
+
+            // Get which view is requested (charts, tables, comparison, etc.)
             const view = tab.getAttribute("data-view");
             currentView = view;
 
@@ -1244,7 +1282,7 @@
               return; // nothing to render
             }
 
-            // Render valid view
+            // Render the appropriate view and display the container
             if (view === "charts") {
               renderAggregatedCharts(latestAggregatedData, selectedCategories);
               views[view].style.display = "flex";
@@ -1262,28 +1300,36 @@
         });
 
 
+        // Function to render tables showing aggregated counts, percentages, and NI comparisons
         function renderAggregatedTables(aggregatedData, selectedCategories = []) {
+          // Stop if no aggregated data is available
           if (!aggregatedData || Object.keys(aggregatedData).length === 0) return;
 
+          // Validate categories: if categories are passed, ensure they exist in the data
           if (selectedCategories.length > 0) {
             const valid = selectedCategories.filter(cat => Object.keys(aggregatedData).includes(cat));
             if (valid.length === 0) return;
           }
 
+          // Clear the container before rendering new tables
           const container = document.getElementById("tables-container");
           container.innerHTML = "";
 
+          // Create a grid layout for tables
           const grid = document.createElement("div");
           grid.className = "table-grid"; // use consistent class
           grid.style.display = "flex";
           grid.style.flexWrap = "wrap";
           grid.style.gap = "2rem";
 
+          // Filter categories to only those selected (or all if none specified)
           const entries = Object.entries(aggregatedData).filter(([key]) =>
             selectedCategories.length === 0 || selectedCategories.includes(key)
           );
 
+          // Loop through each selected category and render a table
           entries.forEach(([category, values]) => {
+            // Create a styled card wrapper for each category
             const wrapper = document.createElement("div");
             wrapper.className = "table-wrapper";
             wrapper.style.flex = "0 0 calc(50% - 1rem)";
@@ -1293,13 +1339,16 @@
             wrapper.style.borderRadius = "8px";
             wrapper.style.boxSizing = "border-box";
 
+            // Category title
             const title = document.createElement("h3");
             title.textContent = category;
             wrapper.appendChild(title);
 
+            // Table setup
             const table = document.createElement("table");
             table.className = "data-table";
 
+            // Table headers
             const thead = document.createElement("thead");
             const headerRow = document.createElement("tr");
             ["Category", "Count", "Percentage", "NI %"].forEach(text => {
@@ -1310,24 +1359,30 @@
             thead.appendChild(headerRow);
             table.appendChild(thead);
 
+            // Table body
             const tbody = document.createElement("tbody");
             const totalCount = Object.values(values).reduce((acc, val) => acc + val, 0);
 
+            // Loop over each label/value pair inside the category
             for (const [label, count] of Object.entries(values)) {
               const row = document.createElement("tr");
 
+              // Label cell
               const tdLabel = document.createElement("td");
               tdLabel.textContent = label;
               row.appendChild(tdLabel);
 
+              // Count cell
               const tdCount = document.createElement("td");
               tdCount.textContent = count;
               row.appendChild(tdCount);
 
+              // Percentage cell (within selected population)
               const tdPercentage = document.createElement("td");
               tdPercentage.textContent = totalCount > 0 ? ((count / totalCount) * 100).toFixed(2) + "%" : "0%";
               row.appendChild(tdPercentage);
 
+              // NI comparison percentage
               const tdNI = document.createElement("td");
               const niVal = niTotals[category]?.[label];
               tdNI.textContent = typeof niVal === "number" ? niVal.toFixed(1) + "%" : "–";
@@ -1341,15 +1396,17 @@
             grid.appendChild(wrapper);
           });
 
+          // Append the grid of tables to the container
           container.appendChild(grid);
 
+          // Save globally so other functions can reuse the aggregated dataset
           window.latestAggregatedData = aggregatedData;
         }
 
-        //Chart.register(ChartDataLabels);
-
+        
+        // Function to render horizontal bar charts for aggregated categories
         function renderAggregatedCharts(data, selectedCategories = []) {
-          // wait until element has a real width 
+          // Utility: only draw charts when the element is visible and has width 
           function whenVisible(el, cb) {
             if (el.offsetParent !== null && el.clientWidth > 0) return cb();
             const ro = new ResizeObserver(() => {
@@ -1361,13 +1418,16 @@
             ro.observe(el);
           }
 
+          // Stop if there is no data
           if (!data || Object.keys(data).length === 0) return;
 
+          // Keys to exclude (metadata fields, not categories)
           const EXCLUDED_KEYS = [
             "Census 2021 Data Zone Label",
             "Census 2021 Super Data Zone Label"
           ];
 
+          // Determine which categories to chart (all or selected, excluding metadata)
           const allCats = selectedCategories.length
             ? selectedCategories
             : Object.keys(data).filter(k => !EXCLUDED_KEYS.includes(k)).sort();
@@ -1375,6 +1435,7 @@
           const categories = allCats.filter(k => !EXCLUDED_KEYS.includes(k));
           if (categories.length === 0) return;
 
+          // Clear old charts from container
           const container = document.getElementById("charts-container");
           container.innerHTML = "";
 
@@ -1382,7 +1443,7 @@
           window.chartInstances?.forEach(c => c.destroy());
           window.chartInstances = [];
 
-          // ---- constants  ----
+          // Chart style constants
           const FONT               = "bold 12px sans-serif";
           const LINE_HEIGHT        = 16;
           const BAR_HEIGHT         = 32;
@@ -1391,7 +1452,7 @@
           const CHART_TOP_PADDING  = 15;
           const LABEL_TO_BAR_GAP = 1;
 
-          // 2-column grid
+          // Setup 2-column grid layout for charts
           const grid = document.createElement("div");
           Object.assign(grid.style, {
             display: "grid",
@@ -1401,11 +1462,12 @@
           });
           container.appendChild(grid);
 
+          // Render a chart card for each category
           categories.forEach(category => {
             const values = data[category];
             if (!values) return;
 
-            // card
+            // Card wrapper with styling
             const wrapper = document.createElement("div");
             Object.assign(wrapper.style, {
               position: "relative",
@@ -1419,20 +1481,23 @@
               width: "100%"
             });
 
+            // Category title
             const h3 = document.createElement("h3");
             h3.textContent = category;
             wrapper.appendChild(h3);
 
+            // Calculate percentages for bars
             const labels = Object.keys(values);
             const total  = Object.values(values).reduce((a, v) => a + v, 0);
             const barPercents = labels.map(l => total > 0 ? +(((values[l] || 0) / total * 100).toFixed(2)) : 0);
 
+            // Define datasets (percentage bars + NI benchmark line)
             const datasets = [
               { label: "Percentage", data: barPercents, backgroundColor: "#00aa4f", barThickness: BAR_HEIGHT },
               { label: "NI", data: [], type: "line", borderColor: "#222", borderWidth: 2, fill: false, pointRadius: 0 }
             ];
 
-            // legend
+            // Custom legend (swatches and labels)
             const legendEl = document.createElement("div");
             Object.assign(legendEl.style, {
               display: "flex",
@@ -1462,7 +1527,7 @@
             });
             wrapper.appendChild(legendEl);
 
-            // height
+            // Calculate chart height dynamically based on number of bars
             const barsPerGroup = datasets.length - 1; 
             const GAP_BELOW_GROUP_2 = 48; 
             const GAP_BELOW_GROUP_3 = 36;  
@@ -1479,7 +1544,7 @@
               tailGap;
             const canvasHeight = labels.length * GROUP_SPACING + CHART_TOP_PADDING;
 
-            // canvas (set CSS width 100% so it fills card; height from pixels)
+            // Canvas element for Chart.js
             const canvas = document.createElement("canvas");
             Object.assign(canvas.style, { display: "block", width: "100%", maxHeight: "none" });
             canvas.height = canvasHeight;
@@ -1491,24 +1556,26 @@
 
             grid.appendChild(wrapper);
 
-            // render once the wrapper has a real width; set bitmap & CSS width once (no loops)
+            // Render the chart when visible
             whenVisible(wrapper, () => {
               const drawWidth = Math.max(0, wrapper.clientWidth - 32); // 16px padding each side
               canvas.width = drawWidth;                                 // bitmap width
               canvas.style.width = `${drawWidth}px`;                    // CSS width to match
 
-              // NI values
+              // NI benchmark values
               const niMap =
                 (typeof window !== "undefined" && window.niTotals && window.niTotals[category]) ||
                 (typeof niTotals !== "undefined" && niTotals[category]) || {};
               const niValues = labels.map(l => (typeof niMap[l] === "number" ? niMap[l] : null));
 
+              // Determine chart axis max
               const rawMax = Math.max(
                 ...datasets[0].data,
                 ...niValues.filter(v => typeof v === "number")
               ) * 1.05;
               const cappedMax = Number.isFinite(rawMax) ? Math.min(rawMax, 100) : 100;
 
+              // Create the Chart.js bar chart
               const chart = new Chart(canvas, {
                 type: "bar",
                 data: { labels, datasets },
@@ -1533,6 +1600,7 @@
                   }
                 },
                 plugins: [
+                  // Plugin to render custom labels above groups (handles truncation + tooltips)
                   {
                     id: "aboveGroupLabels",
                     afterDatasetsDraw(chartInst) {
@@ -1558,6 +1626,7 @@
                         const textWidth  = ctx.measureText(label).width;
                         const maxAllowed = chartInst.chartArea.right - xStart - 30;
 
+                        // Truncate labels if too long and add an info button
                         if (textWidth < maxAllowed) {
                           ctx.fillText(label, xStart, labelY);
                         } else {
@@ -1584,6 +1653,7 @@
                           card.appendChild(infoBtn);
                         }
 
+                        // Show percentages + NI benchmark below label
                         const value = datasets[0].data[i];
                         const niVal = niValues[i];
                         const niText = typeof niVal === "number" ? ` | NI: ${niVal.toFixed(1)}%` : "";
@@ -1593,6 +1663,7 @@
                       ctx.restore();
                     }
                   },
+                  // Plugin to draw NI benchmark vertical lines
                   {
                     id: "drawNILines",
                     afterDatasetsDraw(chartInst) {
@@ -1625,13 +1696,16 @@
                 ]
               });
 
+              // Save chart instance
               window.chartInstances.push(chart);
             });
           });
         }
 
 
+        // Function to reset all map selections and related UI state
         function clearSelections() {
+          // Remove "hovered/selected" state from all previously selected features
           selectedIds.forEach(id => {
             if (sdzData[id]) {
               map.setFeatureState(
@@ -1647,17 +1721,19 @@
             }
           });
 
+          // Clear selected sets and popup
           selectedIds.clear();
           selectedLGDs.clear();
           popup.remove();
 
-          // Reset UI
+          // Reset key UI containers
           document.getElementById("tables-container").innerHTML = "";
           document.getElementById("breakdown-container").innerHTML = "";
           document.getElementById("urban-rural-comparison").style.display = "none";
           document.getElementById("urban-rural-charts").style.display = "none";
           document.getElementById("tables-container").style.display = "none";
 
+          // Reset LGD checkboxes and buttons
           document.querySelectorAll('#lgd-buttons input[type="checkbox"]').forEach(cb => {
             cb.checked = false;
           });
@@ -1666,14 +1742,16 @@
             label.classList.remove('selected');
           });
 
+          // Reset population display
           const totalPop = document.getElementById("totalPopulation");
           if (totalPop) totalPop.textContent = "0";
 
+          // Map "nudge" to force re-render of layers
           const center = map.getCenter();
           const zoom = map.getZoom();
           map.jumpTo({ center, zoom: zoom + 0.00001 });
           
-          // Destroy all Chart.js instances
+          // Destroy all Chart.js instances to free memory and avoid overlaps
           if (window.chartInstances && window.chartInstances.length > 0) {
             window.chartInstances.forEach(chart => {
               if (chart && typeof chart.destroy === 'function') {
@@ -1683,40 +1761,47 @@
             window.chartInstances = []  ;
           }
           
-          // Optionally clear chart container
+          // Clear chart container content
           const container = document.getElementById("charts-container");
           if (container) {
             container.innerHTML = "";
           }
+          // Switch UI back to map view, hide output
           const out  = document.getElementById("output-content");
           const mapc = document.getElementById("map-content");
           if (out && mapc) {
             out.classList.add("hidden-section");
             mapc.classList.remove("hidden-section");
           }
+          // Ensure the CTA button state is refreshed
           if (typeof updateCtaEnabled === 'function') updateCtaEnabled();
         }
 
+        // Bind "Clear Selection" button to reset handler
         document.getElementById("clear-selection-btn").addEventListener("click", function (e) {
-          e.preventDefault(); 
-          this.blur(); 
-          clearSelections(); 
+          e.preventDefault(); // prevent form submission
+          this.blur(); // remove focus highlight from button
+          clearSelections(); // call the reset function
         });
 
+        // Add change listeners to all LGD checkboxes
         document.querySelectorAll('#lgd-buttons input[type="checkbox"]').forEach(checkbox => {
           checkbox.addEventListener('change', (e) => {
             const lgdCode = checkbox.value;
             const label = document.querySelector(`label[for="${checkbox.id}"]`);
 
             if (checkbox.checked) {
+              // LGD checkbox is selected
               selectedLGDs.add(lgdCode);
               label.classList.add('selected');
 
+              // Find all zone IDs belonging to this LGD in the current zone type
               const dataSource = currentZoneType === 'dz' ? dzData : sdzData;
               const newIds = Object.entries(dataSource)
                 .filter(([id, data]) => data?.LGD === lgdCode)
                 .map(([id]) => id);
 
+              // Add these zone IDs to selection and highlight them on the map
               newIds.forEach(id => {
                 if (!selectedIds.has(id)) {
                   selectedIds.add(id);
@@ -1727,14 +1812,17 @@
               });
 
             } else {
+              // LGD checkbox is deselected
               selectedLGDs.delete(lgdCode);
               label.classList.remove('selected');
 
+              // Identify zone IDs to remove
               const toRemove = Array.from(selectedIds).filter(id => {
                 const data = currentZoneType === 'dz' ? dzData[id] : sdzData[id];
                 return data?.LGD === lgdCode;
               });
 
+              // Remove zones from selection and reset their state on the map
               toRemove.forEach(id => {
                 selectedIds.delete(id);
                 const source = currentZoneType === 'dz' ? 'dz2021' : 'sdz2021';
@@ -1743,6 +1831,7 @@
               });
             }
 
+            // Update downstream views/UI
             const selectedArray = Array.from(selectedIds);
             window.selectedIdsExcel = selectedIds;
             updateTables(selectedArray);
@@ -1934,16 +2023,31 @@
         };
 
         function renderUrbanRuralCharts(selectedIdsArray) {
+          
+          function whenVisible(el, cb) {
+            if (el.offsetParent !== null && el.clientWidth > 0) return cb();
+            const ro = new ResizeObserver(() => {
+              if (el.clientWidth > 0) {
+                ro.disconnect();
+                cb();
+              }
+            });
+            ro.observe(el);
+          }
+
           const groups = aggregateUrbanRuralData(selectedIdsArray, selectedCategories);
           const container = document.getElementById("urban-rural-charts");
+          if (!container) return;
           container.innerHTML = "";
 
           // Destroy existing charts
-          window.chartInstances?.forEach(c => c.destroy());
+          if (Array.isArray(window.chartInstances)) {
+            window.chartInstances.forEach(c => { try { c.destroy(); } catch(_){} });
+          }
           window.chartInstances = [];
 
           // Determine which categories actually have data
-          const categories = selectedCategories.length
+          const categories = selectedCategories && selectedCategories.length
             ? selectedCategories
             : Array.from(new Set([
                 ...Object.keys(groups.Urban || {}),
@@ -1952,19 +2056,21 @@
               ]));
 
           // Layout constants
-          const FONT               = "bold 12px sans-serif";
-          const LINE_HEIGHT        = 16;                       // one line of text
-          const BAR_HEIGHT         = 16;                       // thickness of each bar
-          const BAR_SPACING        = 2;                        // gap below each bar
-          const LABEL_BLOCK_HEIGHT = LINE_HEIGHT * 2 + 4;      // two lines of text + padding
-          const CHART_TOP_PADDING  = 15;                       // space above chart-area
+          const FONT = "bold 12px sans-serif";
+          const LINE_HEIGHT = 16;
+          const BAR_HEIGHT = 16;
+          const BAR_SPACING = 2;
+          const LABEL_BLOCK_HEIGHT = LINE_HEIGHT * 2 + 4;
+          const CHART_TOP_PADDING = 15;
 
-          // Build 2-column grid
+          // Build fixed 2-column grid
           const grid = document.createElement("div");
           Object.assign(grid.style, {
             display: "grid",
             gridTemplateColumns: "repeat(2, 1fr)",
-            gap: "2rem"
+            alignItems: "start",
+            gap: "2rem",
+            width: "100%"
           });
           container.appendChild(grid);
 
@@ -1972,7 +2078,7 @@
             const hasData = groups.Urban?.[category] || groups.Rural?.[category] || groups.Mixed?.[category];
             if (!hasData) return;
 
-            // Card wrapper (position:relative for overlay buttons)
+            // Card wrapper
             const wrapper = document.createElement("div");
             Object.assign(wrapper.style, {
               position: "relative",
@@ -1982,7 +2088,8 @@
               boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
               padding: "16px",
               borderRadius: "8px",
-              boxSizing: "border-box"
+              boxSizing: "border-box",
+              width: "100%"
             });
 
             // Title
@@ -1990,7 +2097,7 @@
             title.textContent = `${category} – Urban/Rural/Mixed`;
             wrapper.appendChild(title);
 
-            // Labels for this category
+            // Labels
             const labelSet = new Set([
               ...Object.keys(groups.Urban?.[category] || {}),
               ...Object.keys(groups.Rural?.[category] || {}),
@@ -1998,7 +2105,7 @@
             ]);
             const labels = Array.from(labelSet);
 
-            // Build bar datasets
+            // Datasets
             const colorMap = { Urban: "#046C33", Rural: "#00AA4F", Mixed: "#B1F2BB" };
             const barDatasets = ["Urban","Rural","Mixed"]
               .filter(g => groups[g]?.[category])
@@ -2007,13 +2114,14 @@
                 const total = Object.values(vals).reduce((a,b)=>a+b,0);
                 return {
                   label: g,
-                  data:  labels.map(l=> total>0 ? +(((vals[l]||0)/total*100).toFixed(2)) : 0),
+                  data:  labels.map(l => total>0 ? +(((vals[l]||0)/total*100).toFixed(2)) : 0),
                   backgroundColor: colorMap[g],
                   borderColor: "#000",
                   borderWidth: 1.5,
                   barThickness: BAR_HEIGHT
                 };
               });
+
             // Dummy NI for legend
             barDatasets.push({
               label: "NI",
@@ -2025,7 +2133,7 @@
               pointRadius: 0
             });
 
-            // Inject HTML legend above canvas
+            // Legend
             const legendEl = document.createElement("div");
             Object.assign(legendEl.style, {
               display: "flex",
@@ -2057,9 +2165,9 @@
 
             // Compute canvas height
             const barsPerGroup = barDatasets.length - 1;
-            const GAP_BELOW_GROUP_2 = 48; 
-            const GAP_BELOW_GROUP_3 = 36;  
-            const GAP_BELOW_GROUP_N = 26; 
+            const GAP_BELOW_GROUP_2 = 48;
+            const GAP_BELOW_GROUP_3 = 36;
+            const GAP_BELOW_GROUP_N = 26;
 
             const tailGap =
               (labels.length <= 2) ? GAP_BELOW_GROUP_2 :
@@ -2070,55 +2178,67 @@
               LABEL_BLOCK_HEIGHT +
               barsPerGroup * (BAR_HEIGHT + BAR_SPACING) +
               tailGap;
+
             const canvasHeight = labels.length * GROUP_SPACING + CHART_TOP_PADDING;
 
-            // Create canvas
+            // Canvas element
             const canvas = document.createElement("canvas");
-            Object.assign(canvas.style, { display: "block", maxHeight: "none" });
-            canvas.height = canvasHeight;
+            Object.assign(canvas.style, {
+              display: "block",
+              width: "100%",
+              maxHeight: "none",
+              height: `${canvasHeight}px`
+            });
             wrapper.appendChild(canvas);
-
-            // Spacer to push extra space below
-            const spacer = document.createElement("div");
-            spacer.style.flex = "1";
-            wrapper.appendChild(spacer);
-
             grid.appendChild(wrapper);
 
-            // Render chart
-            requestAnimationFrame(() => {
-              // set width
-              canvas.width = wrapper.clientWidth - 32;
+            // Render chart once wrapper has a real width
+            whenVisible(wrapper, () => {
+              const setHiDPISize = (chart, wCSS) => {
+                const dpr = Math.max(1, Math.min(3, window.devicePixelRatio || 1));
+                // Size the drawing buffer (device pixels)
+                canvas.width  = Math.round(wCSS * dpr);
+                canvas.height = Math.round(canvasHeight * dpr);
+                // Size the CSS box (CSS pixels)
+                canvas.style.width  = `${wCSS}px`;
+                canvas.style.height = `${canvasHeight}px`;
+                if (chart) {
+                  chart.options.devicePixelRatio = dpr;
+                  chart.resize();
+                }
+                return dpr;
+              };
 
-              // NI values
+              const drawWidth = Math.max(0, wrapper.clientWidth - 32); // 16px padding on each side
+              const dprInit = setHiDPISize(null, drawWidth);
+
+              // NI values for vertical markers
               const niValues = labels.map(l =>
-                typeof window.niTotals?.[category]?.[l]==="number"
+                typeof window.niTotals?.[category]?.[l] === "number"
                   ? window.niTotals[category][l]
                   : null
               );
 
-              // compute clamped suggestedMax
+              // clamped suggestedMax
               const rawMax = Math.max(
                 ...barDatasets.flatMap(ds=>ds.data||[]),
                 ...niValues.filter(v=>typeof v==="number")
               ) * 1.05;
-              const cappedMax = Math.min(rawMax, 100);
+              const cappedMax = Math.min(isFinite(rawMax) ? rawMax : 100, 100);
 
               const chart = new Chart(canvas, {
                 type: "bar",
                 data: { labels, datasets: barDatasets },
                 options: {
+                  devicePixelRatio: dprInit, 
                   indexAxis: "y",
                   responsive: false,
                   maintainAspectRatio: false,
-                  layout: {
-                    padding: { top: CHART_TOP_PADDING, left:10, right:10, bottom:0 }
-                  },
+                  animation: false,
+                  layout: { padding: { top: CHART_TOP_PADDING, left:10, right:10, bottom:0 } },
                   plugins: {
                     legend: { display: false },
-                    tooltip: {
-                      callbacks: { label: ctx=>`${ctx.dataset.label}: ${ctx.raw}%` }
-                    }
+                    tooltip: { callbacks: { label: ctx=>`${ctx.dataset.label}: ${ctx.raw}%` } }
                   },
                   scales: {
                     x: {
@@ -2133,10 +2253,10 @@
                 plugins: [
                   {
                     id: "aboveGroupLabels",
-                    afterDatasetsDraw(chart) {
-                      const ctx = chart.ctx;
-                      const container = chart.canvas.parentNode;
-                      container.querySelectorAll(".label-overlay").forEach(el=>el.remove());
+                    afterDatasetsDraw(chartInst) {
+                      const ctx  = chartInst.ctx;
+                      const card = chartInst.canvas.parentNode;
+                      card.querySelectorAll(".label-overlay").forEach(el => el.remove());
 
                       ctx.save();
                       ctx.font = FONT;
@@ -2144,85 +2264,92 @@
                       ctx.textAlign = "left";
                       ctx.textBaseline = "top";
 
-                      const xStart = chart.chartArea.left + 4;
-                      chart.data.labels.forEach((label,i) => {
-                        // find top bar
-                        const bars = chart.data.datasets
-                          .map((ds,idx)=>({ds,idx}))
-                          .filter(o=>o.ds.type!=="line")
-                          .map(o=>chart.getDatasetMeta(o.idx).data[i])
-                          .sort((a,b)=>a.y-b.y);
+                      const xStart = chartInst.chartArea.left + 4;
+
+                      chartInst.data.labels.forEach((label, i) => {
+                        const bars = chartInst.data.datasets
+                          .map((ds, idx) => ({ ds, idx }))
+                          .filter(o => o.ds.type !== "line")
+                          .map(o => chartInst.getDatasetMeta(o.idx).data[i])
+                          .sort((a,b) => a.y - b.y);
+
                         if(!bars.length) return;
 
                         const topBar = bars[0];
                         const topY = topBar.y - topBar.height/2;
                         const labelY = topY - LABEL_BLOCK_HEIGHT - 2;
 
-                        // measure and maybe truncate
-                        const textWidth = ctx.measureText(label).width;
-                        const maxAllowed = chart.chartArea.right - xStart - 30;
-                        if(textWidth < maxAllowed) {
+                        const textWidth  = ctx.measureText(label).width;
+                        const maxAllowed = chartInst.chartArea.right - xStart - 30;
+
+                        if (textWidth < maxAllowed) {
                           ctx.fillText(label, xStart, labelY);
                         } else {
-                          const shortLabel = label.slice(0,25) + "...";
+                          const shortLabel = label.slice(0, 25) + "...";
                           ctx.fillText(shortLabel, xStart, labelY);
+
                           const infoBtn = document.createElement("div");
                           infoBtn.className = "label-overlay";
                           infoBtn.textContent = "ⓘ";
                           infoBtn.style.position = "absolute";
-                          const chartRect = chart.canvas.getBoundingClientRect();
-                          const contRect  = container.getBoundingClientRect();
+
+                          const chartRect = chartInst.canvas.getBoundingClientRect();
+                          const contRect  = card.getBoundingClientRect();
                           const labelW    = ctx.measureText(shortLabel).width;
                           const topOff    = labelY + chartRect.top - contRect.top + LINE_HEIGHT/2 - 15;
-                          const leftOff   = chart.canvas.offsetLeft + xStart + labelW + 6;
-                          infoBtn.style.top    = `${topOff}px`;
-                          infoBtn.style.left   = `${leftOff}px`;
-                          infoBtn.style.cursor = "pointer";
-                          infoBtn.style.color  = "#0074D9";
-                          infoBtn.title        = label;
-                          infoBtn.addEventListener("click", ()=> alert(`Full label:\n${label}`));
-                          container.appendChild(infoBtn);
+                          const leftOff   = chartInst.canvas.offsetLeft + xStart + labelW + 6;
+
+                          Object.assign(infoBtn.style, {
+                            top: `${topOff}px`,
+                            left: `${leftOff}px`,
+                            cursor: "pointer",
+                            color: "#0074D9"
+                          });
+                          infoBtn.title = label;
+                          infoBtn.addEventListener("click", () => alert(`Full label:\n${label}`));
+                          card.appendChild(infoBtn);
                         }
 
-                        // draw breakdown text
-                        const breakdown = chart.data.datasets
-                          .filter(ds=>ds.type!=="line")
-                          .map(ds=>`${ds.label}: ${ds.data[i]}%`).join(" | ");
-                        const niVal = niValues[i];
-                        const niText = typeof niVal==="number" ? `NI: ${niVal.toFixed(1)}%` : "";
-                        ctx.fillText(
-                          niText ? `${breakdown} | ${niText}` : breakdown,
-                          xStart,
-                          labelY + LINE_HEIGHT
-                        );
+                        const breakdown = chartInst.data.datasets
+                          .filter(ds => ds.type !== "line")
+                          .map(ds => `${ds.label}: ${ds.data[i]}%`)
+                          .join(" | ");
+                        const niVal  = niValues[i];
+                        const niText = typeof niVal === "number" ? ` | NI: ${niVal.toFixed(1)}%` : "";
+                        ctx.fillText(`${breakdown}${niText}`, xStart, labelY + LINE_HEIGHT);
                       });
+
                       ctx.restore();
                     }
                   },
                   {
                     id: "drawNILines",
-                    afterDatasetsDraw(chart) {
-                      const ctx = chart.ctx;
-                      const xScale = chart.scales.x;
+                    afterDatasetsDraw(chartInst) {
+                      const ctx     = chartInst.ctx;
+                      const xScale  = chartInst.scales.x;
+
                       ctx.save();
                       ctx.strokeStyle = "#222";
                       ctx.lineWidth = 4;
                       ctx.setLineDash([]);
 
-                      chart.data.labels.forEach((_,i) => {
+                      chartInst.data.labels.forEach((_, i) => {
                         const val = niValues[i];
-                        if(typeof val!=="number") return;
+                        if (typeof val !== "number") return;
+
                         const x = xScale.getPixelForValue(val);
 
-                        const bars = chart.data.datasets
-                          .map((ds,idx)=>({ds,idx}))
-                          .filter(o=>o.ds.type!=="line")
-                          .map(o=>chart.getDatasetMeta(o.idx).data[i])
-                          .sort((a,b)=>a.y-b.y);
+                        const bars = chartInst.data.datasets
+                          .map((ds, idx) => ({ ds, idx }))
+                          .filter(o => o.ds.type !== "line")
+                          .map(o => chartInst.getDatasetMeta(o.idx).data[i])
+                          .sort((a,b) => a.y - b.y);
+
                         if(!bars.length) return;
 
                         const yTop    = bars[0].y - bars[0].height/2;
                         const yBottom = bars[bars.length-1].y + bars[bars.length-1].height/2;
+
                         ctx.beginPath();
                         ctx.moveTo(x, yTop);
                         ctx.lineTo(x, yBottom);
@@ -2236,9 +2363,33 @@
               });
 
               window.chartInstances.push(chart);
+
+              // Keep width & DPR in sync on resize/zoom changes
+              const ro = new ResizeObserver(() => {
+                const w = Math.max(0, wrapper.clientWidth - 32);
+                const dprNow = Math.max(1, Math.min(3, window.devicePixelRatio || 1));
+                const need =
+                  Math.round(w * dprNow) !== canvas.width ||
+                  Math.round(canvasHeight * dprNow) !== canvas.height ||
+                  dprNow !== chart.options.devicePixelRatio;
+
+                if (w > 0 && need) {
+                  canvas.width  = Math.round(w * dprNow);
+                  canvas.height = Math.round(canvasHeight * dprNow);
+                  canvas.style.width  = `${w}px`;
+                  canvas.style.height = `${canvasHeight}px`;
+
+                  chart.options.devicePixelRatio = dprNow;
+                  chart.resize();
+                  chart.update("none");
+                }
+              });
+              ro.observe(wrapper);
             });
           });
         }
+
+
 
 
         document.querySelectorAll(".group-toggle").forEach((button) => {
@@ -2299,127 +2450,122 @@
           chartComparison: document.getElementById('urban-rural-charts')
         }[view];
 
-        const cloneWrapper = document.createElement('div');
-        cloneWrapper.style.background = "#fff";
-        cloneWrapper.style.padding = "20px";
-        cloneWrapper.style.fontFamily = "sans-serif";
-        cloneWrapper.style.maxWidth = "1200px";
-        cloneWrapper.style.margin = "0 auto";
+        if (!breakdownContainer || !contentSource) return;
+        function replaceCloneCanvasesWithImages(originalRoot, cloneRoot) {
+          const origCanvases  = Array.from(originalRoot.querySelectorAll('canvas'));
+          const cloneCanvases = Array.from(cloneRoot.querySelectorAll('canvas'));
+          const count = Math.min(origCanvases.length, cloneCanvases.length);
 
-        const breakdownClone = breakdownContainer.cloneNode(true);
-        const contentClone = contentSource.cloneNode(true);
-
-        //charts
-        if (view === "charts") {
-          const chartWrapper = document.createElement("div");
-          chartWrapper.style.display = "grid";
-          chartWrapper.style.gridTemplateColumns = "1fr 1fr";
-          chartWrapper.style.gap = "20px";
-
-          const originalCards = contentSource.querySelectorAll(".chart-wrapper");
-          const clonedCards = contentClone.querySelectorAll(".chart-wrapper");
-
-          originalCards.forEach((originalCard, index) => {
-            const clonedCard = clonedCards[index];
-            const originalCanvas = originalCard.querySelector("canvas");
-            const clonedCanvas = clonedCard?.querySelector("canvas");
-
-            if (originalCanvas && clonedCanvas) {
-              const dataUrl = originalCanvas.toDataURL("image/png");
+          for (let i = 0; i < count; i++) {
+            const srcCanvas   = origCanvases[i];
+            const destCanvas  = cloneCanvases[i];
+            try {
+              const dataUrl = srcCanvas.toDataURL('image/png');
               const img = new Image();
               img.src = dataUrl;
-              img.style.maxWidth = "100%";
-              img.style.display = "block";
-              img.style.marginTop = "10px";
+              img.style.maxWidth = '100%';
+              img.style.display  = 'block';
+              img.style.marginTop = '10px';
 
-              clonedCanvas.parentNode.replaceChild(img, clonedCanvas);
+              // Swap the canvas for an <img> in the CLONE
+              destCanvas.parentNode.replaceChild(img, destCanvas);
+            } catch (e) {
             }
+          }
+        }
+        const cloneWrapper = document.createElement('div');
+        cloneWrapper.style.background  = '#fff';
+        cloneWrapper.style.padding     = '20px';
+        cloneWrapper.style.fontFamily  = 'sans-serif';
+        cloneWrapper.style.maxWidth    = '1200px';
+        cloneWrapper.style.margin      = '0 auto';
 
-            if (clonedCard) {
-              chartWrapper.appendChild(clonedCard);
-            }
-          });
+        const breakdownClone = breakdownContainer.cloneNode(true);
+        const contentClone   = contentSource.cloneNode(true);
 
-          contentClone.innerHTML = "";
-          contentClone.appendChild(chartWrapper);
+        // For CHARTS + CHART COMPARISON replace canvases in the clone.
+        if (view === 'charts' || view === 'chartComparison') {
+          replaceCloneCanvasesWithImages(contentSource, contentClone);
+          contentClone.style.display = 'block';
+          contentClone.style.visibility = 'visible';
         }
 
+        // TABLES
+        if (view === 'tables') {
+          const originalTables = contentSource.querySelectorAll('.table-wrapper');
+          contentClone.innerHTML = '';
 
-        //tables
-        if (view === "tables") {
-          const originalTables = contentSource.querySelectorAll(".table-wrapper");
-          contentClone.innerHTML = "";
-
-          const rowContainer = document.createElement("div");
-          rowContainer.style.display = "flex";
-          rowContainer.style.flexWrap = "wrap";
-          rowContainer.style.gap = "20px";
-          rowContainer.style.justifyContent = "flex-start";
+          const rowContainer = document.createElement('div');
+          Object.assign(rowContainer.style, {
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '20px',
+            justifyContent: 'flex-start'
+          });
 
           originalTables.forEach(originalWrapper => {
-            const originalTable = originalWrapper.querySelector("table");
-            const originalTitle = originalWrapper.querySelector("h3");
+            const originalTable = originalWrapper.querySelector('table');
+            const originalTitle = originalWrapper.querySelector('h3');
+            if (!originalTable) return;
 
-            const wrapper = document.createElement("div");
-            wrapper.style.flex = "1 1 45%";
-            wrapper.style.minWidth = "320px";
-            wrapper.style.background = "#fff";
-            wrapper.style.padding = "16px";
-            wrapper.style.borderRadius = "8px";
-            wrapper.style.boxShadow = "0 1px 3px rgba(0,0,0,0.1)";
-            wrapper.style.boxSizing = "border-box";
+            const wrapper = document.createElement('div');
+            Object.assign(wrapper.style, {
+              flex: '1 1 45%',
+              minWidth: '320px',
+              background: '#fff',
+              padding: '16px',
+              borderRadius: '8px',
+              boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+              boxSizing: 'border-box'
+            });
 
             if (originalTitle) {
-              const title = document.createElement("h3");
+              const title = document.createElement('h3');
               title.textContent = originalTitle.textContent;
-              title.style.margin = "0 0 12px 0";
-              title.style.wordBreak = "break-word";
+              title.style.margin = '0 0 12px 0';
+              title.style.wordBreak = 'break-word';
               wrapper.appendChild(title);
             }
 
-            const table = document.createElement("table");
-            table.style.width = "100%";
-            table.style.borderCollapse = "collapse";
-            table.style.marginTop = "8px";
-            table.style.tableLayout = "fixed"; 
+            const table = document.createElement('table');
+            table.style.width = '100%';
+            table.style.borderCollapse = 'collapse';
+            table.style.marginTop = '8px';
+            table.style.tableLayout = 'fixed';
 
-            const rows = originalTable.querySelectorAll("tr");
+            const rows = originalTable.querySelectorAll('tr');
             let columnCount = 0;
-
-            // Count columns from the first row
             if (rows.length > 0) {
-              columnCount = rows[0].querySelectorAll("th, td").length;
+              columnCount = rows[0].querySelectorAll('th, td').length;
             }
 
             rows.forEach((row, rowIndex) => {
-              const tr = document.createElement("tr");
+              const tr = document.createElement('tr');
 
-              row.querySelectorAll("th, td").forEach((cell, columnIndex) => {
-                const td = document.createElement("td");
+              row.querySelectorAll('th, td').forEach((cell, columnIndex) => {
+                const td = document.createElement('td');
                 td.textContent = cell.textContent;
 
-                // Assign width
                 if (columnIndex === 0) {
-                  td.style.width = "40%";
+                  td.style.width = '40%';
                 } else {
                   const remainingCols = columnCount - 1 || 1;
                   td.style.width = `${60 / remainingCols}%`;
                 }
 
-                // Styling
-                td.style.padding = "8px";
-                td.style.border = "1px solid #ccc";
-                td.style.fontSize = "14px";
-                td.style.textAlign = "left";
-                td.style.verticalAlign = "top";
-                td.style.wordBreak = "break-word";
-                td.style.overflowWrap = "break-word";
-                td.style.whiteSpace = "normal";
+                td.style.padding = '8px';
+                td.style.border = '1px solid #ccc';
+                td.style.fontSize = '14px';
+                td.style.textAlign = 'left';
+                td.style.verticalAlign = 'top';
+                td.style.wordBreak = 'break-word';
+                td.style.overflowWrap = 'break-word';
+                td.style.whiteSpace = 'normal';
 
                 if (rowIndex === 0) {
-                  td.style.fontWeight = "bold";
-                  td.style.backgroundColor = "#04863E";
-                  td.style.color = "#fff";
+                  td.style.fontWeight = 'bold';
+                  td.style.backgroundColor = '#04863E';
+                  td.style.color = '#fff';
                 }
 
                 tr.appendChild(td);
@@ -2435,82 +2581,82 @@
           contentClone.appendChild(rowContainer);
         }
 
+        // TABLE COMPARISON
+        if (view === 'tableComparison') {
+          const originalCards = contentSource.querySelectorAll(':scope > div > div');
+          contentClone.innerHTML = '';
 
-        //comparison tables
-        if (view === "tableComparison") {
-          const originalCards = contentSource.querySelectorAll(":scope > div > div");
-          contentClone.innerHTML = "";
-
-          const rowContainer = document.createElement("div");
-          rowContainer.style.display = "flex";
-          rowContainer.style.flexWrap = "wrap";
-          rowContainer.style.gap = "20px";
-          rowContainer.style.justifyContent = "flex-start";
+          const rowContainer = document.createElement('div');
+          Object.assign(rowContainer.style, {
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '20px',
+            justifyContent: 'flex-start'
+          });
 
           originalCards.forEach(card => {
-            const originalTable = card.querySelector("table");
-            const originalTitle = card.querySelector("h3");
-
+            const originalTable = card.querySelector('table');
+            const originalTitle = card.querySelector('h3');
             if (!originalTable) return;
 
-            const wrapper = document.createElement("div");
-            wrapper.style.flex = "0 0 100%";
-            wrapper.style.minWidth = "320px";
-            wrapper.style.background = "#fff";
-            wrapper.style.padding = "16px";
-            wrapper.style.borderRadius = "8px";
-            wrapper.style.boxShadow = "0 1px 3px rgba(0,0,0,0.1)";
-            wrapper.style.boxSizing = "border-box";
+            const wrapper = document.createElement('div');
+            Object.assign(wrapper.style, {
+              flex: '0 0 100%',
+              minWidth: '320px',
+              background: '#fff',
+              padding: '16px',
+              borderRadius: '8px',
+              boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+              boxSizing: 'border-box'
+            });
 
             if (originalTitle) {
-              const title = document.createElement("h3");
+              const title = document.createElement('h3');
               title.textContent = originalTitle.textContent;
-              title.style.margin = "0 0 12px 0";
-              title.style.wordBreak = "break-word";
+              title.style.margin = '0 0 12px 0';
+              title.style.wordBreak = 'break-word';
               wrapper.appendChild(title);
             }
 
-            const table = document.createElement("table");
-            table.style.width = "100%";
-            table.style.borderCollapse = "collapse";
-            table.style.marginTop = "8px";
-            table.style.tableLayout = "fixed";
+            const table = document.createElement('table');
+            table.style.width = '100%';
+            table.style.borderCollapse = 'collapse';
+            table.style.marginTop = '8px';
+            table.style.tableLayout = 'fixed';
 
-            const rows = originalTable.querySelectorAll("tr");
+            const rows = originalTable.querySelectorAll('tr');
             let columnCount = 0;
-
             if (rows.length > 0) {
-              columnCount = rows[0].querySelectorAll("th, td").length;
+              columnCount = rows[0].querySelectorAll('th, td').length;
             }
 
             rows.forEach((row, rowIndex) => {
-              const tr = document.createElement("tr");
+              const tr = document.createElement('tr');
 
-              row.querySelectorAll("th, td").forEach((cell, columnIndex) => {
-                const td = document.createElement("td");
+              row.querySelectorAll('th, td').forEach((cell, columnIndex) => {
+                const td = document.createElement('td');
                 td.textContent = cell.textContent;
 
-                // Width logic
                 if (columnIndex === 0) {
-                  td.style.width = "30%";
+                  td.style.width = '30%';
                 } else {
                   const remainingCols = columnCount - 1 || 1;
                   td.style.width = `${70 / remainingCols}%`;
                 }
 
-                td.style.padding = "8px";
-                td.style.border = "1px solid #ccc";
-                td.style.fontSize = "14px";
-                td.style.textAlign = "left";
-                td.style.verticalAlign = "top";
-                td.style.wordBreak = "break-word";
-                td.style.overflowWrap = "break-word";
-                td.style.whiteSpace = "normal";
+                td.style.padding = '8px';
+                td.style.border = '1px solid #ccc';
+                td.style.fontSize = '14px';
+                td.style.textAlign = 'left';
+                td.style.verticalAlign = 'top';
+                td.style.wordBreak = 'break-word';
+                td.style.overflowWrap = 'break-word';
+                td.style.whiteSpace = 'normal';
 
                 if (rowIndex === 0) {
-                  td.style.fontWeight = "bold";
-                  td.style.backgroundColor = "#04863E";
-                  td.style.color = "#fff";
+                  td.style.fontWeight = 'bold';
+                  td.style.backgroundColor = '#04863E';
+                  td.style.color = '#fff';
                 }
 
                 tr.appendChild(td);
@@ -2526,78 +2672,22 @@
           contentClone.appendChild(rowContainer);
         }
 
-        // chartComparison
-        if (view === "chartComparison") {
-          const chartWrapper = document.createElement("div");
-          chartWrapper.style.display = "grid";
-          chartWrapper.style.gridTemplateColumns = "1fr 1fr";
-          chartWrapper.style.gap = "20px";
-
-          const originalGrid = contentSource.querySelector("div");
-          const clonedGrid = contentClone.querySelector("div");
-
-          if (!originalGrid || !clonedGrid) return;
-
-          const originalCards = Array.from(originalGrid.children).filter(div =>
-            div.querySelector("canvas")
-          );
-          const clonedCards = Array.from(clonedGrid.children).filter(div =>
-            div.querySelector("canvas")
-          );
-
-          originalCards.forEach((originalCard, index) => {
-            const clonedCard = clonedCards[index];
-            const originalCanvas = originalCard.querySelector("canvas");
-            const clonedCanvas = clonedCard?.querySelector("canvas");
-
-            if (originalCanvas && clonedCanvas) {
-              const dataUrl = originalCanvas.toDataURL("image/png");
-              const img = new Image();
-              img.src = dataUrl;
-              img.style.maxWidth = "100%";
-              img.style.display = "block";
-              img.style.marginTop = "10px";
-
-              clonedCanvas.parentNode.replaceChild(img, clonedCanvas);
-            }
-
-            if (clonedCard) {
-              clonedCard.style.removeProperty("height"); 
-              clonedCard.style.border = "1px solid #ccc";
-              clonedCard.style.borderRadius = "8px";
-              clonedCard.style.background = "#fff";
-              clonedCard.style.padding = "16px";
-              clonedCard.style.boxSizing = "border-box";
-
-              chartWrapper.appendChild(clonedCard);
-            }
-          });
-
-          contentClone.innerHTML = "";
-          contentClone.appendChild(chartWrapper);
-        }
-
-
-
-        contentClone.style.display = "block";
-        contentClone.style.visibility = "visible";
-
         cloneWrapper.appendChild(breakdownClone);
-        cloneWrapper.appendChild(document.createElement("hr"));
+        cloneWrapper.appendChild(document.createElement('hr'));
         cloneWrapper.appendChild(contentClone);
         document.body.appendChild(cloneWrapper);
 
         cloneWrapper.offsetHeight;
 
-        // wait for layout and images to finish
-        waitForImagesToLoad(cloneWrapper).then(() => {
+        // Wait until images are ready
+        (waitForImagesToLoad ? waitForImagesToLoad(cloneWrapper) : Promise.resolve()).then(() => {
           return new Promise(resolve => {
             requestAnimationFrame(() => {
               requestAnimationFrame(() => {
                 html2canvas(cloneWrapper, {
                   useCORS: true,
                   scale: 2,
-                  backgroundColor: "#ffffff"
+                  backgroundColor: '#ffffff'
                 }).then(resolve);
               });
             });
@@ -2610,15 +2700,15 @@
             const padding = 20;
             const maxLogoWidth = canvas.width * 0.25;
             const scaleFactor = Math.min(1, maxLogoWidth / logo.width);
-            const scaledLogoWidth = logo.width * scaleFactor;
+            const scaledLogoWidth  = logo.width * scaleFactor;
             const scaledLogoHeight = logo.height * scaleFactor;
 
             const finalCanvas = document.createElement('canvas');
-            finalCanvas.width = canvas.width;
+            finalCanvas.width  = canvas.width;
             finalCanvas.height = canvas.height + scaledLogoHeight + padding;
 
             const ctx = finalCanvas.getContext('2d');
-            ctx.fillStyle = "#ffffff";
+            ctx.fillStyle = '#ffffff';
             ctx.fillRect(0, 0, finalCanvas.width, finalCanvas.height);
 
             ctx.drawImage(canvas, 0, 0);
