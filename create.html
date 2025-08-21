@@ -293,7 +293,22 @@
               Different breakdowns of the selected datasets are available in most cases. Below are the links to where those currently selected were sourced:<br>
               <div id="sourceId" class="source_name"></div>
             </p>
-          
+
+            <h3 style="margin-top: 20px;">Note on custom area aggregations</h3>
+            <p style="margin-bottom: 10px;">
+
+              Any aggregations created from Census Flexible Builder data may differ slightly from published Census figures.
+              For Census 2021, NISRA applied two Statistical Disclosure Control strategies: Targeted Record Swapping (TRS) and Cell Key Perturbation (CKP). CKP may add small amounts of variation to some cells. Where two or more different aggregations are created, the totals of all cells may in turn be different. Overall, the differences will be small and should not change the conclusions of any analysis or research. 
+            </p>
+            <p>
+              Linked to the Statistical Disclosure Control Methods applied above, when viewing breakdowns at small geographical levels in this application, cell counts of under 5 may be seen.
+              The use of TRS and CKP, mean this number could be anything from 0-4, or could have been swapped with another census record entry elsewhere.
+            </p>
+            <p>
+              For more information, please refer to the NISRA statistical disclosure control methodology: <a href="https://www.nisra.gov.uk/files/nisra/publications/statistical-disclosure-control-methodology-for-2021-census.pdf"  target="_blank">NISRA Statistical Disclosure Control Methodology</a>
+            </p>
+
+
           </div> <!--closes profile content div-->
         <footer>
           <div id="footer-container">
@@ -1840,17 +1855,20 @@
           });
         });
 
+        // Function to aggregate data by Urban / Rural / Mixed groups
         function aggregateUrbanRuralData(selectedIdsArray, selectedCategories) {
           const excludedKeys = ["Urban_mixed_rural_status", "Census 2021 Super Data Zone Label", "LGD"];
           const groups = { Urban: {}, Rural: {}, Mixed: {} };
 
           selectedIdsArray.forEach(id => {
+            // Choose correct data source depending on zone type
             const dataSource = currentZoneType === 'dz' ? dzData : sdzData;
             const data = dataSource[id];
             if (!data || !["Urban", "Rural", "Mixed"].includes(data.Urban_mixed_rural_status)) return;
 
             const group = data.Urban_mixed_rural_status;
 
+            // For each category, accumulate counts per group
             for (const [category, values] of Object.entries(data)) {
               if (excludedKeys.includes(category) || typeof values !== 'object') continue;
 
@@ -1869,13 +1887,16 @@
           return groups;
         }
       
+        // Function to render Urban/Rural comparison tables
         window.renderUrbanRuralComparison = function (selectedIdsArray) {
           const container = document.getElementById("urban-rural-comparison");
           container.innerHTML = "";
 
+          // Aggregate data into Urban / Rural / Mixed groups
           const groups = aggregateUrbanRuralData(selectedIdsArray, selectedCategories);
           window.urbanRuralComparisonData = groups;
 
+          // Decide which categories to display (selected or all found in groups)
           const categoriesToDisplay = selectedCategories.length
             ? selectedCategories
             : Array.from(new Set([
@@ -1884,17 +1905,20 @@
                 ...Object.keys(groups.Mixed || {})
               ]));
 
+          // Container for multiple category tables
           const rowWrapper = document.createElement("div");
           rowWrapper.style.display = "flex";
           rowWrapper.style.flexWrap = "wrap";
           rowWrapper.style.gap = "20px";
 
           categoriesToDisplay.forEach((category) => {
+            // Skip if no data in this category
             const hasUrban = !!groups.Urban?.[category];
             const hasRural = !!groups.Rural?.[category];
             const hasMixed = !!groups.Mixed?.[category];
             if (!hasUrban && !hasRural && !hasMixed) return;
 
+            // Collect all labels across Urban/Rural/Mixed for this category
             const allLabels = new Set([
               ...Object.keys(groups.Urban?.[category] || {}),
               ...Object.keys(groups.Rural?.[category] || {}),
@@ -1902,6 +1926,7 @@
             ]);
             const labels = Array.from(allLabels).sort();
 
+            // Define table columns dynamically depending on available groups
             const columns = [
               { key: "label", title: "Category", width: "30%" }
             ];
@@ -1919,6 +1944,7 @@
             }
             columns.push({ key: "niPct", title: "NI %" });
 
+            // Card wrapper for each category comparison
             const wrapper = document.createElement("div");
             wrapper.style.flex = "0 0 100%";
             wrapper.style.background = "#fff";
@@ -1928,11 +1954,13 @@
             wrapper.style.boxSizing = "border-box";
             wrapper.style.alignSelf = "flex-start"; // Ensures independent height
 
+            // Title for this category
             const title = document.createElement("h3");
             title.textContent = `${category} – Urban/Rural Comparison`;
             title.style.marginBottom = "12px";
             wrapper.appendChild(title);
 
+            // Table element
             const table = document.createElement("table");
             table.style.width = "100%";
             table.style.borderCollapse = "collapse";
@@ -1982,6 +2010,7 @@
                 ? Object.values(groups.Mixed[category]).reduce((a, b) => a + b, 0)
                 : 0;
 
+              // Compute percentages and NI comparison values
               const data = {
                 label,
                 urbanCount,
@@ -1995,6 +2024,7 @@
                   : "–"
               };
 
+              // Add each cell to the row
               columns.forEach((col, i) => {
                 const td = document.createElement("td");
                 td.textContent = data[col.key] || "–";
@@ -2019,11 +2049,14 @@
             rowWrapper.appendChild(wrapper);
           });
 
+          // Attach the finished comparison tables to the container
           container.appendChild(rowWrapper);
         };
 
+        // Render grouped (Urban / Rural / Mixed) horizontal bar charts for selected categories
         function renderUrbanRuralCharts(selectedIdsArray) {
           
+          // Utility: run drawing code only when the element is visible and has a real width
           function whenVisible(el, cb) {
             if (el.offsetParent !== null && el.clientWidth > 0) return cb();
             const ro = new ResizeObserver(() => {
@@ -2035,7 +2068,10 @@
             ro.observe(el);
           }
 
+          // Build grouped data structures for Urban/Rural/Mixed using current selection + categories
           const groups = aggregateUrbanRuralData(selectedIdsArray, selectedCategories);
+
+          // Reset container and any existing charts
           const container = document.getElementById("urban-rural-charts");
           if (!container) return;
           container.innerHTML = "";
@@ -2046,7 +2082,7 @@
           }
           window.chartInstances = [];
 
-          // Determine which categories actually have data
+          // Decide which categories to plot (selected, or all categories with any data)
           const categories = selectedCategories && selectedCategories.length
             ? selectedCategories
             : Array.from(new Set([
@@ -2063,7 +2099,7 @@
           const LABEL_BLOCK_HEIGHT = LINE_HEIGHT * 2 + 4;
           const CHART_TOP_PADDING = 15;
 
-          // Build fixed 2-column grid
+          // Two-column grid to lay out multiple category cards
           const grid = document.createElement("div");
           Object.assign(grid.style, {
             display: "grid",
@@ -2074,11 +2110,12 @@
           });
           container.appendChild(grid);
 
+          // For each category: build a card, compute datasets, and render a Chart.js chart
           categories.forEach(category => {
             const hasData = groups.Urban?.[category] || groups.Rural?.[category] || groups.Mixed?.[category];
             if (!hasData) return;
 
-            // Card wrapper
+            // Card wrapper + title
             const wrapper = document.createElement("div");
             Object.assign(wrapper.style, {
               position: "relative",
@@ -2097,7 +2134,7 @@
             title.textContent = `${category} – Urban/Rural/Mixed`;
             wrapper.appendChild(title);
 
-            // Labels
+            // Assemble union of labels across U/R/M for this category
             const labelSet = new Set([
               ...Object.keys(groups.Urban?.[category] || {}),
               ...Object.keys(groups.Rural?.[category] || {}),
@@ -2105,7 +2142,7 @@
             ]);
             const labels = Array.from(labelSet);
 
-            // Datasets
+            // Build stacked datasets (percent of each group) + NI “line” for legend/markers
             const colorMap = { Urban: "#046C33", Rural: "#00AA4F", Mixed: "#B1F2BB" };
             const barDatasets = ["Urban","Rural","Mixed"]
               .filter(g => groups[g]?.[category])
@@ -2122,7 +2159,7 @@
                 };
               });
 
-            // Dummy NI for legend
+            // Add NI “dataset” placeholder so legend shows an NI swatch
             barDatasets.push({
               label: "NI",
               data: [],
@@ -2163,7 +2200,7 @@
             });
             wrapper.appendChild(legendEl);
 
-            // Compute canvas height
+            // Compute canvas height dynamically based on number of label groups
             const barsPerGroup = barDatasets.length - 1;
             const GAP_BELOW_GROUP_2 = 48;
             const GAP_BELOW_GROUP_3 = 36;
@@ -2181,7 +2218,7 @@
 
             const canvasHeight = labels.length * GROUP_SPACING + CHART_TOP_PADDING;
 
-            // Canvas element
+            // Canvas host for Chart.js
             const canvas = document.createElement("canvas");
             Object.assign(canvas.style, {
               display: "block",
@@ -2192,7 +2229,7 @@
             wrapper.appendChild(canvas);
             grid.appendChild(wrapper);
 
-            // Render chart once wrapper has a real width
+            // Defer rendering until card has a measurable width; handle HiDPI sizing
             whenVisible(wrapper, () => {
               const setHiDPISize = (chart, wCSS) => {
                 const dpr = Math.max(1, Math.min(3, window.devicePixelRatio || 1));
@@ -2212,20 +2249,21 @@
               const drawWidth = Math.max(0, wrapper.clientWidth - 32); // 16px padding on each side
               const dprInit = setHiDPISize(null, drawWidth);
 
-              // NI values for vertical markers
+              // NI benchmark values for each label
               const niValues = labels.map(l =>
                 typeof window.niTotals?.[category]?.[l] === "number"
                   ? window.niTotals[category][l]
                   : null
               );
 
-              // clamped suggestedMax
+              /// Choose a sensible x-axis max
               const rawMax = Math.max(
                 ...barDatasets.flatMap(ds=>ds.data||[]),
                 ...niValues.filter(v=>typeof v==="number")
               ) * 1.05;
               const cappedMax = Math.min(isFinite(rawMax) ? rawMax : 100, 100);
 
+              // Create Chart.js horizontal bar chart with multiple datasets
               const chart = new Chart(canvas, {
                 type: "bar",
                 data: { labels, datasets: barDatasets },
@@ -2251,6 +2289,7 @@
                   }
                 },
                 plugins: [
+                  // Draw group labels above bars; truncate long ones and attach an info “ⓘ” overlay
                   {
                     id: "aboveGroupLabels",
                     afterDatasetsDraw(chartInst) {
@@ -2322,6 +2361,7 @@
                       ctx.restore();
                     }
                   },
+                  // Draw vertical NI benchmark lines across the grouped bars
                   {
                     id: "drawNILines",
                     afterDatasetsDraw(chartInst) {
@@ -2362,9 +2402,10 @@
                 ]
               });
 
+              // Track chart so we can clean it up on refresh
               window.chartInstances.push(chart);
 
-              // Keep width & DPR in sync on resize/zoom changes
+              // Keep canvas resolution in sync with container width and device pixel ratio
               const ro = new ResizeObserver(() => {
                 const w = Math.max(0, wrapper.clientWidth - 32);
                 const dprNow = Math.max(1, Math.min(3, window.devicePixelRatio || 1));
@@ -2391,11 +2432,12 @@
 
 
 
-
+        // Setup expand/collapse toggles for grouped sections
         document.querySelectorAll(".group-toggle").forEach((button) => {
           const content = button.nextElementSibling;
           const label = button.textContent.trim();
 
+          // Default behavior: keep "Demography" section open, others closed
           if (label.startsWith("Demography")) {
             content.style.display = "block";
             button.innerHTML = label.replace("▼", "▲");
@@ -2403,10 +2445,11 @@
             content.style.display = "none";
           }
 
-          // Toggle behavior
+          // Add click listener to toggle expand/collapse state
           button.addEventListener("click", () => {
             const isVisible = content.style.display !== "none";
             content.style.display = isVisible ? "none" : "block";
+            // Update button arrow indicator
             button.innerHTML = label.replace(isVisible ? "▲" : "▼", isVisible ? "▼" : "▲");
           });
         });
@@ -2427,21 +2470,30 @@
         });
       }
 
+      // Utility function: ensures all images inside a container have finished loading
       function waitForImagesToLoad(container) {
+        // Grab all <img> elements within the container
         const images = container.querySelectorAll('img');
+        // For each image, create a Promise that resolves when it is fully loaded 
         const promises = Array.from(images).map(img => {
           return new Promise(resolve => {
+            // If the image is already cached/loaded, resolve immediately
             if (img.complete) resolve();
+            // Otherwise, resolve once it loads or fails
             else img.onload = img.onerror = resolve;
           });
         });
+        // Return a single Promise that resolves once all images are done
         return Promise.all(promises);
       }
 
+      // Function that captures the current analysis view (charts, tables, or comparisons) plus the summary breakdown into a styled PNG image
       function downloadSummaryImage() {
+        // Find the currently selected tab (defaults to 'charts' view if none selected)
         const selectedTab = document.querySelector('.view-tab.selected');
         const view = selectedTab ? selectedTab.getAttribute('data-view') : 'charts';
 
+        // Grab the breakdown summary + whichever content container matches the active view
         const breakdownContainer = document.getElementById('breakdown-container');
         const contentSource = {
           charts: document.getElementById('charts-container'),
@@ -2451,6 +2503,11 @@
         }[view];
 
         if (!breakdownContainer || !contentSource) return;
+
+        /**
+         * Helper: Replace canvas elements with equivalent <img> snapshots
+         * Needed because html2canvas cannot properly capture live canvas contents.
+        */
         function replaceCloneCanvasesWithImages(originalRoot, cloneRoot) {
           const origCanvases  = Array.from(originalRoot.querySelectorAll('canvas'));
           const cloneCanvases = Array.from(cloneRoot.querySelectorAll('canvas'));
@@ -2473,6 +2530,8 @@
             }
           }
         }
+
+        // Root wrapper for the cloned exportable content
         const cloneWrapper = document.createElement('div');
         cloneWrapper.style.background  = '#fff';
         cloneWrapper.style.padding     = '20px';
@@ -2480,11 +2539,13 @@
         cloneWrapper.style.maxWidth    = '1200px';
         cloneWrapper.style.margin      = '0 auto';
 
+        // Clone both breakdown summary + content sections
         const breakdownClone = breakdownContainer.cloneNode(true);
         const contentClone   = contentSource.cloneNode(true);
 
-        // For CHARTS + CHART COMPARISON replace canvases in the clone.
+        // Special handling depending on which view is active
         if (view === 'charts' || view === 'chartComparison') {
+          // Convert canvases to <img> so they render correctly
           replaceCloneCanvasesWithImages(contentSource, contentClone);
           contentClone.style.display = 'block';
           contentClone.style.visibility = 'visible';
@@ -2492,6 +2553,7 @@
 
         // TABLES
         if (view === 'tables') {
+          // Rebuild a grid of tables with inline styles for export
           const originalTables = contentSource.querySelectorAll('.table-wrapper');
           contentClone.innerHTML = '';
 
@@ -2503,6 +2565,7 @@
             justifyContent: 'flex-start'
           });
 
+          // Recreate each table card manually
           originalTables.forEach(originalWrapper => {
             const originalTable = originalWrapper.querySelector('table');
             const originalTitle = originalWrapper.querySelector('h3');
@@ -2519,6 +2582,7 @@
               boxSizing: 'border-box'
             });
 
+            // Copy title
             if (originalTitle) {
               const title = document.createElement('h3');
               title.textContent = originalTitle.textContent;
@@ -2527,6 +2591,7 @@
               wrapper.appendChild(title);
             }
 
+            // Copy table rows + style cells
             const table = document.createElement('table');
             table.style.width = '100%';
             table.style.borderCollapse = 'collapse';
@@ -2546,6 +2611,7 @@
                 const td = document.createElement('td');
                 td.textContent = cell.textContent;
 
+                // Adjust column widths
                 if (columnIndex === 0) {
                   td.style.width = '40%';
                 } else {
@@ -2553,6 +2619,7 @@
                   td.style.width = `${60 / remainingCols}%`;
                 }
 
+                // Cell styling
                 td.style.padding = '8px';
                 td.style.border = '1px solid #ccc';
                 td.style.fontSize = '14px';
@@ -2562,6 +2629,7 @@
                 td.style.overflowWrap = 'break-word';
                 td.style.whiteSpace = 'normal';
 
+                // Header row style
                 if (rowIndex === 0) {
                   td.style.fontWeight = 'bold';
                   td.style.backgroundColor = '#04863E';
@@ -2618,6 +2686,7 @@
               wrapper.appendChild(title);
             }
 
+            // Copy table with styles
             const table = document.createElement('table');
             table.style.width = '100%';
             table.style.borderCollapse = 'collapse';
@@ -2637,6 +2706,7 @@
                 const td = document.createElement('td');
                 td.textContent = cell.textContent;
 
+                // Adjust column widths for comparison
                 if (columnIndex === 0) {
                   td.style.width = '30%';
                 } else {
@@ -2672,14 +2742,16 @@
           contentClone.appendChild(rowContainer);
         }
 
+        // Assemble cloned content
         cloneWrapper.appendChild(breakdownClone);
         cloneWrapper.appendChild(document.createElement('hr'));
         cloneWrapper.appendChild(contentClone);
         document.body.appendChild(cloneWrapper);
 
+        // Force reflow so clone has layout
         cloneWrapper.offsetHeight;
 
-        // Wait until images are ready
+        // Wait until all images in the clone are loaded, then capture via html2canvas
         (waitForImagesToLoad ? waitForImagesToLoad(cloneWrapper) : Promise.resolve()).then(() => {
           return new Promise(resolve => {
             requestAnimationFrame(() => {
@@ -2693,6 +2765,7 @@
             });
           });
         }).then(canvas => {
+          // Add NISRA logo to the bottom-right of the exported image
           const logo = new Image();
           logo.src = 'img/nisra-logo.svg';
 
@@ -2713,169 +2786,253 @@
 
             ctx.drawImage(canvas, 0, 0);
 
-            // logo at bottom right
+            // Position logo bottom-right
             const x = finalCanvas.width - scaledLogoWidth - padding;
             const y = canvas.height + (padding / 2);
             ctx.drawImage(logo, x, y, scaledLogoWidth, scaledLogoHeight);
 
-            // Trigger download
+            // Download image as PNG
             const link = document.createElement('a');
             link.download = 'area-summary.png';
             link.href = finalCanvas.toDataURL('image/png');
             link.click();
 
+            // Clean up clone from DOM
             document.body.removeChild(cloneWrapper);
           };
         });
       }
 
+      // Function to export data in excel format
+      function downloadExcel() {
+        // Grab selected IDs (zones) and trigger a refresh of comparison data
+        const selectedArray = Array.from(selectedIdsExcel);
+        renderUrbanRuralComparison(selectedArray);
 
-function downloadExcel() {
-  const selectedArray = Array.from(selectedIdsExcel);
-  renderUrbanRuralComparison(selectedArray);
-  const aggregated = window.latestAggregatedData || {};
-  const comparison = window.urbanRuralComparisonData || {};
-  const selectedCategories = window.chosenCategories || [];
-  const niTotals = window.niTotals || {};
-  const workbook = XLSX.utils.book_new();
-  const groups = ["Urban", "Rural", "Mixed"];
-  const zoneType = window.selectedZoneType || 'sdz';
-  const zoneTypeText = zoneType === 'sdz' ? 'Super Data Zone' : 'Data Zone';
-  const totalZonesSelected = window.totalZonesSelected || 0;
-  function formatCell(value, type, format, style = {}) {
-    return { v: value, t: type, z: format, s: style };
-  }
-  // ZONE BREAKDOWN SHEET
-  const lgdGroups = {};
-  selectedArray.forEach(id => {
-    const mapData = window.selectedZoneDetails?.[id];
-    if (!mapData) return;
-    const lgd = mapData["LGD"];
-    const status = mapData["Urban_mixed_rural_status"];
-    const labelObj = mapData["Census 2021 Super Data Zone Label"] || mapData["Census 2021 Data Zone Label"];
-    const zoneName = labelObj ? Object.keys(labelObj)[0] : null;
-    if (!zoneName || !lgd) return;
-    if (!lgdGroups[lgd]) lgdGroups[lgd] = [];
-    lgdGroups[lgd].push({ zoneName, status });
-  });
-  const breakdownData = [];
+        // Pull in cached data from the window/global scope
+        const aggregated = window.latestAggregatedData || {};
+        const comparison = window.urbanRuralComparisonData || {};
+        const selectedCategories = window.chosenCategories || [];
+        const niTotals = window.niTotals || {};
 
-  // Add title line and a blank row
-  breakdownData.push([
-    formatCell("DAERA Custom Area Profile Builder Extract", "s")
-  ]);
-  breakdownData.push([]);
+        // Setup workbook + metadata
+        const workbook = XLSX.utils.book_new();
+        const groups = ["Urban", "Rural", "Mixed"];
+        const zoneType = window.selectedZoneType || 'sdz';
+        const zoneTypeText = zoneType === 'sdz' ? 'Super Data Zone' : 'Data Zone';
+        const totalZonesSelected = window.totalZonesSelected || 0;
 
-  // Add bold summary line and a blank row
-const today = new Date().toLocaleDateString("en-GB", {
-  year: "numeric",
-  month: "long",
-  day: "numeric"
-});
-// Add summary line
-breakdownData.push([
-  formatCell(
-    `The information presented in tables are combined from ${totalZonesSelected} ${zoneTypeText}s listed below:`,
-    "s",
-    undefined,
-    { font: { bold: true } }
-  )
-]);
-// Add date line
-breakdownData.push([
-  formatCell(
-    `Date Extracted: ${today}`,
-    "s",
-    undefined,
-    { font: { italic: true } }
-  )
-]);
-// Add blank row
-breakdownData.push([]);
-  Object.keys(lgdGroups).sort().forEach(lgd => {
-    breakdownData.push([formatCell(lgd + " LGD", "s")]);
-    breakdownData.push([
-      formatCell("Area Name", "s"),
-      formatCell("Area Type", "s")
-    ]);
-    lgdGroups[lgd].forEach(({ zoneName, status }) => {
-      breakdownData.push([
-        formatCell(zoneName, "s"),
-        formatCell(status || "–", "s")
-      ]);
-    });
-    breakdownData.push([]);
-  });
-  const breakdownSheet = XLSX.utils.aoa_to_sheet(breakdownData);
-  breakdownSheet['!cols'] = [
-    { wch: 13.33 },
-    { wch: 9.8 }
-  ];
-  XLSX.utils.book_append_sheet(workbook, breakdownSheet, "Zone Breakdown");
-  // CATEGORY SHEETS
-  (selectedCategories.length ? selectedCategories : Object.keys(aggregated)).forEach(category => {
-    const sheetData = [];
-    sheetData.push([formatCell(`${category}`, "s", undefined, { font: { bold: true } })]);
-    sheetData.push([
-      formatCell("Label", "s"),
-      formatCell("Count", "s"),
-      formatCell("Percentage", "s"),
-      formatCell("NI %", "s")
-    ]);
-    const values = aggregated[category] || {};
-    const totalCount = Object.values(values).reduce((acc, val) => acc + val, 0);
-    for (const [label, count] of Object.entries(values)) {
-      const percentage = totalCount > 0 ? count / totalCount : 0;
-      const niVal = niTotals[category]?.[label];
-      const niPercentage = typeof niVal === "number" ? niVal / 100 : null;
-      sheetData.push([
-        formatCell(label, "s"),
-        formatCell(count, "n", "0"),
-        formatCell(percentage, "n", "0.00%"),
-        niPercentage !== null ? formatCell(niPercentage, "n", "0.0%") : formatCell("–", "s")
-      ]);
-    }
-    sheetData.push([]);
-    groups.forEach(group => {
-      const groupCategoryData = comparison[group]?.[category];
-      if (!groupCategoryData || Object.keys(groupCategoryData).length === 0) return;
-      sheetData.push([formatCell(`${category} – ${group}`, "s", undefined, { font: { bold: true } })]);
-      sheetData.push([
-        formatCell("Label", "s"),
-        formatCell("Count", "s"),
-        formatCell("Percentage", "s"),
-        formatCell("NI %", "s")
-      ]);
-      const total = Object.values(groupCategoryData).reduce((acc, val) => acc + val, 0);
-      for (const [label, count] of Object.entries(groupCategoryData)) {
-        const pct = total > 0 ? count / total : 0;
-        const niVal = niTotals[category]?.[label];
-        const niPct = typeof niVal === "number" ? niVal / 100 : null;
-        sheetData.push([
-          formatCell(label, "s"),
-          formatCell(count, "n", "0"),
-          formatCell(pct, "n", "0.00%"),
-          niPct !== null ? formatCell(niPct, "n", "0.0%") : formatCell("–", "s")
+        // Helper function: format a cell with value, type, format, and optional style
+        // function formatCell(value, type, link, format, style = {}) {
+        //   return { v: value, t: type, z: format, s: style };
+        // }
+        function formatCell(value, type, format, link) {
+          let cell = { v: value, t: type,  z: format};
+          if (link) {
+            cell.l = { Target: link}; // Excel hyperlink object
+          }
+          return cell;
+        }
+        // ZONE BREAKDOWN SHEET
+        // Groups selected zones by LGD
+        const lgdGroups = {};
+        selectedArray.forEach(id => {
+          const mapData = window.selectedZoneDetails?.[id];
+          if (!mapData) return;
+          const lgd = mapData["LGD"];
+          const status = mapData["Urban_mixed_rural_status"];
+          const labelObj = mapData["Census 2021 Super Data Zone Label"] || mapData["Census 2021 Data Zone Label"];
+          const zoneName = labelObj ? Object.keys(labelObj)[0] : null;
+          if (!zoneName || !lgd) return;
+          if (!lgdGroups[lgd]) lgdGroups[lgd] = [];
+          lgdGroups[lgd].push({ zoneName, status });
+        });
+        const breakdownData = [];
+
+        // Title line
+        breakdownData.push([
+          formatCell("DAERA Custom Area Profile Builder Extract", "s")
         ]);
+        breakdownData.push([]);
+
+      // Summary metadata lines
+      const today = new Date().toLocaleDateString("en-GB", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
+      // Add summary line
+      breakdownData.push([
+        formatCell(
+          `The information presented in tables are combined from ${totalZonesSelected} ${zoneTypeText}s listed below:`,
+          "s"
+        )
+      ]);
+      // Add date line
+      breakdownData.push([
+        formatCell(
+          `Date Extracted: ${today}`,
+          "s",
+        )
+      ]);
+      // Add blank row
+      breakdownData.push([]);
+
+      // LGD-by-LGD breakdown of selected zones
+        Object.keys(lgdGroups).sort().forEach(lgd => {
+          breakdownData.push([formatCell(lgd + " LGD", "s")]);
+          breakdownData.push([
+            formatCell("Area Name", "s"),
+            formatCell("Area Type", "s")
+          ]);
+
+          lgdGroups[lgd].forEach(({ zoneName, status }) => {
+            breakdownData.push([
+              formatCell(zoneName, "s"),
+              formatCell(status || "–", "s")
+            ]);
+          });
+
+          breakdownData.push([]);
+        });
+
+        // Create sheet + column widths
+        const breakdownSheet = XLSX.utils.aoa_to_sheet(breakdownData);
+        breakdownSheet['!cols'] = [
+          { wch: 13.33 },
+          { wch: 9.8 }
+        ];
+        XLSX.utils.book_append_sheet(workbook, breakdownSheet, "Zone Breakdown");
+
+        // CATEGORY SHEETS
+        // One sheet per selected category
+        (selectedCategories.length ? selectedCategories : Object.keys(aggregated)).forEach(category => {
+          const sheetData = [];
+          sheetData.push([formatCell(`${category}`, "s")]);
+
+          // Category header
+          sheetData.push([
+            formatCell("Label", "s"),
+            formatCell("Count", "s"),
+            formatCell("Percentage", "s"),
+            formatCell("NI %", "s")
+          ]);
+
+          // National-level data for this category
+          const values = aggregated[category] || {};
+          const totalCount = Object.values(values).reduce((acc, val) => acc + val, 0);
+          for (const [label, count] of Object.entries(values)) {
+            const percentage = totalCount > 0 ? count / totalCount : 0;
+            const niVal = niTotals[category]?.[label];
+            const niPercentage = typeof niVal === "number" ? niVal / 100 : null;
+            sheetData.push([
+              formatCell(label, "s"),
+              formatCell(count, "n", "0"),
+              formatCell(percentage, "n", "0.00%"),
+              niPercentage !== null ? formatCell(niPercentage, "n", "0.0%") : formatCell("–", "s")
+            ]);
+          }
+          sheetData.push([]);
+
+          // Urban/Rural/Mixed breakdown tables
+          groups.forEach(group => {
+            const groupCategoryData = comparison[group]?.[category];
+            if (!groupCategoryData || Object.keys(groupCategoryData).length === 0) return;
+            sheetData.push([formatCell(`${category} – ${group}`, "s")]);
+            sheetData.push([
+              formatCell("Label", "s"),
+              formatCell("Count", "s"),
+              formatCell("Percentage", "s"),
+              formatCell("NI %", "s")
+            ]);
+            const total = Object.values(groupCategoryData).reduce((acc, val) => acc + val, 0);
+            for (const [label, count] of Object.entries(groupCategoryData)) {
+              const pct = total > 0 ? count / total : 0;
+              const niVal = niTotals[category]?.[label];
+              const niPct = typeof niVal === "number" ? niVal / 100 : null;
+              sheetData.push([
+                formatCell(label, "s"),
+                formatCell(count, "n", "0"),
+                formatCell(pct, "n", "0.00%"),
+                niPct !== null ? formatCell(niPct, "n", "0.0%") : formatCell("–", "s")
+              ]);
+            }
+            sheetData.push([]);
+          });
+
+          // NOTES
+          sheetData.push([])
+          sheetData.push([
+            formatCell("Notes on custom area aggregations", "s")
+          ]);
+          sheetData.push([])
+
+          sheetData.push([
+            formatCell(
+              `Any aggregations created from Census Flexible Builder data may differ slightly from published Census figures.`,
+              "s")
+          ]);
+          sheetData.push([
+            formatCell(
+              `For Census 2021, NISRA applied two Statistical Disclosure Control strategies: Targeted Record Swapping (TRS) and Cell Key Perturbation (CKP).`,
+              "s")
+          ]);
+          sheetData.push([
+            formatCell(
+              `CKP may add small amounts of variation to some cells. Where two or more different aggregations are created, the totals of all cells may in turn be different.`,
+              "s")
+          ]);
+          sheetData.push([
+            formatCell(
+              `Overall, the differences will be small and should not change the conclusions of any analysis or research.`,
+              "s")
+          ]);
+          sheetData.push([])
+
+          sheetData.push([
+            formatCell(
+              `Linked to the Statistical Disclosure Control Methods applied above, when viewing breakdowns at small geographical levels in this application,`,
+              "s")
+          ]);
+          sheetData.push([
+            formatCell(
+              `cell counts of under 5 may be seen. The use of TRS and CKP, mean this number could be anything from 0-4, or could have been swapped with another census record entry elsewhere.`,
+              "s")
+          ]);
+          sheetData.push([])
+
+          sheetData.push([
+            formatCell(
+              `For more information, please refer to the NISRA statistical disclosure control methodology:`,
+              "s")
+          ]);
+          sheetData.push([
+            formatCell(
+              `NISRA Statistical Disclosure Control Methodology`,
+              "s", 
+              undefined,
+              `https://www.nisra.gov.uk/files/nisra/publications/statistical-disclosure-control-methodology-for-2021-census.pdf`)
+          ]);
+
+          // Finalise worksheet and append
+          const worksheet = XLSX.utils.aoa_to_sheet(sheetData);
+          XLSX.utils.book_append_sheet(workbook, worksheet, category.substring(0, 31));
+        });
+
+         // SAVE FILE
+        const now = new Date();
+        // Format date as DD-MM-YYYY
+        const datePart = now.toLocaleDateString("en-GB").replace(/\//g, "-");
+        // Format time as HH-MM (colon replaced with dash for filename safety)
+        const timePart = now.toLocaleTimeString("en-GB", {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false
+        }).replace(/:/g, "-");
+        // Combine into filename
+        const filename = `DAERA Custom Area Profile Extract-${datePart} ${timePart}.xlsx`;
+        XLSX.writeFile(workbook, filename);
       }
-      sheetData.push([]);
-    });
-    const worksheet = XLSX.utils.aoa_to_sheet(sheetData);
-    XLSX.utils.book_append_sheet(workbook, worksheet, category.substring(0, 31));
-  });
-  const now = new Date();
-  // Format date as DD-MM-YYYY
-  const datePart = now.toLocaleDateString("en-GB").replace(/\//g, "-");
-  // Format time as HH-MM (colon replaced with dash for filename safety)
-  const timePart = now.toLocaleTimeString("en-GB", {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false
-  }).replace(/:/g, "-");
-  // Combine into filename
-  const filename = `DAERA Custom Area Profile Extract-${datePart} ${timePart}.xlsx`;
-  XLSX.writeFile(workbook, filename);
-}
 
 
     </script>
